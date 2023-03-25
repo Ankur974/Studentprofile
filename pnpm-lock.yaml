@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/mixpanel-browser': ^2.38.1
   '@types/node': 18.15.5
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
@@ -8,6 +9,7 @@ specifiers:
   dayjs: ^1.11.7
   eslint: 8.36.0
   eslint-config-next: 13.2.4
+  mixpanel-browser: ^2.46.0
   next: 13.2.4
   next-seo: ^5.15.0
   postcss: ^8.4.21
@@ -18,12 +20,14 @@ specifiers:
   typescript: 5.0.2
 
 dependencies:
+  '@types/mixpanel-browser': 2.38.1
   '@types/node': 18.15.5
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   dayjs: 1.11.7
   eslint: 8.36.0
   eslint-config-next: 13.2.4_j4766f7ecgqbon3u7zlxn5zszu
+  mixpanel-browser: 2.46.0
   next: 13.2.4_dpxg4zawgzznnxdt7it3f5d76m
   next-seo: 5.15.0_ld2jel3hspngo3u5lti2kgl2sq
   react: 18.2.0
@@ -271,6 +275,10 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: false
+
+  /@types/mixpanel-browser/2.38.1:
+    resolution: {integrity: sha512-XzQbwgiOPsFXUQnjz3vSwcwrvJDbQ35bCiwa/1VXGrHvU1ti9+eqO1GY91DShzkEzKkkEEkxfNshS5dbBZqd7w==}
     dev: false
 
   /@types/node/18.15.5:
@@ -1689,6 +1697,10 @@ packages:
 
   /minimist/1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+
+  /mixpanel-browser/2.46.0:
+    resolution: {integrity: sha512-qPFhAFMf5YzzGPd/sgoEl7G0N/ypJ6IaZmjkMYEPiW60i1Muo+v2Zl/dqRcCXwYfF5GvC5175muS1ZuaaYGXAQ==}
+    dev: false
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
