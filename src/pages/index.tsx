@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { trackEvent } from '@/utils/helpers'
 import { useEffect } from 'react'
+import PrimaryButton from '@/components/ui/common/button'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +26,7 @@ export default function Home() {
         <h1 className="text-3xl font-bold underline">
           Hello world!
         </h1>
+        <PrimaryButton size="sm" textColor="white" bgColor="accent-800" onClick={() => { }}>Proceed</PrimaryButton>
       </main>
     </>
   )
