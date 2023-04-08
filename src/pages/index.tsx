@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import { trackEvent } from '@/utils/helpers'
 import { useEffect } from 'react'
 import PrimaryButton from '@/components/ui/common/button'
+import Calendar from '@/components/ui/common/Calendar'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -26,7 +27,10 @@ export default function Home() {
         <h1 className="text-3xl font-bold underline">
           Hello world!
         </h1>
-        <PrimaryButton size="sm" textColor="white" bgColor="accent-800" onClick={() => { }}>Proceed</PrimaryButton>
+        {/* <PrimaryButton size="sm" textColor="white" bgColor="accent-800" onClick={() => { }}>Proceed</PrimaryButton> */}
+        <Calendar value={new Date()} onChange={function (date: Date | null): void {
+          throw new Error('Function not implemented.')
+        }} />
       </main>
     </>
   )
