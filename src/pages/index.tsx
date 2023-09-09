@@ -1,11 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import { trackEvent } from '@/utils/helpers'
-import { useEffect } from 'react'
-import PrimaryButton from '@/components/ui/common/button'
-import Calendar from '@/components/ui/common/Calendar'
+import { Inter } from "next/font/google";
+import { trackEvent } from "@/utils/helpers";
+import { useEffect } from "react";
+import Calendar from "@/components/common/calendar";
 
 
 const inter = Inter({ subsets: ['latin'] })
