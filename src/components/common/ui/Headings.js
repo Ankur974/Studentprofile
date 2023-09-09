@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ACCENT_800 } from "../colors";
+import { ACCENT_800 } from "../Color";
 
 const commonStyles = css`
   font-family: "Quicksand";

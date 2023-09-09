@@ -1,17 +1,16 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from "next/head";
+import Image from "next/image";
 import { Inter } from "next/font/google";
 import { trackEvent } from "@/utils/helpers";
 import { useEffect } from "react";
-import Calendar from "@/components/common/calendar";
+import Listing from "../components/saloonListing";
 
-
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   useEffect(() => {
-    trackEvent("home-loads");
-  }, [])
+    // trackEvent("home-loads");
+  }, []);
 
   return (
     <>
@@ -22,14 +21,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-        {/* <PrimaryButton size="sm" textColor="white" bgColor="accent-800" onClick={() => { }}>Proceed</PrimaryButton> */}
-        <Calendar value={new Date()} onChange={function (date: Date | null): void {
-          throw new Error('Function not implemented.')
-        }} />
+        <Listing />
       </main>
     </>
-  )
+  );
 }
