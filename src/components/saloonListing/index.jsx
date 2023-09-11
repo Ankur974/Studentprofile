@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 import { Body2, H2 } from "../common/ui/Headings";
 import { SlSymbleFemale } from "react-icons/sl";
