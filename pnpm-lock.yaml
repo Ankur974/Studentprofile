@@ -29,6 +29,9 @@ dependencies:
   axios:
     specifier: ^1.5.0
     version: 1.5.0
+  babel-plugin-styled-components:
+    specifier: ^2.1.4
+    version: 2.1.4(@babel/core@7.22.17)(styled-components@6.0.7)
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
@@ -79,7 +82,7 @@ dependencies:
     version: 1.59.3
   styled-components:
     specifier: ^6.0.7
-    version: 6.0.7(react-dom@18.2.0)(react@18.2.0)
+    version: 6.0.7(babel-plugin-styled-components@2.1.4)(react-dom@18.2.0)(react@18.2.0)
   typescript:
     specifier: 5.0.2
     version: 5.0.2
@@ -2186,6 +2189,21 @@ packages:
       '@babel/helper-define-polyfill-provider': 0.4.2(@babel/core@7.22.17)
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /babel-plugin-styled-components@2.1.4(@babel/core@7.22.17)(styled-components@6.0.7):
+    resolution: {integrity: sha512-Xgp9g+A/cG47sUyRwwYxGM4bR/jDRg5N6it/8+HxCnbT5XNKSKDT9xm4oag/osgqjC2It/vH0yXsomOG6k558g==}
+    peerDependencies:
+      styled-components: '>= 2'
+    dependencies:
+      '@babel/helper-annotate-as-pure': 7.22.5
+      '@babel/helper-module-imports': 7.22.15
+      '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.22.17)
+      lodash: 4.17.21
+      picomatch: 2.3.1
+      styled-components: 6.0.7(babel-plugin-styled-components@2.1.4)(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/core'
     dev: false
 
   /balanced-match@1.0.2:
@@ -4413,7 +4431,7 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /styled-components@6.0.7(react-dom@18.2.0)(react@18.2.0):
+  /styled-components@6.0.7(babel-plugin-styled-components@2.1.4)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-xIwWuiRMYR43mskVsW9MGTRjSo7ol4bcVjT595fGUp3OLBJOlOgaiKaxsHdC4a2HqWKqKnh0CmcRbk5ogyDjTg==}
     engines: {node: '>= 16'}
     peerDependencies:
@@ -4437,6 +4455,7 @@ packages:
       '@emotion/is-prop-valid': 1.2.1
       '@emotion/unitless': 0.8.1
       '@types/stylis': 4.2.0
+      babel-plugin-styled-components: 2.1.4(@babel/core@7.22.17)(styled-components@6.0.7)
       css-to-react-native: 3.2.0
       csstype: 3.1.2
       postcss: 8.4.29
