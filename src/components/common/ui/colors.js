@@ -137,3 +137,4 @@ export const SECONDARY_900 = "#065788";
 export const WHEAT = "#F5DEB0";
 export const TEA_GREEN = "#CEF5BA";
 export const LAVENDER_BLUE = "#C4D4F5";
+export const purple = "#533A71";

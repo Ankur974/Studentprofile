@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import FlexBox from "../common/ui/FlexBox";
 import { Body2, H2 } from "../common/ui/Headings";
+import FlexBox from "../common/ui/FlexBox";
 import { SlSymbleFemale } from "react-icons/sl";
 import { ACCENT_700 } from "../common/Color";
 

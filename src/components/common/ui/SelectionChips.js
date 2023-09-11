@@ -6,8 +6,9 @@ import {
   GREEN_200,
   MOSS_GREEN_800,
   white,
-} from "../colors";
-import FlexBox from "../FlexBox";
+} from "./colors";
+import FlexBox from "./FlexBox";
+
 
 const Wrapper = styled(FlexBox)`
   flex: 1;
