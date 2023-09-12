@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Body2, H2 } from "../common/ui/Headings";
-import Chip from "../common/ui/Chips";
+import FilterIcon from "../common/ui/Filter";
 import FlexBox from "../common/ui/FlexBox";
 import { SlSymbleFemale } from "react-icons/sl";
 import { ACCENT_700 } from "../common/ui/colors";
+import Filter from "./Filter";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -16,11 +17,14 @@ const Wrapper = styled(FlexBox)`
 `;
 
 export default function Listing() {
+  const [showFilter, setShowFilter] = useState(false);
+
+  const toggleModal = () => setShowFilter(!showFilter);
+
   return (
     <Wrapper>
-      <Chip width="fit-content">
-        <Body2>haircut</Body2>
-      </Chip>
+      <FilterIcon onClick={toggleModal} />
+      {showFilter && <Filter toggleModal={toggleModal} />}
       <FlexBox column rowGap="0.38rem">
         <H2>Gigi's Salon</H2>
         <FlexBox columnGap="0.75rem">
