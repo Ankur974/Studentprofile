@@ -1,12 +1,11 @@
 import styled, { css } from "styled-components";
 import {
   ACCENT_100,
-  ACCENT_200,
   ACCENT_400,
   ACCENT_500,
-  PRIMARY_800,
   GREEN_200,
   ACCENT_300,
+  PRIMARY_200,
 } from "./colors";
 import FlexBox from "./FlexBox";
 
@@ -21,7 +20,7 @@ const Wrapper = styled(FlexBox)`
   white-space: nowrap;
   border: 1px solid ${ACCENT_500};
   max-width: ${({ width }) => width};
-  padding: ${({ padding }) => padding || "0.5rem 1rem"};
+  padding: ${({ padding }) => padding || "0.25rem 1rem"};
 
   &:hover {
     border-color: ${ACCENT_400};
@@ -31,12 +30,12 @@ const Wrapper = styled(FlexBox)`
   ${({ selected }) =>
     selected &&
     css`
-      border-color: ${PRIMARY_800};
-      background-color: ${PRIMARY_800};
+      border-color: ${PRIMARY_200};
+      background-color: ${PRIMARY_200};
 
       &:hover {
-        border-color: ${PRIMARY_800};
-        background-color: ${PRIMARY_800};
+        border-color: ${PRIMARY_200};
+        background-color: ${PRIMARY_200};
       }
     `}
 
