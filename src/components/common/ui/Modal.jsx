@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
 import styled, { css } from "styled-components";
 import { ACCENT_100 } from "./colors";
 import useOutsideAlert from "../../../hooks/useOutsideAlert";
@@ -98,7 +97,7 @@ const Content = styled.div`
     `}
 `;
 
-export const Modal = ({
+const Modal = ({
   XS,
   S,
   M1,
@@ -131,7 +130,7 @@ export const Modal = ({
     return () => (document.body.style.overflow = "unset");
   }, []);
 
-  return createPortal(
+  return (
     <Container whiteOverlay={whiteOverlay}>
       <Content
         XS={XS}
@@ -151,7 +150,8 @@ export const Modal = ({
       >
         {children}
       </Content>
-    </Container>,
-    document.getElementById("modalPortal")
+    </Container>
   );
 };
+
+export default Modal;

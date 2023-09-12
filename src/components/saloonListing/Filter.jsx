@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 import { H2, Body2 } from "../common/ui/Headings";
-import { ACCENT_500, ACCENT_800, PRIMARY_800 } from "../common/ui/colors";
-import Rating from "../common/ratings/Ratings";
+import { ACCENT_800, PRIMARY_800 } from "../common/ui/colors";
+import Rating from "../common/ui/Ratings";
 import { RxCheck, RxCross1 } from "react-icons/rx";
 import Chip from "../common/ui/Chips";
+import Modal from "../common/ui/Modal";
+import { FiX } from "react-icons/fi";
 
 const services = [
   {
@@ -70,21 +72,18 @@ const salonPref = [
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
-  border-radius: 5px;
-  height: 100%;
-  border: 1px solid ${ACCENT_500};
-  padding: 0.6rem;
+  padding: 1rem;
   gap: 1rem;
-  margin: 0.5rem;
+  height: 100%;
+  overflow-y: auto;
+  border-radius: 1rem;
 `;
 
 const Img = styled.img`
-  height: 2rem;
-  width: 1rem;
-`;
-
-const NewBox = styled(FlexBox)`
-  border-bottom: 1px solid #d7d7d7;
+  height: 100%;
+  width: 100%;
+  max-width: 1.5rem;
+  aspect-ratio: 1;
 `;
 
 const FilterChip = ({ name, selected, onClick }) => (
@@ -98,7 +97,7 @@ const FilterChip = ({ name, selected, onClick }) => (
   </Chip>
 );
 
-const Filter = () => {
+const Filter = ({ toggleModal }) => {
   const [selectedFilters, setSelectedFilters] = useState({
     services: [],
     availability: [],
@@ -132,32 +131,32 @@ const Filter = () => {
     ));
 
   return (
-    <Wrapper column>
-      <NewBox justify="space-between">
-        <FlexBox columnGap="1rem">
+    <Modal M1>
+      <Wrapper column>
+        <FlexBox alignItems="center" justify="space-between">
           <Img src="/assets/filter1.svg" />
           <H2 bold>Filters</H2>
+          <FiX onClick={toggleModal} />
         </FlexBox>
-        <RxCross1 onClick={() => console.log(true)} />
-      </NewBox>
-      <H2 bold>Popular Filters</H2>
-      <H2 bold>Ratings</H2>
-      <Rating />
-      <H2 bold>Services</H2>
-      <FlexBox columnGap="0.3rem">
-        {renderFilterChips("services", services)}
-      </FlexBox>
-      <H2 bold>Availability</H2>
-      <FlexBox columnGap="0.3rem">
-        {renderFilterChips("availability", availability)}
-      </FlexBox>
-      <H2 bold>Type</H2>
-      <FlexBox columnGap="0.3rem">{renderFilterChips("type", type)}</FlexBox>
-      <H2 bold>Salon Preference</H2>
-      <FlexBox columnGap="0.3rem">
-        {renderFilterChips("pref", salonPref)}
-      </FlexBox>
-    </Wrapper>
+        <H2 bold>Popular Filters</H2>
+        <H2 bold>Ratings</H2>
+        <Rating />
+        <H2 bold>Services</H2>
+        <FlexBox columnGap="0.3rem">
+          {renderFilterChips("services", services)}
+        </FlexBox>
+        <H2 bold>Availability</H2>
+        <FlexBox columnGap="0.3rem">
+          {renderFilterChips("availability", availability)}
+        </FlexBox>
+        <H2 bold>Type</H2>
+        <FlexBox columnGap="0.3rem">{renderFilterChips("type", type)}</FlexBox>
+        <H2 bold>Salon Preference</H2>
+        <FlexBox columnGap="0.3rem">
+          {renderFilterChips("pref", salonPref)}
+        </FlexBox>
+      </Wrapper>
+    </Modal>
   );
 };
 
