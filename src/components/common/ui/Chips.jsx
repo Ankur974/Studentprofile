@@ -20,7 +20,7 @@ const Wrapper = styled(FlexBox)`
   white-space: nowrap;
   border: 1px solid ${ACCENT_500};
   max-width: ${({ width }) => width};
-  padding: ${({ padding }) => padding || "0.5rem 1rem"};
+  padding: ${({ padding }) => padding || "0.25rem 1rem"};
 
   &:hover {
     border-color: ${ACCENT_400};
