@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FlexBox from "../FlexBox";
+import FlexBox from "./FlexBox";
 import { boxShadowDs1 } from "./styles";
 
 const Wrapper = styled(FlexBox)`

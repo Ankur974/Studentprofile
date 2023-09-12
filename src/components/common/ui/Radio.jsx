@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { MOSS_GREEN_800 } from "../colors";
+import { MOSS_GREEN_800 } from "./colors";
 
 const Container = styled.div`
   padding: ${({ padding }) => padding || "0.25rem"};

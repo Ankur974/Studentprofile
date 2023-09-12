@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
-import FlexBox from "../FlexBox";
+import FlexBox from "./FlexBox";
 import { boxShadowDs1, boxShadowDs2 } from "./styles";
 import { Body2 } from "./Headings";
 import { FiChevronRight, FiCheck } from "react-icons/fi";
 import useOutsideAlert from "../../../hooks/useOutsideAlert";
 import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_200,
-  DAVYS_GREY_400,
-  DAVYS_GREY_500,
+  ACCENT_100,
+  ACCENT_200,
+  ACCENT_400,
+  ACCENT_500,
   MOSS_GREEN_100,
   MOSS_GREEN_900,
-} from "../colors";
+} from "./colors";
 import { Button } from "./Buttons";
 
 const Container = styled.div`
@@ -23,8 +23,8 @@ const Container = styled.div`
   right: ${({ right }) => right || "0"};
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
-  background-color: ${DAVYS_GREY_100};
-  border: 1px solid ${DAVYS_GREY_400};
+  background-color: ${ACCENT_100};
+  border: 1px solid ${ACCENT_400};
   border-radius: ${({ size }) => (size === "small" ? "0.5rem" : "1rem")};
   overflow: hidden;
   transition: all 200ms ease-in-out;
@@ -58,7 +58,7 @@ const Option = styled(FlexBox)`
   justify-content: space-between;
   transition: all 200ms ease-in-out;
   background-color: ${({ isSelected }) =>
-    isSelected ? MOSS_GREEN_100 : DAVYS_GREY_100};
+    isSelected ? MOSS_GREEN_100 : ACCENT_100};
 
   :first-child {
     padding-top: ${({ size }) => (size === "small" ? "0.75rem" : "1.5rem")};
@@ -72,8 +72,8 @@ const Option = styled(FlexBox)`
     isSelectDropdown &&
     !isSelected &&
     css`
-      :hover {
-        background-color: ${DAVYS_GREY_200};
+      &:hover {
+        background-color: ${ACCENT_200};
       }
     `}
 
@@ -82,10 +82,10 @@ const Option = styled(FlexBox)`
     !isSelected &&
     css`
       svg {
-        color: ${DAVYS_GREY_500};
+        color: ${ACCENT_500};
       }
-      :hover {
-        background-color: ${disabled ? DAVYS_GREY_100 : DAVYS_GREY_200};
+      &:hover {
+        background-color: ${disabled ? ACCENT_100 : ACCENT_200};
         svg {
           color: ${MOSS_GREEN_900};
         }
@@ -232,7 +232,7 @@ const Dropdown = ({
           if (!option) return null;
           const { label, labelColor, disabled } = option;
           const isSelected = getSelectedStatus(label);
-          const textColor = disabled ? DAVYS_GREY_500 : labelColor;
+          const textColor = disabled ? ACCENT_500 : labelColor;
           const showChevron =
             !isSelectDropdown && !disabled && size === "large";
 

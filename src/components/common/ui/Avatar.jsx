@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { DUSTY_ORANGE_700, ERROR_RED_400 } from "../colors";
+import { DUSTY_ORANGE_700, ERROR } from "./colors";
 import { H3 } from "./Headings";
 import { FiMoreHorizontal } from "react-icons/fi";
-import NoNameIcon from "../../../assets/no-name-avatar.svg";
-import FlexBox from "../FlexBox";
+import FlexBox from "./FlexBox";
 
 const Container = styled(FlexBox)`
   position: relative;
@@ -46,7 +45,7 @@ const Dot = styled.div`
   top: 0.25rem;
   right: 0.25rem;
   border-radius: 4rem;
-  background-color: ${ERROR_RED_400};
+  background-color: ${ERROR};
 `;
 
 const Img = styled.img`
@@ -72,21 +71,17 @@ const Avatar = ({ name, firstname, lastname, typing, showDot, isDisabled }) => {
 
   return (
     <Container className={isDisabled ? "grayscale" : ""}>
-      {noName ? (
-        <Img src={NoNameIcon} draggable="false" alt="default profile icon" />
-      ) : (
-        <Wrapper>
-          {typing ? (
-            <FiMoreHorizontal
-              size={18}
-              strokeWidth={3}
-              color={DUSTY_ORANGE_700}
-            />
-          ) : (
-            <Initials>{initials}</Initials>
-          )}
-        </Wrapper>
-      )}
+      <Wrapper>
+        {typing ? (
+          <FiMoreHorizontal
+            size={18}
+            strokeWidth={3}
+            color={DUSTY_ORANGE_700}
+          />
+        ) : (
+          <Initials>{initials}</Initials>
+        )}
+      </Wrapper>
       {showDot && <Dot />}
     </Container>
   );

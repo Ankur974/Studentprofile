@@ -29,7 +29,7 @@ import {
   H6,
   Body2,
   ButtonText,
-} from "../../components/common/UI/Headings";
+} from "../../components/common/ui/Headings";
 import FlexBox from "../../components/common/FlexBox";
 import SidebarLink from "../components/Supervision/SidebarLink";
 
@@ -39,7 +39,7 @@ import { TYPE_PSYCHIATRIST } from "../../variable";
 import useOutsideAlert from "../../hooks/useOutsideAlert";
 
 import logo from "../assets/amaha-logo.png";
-import DropdownOld from "../../components/common/UI/DropdownOld";
+import DropdownOld from "../../components/common/ui/DropdownOld";
 import { useToasts } from "react-toast-notifications";
 import { setShowCrossIcon } from "../../Store/Actions/commonActions";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -57,13 +57,13 @@ import NotesModal from "../components/Clients/ClientProfile/AllNotes/NotesModal"
 import PrivateNotesModal from "../components/Clients/ClientProfile/AllNotes/PrivateNotesModal";
 import NspModal from "../components/Clients/ClientProfile/Sessions/NspModal";
 import UpdateProvider from "../components/Clients/ProfileHeader/UpdateProvider";
-import { Modal } from "../../components/common/UI/Modal";
-import { Button } from "../../components/common/UI/Buttons";
+import { Modal } from "../../components/common/ui/Modal";
+import { Button } from "../../components/common/ui/Buttons";
 import { timeFilterOptions } from "../../metaData/analytics";
 import { setGlobalTimeFilter } from "../../Store/Actions/analyticsNewActions";
-import dropdownStyles from "../../components/common/UI/SelectDropdown/dropdownStyles";
-import DropdownIndicator from "../../components/common/UI/SelectDropdown/DropdownIndicator";
-import Option from "../../components/common/UI/SelectDropdown/Option";
+import dropdownStyles from "../../components/common/ui/SelectDropdown/dropdownStyles";
+import DropdownIndicator from "../../components/common/ui/SelectDropdown/DropdownIndicator";
+import Option from "../../components/common/ui/SelectDropdown/Option";
 
 const Translate = keyframes`
   0% {transform: translateX(0);}
@@ -131,7 +131,7 @@ const SidebarContainer = styled(FlexBox)`
       color: var(--accent-800);
     }
 
-    :hover {
+    &:hover {
       background-color: var(--green-100);
 
       ${H3} {
@@ -147,7 +147,7 @@ const SidebarContainer = styled(FlexBox)`
       color: var(--accent-100);
     }
 
-    :hover {
+    &:hover {
       background-color: var(--green-800);
     }
   }
@@ -268,7 +268,7 @@ const DropdownOption = styled(FlexBox)`
     transition: color 250ms ease-in-out;
   }
 
-  :hover {
+  &:hover {
     background-color: var(--accent-200);
 
     svg {

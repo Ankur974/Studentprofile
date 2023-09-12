@@ -4,7 +4,7 @@ import {
   PRIMARY_800,
   ACCENT_100,
   PRIMARY_900,
-  DAVYS_GREY_500,
+  ACCENT_500,
   ERROR_RED_500,
   ERROR_RED_600,
   MOSS_GREEN_800,
@@ -12,12 +12,12 @@ import {
   white,
   MOSS_GREEN_400,
   MOSS_GREEN_500,
-  DAVYS_GREY_400,
+  ACCENT_400,
   BRICK_TERRACOTA_400,
   BRICK_TERRACOTA_500,
   ERROR_RED_400,
-} from "../colors";
-import FlexBox from "../FlexBox";
+} from "./colors";
+import FlexBox from "./FlexBox";
 
 const InnerWrapper = styled(FlexBox)`
   align-items: center;
@@ -47,7 +47,7 @@ export const Button = styled.button`
   text-transform: uppercase;
   white-space: nowrap;
 
-  :hover {
+  &:hover {
     background-color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
     border-color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
   }
@@ -60,7 +60,7 @@ export const Button = styled.button`
       background-color: ${ERROR_RED_500};
       color: ${({ color }) => color || white};
 
-      :hover {
+      &:hover {
         background-color: ${ERROR_RED_600};
         border-color: ${ERROR_RED_600};
         color: ${({ hoverColor }) => hoverColor || white};
@@ -75,7 +75,7 @@ export const Button = styled.button`
       background-color: ${MOSS_GREEN_800};
       color: ${({ color }) => color || white};
 
-      :hover {
+      &:hover {
         background-color: ${MOSS_GREEN_900};
         color: ${({ hoverColor }) => hoverColor || white};
         border-color: ${MOSS_GREEN_800};
@@ -91,7 +91,7 @@ export const Button = styled.button`
       color: ${({ color }) => color || PRIMARY_800};
       border-color: ${BRICK_TERRACOTA_400};
 
-      :hover {
+      &:hover {
         background-color: transparent;
         color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
         border-color: ${BRICK_TERRACOTA_500};
@@ -107,7 +107,7 @@ export const Button = styled.button`
       background-color: ${ACCENT_100};
       color: ${({ color }) => color || MOSS_GREEN_800};
 
-      :hover {
+      &:hover {
         background-color: ${ACCENT_100};
         color: ${({ hoverColor }) => hoverColor || MOSS_GREEN_900};
         border-color: ${MOSS_GREEN_500};
@@ -121,12 +121,12 @@ export const Button = styled.button`
     css`
       background-color: transparent;
       color: ${({ color }) => color || MOSS_GREEN_800};
-      border: 1px solid ${DAVYS_GREY_400};
+      border: 1px solid ${ACCENT_400};
 
-      :hover {
+      &:hover {
         background-color: transparent;
         color: ${({ hoverColor }) => hoverColor || MOSS_GREEN_900};
-        border-color: ${DAVYS_GREY_500};
+        border-color: ${ACCENT_500};
       }
     `}
 
@@ -135,14 +135,14 @@ export const Button = styled.button`
     outline &&
     danger &&
     css`
-      border: 1px solid ${DAVYS_GREY_400};
+      border: 1px solid ${ACCENT_400};
       background-color: transparent;
       color: ${({ color }) => color || ERROR_RED_500};
 
-      :hover {
+      &:hover {
         background-color: transparent;
         color: ${({ hoverColor }) => hoverColor || ERROR_RED_600};
-        border-color: ${DAVYS_GREY_400};
+        border-color: ${ACCENT_400};
       }
     `}
 
@@ -152,14 +152,14 @@ export const Button = styled.button`
     css`
       cursor: not-allowed;
       opacity: 40%;
-      background-color: ${outline ? "transparent" : DAVYS_GREY_500};
-      border: 1px solid ${DAVYS_GREY_500};
-      color: ${outline ? DAVYS_GREY_500 : ACCENT_100};
+      background-color: ${outline ? "transparent" : ACCENT_500};
+      border: 1px solid ${ACCENT_500};
+      color: ${outline ? ACCENT_500 : ACCENT_100};
 
-      :hover {
-        background-color: ${outline ? "transparent" : DAVYS_GREY_500};
-        border-color: ${outline ? DAVYS_GREY_500 : "transparent"};
-        color: ${outline ? DAVYS_GREY_500 : ACCENT_100};
+      &:hover {
+        background-color: ${outline ? "transparent" : ACCENT_500};
+        border-color: ${outline ? ACCENT_500 : "transparent"};
+        color: ${outline ? ACCENT_500 : ACCENT_100};
       }
     `}
 
@@ -175,7 +175,7 @@ export const Button = styled.button`
       background: transparent;
       text-decoration: ${({ textDecoration }) => textDecoration};
 
-      :hover {
+      &:hover {
         background-color: transparent;
         color: ${({ color }) => color || PRIMARY_900};
       }
@@ -193,7 +193,7 @@ export const Button = styled.button`
       background: transparent;
       text-decoration: ${({ textDecoration }) => textDecoration};
 
-      :hover {
+      &:hover {
         background-color: transparent;
         color: ${({ color }) => color || MOSS_GREEN_900};
       }

@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import {
-  ACCENT_300,
-  ACCENT_800,
-  DAVYS_GREY_400,
-  ERROR_RED_400,
-} from "../colors";
+import { ACCENT_300, ACCENT_800, ACCENT_400, ERROR } from "./colors";
 import { FiFilter } from "react-icons/fi";
 
 const Wrapper = styled.div`
@@ -16,10 +11,10 @@ const Wrapper = styled.div`
   flex-shrink: 0;
   border-radius: 0.25rem;
   padding: 0.5rem;
-  border: 1px solid ${DAVYS_GREY_400};
+  border: 1px solid ${ACCENT_400};
   cursor: pointer;
 
-  :hover {
+  &:hover {
     background-color: ${ACCENT_300};
   }
 `;
@@ -31,7 +26,7 @@ const Dot = styled.div`
   right: -1.5rem;
   top: -2rem;
   border-radius: 4rem;
-  background-color: ${ERROR_RED_400};
+  background-color: ${ERROR};
 `;
 
 const Filter = ({ active, onClick }) => (

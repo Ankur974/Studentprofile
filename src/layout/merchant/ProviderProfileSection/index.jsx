@@ -1,16 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { boxShadowDs1 } from "../../../components/common/UI/styles";
-import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_300,
-} from "../../../components/common/colors";
+import { ACCENT_100, ACCENT_300 } from "../../../components/common/colors";
 import ProfileSidebar from "../../components/ProviderProfile/ProfileSidebar";
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${DAVYS_GREY_300};
+  background-color: ${ACCENT_300};
   padding: 1.5rem;
   overflow-x: hidden;
 `;
@@ -29,7 +26,7 @@ const Main = styled.div`
 
 const LeftSection = styled.div`
   min-width: 15rem;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   overflow: hidden;
   transition: all 500ms ease-in-out;
@@ -38,7 +35,7 @@ const LeftSection = styled.div`
 
 const CenterSection = styled.div`
   min-width: 42rem;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   ${boxShadowDs1}
   overflow: auto;

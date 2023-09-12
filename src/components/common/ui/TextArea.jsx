@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FiX } from "react-icons/fi";
-import { ACCENT_800, DAVYS_GREY_600, Red, white } from "../colors";
-import FlexBox from "../FlexBox";
+import { ACCENT_800, ACCENT_600, Red, white } from "./colors";
+import FlexBox from "./FlexBox";
 import { Body2, Support } from "./Headings";
 
 const Wrapper = styled(FlexBox)`
@@ -30,7 +30,7 @@ const TextAreaInput = styled.textarea`
   width: 100%;
 
   ::placeholder {
-    color: ${DAVYS_GREY_600};
+    color: ${ACCENT_600};
   }
 `;
 
@@ -109,7 +109,7 @@ TextArea.defaultProps = {
   theme: {
     input: {
       padding: "0.75rem",
-      border: DAVYS_GREY_600,
+      border: ACCENT_600,
       requiredColor: ACCENT_800,
       IconColor: ACCENT_800,
       crossIconColor: ACCENT_800,

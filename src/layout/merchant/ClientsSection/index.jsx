@@ -3,17 +3,14 @@ import styled, { css } from "styled-components";
 import { boxShadowDs1 } from "../../../components/common/UI/styles";
 import ClientsList from "../../components/Clients/ClientsList";
 import ProfileChat from "../../components/Clients/ProfileChat";
-import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_300,
-} from "../../../components/common/colors";
+import { ACCENT_100, ACCENT_300 } from "../../../components/common/colors";
 import { useDispatch } from "react-redux";
 import { fetchProfileData } from "../../../Store/Actions";
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-color: ${DAVYS_GREY_300};
+  background-color: ${ACCENT_300};
   padding: 1.5rem;
   overflow: hidden;
 `;
@@ -41,7 +38,7 @@ const Main = styled.div`
 
 const LeftSection = styled.div`
   min-width: 15rem;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   overflow: hidden;
   transition: all 500ms ease-in-out;
@@ -58,7 +55,7 @@ const LeftSection = styled.div`
 
 const CenterSection = styled.div`
   min-width: 42rem;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   ${boxShadowDs1}
 `;
@@ -69,7 +66,7 @@ const RightSection = styled.div`
   box-shadow: none;
   min-width: 20rem;
   z-index: 1;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   overflow: hidden;
   transition: all 500ms ease-in-out;
