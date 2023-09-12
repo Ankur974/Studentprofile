@@ -131,7 +131,7 @@ const SidebarContainer = styled(FlexBox)`
       color: var(--accent-800);
     }
 
-    :hover {
+    &:hover {
       background-color: var(--green-100);
 
       ${H3} {
@@ -147,7 +147,7 @@ const SidebarContainer = styled(FlexBox)`
       color: var(--accent-100);
     }
 
-    :hover {
+    &:hover {
       background-color: var(--green-800);
     }
   }
@@ -268,7 +268,7 @@ const DropdownOption = styled(FlexBox)`
     transition: color 250ms ease-in-out;
   }
 
-  :hover {
+  &:hover {
     background-color: var(--accent-200);
 
     svg {

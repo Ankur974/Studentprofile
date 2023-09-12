@@ -72,7 +72,7 @@ const Option = styled(FlexBox)`
     isSelectDropdown &&
     !isSelected &&
     css`
-      :hover {
+      &:hover {
         background-color: ${ACCENT_200};
       }
     `}
@@ -84,7 +84,7 @@ const Option = styled(FlexBox)`
       svg {
         color: ${ACCENT_500};
       }
-      :hover {
+      &:hover {
         background-color: ${disabled ? ACCENT_100 : ACCENT_200};
         svg {
           color: ${MOSS_GREEN_900};

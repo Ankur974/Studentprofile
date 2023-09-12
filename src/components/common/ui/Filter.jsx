@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   border: 1px solid ${ACCENT_400};
   cursor: pointer;
 
-  :hover {
+  &:hover {
     background-color: ${ACCENT_300};
   }
 `;

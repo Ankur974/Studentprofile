@@ -6,6 +6,7 @@ import {
   ACCENT_500,
   PRIMARY_800,
   GREEN_200,
+  ACCENT_300,
 } from "./colors";
 import FlexBox from "./FlexBox";
 
@@ -20,12 +21,11 @@ const Wrapper = styled(FlexBox)`
   white-space: nowrap;
   border: 1px solid ${ACCENT_500};
   max-width: ${({ width }) => width};
-  margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding || "0.5rem 1rem"};
 
-  :hover {
+  &:hover {
     border-color: ${ACCENT_400};
-    background-color: ${ACCENT_200};
+    background-color: ${ACCENT_300};
   }
 
   ${({ selected }) =>
@@ -34,7 +34,7 @@ const Wrapper = styled(FlexBox)`
       border-color: ${PRIMARY_800};
       background-color: ${PRIMARY_800};
 
-      :hover {
+      &:hover {
         border-color: ${PRIMARY_800};
         background-color: ${PRIMARY_800};
       }
@@ -46,7 +46,7 @@ const Wrapper = styled(FlexBox)`
       border-color: ${GREEN_200};
       background-color: ${GREEN_200};
 
-      :hover {
+      &:hover {
         border-color: ${GREEN_200};
         background-color: ${GREEN_200};
       }

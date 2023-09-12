@@ -134,9 +134,7 @@ const DesignElementDemo = () => {
       </FlexBox>
       <FlexBox columnGap="1rem">
         <Chip>
-          <Body2>
-            <Body2 bold>Upcoming</Body2>
-          </Body2>
+          <Body2 bold>Upcoming</Body2>
         </Chip>
         <Chip selected2>
           <Body2 bold>Upcoming</Body2>
