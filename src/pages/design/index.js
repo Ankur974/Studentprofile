@@ -6,7 +6,7 @@ import Filter from "../../components/common/ui/Filter";
 import Input from "../../components/common/ui/InputBox";
 import { Modal } from "../../components/common/ui/Modal";
 import Radio from "../../components/common/ui/Radio";
-import Chip from "../../components/common/ui/SelectionChips";
+import Chip from "../../components/common/ui/Chips";
 import {
   Body1,
   Body2,
