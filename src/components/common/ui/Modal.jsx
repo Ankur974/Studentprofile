@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import styled, { css } from "styled-components";
-import { ACCENT_100 } from "../colors";
+import { ACCENT_100 } from "./colors";
 import useOutsideAlert from "../../../hooks/useOutsideAlert";
 import { boxShadowDs2 } from "./styles";
 

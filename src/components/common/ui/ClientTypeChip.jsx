@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { BUTTERSCOTH_200, DAVYS_GREY_400, DAVYS_GREY_800 } from "../colors";
-import FlexBox from "../FlexBox";
+import { BUTTERSCOTH_200, ACCENT_400, ACCENT_800 } from "./colors";
+import FlexBox from "./FlexBox";
 
 const Wrapper = styled(FlexBox)`
   justify-content: center;
@@ -11,13 +11,13 @@ const Wrapper = styled(FlexBox)`
   font-size: 0.625rem;
   font-weight: 700;
   line-height: 1rem;
-  color: ${DAVYS_GREY_800};
+  color: ${ACCENT_800};
   text-transform: uppercase;
 
   ${({ disabled }) =>
     !!disabled &&
     css`
-      background-color: ${DAVYS_GREY_400};
+      background-color: ${ACCENT_400};
     `}
 `;
 

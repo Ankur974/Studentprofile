@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import FlexBox from "../FlexBox";
-import { DAVYS_GREY_600, Green, white } from "../colors";
+import FlexBox from "./FlexBox";
+import { ACCENT_600, Green, white } from "./colors";
 import { H6 } from "./Headings";
 
 const ToggleContainer = styled(FlexBox)`
@@ -53,7 +53,7 @@ const CustomToggle = ({
   size,
   small,
   primaryColor = Green,
-  toggleBgColor = DAVYS_GREY_600,
+  toggleBgColor = ACCENT_600,
   accentColor = white,
   onChange,
   showTitle = true,

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import FlexBox from "../FlexBox";
+import FlexBox from "./FlexBox";
 import loader from "../../../revamp/assets/loading.gif";
 
 const Wrapper = styled(FlexBox)`

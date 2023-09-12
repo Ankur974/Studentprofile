@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
 import {
-  DAVYS_GREY_200,
-  DAVYS_GREY_400,
-  DAVYS_GREY_500,
+  ACCENT_100,
+  ACCENT_200,
+  ACCENT_400,
+  ACCENT_500,
+  PRIMARY_800,
   GREEN_200,
-  MOSS_GREEN_800,
-  white,
-} from "../colors";
-import FlexBox from "../FlexBox";
+} from "./colors";
+import FlexBox from "./FlexBox";
 
 const Wrapper = styled(FlexBox)`
   flex: 1;
@@ -16,27 +16,27 @@ const Wrapper = styled(FlexBox)`
   border-radius: 0.5rem;
   flex-direction: column;
   justify-content: center;
-  background-color: ${white};
+  background-color: ${ACCENT_100};
   white-space: nowrap;
-  border: 1px solid ${DAVYS_GREY_500};
+  border: 1px solid ${ACCENT_500};
   max-width: ${({ width }) => width};
   margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding || "0.5rem 1rem"};
 
   :hover {
-    border-color: ${DAVYS_GREY_400};
-    background-color: ${DAVYS_GREY_200};
+    border-color: ${ACCENT_400};
+    background-color: ${ACCENT_200};
   }
 
   ${({ selected }) =>
     selected &&
     css`
-      border-color: ${MOSS_GREEN_800};
-      background-color: ${MOSS_GREEN_800};
+      border-color: ${PRIMARY_800};
+      background-color: ${PRIMARY_800};
 
       :hover {
-        border-color: ${MOSS_GREEN_800};
-        background-color: ${MOSS_GREEN_800};
+        border-color: ${PRIMARY_800};
+        background-color: ${PRIMARY_800};
       }
     `}
 

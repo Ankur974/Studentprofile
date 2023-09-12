@@ -1,10 +1,5 @@
 import styled, { css } from "styled-components";
-import {
-  DAVYS_GREY_400,
-  DAVYS_GREY_500,
-  MOSS_GREEN_800,
-  white,
-} from "../colors";
+import { ACCENT_400, ACCENT_500, MOSS_GREEN_800, white } from "./colors";
 import { FiCheck } from "react-icons/fi";
 
 const Container = styled.div`
@@ -34,9 +29,9 @@ const Wrapper = styled.div`
     disabled &&
     css`
       pointer-events: none;
-      border: 1px solid ${DAVYS_GREY_400};
+      border: 1px solid ${ACCENT_400};
       cursor: not-allowed;
-      background-color: ${props => (props.check ? DAVYS_GREY_500 : "none")};
+      background-color: ${props => (props.check ? ACCENT_500 : "none")};
     `}
 `;
 
