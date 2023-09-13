@@ -4,7 +4,6 @@ import Image from "next/image";
 import { trackEvent } from "@/utils/helpers";
 import { useEffect } from "react";
 import Listing from "../components/saloonListing";
-import Filter from "../components/saloonListing/Filter";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {/* <Listing /> */}
-        <Filter />
+        <Listing />
       </main>
     </>
   );
