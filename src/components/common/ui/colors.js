@@ -21,7 +21,7 @@ export const SECONDARY_800 = "#373737";
 export const SECONDARY_900 = "#212121";
 export const SECONDARY_901 = "#EAEAEA";
 
-export const ACCENT_0 = "FFFFFF";
+export const ACCENT_0 = "#FFFFFF";
 export const ACCENT_100 = "#F9F9F9";
 export const ACCENT_200 = "#F4F4F4";
 export const ACCENT_300 = "#D7D7D7";
