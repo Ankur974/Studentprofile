@@ -5,6 +5,7 @@ import { trackEvent } from "@/utils/helpers";
 import { useEffect } from "react";
 import Listing from "../components/saloonListing";
 
+
 // const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
