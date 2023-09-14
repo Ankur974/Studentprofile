@@ -24,7 +24,8 @@ export default function Listing() {
   const toggleModal = () => setShowFilter(!showFilter);
 
   return (
-    <Card/>
+    <Card />
+    // <Filter />
     // <Wrapper>
     //   <FilterIcon onClick={toggleModal} />
     //   {showFilter && <Filter toggleModal={toggleModal} />}
@@ -42,6 +43,6 @@ export default function Listing() {
     //     </FlexBox>
     //   </FlexBox>
     // </Wrapper>
-  
+
   );
 }

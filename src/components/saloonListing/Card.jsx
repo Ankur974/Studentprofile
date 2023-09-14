@@ -9,22 +9,25 @@ import { AiOutlineHeart } from "react-icons/ai";
 import {
   ACCENT_0,
   ACCENT_700,
+  PRIMARY_800,
   RATEBACKGROUND,
   STARCOLOR,
   listingChip,
 } from "../common/ui/colors";
+import Button from "../common/ui/Buttons";
 import Chip from "../common/ui/Chips";
 import { AiFillStar } from "react-icons/ai";
 import { CiDiscount1 } from "react-icons/ci";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
-  padding: 2px;
+  padding: 1rem;
+  width:100%;
+  border-radius:10px;
   max-width: 23.75rem;
   height: 100%;
   row-gap: 0.5rem;
   margin: auto;
-  width:100%
 `;
 
 const aminities = [
@@ -53,9 +56,9 @@ const Banner = styled(FlexBox)`
 `;
 
 const Img = styled.img`
-  ${'' /* width: 23.75rem; */}
   height: 13.4rem;
   object-fit: cover;
+  border-radius:10px;
 `;
 
 const BannerContent = styled(FlexBox)`
@@ -67,8 +70,7 @@ const BannerContent = styled(FlexBox)`
 
 const BannerContent2 = styled(FlexBox)`
   position: absolute;
-  bottom: 0;
-  width: 23.75rem;
+  bottom: 0;   
 `;
 
 const Card = () => {
@@ -76,8 +78,10 @@ const Card = () => {
     <Wrapper column>
       <Banner column>
         <Img src="/assets/banner-new.svg" alt="Card1" />
-        <BannerContent columnGap="15.2rem" align="center">
-          <H4>Popular</H4>
+        <BannerContent columnGap="13rem" align="center">
+          <FlexBox borderRadius="0.1875rem" width="4rem" align="center" justify="center" backgroundColor="#FFFFFF80">
+            <H4 color="white" >Popular</H4>
+          </FlexBox>
           <FlexBox
             align="center"
             justify="center"
@@ -92,8 +96,9 @@ const Card = () => {
         </BannerContent>
         <BannerContent2
           align="center"
+          width="100%"
           columnGap="0.5rem"
-          backgroundColor="red"
+          backgroundColor={PRIMARY_800}
           borderRadius="0rem 0rem 0.625rem 0.625rem"
           padding="0 0 0 1rem"
         >
@@ -103,9 +108,9 @@ const Card = () => {
       </Banner>
 
       <FlexBox column rowGap="0.38rem">
-        <FlexBox justify="space-between" width="23.75rem">
+        <FlexBox justify="space-between" >
           <H2>Gigi's Salon</H2>
-          <AiOutlineHeart  size="1.25rem"/>
+          <AiOutlineHeart size="1.25rem" />
         </FlexBox>
 
         <FlexBox columnGap="0.75rem">
@@ -122,14 +127,16 @@ const Card = () => {
         </FlexBox>
         <H2>Price starting at 300/-</H2>
       </FlexBox>
-      <FlexBox width="fit-content" columnGap="1rem">
+      <FlexBox wrap="wrap" rowGap="0.8rem" columnGap="1rem" width="20rem">
         {aminities.map(item => (
-          <Chip key={item.id} width="7.63rem" columnGap="1.31rem">
+          <Chip key={item.id} columnGap="1.31rem">
             {item.label}
           </Chip>
         ))}
       </FlexBox>
-      <FlexBox></FlexBox>
+      {/* <Button>
+        <Body2>Details</Body2>
+      </Button> */}
     </Wrapper>
   );
 };
