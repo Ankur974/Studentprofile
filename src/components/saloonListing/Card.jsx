@@ -3,12 +3,9 @@ import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
 import { H2, H4 } from "../common/ui/Headings";
 import { Body2 } from "../common/ui/Headings";
-import { BsGenderMale } from "react-icons/bs";
-import { IoLocationOutline } from "react-icons/io5";
-import { SlHeart } from "react-icons/sl";
+import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
 import {
   ACCENT_0,
-  ACCENT_100,
   ACCENT_700,
   PRIMARY_800,
   RATEBACKGROUND,
@@ -34,16 +31,12 @@ const aminities = [
     label: "Air conditioning",
   },
   {
-    id: 1,
-    label: "Air conditioning",
+    id: 12,
+    label: "Parking",
   },
   {
-    id: 1,
-    label: "Air conditioning",
-  },
-  {
-    id: 1,
-    label: "Air conditioning",
+    id: 2,
+    label: "Kids Friendly",
   },
 ];
 
@@ -136,11 +129,11 @@ const Card = () => {
         <FlexBox columnGap="0.75rem">
           <FlexBox columnGap="0.38rem">
             <FlexBox>
-              <BsGenderMale color={ACCENT_700} />
+              <SlSymbolMale color={ACCENT_700} />
               <Body2>Salon for Men</Body2>
             </FlexBox>
             <FlexBox>
-              <IoLocationOutline />
+              <SlMap />
               <Body2>3 kms</Body2>
             </FlexBox>
           </FlexBox>
@@ -149,8 +142,8 @@ const Card = () => {
       </FlexBox>
       <AminitiesWrapper>
         {aminities.map(item => (
-          <Chip key={item.id}>
-            <Body2>{item.label}</Body2>
+          <Chip key={item?.id} width="fit-content">
+            <Body2>{item?.label}</Body2>
           </Chip>
         ))}
       </AminitiesWrapper>

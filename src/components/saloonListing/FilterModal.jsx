@@ -97,7 +97,7 @@ const FilterChip = ({ name, selected, onClick }) => (
   </Chip>
 );
 
-const Filter = ({ toggleModal }) => {
+const FilterModal = ({ toggleModal }) => {
   const [selectedFilters, setSelectedFilters] = useState({
     services: [],
     availability: [],
@@ -160,4 +160,4 @@ const Filter = ({ toggleModal }) => {
   );
 };
 
-export default Filter;
+export default FilterModal;

@@ -31,9 +31,9 @@ export const Button = styled.button`
   box-sizing: border-box;
   display: ${({ block }) => (block ? "block" : "inline")};
   background-color: ${({ color }) => color || PRIMARY_800};
-  padding: ${({ padding }) => padding || "0.5rem 1.5rem"};
+  padding: ${({ padding }) => padding || "0.5rem 1rem"};
   color: ${ACCENT_100};
-  line-height: 1.5rem;
+  line-height: 1.25rem;
   min-width: ${({ width }) => !width && "7rem"};
   width: ${({ width }) => (width ? width : "fit-content")};
   font-family: "Quicksand";
