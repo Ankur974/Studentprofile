@@ -15,9 +15,12 @@ const FlexBox = styled.div`
   height: ${({ height }) => height};
   position: ${({ position }) => position};
   cursor: ${({ cursor }) => cursor};
+  border: ${({ border }) => border};
+  border-radius: ${({ borderRadius }) => borderRadius};
+  background-color: ${({ backgroundColor }) => backgroundColor};
 
-  pointer-events: ${({ disabled }) => (disabled ? "none" : "normal")};
-  opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
+pointer-events: ${({ disabled }) => (disabled ? "none" : "normal")};
+opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
 `;
 
 FlexBox.defaultProps = {
@@ -33,6 +36,9 @@ FlexBox.defaultProps = {
   height: "auto",
   position: "static",
   cursor: "unset",
+  border: "none",
+  borderRadius: "none",
+  backgroundColor: "none",
 };
 
 export default FlexBox;
