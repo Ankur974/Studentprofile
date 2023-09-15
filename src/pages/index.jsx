@@ -1,18 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
-// import { Inter } from "next/font/google";
-import { trackEvent } from "@/utils/helpers";
-import { useEffect } from "react";
 import Listing from "../components/saloonListing";
-
-
-// const inter = Inter({ subsets: ["latin"] });
+import HomePageLayout from "../layout/client/HomePageLayout";
 
 export default function Home() {
-  useEffect(() => {
-    // trackEvent("home-loads");
-  }, []);
-
   return (
     <>
       <Head>
@@ -22,7 +12,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Listing />
+        <HomePageLayout>
+          <Listing />
+        </HomePageLayout>
       </main>
     </>
   );
