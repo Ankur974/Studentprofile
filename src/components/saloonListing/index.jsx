@@ -6,6 +6,8 @@ import FlexBox from "../common/ui/FlexBox";
 import { SlSymbleFemale } from "react-icons/sl";
 import { ACCENT_700 } from "../common/ui/colors";
 import Filter from "./Filter";
+//importing card
+import Card from "../saloonListing/Card";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -22,22 +24,25 @@ export default function Listing() {
   const toggleModal = () => setShowFilter(!showFilter);
 
   return (
-    <Wrapper>
-      <FilterIcon onClick={toggleModal} />
-      {showFilter && <Filter toggleModal={toggleModal} />}
-      <FlexBox column rowGap="0.38rem">
-        <H2>Gigi's Salon</H2>
-        <FlexBox columnGap="0.75rem">
-          <FlexBox columnGap="0.38rem">
-            <Body2>Salon for Men</Body2>
-            <SlSymbleFemale color={ACCENT_700} />
-          </FlexBox>
-          <FlexBox columnGap="0.38rem">
-            <Body2>Salon for Men</Body2>
-            <SlSymbleFemale color={ACCENT_700} />
-          </FlexBox>
-        </FlexBox>
-      </FlexBox>
-    </Wrapper>
+    <Card />
+    // <Filter />
+    // <Wrapper>
+    //   <FilterIcon onClick={toggleModal} />
+    //   {showFilter && <Filter toggleModal={toggleModal} />}
+    //   <FlexBox column rowGap="0.38rem">
+    //     <H2>Gigi's Salon</H2>
+    //     <FlexBox columnGap="0.75rem">
+    //       <FlexBox columnGap="0.38rem">
+    //         <Body2>Salon for Men</Body2>
+    //         <SlSymbleFemale color={ACCENT_700} />
+    //       </FlexBox>
+    //       <FlexBox columnGap="0.38rem">
+    //         <Body2>Salon for Men</Body2>
+    //         <SlSymbleFemale color={ACCENT_700} />
+    //       </FlexBox>
+    //     </FlexBox>
+    //   </FlexBox>
+    // </Wrapper>
+
   );
 }
