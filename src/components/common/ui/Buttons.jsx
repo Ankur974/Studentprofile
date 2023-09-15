@@ -15,7 +15,7 @@ import {
   ACCENT_400,
   BRICK_TERRACOTA_400,
   BRICK_TERRACOTA_500,
-  ERROR_RED_400,
+  ACCENT_800,
 } from "./colors";
 import FlexBox from "./FlexBox";
 
@@ -39,7 +39,7 @@ export const Button = styled.button`
   font-family: "Quicksand";
   font-size: 0.875rem;
   font-weight: 700;
-  border-radius: 2.5rem;
+  border-radius: 0.625rem;
   border: 1px solid ${({ color }) => color || PRIMARY_800};
   overflow: hidden;
   letter-spacing: 0.07rem;
@@ -71,14 +71,14 @@ export const Button = styled.button`
   ${({ secondary }) =>
     secondary &&
     css`
-      border: 1px solid ${MOSS_GREEN_800};
-      background-color: ${MOSS_GREEN_800};
+      border: 1px solid ${ACCENT_800};
+      background-color: ${ACCENT_800};
       color: ${({ color }) => color || white};
 
       &:hover {
-        background-color: ${MOSS_GREEN_900};
+        background-color: ${ACCENT_800};
         color: ${({ hoverColor }) => hoverColor || white};
-        border-color: ${MOSS_GREEN_800};
+        border-color: ${ACCENT_800};
       }
     `}
 

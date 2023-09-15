@@ -1,25 +1,23 @@
 import React from "react";
 import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
-import { ButtonText, H2, H4 } from "../common/ui/Headings";
+import { H2, H4 } from "../common/ui/Headings";
 import { Body2 } from "../common/ui/Headings";
 import { BsGenderMale } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
 import { SlHeart } from "react-icons/sl";
 import {
   ACCENT_0,
+  ACCENT_100,
   ACCENT_700,
-  ACCENT_800,
   PRIMARY_800,
   RATEBACKGROUND,
-  SECONDARY_900,
-  STARCOLOR,
   listingChip,
 } from "../common/ui/colors";
 import Chip from "../common/ui/Chips";
-import { AiFillStar } from "react-icons/ai";
 import { CiDiscount1 } from "react-icons/ci";
 import { Button } from "../common/ui/Buttons";
+import { device } from "../common/ui/Resposive";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -27,9 +25,7 @@ const Wrapper = styled(FlexBox)`
   width: 100%;
   border-radius: 10px;
   max-width: 23.75rem;
-  height: 100%;
   row-gap: 0.8rem;
-  margin: auto;
 `;
 
 const aminities = [
@@ -54,27 +50,44 @@ const aminities = [
 const Banner = styled(FlexBox)`
   position: relative;
   top: 0;
-  height: 100%;
 `;
 
 const Img = styled.img`
-  height: 13.4rem;
+  height: 13.5rem;
   object-fit: cover;
   border-radius: 0.625rem;
 `;
 
-const BannerContent = styled(FlexBox)`
+const ActionWrapper = styled(FlexBox)`
   position: absolute;
   top: 1rem;
   width: 100%;
-  left: 1rem;
+  padding: 0 1rem;
 `;
 
-const BannerContent2 = styled(FlexBox)`
+const AminitiesWrapper = styled(FlexBox)`
+  gap: 0.5rem;
+  overflow-x: auto;
+  width: 100%;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  width: calc(100% + 2rem);
+
+  @media ${device.laptop} {
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+`;
+
+const OfferBanner = styled(FlexBox)`
   position: absolute;
   bottom: -0.9rem;
-  height: 2rem;
-  width: ;
+  align-items: center;
+  width: 90%;
+  column-gap: 0.5rem;
+  background-color: ${PRIMARY_800};
+  border-radius: 0.25rem;
+  justify-content: center;
 `;
 
 const Img2 = styled(FlexBox);
@@ -84,9 +97,9 @@ const Card = () => {
     <Wrapper column>
       <Banner column>
         <Img src="/assets/banner-new.svg" alt="Card1" />
-        <BannerContent columnGap="13rem" align="center">
+        <ActionWrapper columnGap="13rem" align="center">
           <FlexBox
-            borderRadius="0.1875rem"
+            borderRadius="0.25rem"
             width="4rem"
             align="center"
             justify="center"
@@ -97,36 +110,27 @@ const Card = () => {
           <FlexBox
             align="center"
             justify="center"
-            borderRadius="0.1875rem"
+            borderRadius="0.25rem"
             backgroundColor={RATEBACKGROUND}
-            width="3.5rem"
+            padding="0 0.25rem"
             columnGap="0.5rem"
           >
-            {/* <AiFillStar color={STARCOLOR} /> */}
             <img src="/assets/star.svg" />
             <Body2 color={ACCENT_0}>4.2</Body2>
           </FlexBox>
-        </BannerContent>
+        </ActionWrapper>
         <FlexBox justify="center">
-          <BannerContent2
-            align="center"
-            width="85%"
-            columnGap="0.5rem"
-            backgroundColor={PRIMARY_800}
-            borderRadius="0.3rem"
-            padding="0 0 0 1rem"
-            justify="center"
-          >
-            <CiDiscount1 />
-            <Body2>15% of on first visit</Body2>
-          </BannerContent2>
+          <OfferBanner>
+            <CiDiscount1 color={ACCENT_0} />
+            <Body2 color={ACCENT_0}>15% of on first visit</Body2>
+          </OfferBanner>
         </FlexBox>
       </Banner>
 
       <FlexBox column rowGap="0.38rem">
         <FlexBox justify="space-between" padding="10px 0 0 0">
           <H2>Gigi's Salon</H2>
-          <SlHeart size="1.5rem" color={PRIMARY_800} fill="black" />
+          <SlHeart size="1.25rem" color={PRIMARY_800} />
         </FlexBox>
 
         <FlexBox columnGap="0.75rem">
@@ -137,20 +141,20 @@ const Card = () => {
             </FlexBox>
             <FlexBox>
               <IoLocationOutline />
-              <Body2> 3 kms </Body2>
+              <Body2>3 kms</Body2>
             </FlexBox>
           </FlexBox>
         </FlexBox>
         <H2>Price starting at 300/-</H2>
       </FlexBox>
-      <FlexBox wrap="wrap" rowGap="0.8rem" columnGap="1rem" width="20rem">
+      <AminitiesWrapper>
         {aminities.map(item => (
-          <Chip key={item.id} columnGap="1.31rem">
-            {item.label}
+          <Chip key={item.id}>
+            <Body2>{item.label}</Body2>
           </Chip>
         ))}
-      </FlexBox>
-      <Button primary>View Details</Button>
+      </AminitiesWrapper>
+      <Button secondary>View Details</Button>
     </Wrapper>
   );
 };
