@@ -15,7 +15,7 @@ import {
   ACCENT_400,
   BRICK_TERRACOTA_400,
   BRICK_TERRACOTA_500,
-  ERROR_RED_400,
+  ACCENT_0,
 } from "./colors";
 import FlexBox from "./FlexBox";
 
@@ -32,14 +32,14 @@ export const Button = styled.button`
   display: ${({ block }) => (block ? "block" : "inline")};
   background-color: ${({ color }) => color || PRIMARY_800};
   padding: ${({ padding }) => padding || "0.5rem 1.5rem"};
-  color: ${ACCENT_100};
+  color: ${({ textColor }) => textColor || ACCENT_0};
   line-height: 1.5rem;
   min-width: ${({ width }) => !width && "7rem"};
   width: ${({ width }) => (width ? width : "fit-content")};
   font-family: "Quicksand";
   font-size: 0.875rem;
   font-weight: 700;
-  border-radius: 2.5rem;
+  border-radius: ${({ borderRadius }) => borderRadius || "2.5rem"};
   border: 1px solid ${({ color }) => color || PRIMARY_800};
   overflow: hidden;
   letter-spacing: 0.07rem;
