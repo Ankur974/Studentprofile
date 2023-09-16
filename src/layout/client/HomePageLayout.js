@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
-import Footer from "@common/Footer";
-import FooterNote from "@common/FooterNote";
-import { Loader } from "@common/Loader";
-import NavBar from "@common/NavBar";
-import PartnerNavBar from "@common/PartnerNavBar";
+import { Loader } from "../../components/common/Loader";
+import NavBar from "../../components/common/NavBar";
+import Footer from "../../components/common/Footer";
 
 const HomePageLayout = ({
   color,
@@ -29,8 +26,6 @@ const HomePageLayout = ({
     setLoading(false);
   }, [partnerMetaInfo]);
 
-  const isCrnLogin = !!partnerMetaInfo?.company_profile?.is_crn_based_login;
-
   if (loading) return <Loader />;
 
   return (
@@ -42,16 +37,8 @@ const HomePageLayout = ({
           showMobileCallIcon={showMobileCallIcon}
         />
       )}
-      {hideHeader && isCrnLogin && <PartnerNavBar />}
       {children}
-      {!hideFooter && (
-        <>
-          <FooterNote color={color} footerColor={footerColor}>
-            {footerNote}
-          </FooterNote>
-          <Footer />
-        </>
-      )}
+      {/* {!hideFooter && <Footer />} */}
     </>
   );
 };

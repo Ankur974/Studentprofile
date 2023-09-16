@@ -15,7 +15,7 @@ import {
   ACCENT_400,
   BRICK_TERRACOTA_400,
   BRICK_TERRACOTA_500,
-  ACCENT_0,
+  ACCENT_800,
 } from "./colors";
 import FlexBox from "./FlexBox";
 
@@ -31,15 +31,15 @@ export const Button = styled.button`
   box-sizing: border-box;
   display: ${({ block }) => (block ? "block" : "inline")};
   background-color: ${({ color }) => color || PRIMARY_800};
-  padding: ${({ padding }) => padding || "0.5rem 1.5rem"};
-  color: ${({ textColor }) => textColor || ACCENT_0};
-  line-height: 1.5rem;
+  padding: ${({ padding }) => padding || "0.5rem 1rem"};
+  color: ${ACCENT_100};
+  line-height: 1.25rem;
   min-width: ${({ width }) => !width && "7rem"};
   width: ${({ width }) => (width ? width : "fit-content")};
   font-family: "Quicksand";
   font-size: 0.875rem;
   font-weight: 700;
-  border-radius: ${({ borderRadius }) => borderRadius || "2.5rem"};
+  border-radius: 0.625rem;
   border: 1px solid ${({ color }) => color || PRIMARY_800};
   overflow: hidden;
   letter-spacing: 0.07rem;
@@ -71,14 +71,14 @@ export const Button = styled.button`
   ${({ secondary }) =>
     secondary &&
     css`
-      border: 1px solid ${MOSS_GREEN_800};
-      background-color: ${MOSS_GREEN_800};
+      border: 1px solid ${ACCENT_800};
+      background-color: ${ACCENT_800};
       color: ${({ color }) => color || white};
 
       &:hover {
-        background-color: ${MOSS_GREEN_900};
+        background-color: ${ACCENT_800};
         color: ${({ hoverColor }) => hoverColor || white};
-        border-color: ${MOSS_GREEN_800};
+        border-color: ${ACCENT_800};
       }
     `}
 

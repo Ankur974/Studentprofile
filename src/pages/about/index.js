@@ -11,9 +11,11 @@ import Services from "./Services";
 
 const Wrapper = styled(FlexBox)`
   width:100%;
-  max-width:75rem;
+  height:100%;
+  max-width:23.75rem;
   margin:auto;
   gap:1rem;
+  
 `;
 const Img = styled.img`
 height:28rem;
@@ -25,6 +27,7 @@ const Wrap = styled(FlexBox)`
   position:absolute;
   top:19rem;
   left:26rem;
+  padding-left:2rem;
   
 `;
 const NewBox = styled(FlexBox)`
@@ -32,7 +35,7 @@ position:absolute;
 width:60%;
 top:2rem;
 left:26rem;
-
+padding-left:2rem;
 `;
 
 const ArrowIcon = styled(IoIosArrowBack)`

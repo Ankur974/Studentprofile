@@ -1,43 +1,74 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Body2, H2 } from "../common/ui/Headings";
-import FilterIcon from "../common/ui/Filter";
 import FlexBox from "../common/ui/FlexBox";
-import { SlSymbleFemale } from "react-icons/sl";
-import { ACCENT_700 } from "../common/ui/colors";
-import Filter from "./Filter";
+import Filter from "../common/ui/Filter";
+import Card from "./Card";
+import { H1, H3 } from "../common/ui/Headings";
+import { ACCENT_500, PRIMARY_200 } from "../common/ui/colors";
+import Approach from "../common/ApproachFaq";
+import Chip from "../common/ui/Chips";
+import FilterModal from "./FilterModal";
 
 const Wrapper = styled(FlexBox)`
-  width: 100%;
-  max-width: 23.8rem;
-  row-gap: 0.62rem;
-  border: 1px solid ${ACCENT_700};
   flex-direction: column;
-  padding: 1rem;
+  width: 100%;
+  max-width: 75rem;
+  margin: auto;
+  gap: 1.5rem;
+  padding-block: 2rem;
+`;
+
+const ListWrapper = styled(FlexBox)`
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+`;
+
+const Banner = styled(FlexBox)`
+  width: 100%;
+  height: 12rem;
+  align-items: center;
+  justify-content: center;
+  background-color: ${PRIMARY_200};
+`;
+
+const VR = styled.div`
+  height: 100%;
+  width: 1px;
+  background-color: ${ACCENT_500};
 `;
 
 export default function Listing() {
   const [showFilter, setShowFilter] = useState(false);
 
   const toggleModal = () => setShowFilter(!showFilter);
-
+  const Arr = new Array(10).fill(1);
   return (
-    <Wrapper>
-      <FilterIcon onClick={toggleModal} />
-      {showFilter && <Filter toggleModal={toggleModal} />}
-      <FlexBox column rowGap="0.38rem">
-        <H2>Gigi's Salon</H2>
-        <FlexBox columnGap="0.75rem">
-          <FlexBox columnGap="0.38rem">
-            <Body2>Salon for Men</Body2>
-            <SlSymbleFemale color={ACCENT_700} />
-          </FlexBox>
-          <FlexBox columnGap="0.38rem">
-            <Body2>Salon for Men</Body2>
-            <SlSymbleFemale color={ACCENT_700} />
+    <div>
+      {showFilter && <FilterModal toggleModal={toggleModal} />}
+      <Banner>
+        <H1 bold>Everything feels better after a Haircut</H1>
+      </Banner>
+      <Wrapper>
+        <FlexBox></FlexBox>
+        <FlexBox justify="space-between">
+          <H3 bold>4 Haircut Results in your location</H3>
+          <FlexBox columnGap="1rem">
+            <Chip>Haircut</Chip>
+            <Chip>Haircut</Chip>
+            <Chip>Haircut</Chip>
+            <VR />
+            <Filter onClick={toggleModal} />
           </FlexBox>
         </FlexBox>
-      </FlexBox>
-    </Wrapper>
+        <ListWrapper>
+          {Arr.map(index => (
+            <Card key={index} />
+          ))}
+        </ListWrapper>
+        <H1 textAlign="center">Frequently Asked Questions</H1>
+        <Approach />
+      </Wrapper>
+    </div>
   );
 }
