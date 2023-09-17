@@ -3,7 +3,7 @@ import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 import Filter from "../common/ui/Filter";
 import Card from "./Card";
-import { H1, H3 } from "../common/ui/Headings";
+import { Display, H1, H3 } from "../common/ui/Headings";
 import { ACCENT_500, PRIMARY_200 } from "../common/ui/colors";
 import Approach from "../common/ApproachFaq";
 import Chip from "../common/ui/Chips";
@@ -47,7 +47,7 @@ export default function Listing() {
     <div>
       {showFilter && <FilterModal toggleModal={toggleModal} />}
       <Banner>
-        <H1 bold>Everything feels better after a Haircut</H1>
+        <Display bold>Everything feels better after a Haircut</Display>
       </Banner>
       <Wrapper>
         <FlexBox></FlexBox>

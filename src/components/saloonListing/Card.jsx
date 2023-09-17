@@ -1,7 +1,7 @@
 import React from "react";
 import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
-import { H2, H4 } from "../common/ui/Headings";
+import { H2, H5 } from "../common/ui/Headings";
 import { Body2 } from "../common/ui/Headings";
 import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
 import {
@@ -83,8 +83,6 @@ const OfferBanner = styled(FlexBox)`
   justify-content: center;
 `;
 
-const Img2 = styled(FlexBox);
-
 const Card = () => {
   return (
     <Wrapper column>
@@ -98,7 +96,7 @@ const Card = () => {
             justify="center"
             backgroundColor="#FFFFFF80"
           >
-            <H4 color="white">Popular</H4>
+            <H5 color="white">Popular</H5>
           </FlexBox>
           <FlexBox
             align="center"
