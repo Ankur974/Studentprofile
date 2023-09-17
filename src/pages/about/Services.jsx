@@ -4,6 +4,7 @@ import { Body2 } from "../../components/common/ui/Headings";
 import FlexBox from "../../components/common/ui/FlexBox";
 import { ServiceCard } from "./ServiceCard";
 import { PRIMARY_800 } from "../../components/common/ui/colors";
+import { useQueryParam, StringParam } from "use-query-params";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -57,6 +58,11 @@ const ServicesWrapper = styled(FlexBox)`
 
 const Services = () => {
   const [clicked, setClicked] = useState(false);
+  const [activeCategory, setActiveCategory] = useQueryParam(
+    "active",
+    StringParam
+  );
+
   const categories = [
     {
       slug: "haircut",
@@ -144,27 +150,21 @@ const Services = () => {
     },
   ];
 
-  const categoriesRef = useRef(null);
-
-  const scrollRefs = categories.reduce((acc, category) => {
-    acc[category.slug] = useRef(null);
-    return acc;
-  }, {});
-
-  const scrollToCategory = slug => {
-    if (scrollRefs[slug] && scrollRefs[slug].current) {
-      scrollRefs[slug].current.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    if (activeCategory) {
+      const elem = document.getElementById(activeCategory);
+      elem.scrollIntoView({ behavior: "smooth" });
     }
-  };
+  }, [activeCategory]);
 
   return (
     <Wrapper rowGap="10px" column>
-      <Categories ref={categoriesRef}>
+      <Categories>
         {categories.map(item => (
           <CategoryTile
             key={item.id}
-            active={item.active}
-            onClick={() => scrollToCategory(item.slug)}
+            active={item.slug === activeCategory}
+            onClick={() => setActiveCategory(item.slug)}
           >
             <img
               src={item.active ? item.pathdark : item.pathlight}
@@ -176,7 +176,7 @@ const Services = () => {
       </Categories>
       <ServicesWrapper column>
         {categories?.map(category => (
-          <div key={category?.slug} ref={scrollRefs[category?.slug]}>
+          <div key={category?.slug} id={category?.slug}>
             <CategoryBanner>
               <img src={category?.bannerimg} alt={category?.bannerdesc} />
               <FlexBox column align="center">
