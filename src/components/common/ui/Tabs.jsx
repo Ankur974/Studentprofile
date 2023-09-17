@@ -4,7 +4,7 @@ import { ACCENT_0, ACCENT_800 } from "./colors";
 import { Body1 } from "./Headings";
 
 const Tablist = styled.ul`
-  width: ${props => props.tabWidth || "25rem"};
+  width: ${props => props.tabWidth || "100%"};
   justify-content: ${props => props.tabJustify || "space-around"};
   margin: auto;
   align-items: center;
@@ -13,6 +13,7 @@ const Tablist = styled.ul`
   list-style: none;
   column-gap: 2rem;
   cursor: pointer;
+  padding: 0;
 `;
 
 const List = styled.li`
