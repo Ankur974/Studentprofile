@@ -5,6 +5,7 @@ import Services from "./Services";
 import HeroBanner from "./Banner";
 import RealAbout from "./About";
 import Tabs from "../../components/common/ui/Tabs";
+import Footer from "../../components/common/ui/Footer";
 
 const Container = styled(FlexBox)`
   flex-direction: column;
@@ -34,6 +35,7 @@ const About = () => {
           </Tab>
         </Tabs>
       </Wrapper>
+      <Footer />
     </Container>
   );
 };
