@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
 import { Body2 } from "../../components/common/ui/Headings";
 import FlexBox from "../../components/common/ui/FlexBox";
 import { ServiceCard } from "./ServiceCard";
@@ -9,18 +9,38 @@ const Wrapper = styled(FlexBox)`
   width: 100%;
 `;
 
-const Catogories = styled(FlexBox)`
+const Categories = styled(FlexBox)`
   column-gap: 1rem;
   overflow-x: scroll;
   width: 100%;
   max-width: 50rem;
   margin: auto;
+
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
 `;
 
-const CatogoryBanner = styled(FlexBox)`
+const CategoryTile = styled(FlexBox)`
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    width: ${props => (props.active ? "80px" : "100px")};
+    height: ${props => (props.active ? "80px" : "100px")};
+  }
+`;
+
+const CategoryBanner = styled(FlexBox)`
   background-color: #eeebf1;
   padding: 1rem;
   justify-content: space-around;
+
+  img {
+    max-width: 100%;
+  }
 `;
 
 const OfferBox = styled(FlexBox)`
@@ -35,28 +55,18 @@ const ServicesWrapper = styled(FlexBox)`
   gap: 1rem;
 `;
 
-const CategoryTile = styled(FlexBox)`
-  flex-direction: column;
-  align-items: center;
-
-  ${({ active }) =>
-    active &&
-    css`
-      border: 1px solid ${PRIMARY_800};
-    `}
-`;
-
 const Services = () => {
   const [clicked, setClicked] = useState(false);
-  const catogories = [
+  const categories = [
     {
+      slug: "haircut",
       id: 1,
       pathdark: "/assets/dark-catogories-avatar.svg",
       active: true,
       bannerimg: "/assets/haircut.svg",
       bannerdesc: "Get a glowing skin!",
       offerDesc: "Earn 5 care coins on each appointment",
-      name: "Haircut",
+      label: "Haircut",
       pathlight: "/assets/dark-catogories.svg",
       services: [
         {
@@ -89,10 +99,11 @@ const Services = () => {
       ],
     },
     {
+      slug: "facial",
       id: 2,
       pathdark: "/assets/dark-catogories-avatar.svg",
       active: false,
-      name: "Facial",
+      label: "Facial",
       bannerdesc: "Get glowing skin!",
       offerDesc: "Earn 5 care coins on each appointment",
       bannerimg: "/assets/makeup.svg",
@@ -110,13 +121,14 @@ const Services = () => {
       ],
     },
     {
+      slug: "others",
       id: 3,
       pathdark: "/assets/dark-catogories-avatar.svg",
       active: false,
       bannerimg: "/assets/others.svg",
       bannerdesc: "Get a glowing skin!",
       offerDesc: "Earn 5 care coins on each appointment",
-      name: "Others",
+      label: "Others",
       pathlight: "/assets/light-catogories-avatar.svg",
       services: [
         {
@@ -132,41 +144,56 @@ const Services = () => {
     },
   ];
 
+  const categoriesRef = useRef(null);
+
+  const scrollRefs = categories.reduce((acc, category) => {
+    acc[category.slug] = useRef(null);
+    return acc;
+  }, {});
+
+  const scrollToCategory = slug => {
+    if (scrollRefs[slug] && scrollRefs[slug].current) {
+      scrollRefs[slug].current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Wrapper rowGap="10px" column>
-      <Catogories>
-        {catogories.map(item => (
-          <CategoryTile key={item.id}>
-            {item.active ? (
-              <img src={item.pathdark} width="80px" height="80px" />
-            ) : (
-              <img src={item.pathlight} width="100px" height="100px" />
-            )}
+      <Categories ref={categoriesRef}>
+        {categories.map(item => (
+          <CategoryTile
+            key={item.id}
+            active={item.active}
+            onClick={() => scrollToCategory(item.slug)}
+          >
+            <img
+              src={item.active ? item.pathdark : item.pathlight}
+              alt={item.label}
+            />
             <Body2>{item.label}</Body2>
           </CategoryTile>
         ))}
-      </Catogories>
+      </Categories>
       <ServicesWrapper column>
-        {catogories?.map(category => {
-          return (
-            <>
-              <CatogoryBanner>
-                <img src={category?.bannerimg} />
-                <FlexBox column align="center">
-                  <Body2>{category?.bannerdesc}</Body2>
-                  <OfferBox>
-                    <Body2>{category?.offerDesc}</Body2>
-                  </OfferBox>
-                </FlexBox>
-              </CatogoryBanner>
-              {category?.services?.map(item => (
-                <ServiceCard key={item.id} clicked={clicked} item={item} />
-              ))}
-            </>
-          );
-        })}
+        {categories?.map(category => (
+          <div key={category?.slug} ref={scrollRefs[category?.slug]}>
+            <CategoryBanner>
+              <img src={category?.bannerimg} alt={category?.bannerdesc} />
+              <FlexBox column align="center">
+                <Body2>{category?.bannerdesc}</Body2>
+                <OfferBox>
+                  <Body2>{category?.offerDesc}</Body2>
+                </OfferBox>
+              </FlexBox>
+            </CategoryBanner>
+            {category?.services?.map(item => (
+              <ServiceCard key={item.id} clicked={clicked} item={item} />
+            ))}
+          </div>
+        ))}
       </ServicesWrapper>
     </Wrapper>
   );
 };
+
 export default Services;
