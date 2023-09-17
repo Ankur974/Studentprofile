@@ -18,7 +18,7 @@ const Tablist = styled.ul`
 
 const List = styled.li`
   background-color: ${props => (props.active ? ACCENT_800 : "inherit")};
-  width: ${props => props.tabWidth || "10rem"};
+  /* width: ${props => props.tabWidth || "10rem"}; */
   display: flex;
   align-items: center;
   justify-content: center;

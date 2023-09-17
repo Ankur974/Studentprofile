@@ -12,20 +12,28 @@ const Container = styled(FlexBox)`
   row-gap: 2rem;
 `;
 
+const Wrapper = styled(FlexBox)`
+  width: 100%;
+  max-width: 50rem;
+  margin: auto;
+`;
+
 const Tab = styled(FlexBox)``;
 
 const About = () => {
   return (
     <Container>
       <HeroBanner />
-      <Tabs>
-        <Tab title="Services">
-          <Services />
-        </Tab>
-        <Tab title="About">
-          <RealAbout />
-        </Tab>
-      </Tabs>
+      <Wrapper>
+        <Tabs>
+          <Tab title="Services">
+            <Services />
+          </Tab>
+          <Tab title="About">
+            <RealAbout />
+          </Tab>
+        </Tabs>
+      </Wrapper>
     </Container>
   );
 };
