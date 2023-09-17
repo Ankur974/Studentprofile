@@ -9,16 +9,24 @@ import Tabs from "../../components/common/ui/Tabs";
 const Container = styled(FlexBox)`
   flex-direction: column;
   width: 100%;
-  row-gap:2rem;
+  row-gap: 2rem;
 `;
+
+const Tab = styled(FlexBox)``;
 
 const About = () => {
   return (
     <Container>
       <HeroBanner />
-      <Tabs TabName1="Services" TabName2="About" children1={<Services />} children2={<RealAbout />} />
+      <Tabs>
+        <Tab title="Services">
+          <Services />
+        </Tab>
+        <Tab title="About">
+          <RealAbout />
+        </Tab>
+      </Tabs>
     </Container>
   );
 };
 export default About;
-

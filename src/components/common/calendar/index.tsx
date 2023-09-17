@@ -70,9 +70,7 @@
 
 // export default Calendar;
 import React, { useState } from "react";
-import DatePicker, {
-  registerLocale,
-} from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import enGB from "date-fns/locale/en-GB";
 
@@ -86,24 +84,21 @@ interface IDatePickerProps {
   maxDate?: Date;
   invalidMessage?: string;
   onChange: (date: Date | null) => void;
-
-  open?: boolean,
-  selected?: Date,
-  customInput?: any,
-  popperClassName?: string,
-  minDate?: Date,
-  maxDate?: Date,
-  maxTime?: string,
-  excludeDates?: Array<any>,
-  dateFormat?: string,
-  formatWeekDay?: any,
-  dayClassName?: string | null,
+  open?: boolean;
+  selected?: Date;
+  customInput?: any;
+  popperClassName?: string;
+  maxTime?: string;
+  excludeDates?: Array<any>;
+  dateFormat?: string;
+  formatWeekDay?: any;
+  dayClassName?: string | null;
 }
 
 class DatePickerSingleton {
   private static instance: DatePickerSingleton;
 
-  private constructor() { }
+  private constructor() {}
 
   static getInstance(): DatePickerSingleton {
     if (!DatePickerSingleton.instance) {
@@ -121,16 +116,9 @@ class DatePickerSingleton {
       onChange(date);
     };
 
-    return (
-      <DatePicker
-        selected={date}
-        onChange={handleChange}
-        {...rest}
-      />
-    );
+    // return <DatePicker selected={date} onChange={handleChange} {...rest} />;
+    return null;
   };
 }
 
 export default DatePickerSingleton.getInstance().getDatePicker;
-
-

@@ -1,68 +1,65 @@
 import React, { useState } from "react";
-import { ACCENT_0 } from "./colors";
 import styled from "styled-components";
-import { H2 } from "./Headings";
+import { ACCENT_0, ACCENT_800 } from "./colors";
+import { Body1 } from "./Headings";
 
-const Tabs = ({ TabName1, TabName2, children1, children2 }) => {
-    const [activeTab, setActiveTab] = useState(0);
+const Tablist = styled.ul`
+  width: ${props => props.tabWidth || "25rem"};
+  justify-content: ${props => props.tabJustify || "space-around"};
+  margin: auto;
+  align-items: center;
+  height: 4rem;
+  display: flex;
+  list-style: none;
+  column-gap: 2rem;
+  cursor: pointer;
+`;
 
-    const handleTabClick = index => {
-        setActiveTab(index);
-    };
-    const Tablist = styled.ul`
-    width: 25rem;
-    background-color: #f2f2f2;
-    justify-content: space-around;
-    margin: auto;
-    align-items: center;
-    height: 4rem;
-    display: flex;
-    list-style: none;
-    column-gap: 2rem;
-    cursor: pointer;
-  `;
-    const List = styled.li`
-    background-color: black;
-    width: 10rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.4rem;
-    border-radius: 2rem;
-  `;
-    return (
-        <div>
-            <Tablist>
-                {activeTab == 0 ? (
-                    <List onClick={() => handleTabClick(0)}>
-                        <H2 color={ACCENT_0}>{TabName1}</H2>
-                    </List>
-                ) : (
-                    <li onClick={() => handleTabClick(0)}>
-                        <H2>{TabName1}</H2>
-                    </li>
-                )}
+const List = styled.li`
+  background-color: ${props => (props.active ? ACCENT_800 : "inherit")};
+  width: ${props => props.tabWidth || "10rem"};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.4rem;
+  flex: 1;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+`;
 
-                {activeTab == 1 ? (
-                    <List onClick={() => handleTabClick(1)}>
-                        <H2 color={ACCENT_0}>{TabName2}</H2>
-                    </List>
-                ) : (
-                    <li
-                        className={`tab-item ${activeTab === 1 ? "active" : ""}`}
-                        onClick={() => handleTabClick(1)}
-                    >
-                        <H2>{TabName2}</H2>
-                    </li>
-                )}
-            </Tablist>
+const TabContent = styled.div`
+  transition: opacity 0.3s ease;
+`;
 
-            <div className="tab-content">
-                {activeTab === 0 && <div>{children1}</div>}
-                {activeTab === 1 && <div>{children2}</div>}
-            </div>
-        </div>
-    );
+const Tabs = ({ children }) => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabClick = index => {
+    setActiveTab(index);
+  };
+
+  return (
+    <div>
+      <Tablist tabJustify="space-around">
+        {React.Children.map(children, (child, index) => (
+          <List
+            key={index}
+            active={activeTab === index}
+            onClick={() => handleTabClick(index)}
+          >
+            <Body1 bold color={activeTab === index ? ACCENT_0 : ACCENT_800}>
+              {child.props.title}
+            </Body1>
+          </List>
+        ))}
+      </Tablist>
+
+      {React.Children.map(children, (child, index) => {
+        if (activeTab !== index) return null;
+        return <TabContent key={index}>{child.props.children}</TabContent>;
+      })}
+    </div>
+  );
 };
 
 export default Tabs;

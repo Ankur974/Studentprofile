@@ -11,8 +11,6 @@ import { Button } from "../../components/common/ui/Buttons";
 import styled from "styled-components";
 
 const Card = styled(FlexBox)`
-  border-radius: 5px;
-  padding-bottom: 20px;
   row-gap: 3px;
   justify-content: space-between;
   align-items: center;
@@ -21,9 +19,8 @@ const Card = styled(FlexBox)`
 
 const BorderBox = styled.div`
   width: 0.5rem;
-  height: 9.4rem;
+  height: 9.5rem;
   background-color: ${PRIMARY_800};
-  border-radius: 0.25rem;
 `;
 
 export const ServiceCard = props => {
