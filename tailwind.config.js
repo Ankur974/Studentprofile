@@ -1,11 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      sans: "Quicksand, sans-serif",
+      sans: "Poppins, sans-serif",
     },
     fontSize: {
       xs: "0.75rem",
@@ -111,7 +109,7 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};
 
 // /** @type {import('tailwindcss').Config} */
 // module.exports = {

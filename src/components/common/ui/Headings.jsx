@@ -3,7 +3,7 @@ import { ACCENT_800 } from "./colors";
 import { device } from "./Resposive";
 
 const commonStyles = css`
-  font-family: "Quicksand";
+  font-family: "Poppins";
   display: ${({ display }) => display || "initial"};
   opacity: ${({ opacity }) => opacity || 1};
   font-weight: ${({ bold }) => (bold ? 700 : 500)};
