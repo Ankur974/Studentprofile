@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import FlexBox from "../../components/common/ui/FlexBox";
+
+import FlexBox from "../common/ui/FlexBox";
 import Services from "./Services";
 import HeroBanner from "./Banner";
 import RealAbout from "./About";
-import Tabs from "../../components/common/ui/Tabs";
-import Footer from "../../components/common/ui/Footer";
+import Tabs from "../common/ui/Tabs";
 
 const Container = styled(FlexBox)`
   flex-direction: column;
@@ -17,11 +17,12 @@ const Wrapper = styled(FlexBox)`
   width: 100%;
   max-width: 50rem;
   margin: auto;
+  padding-inline: 1rem;
 `;
 
 const Tab = styled(FlexBox)``;
 
-const About = () => {
+const ShopDetailPage = () => {
   return (
     <Container>
       <HeroBanner />
@@ -35,8 +36,7 @@ const About = () => {
           </Tab>
         </Tabs>
       </Wrapper>
-      <Footer />
     </Container>
   );
 };
-export default About;
+export default ShopDetailPage;

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
 import { Loader } from "../../components/common/Loader";
 import NavBar from "../../components/common/NavBar";
 import Footer from "../../components/common/Footer";
 
 const HomePageLayout = ({
-  color,
   children,
-  footerNote,
-  footerColor,
   showMobileWhatsappIcon,
   showMobileCallIcon,
   navContainerStyles,
@@ -38,7 +36,7 @@ const HomePageLayout = ({
         />
       )}
       {children}
-      {/* {!hideFooter && <Footer />} */}
+      {!hideFooter && <Footer />}
     </>
   );
 };

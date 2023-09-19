@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { Body2 } from "../../components/common/ui/Headings";
-import FlexBox from "../../components/common/ui/FlexBox";
+import { Body2 } from "../common/ui/Headings";
+import FlexBox from "../common/ui/FlexBox";
 import { ServiceCard } from "./ServiceCard";
-import { PRIMARY_800 } from "../../components/common/ui/colors";
+import { PRIMARY_800 } from "../common/ui/colors";
 import { useQueryParam, StringParam } from "use-query-params";
 
 const Wrapper = styled(FlexBox)`

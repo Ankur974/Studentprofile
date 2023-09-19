@@ -1,9 +1,9 @@
 import React from "react";
-import { Body1, H1 } from "../../components/common/ui/Headings";
+import { Body1, H1 } from "../common/ui/Headings";
 import styled from "styled-components";
-import FlexBox from "../../components/common/ui/FlexBox";
+import FlexBox from "../common/ui/FlexBox";
 import { SlSymbleFemale } from "react-icons/sl";
-import { ACCENT_0 } from "../../components/common/ui/colors";
+import { ACCENT_0 } from "../common/ui/colors";
 import { AiFillStar } from "react-icons/ai";
 
 const Img = styled.img`

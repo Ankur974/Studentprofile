@@ -1,13 +1,9 @@
 import React from "react";
-import { Body2, H2, H3 } from "../../components/common/ui/Headings";
-import FlexBox from "../../components/common/ui/FlexBox";
-import {
-  ACCENT_0,
-  PRIMARY_800,
-  SECONDARY_800,
-} from "../../components/common/ui/colors";
+import { Body2, H2, H3 } from "../common/ui/Headings";
+import FlexBox from "../common/ui/FlexBox";
+import { ACCENT_0, PRIMARY_800, SECONDARY_800 } from "../common/ui/colors";
 import { SlClock, SlStar } from "react-icons/sl";
-import { Button } from "../../components/common/ui/Buttons";
+import { Button } from "../common/ui/Buttons";
 import styled from "styled-components";
 
 const Card = styled(FlexBox)`
