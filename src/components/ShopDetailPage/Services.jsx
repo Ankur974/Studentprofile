@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { useQueryParam, StringParam } from "use-query-params";
+
 import { Body2 } from "../common/ui/Headings";
 import FlexBox from "../common/ui/FlexBox";
-import { ServiceCard } from "./ServiceCard";
+import ServiceCard from "./ServiceCard";
 import { PRIMARY_800 } from "../common/ui/colors";
-import { useQueryParam, StringParam } from "use-query-params";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
 `;
 
 const Categories = styled(FlexBox)`
+  padding: 1rem;
   column-gap: 1rem;
   overflow-x: scroll;
   width: 100%;
   max-width: 50rem;
   margin: auto;
-
   position: sticky;
-  top: 0;
+  top: 3.25rem;
   background-color: white;
   z-index: 1;
 `;
@@ -29,10 +30,19 @@ const CategoryTile = styled(FlexBox)`
   cursor: pointer;
 
   img {
-    width: ${props => (props.active ? "100px" : "80px")};
-    height: ${props => (props.active ? "100px" : "80px")};
-    border: ${props => (props.active ? `1.5px solid ${PRIMARY_800}` : "none")};
-    border-radius:3.125rem;
+    width: 100%;
+    height: 100%;
+    max-width: 6.5rem;
+    aspect-ratio: 1;
+    border-radius: 3rem;
+    transition: all 300ms ease-in-out;
+
+    ${({ active }) =>
+      active &&
+      css`
+        max-width: 7rem;
+        border: 1px solid ${PRIMARY_800};
+      `}
   }
 `;
 
@@ -49,8 +59,7 @@ const CategoryBanner = styled(FlexBox)`
 const OfferBox = styled(FlexBox)`
   background-color: ${PRIMARY_800};
   border-radius: 1.25rem;
-  width:15rem;
-  
+  width: 15rem;
 `;
 
 const ServicesWrapper = styled(FlexBox)`
@@ -66,7 +75,6 @@ const Services = () => {
     "active",
     StringParam
   );
-
 
   const categories = [
     {
@@ -171,13 +179,7 @@ const Services = () => {
             active={item.slug === activeCategory}
             onClick={() => setActiveCategory(item.slug)}
           >
-            <FlexBox columnGap="7rem">
-              <img
-                src={item.pathdark}
-                alt={item.label}
-              />
-            </FlexBox>
-
+            <img src={item.pathdark} alt={item.label} />
             <Body2>{item.label}</Body2>
           </CategoryTile>
         ))}
@@ -194,8 +196,13 @@ const Services = () => {
                 </OfferBox>
               </FlexBox>
             </CategoryBanner>
-            {category?.services?.map(item => (
-              <ServiceCard key={item.id} clicked={clicked} item={item} />
+            {category?.services?.map((item, index) => (
+              <ServiceCard
+                key={item.id}
+                clicked={clicked}
+                item={item}
+                lastItem={category?.services?.length === index + 1}
+              />
             ))}
           </div>
         ))}
