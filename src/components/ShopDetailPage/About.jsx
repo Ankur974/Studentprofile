@@ -1,5 +1,5 @@
 import React from "react";
-import { Body2, H2 } from "../common/ui/Headings";
+import { Body2, H2, H3, H6 } from "../common/ui/Headings";
 import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 import Chip from "../common/ui/Chips";
@@ -58,12 +58,12 @@ const RealAbout = () => {
 
   return (
     <Wrapper column>
-      <Body2>
+      <H6>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa iste
         dignissimos voluptates at corporis, aut doloremque vel perferendis,
         repellendus quae corrupti dolores pariatur, consequatur facilis rem quos
         deserunt commodi. A ratione necessitatibus ea excepturi porro.
-      </Body2>
+      </H6>
       <FlexBox columnGap="1.5rem">
         {aminities.map(item => (
           <Chip key={item.id} width="7.3rem">
@@ -75,7 +75,7 @@ const RealAbout = () => {
       <H2 bold>Timimgs</H2>
       <FlexBox align="center" columnGap="0.4rem">
         <GiCircle color="green" background-color="green" />
-        <Body2>Open today at 9am - 7pm</Body2>
+        <H6>Open today at 9am - 7pm</H6>
         <RiArrowDownSLine width="2rem" height="2rem" />
       </FlexBox>
       <H2 bold>Ratings</H2>
@@ -87,25 +87,25 @@ const RealAbout = () => {
         column
         height="9.375rem"
       >
-        <H2>4.2</H2>
+        <H3>4.2</H3>
         <Ratings />
-        <Body2>20 visitor Ratings</Body2>
+        <H6>20 visitor Ratings</H6>
       </FlexBox>
       <H2 bold>Reviews(20)</H2>
-      <FlexBox column>
+      <FlexBox column rowGap="1rem">
         {reviews.map(item => (
           <FlexBox column key={item.id}>
             <FlexBox row justify="space-between">
               <FlexBox columnGap="0.5rem">
                 <img src={item.path} />
                 <FlexBox column>
-                  <H2 bold>{item.name}</H2>
-                  <Body2>{item.date}</Body2>
+                  <H3 bold>{item.name}</H3>
+                  <H6>{item.date}</H6>
                 </FlexBox>
               </FlexBox>
               <Ratings />
             </FlexBox>
-            <Body2>{item.review}</Body2>
+            <H6>{item.review}</H6>
           </FlexBox>
         ))}
       </FlexBox>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Body2 } from "../common/ui/Headings";
 import FlexBox from "../common/ui/FlexBox";
@@ -29,8 +29,10 @@ const CategoryTile = styled(FlexBox)`
   cursor: pointer;
 
   img {
-    width: ${props => (props.active ? "80px" : "100px")};
-    height: ${props => (props.active ? "80px" : "100px")};
+    width: ${props => (props.active ? "100px" : "80px")};
+    height: ${props => (props.active ? "100px" : "80px")};
+    border: ${props => (props.active ? `1.5px solid ${PRIMARY_800}` : "none")};
+    border-radius:3.125rem;
   }
 `;
 
@@ -47,6 +49,8 @@ const CategoryBanner = styled(FlexBox)`
 const OfferBox = styled(FlexBox)`
   background-color: ${PRIMARY_800};
   border-radius: 1.25rem;
+  width:15rem;
+  
 `;
 
 const ServicesWrapper = styled(FlexBox)`
@@ -62,6 +66,7 @@ const Services = () => {
     "active",
     StringParam
   );
+
 
   const categories = [
     {
@@ -158,7 +163,7 @@ const Services = () => {
   }, [activeCategory]);
 
   return (
-    <Wrapper rowGap="10px" column>
+    <Wrapper rowGap="10px" column columnGap="3rem">
       <Categories>
         {categories.map(item => (
           <CategoryTile
@@ -166,10 +171,13 @@ const Services = () => {
             active={item.slug === activeCategory}
             onClick={() => setActiveCategory(item.slug)}
           >
-            <img
-              src={item.active ? item.pathdark : item.pathlight}
-              alt={item.label}
-            />
+            <FlexBox columnGap="7rem">
+              <img
+                src={item.pathdark}
+                alt={item.label}
+              />
+            </FlexBox>
+
             <Body2>{item.label}</Body2>
           </CategoryTile>
         ))}
@@ -182,7 +190,7 @@ const Services = () => {
               <FlexBox column align="center">
                 <Body2>{category?.bannerdesc}</Body2>
                 <OfferBox>
-                  <Body2>{category?.offerDesc}</Body2>
+                  <Body2 textAlign="center">{category?.offerDesc}</Body2>
                 </OfferBox>
               </FlexBox>
             </CategoryBanner>
