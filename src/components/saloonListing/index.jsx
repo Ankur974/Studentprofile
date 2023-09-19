@@ -8,6 +8,43 @@ import { ACCENT_500, PRIMARY_200 } from "../common/ui/colors";
 import Approach from "../common/ApproachFaq";
 import Chip from "../common/ui/Chips";
 import FilterModal from "./FilterModal";
+import Navbar from "../common/ui/Navbar";
+import { device } from "../common/ui/Resposive";
+
+const metadata = [
+  {
+    id: 1,
+    title: "Haircut For Man",
+  },
+  {
+    id: 2,
+    title: "Haircut For Woman",
+  },
+  {
+    id: 3,
+    title: "Makeup",
+  },
+  {
+    id: 4,
+    title: "Nails",
+  },
+  {
+    id: 5,
+    title: "Mainicure & Pedicure",
+  },
+  {
+    id: 6,
+    title: "Message Therapy",
+  },
+  {
+    id: 7,
+    title: "Hair Styling",
+  },
+  {
+    id: 8,
+    title: "Hair Coloring",
+  },
+];
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -38,6 +75,32 @@ const VR = styled.div`
   background-color: ${ACCENT_500};
 `;
 
+const Showappliedfilter = styled(FlexBox)`
+  flex-direction: row;
+  column-gap: 0.2rem;
+  width: fit-content;
+  align-self: end;
+
+  @media ${device.laptop} {
+    flex-direction: row;
+    column-gap: 1rem;
+  }
+`;
+
+const Filtercontainer = styled(FlexBox)`
+  flex-direction: column;
+  ${'' /* justify-content: space-between; */}
+  align-item:center;
+  margin: auto;
+  
+  @media ${device.laptop} {
+    width:100%;
+    flex-direction: row;
+    justify-content:space-between;
+  }
+
+`;
+
 export default function Listing() {
   const [showFilter, setShowFilter] = useState(false);
 
@@ -46,21 +109,21 @@ export default function Listing() {
   return (
     <div>
       {showFilter && <FilterModal toggleModal={toggleModal} />}
+      <Navbar navitem={metadata} />
       <Banner>
         <Display bold>Everything feels better after a Haircut</Display>
       </Banner>
       <Wrapper>
-        <FlexBox></FlexBox>
-        <FlexBox justify="space-between">
+        <Filtercontainer>
           <H3 bold>4 Haircut Results in your location</H3>
-          <FlexBox columnGap="1rem">
+          <Showappliedfilter>
             <Chip>Haircut</Chip>
             <Chip>Haircut</Chip>
             <Chip>Haircut</Chip>
             <VR />
             <Filter onClick={toggleModal} />
-          </FlexBox>
-        </FlexBox>
+          </Showappliedfilter>
+        </Filtercontainer>
         <ListWrapper>
           {Arr.map(index => (
             <Card key={index} />
