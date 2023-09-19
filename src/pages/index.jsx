@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Listing from "../components/saloonListing";
+import ShopListingPage from "../components/ShopListingPage";
 import HomePageLayout from "../layout/client/HomePageLayout";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <main>
         <HomePageLayout>
-          <Listing />
+          <ShopListingPage />
         </HomePageLayout>
       </main>
     </>

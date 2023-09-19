@@ -89,19 +89,17 @@ const Showappliedfilter = styled(FlexBox)`
 
 const Filtercontainer = styled(FlexBox)`
   flex-direction: column;
-  ${'' /* justify-content: space-between; */}
-  align-item:center;
+  align-items: center;
   margin: auto;
-  
-  @media ${device.laptop} {
-    width:100%;
-    flex-direction: row;
-    justify-content:space-between;
-  }
 
+  @media ${device.laptop} {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
-export default function Listing() {
+const ShopListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
 
   const toggleModal = () => setShowFilter(!showFilter);
@@ -134,4 +132,6 @@ export default function Listing() {
       </Wrapper>
     </div>
   );
-}
+};
+
+export default ShopListingPage;
