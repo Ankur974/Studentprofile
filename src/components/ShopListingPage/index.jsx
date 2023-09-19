@@ -8,7 +8,7 @@ import { ACCENT_500, PRIMARY_200 } from "../common/ui/colors";
 import Approach from "../common/ApproachFaq";
 import Chip from "../common/ui/Chips";
 import FilterModal from "./FilterModal";
-import Navbar from "../common/ui/Navbar";
+import SecondaryNav from "./SecondaryNav";
 import { device } from "../common/ui/Resposive";
 
 const metadata = [
@@ -107,7 +107,7 @@ const ShopListingPage = () => {
   return (
     <div>
       {showFilter && <FilterModal toggleModal={toggleModal} />}
-      <Navbar navitem={metadata} />
+      <SecondaryNav navitem={metadata} />
       <Banner>
         <Display bold>Everything feels better after a Haircut</Display>
       </Banner>

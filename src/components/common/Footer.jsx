@@ -1,6 +1,6 @@
 import React from "react";
 import FlexBox from "./ui/FlexBox";
-import { H6, H2, Body1 } from "./ui/Headings";
+import { H6, Body1, Body2 } from "./ui/Headings";
 import styled from "styled-components";
 import { ACCENT_0, PRIMARY_800, SECONDARY_800 } from "./ui/colors";
 import { device } from "./ui/Resposive";
@@ -21,7 +21,6 @@ const Footer = () => {
     flex-direction: column;
     height: 35rem;
     width: 100%;
-    /* gap:10px; */
     @media ${device.laptop} {
       align-items: center;
       flex-direction: row;
@@ -45,22 +44,30 @@ const Footer = () => {
     justify-content: center;
     align-items: center;
   `;
-  const Heading = styled(H2)`
+  const Heading = styled(Body1)`
     font-weight: bold;
     color: ${ACCENT_0};
   `;
-  const BodyLite = styled(H6)`
+  const Item = styled(Body2)`
     cursor: pointer;
     width: fit-content;
     color: ${ACCENT_0};
     font-weight: bold;
   `;
+
+  const buttonsData = [
+    { name: "Home", onClick: () => console.log("Home clicked") },
+    { name: "Services", onClick: () => console.log("Services clicked") },
+    { name: "About Us", onClick: () => console.log("About Us clicked") },
+    { name: "Contact", onClick: () => console.log("Contact clicked") },
+  ];
+
   return (
     <Container>
       <ContentContainer>
         <Content>
           <Heading>Header</Heading>
-          <Body1 color={ACCENT_0}>
+          <Body1 color={ACCENT_0} textAlign="center">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Consequatur aliquid quod velit ut ab itaque aperiam voluptatem amet
             temporibus asperiores alias pariatur magnam voluptate qui fugit
@@ -68,33 +75,26 @@ const Footer = () => {
           </Body1>
         </Content>
         <Content>
-          <Heading>Header Text</Heading>
-          <BodyLite
-            cursor="pointer"
-            bold
-            onClick={() => console.log("I am clicked")}
-            color={ACCENT_0}
-          >
-            Buttons
-          </BodyLite>
-          <BodyLite onClick={() => console.log("I am clicked")}>
-            Buttons
-          </BodyLite>
-          <BodyLite onClick={() => console.log("I am clicked")}>
-            Buttons
-          </BodyLite>
+          <Heading>Navigation</Heading>
+          {buttonsData.map((button, index) => (
+            <Item
+              key={index}
+              cursor="pointer"
+              bold
+              onClick={button.onClick}
+              color={ACCENT_0}
+            >
+              {button.name}
+            </Item>
+          ))}
         </Content>
         <Content>
-          <Heading>Header Text</Heading>
-          <BodyLite onClick={() => console.log("I am clicked")}>
-            Buttons
-          </BodyLite>
-          <BodyLite onClick={() => console.log("I am clicked")}>
-            Buttons
-          </BodyLite>
-          <BodyLite onClick={() => console.log("I am clicked")}>
-            Buttons
-          </BodyLite>
+          <Heading>Additional Links</Heading>
+          {buttonsData.map((button, index) => (
+            <Item key={index} onClick={button.onClick}>
+              {button.name}
+            </Item>
+          ))}
         </Content>
       </ContentContainer>
       <CopyRightContainer>

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
-import { WHITE, BLACK, PRIMARY_800 } from "./ui/colors";
+import { BLACK, PRIMARY_800 } from "./ui/colors";
 // import NavLinks from "@components/NavBar/NavLinks";
 import FlexBox from "./ui/FlexBox";
+import { device } from "./ui/Resposive";
 
 const FallBack = styled.div`
   display: none;
@@ -21,16 +22,15 @@ const FallBack = styled.div`
 `;
 
 const NavContainer = styled(FlexBox)`
-  padding: 0.5rem 0;
+  padding-block: 0.25rem;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 100;
-  background: ${WHITE};
   background-color: ${PRIMARY_800};
 
-  @media (max-width: 768px) {
-    height: 1.5rem;
+  @media ${device.laptop} {
+    padding: 0.5rem 0;
   }
 
   ${({ navContainerStyles }) =>
