@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { ACCENT_100 } from "./colors";
 import useOutsideAlert from "../../../hooks/useOutsideAlert";
 import { boxShadowDs2 } from "./styles";
+import { device } from "./Resposive";
 
 const Container = styled.div`
   position: fixed;
@@ -54,46 +55,65 @@ const Content = styled.div`
   ${({ XS }) =>
     XS &&
     css`
-      width: ${props => props.width || "30vw"};
+      width: ${props => props.width || "90vw"};
       height: ${props => props.height || "60vh"};
-      max-width: ${props => props.maxWidth || "30rem"};
       max-height: ${props => props.maxHeight || "30rem"};
+
+      @media ${device.laptop} {
+        width: ${props => props.width || "30vw"};
+        max-width: ${props => props.maxWidth || "30rem"};
+      }
     `}
 
   ${({ S }) =>
     S &&
     css`
-      width: ${props => props.width || "40vw"};
+      width: ${props => props.width || "90vw"};
       height: ${props => props.height || "80vh"};
-      max-width: ${props => props.maxWidth || "40rem"};
       max-height: ${props => props.maxHeight || "40rem"};
+
+      @media ${device.laptop} {
+        width: ${props => props.width || "40vw"};
+        max-width: ${props => props.maxWidth || "40rem"};
+      }
     `}
 
   ${({ M1 }) =>
     M1 &&
     css`
-      width: ${props => props.width || "50vw"};
+      width: ${props => props.width || "90vw"};
       height: ${props => props.height || "80vh"};
-      max-width: ${props => props.maxWidth || "45rem"};
       max-height: ${props => props.maxHeight || "45rem"};
+
+      @media ${device.laptop} {
+        width: ${props => props.width || "50vw"};
+        max-width: ${props => props.maxWidth || "45rem"};
+      }
     `}
 
   ${({ M2 }) =>
     M2 &&
     css`
-      width: ${props => props.width || "50vw"};
+      width: ${props => props.width || "90vw"};
       height: ${props => props.height || "100vh"};
-      max-width: ${props => props.maxWidth || "45rem"};
       max-height: ${props => props.maxHeight || "100vh"};
+
+      @media ${device.laptop} {
+        width: ${props => props.width || "50vw"};
+        max-width: ${props => props.maxWidth || "45rem"};
+      }
     `}
 
   ${({ L }) =>
     L &&
     css`
-      width: ${props => props.width || "75vw"};
       height: ${props => props.height || "100vh"};
-      max-width: ${props => props.maxWidth || "67.5rem"};
       max-height: ${props => props.maxHeight || "100vh"};
+
+      @media ${device.laptop} {
+        width: ${props => props.width || "75vw"};
+        max-width: ${props => props.maxWidth || "67.5rem"};
+      }
     `}
 `;
 
