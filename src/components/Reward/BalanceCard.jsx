@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Body2, H3 } from "../common/ui/Headings";
 import { BiRightArrowAlt } from "react-icons/bi";
 
-export const BalanceContainer = ({ showArrow = false, content }) => {
+export const BalanceCard = ({ showArrow = false, content }) => {
   const Wrapper = styled(FlexBox)`
     background-color: ${ACCENT_100};
     padding: 1rem;

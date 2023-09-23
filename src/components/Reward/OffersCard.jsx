@@ -28,7 +28,7 @@ const CoinsRewardBox = styled(FlexBox)`
   align-items: center;
 `;
 
-export const OfferCard = ({ data }) => {
+export const OffersCard = ({ data }) => {
   const { imgsrc, title, content, coins, backgroundColor } = data || {};
 
   return (

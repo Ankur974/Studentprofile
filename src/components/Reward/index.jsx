@@ -2,9 +2,9 @@ import React from "react";
 import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
 import { PRIMARY_900, SECONDARY_100 } from "../common/ui/colors";
-import { RewardBanner } from "./RewardBanner";
-import { OfferCard } from "./OfferCard";
-import { BalanceContainer } from "./BalanceContainer";
+import { RewardsBanner } from "./RewardsBanner";
+import { OffersCard } from "./OffersCard";
+import { BalanceCard } from "./BalanceCard";
 
 const dummyData = [
   {
@@ -69,15 +69,15 @@ const RewardPage = () => {
   return (
     <Wrapper column>
       <FlexBox position="relative" top="0">
-        <RewardBanner />
+        <RewardsBanner />
         <CoinsContainer>
-          <BalanceContainer showArrow />
+          <BalanceCard showArrow />
         </CoinsContainer>
       </FlexBox>
       <OfferContainer>
         {dummyData.map(item => (
           <CardWrapper key={item.id}>
-            <OfferCard data={item} />
+            <OffersCard data={item} />
           </CardWrapper>
         ))}
       </OfferContainer>
