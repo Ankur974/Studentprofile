@@ -46,3 +46,5 @@ export const chipSelectedbg = "rgba(83; 58; 113; 0.1)";
 export const RATEBACKGROUND = "#00000066";
 export const STARCOLOR = "#FFC107";
 export const Tabcolor = "#F2F2F2";
+
+export const LOSS="#D900000D";

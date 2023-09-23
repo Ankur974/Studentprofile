@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 import FlexBox from "../common/ui/FlexBox";
 import Filter from "../common/ui/Filter";
 import Card from "./Card";
@@ -53,6 +54,11 @@ const Wrapper = styled(FlexBox)`
   margin: auto;
   gap: 1.5rem;
   padding-block: 2rem;
+  padding-inline: 1rem;
+
+  @media ${device.laptop} {
+    padding-inline: 0;
+  }
 `;
 
 const ListWrapper = styled(FlexBox)`
@@ -99,6 +105,13 @@ const Filtercontainer = styled(FlexBox)`
   }
 `;
 
+const Toptitle = styled(FlexBox)`
+  max-width: 75rem;
+  padding: 0 2rem;
+  align-items: center;
+  justify-content: center;
+`;
+
 const ShopListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
 
@@ -109,7 +122,9 @@ const ShopListingPage = () => {
       {showFilter && <FilterModal toggleModal={toggleModal} />}
       <SecondaryNav navitem={metadata} />
       <Banner>
-        <Display bold>Everything feels better after a Haircut</Display>
+        <Toptitle>
+          <Display bold>Everything feels better after a Haircut</Display>
+        </Toptitle>
       </Banner>
       <Wrapper>
         <Filtercontainer>

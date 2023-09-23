@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
-import { H2, H5 } from "../common/ui/Headings";
+import { H3, H5 } from "../common/ui/Headings";
 import { Body2 } from "../common/ui/Headings";
 import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
 import {
@@ -19,7 +19,7 @@ import { BsFillHeartFill } from "react-icons/bs";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
-  padding: 0 0 0.3rem 0;
+  padding: 0 0 1rem 0;
   width: 100%;
   border-radius: 0.625rem;
   max-width: 23.75rem;
@@ -83,7 +83,7 @@ const OfferBanner = styled(FlexBox)`
   position: absolute;
   bottom: -0.9rem;
   align-items: center;
-  width: 80%;
+  width: 90%;
   column-gap: 0.5rem;
   background-color: ${PRIMARY_800};
   border-radius: 0.25rem;
@@ -114,7 +114,7 @@ const Card = () => {
     <Wrapper column>
       <Banner column>
         <Img src="/assets/banner-new.svg" alt="Card1" />
-        <ActionWrapper columnGap="13rem" align="center">
+        <ActionWrapper justify="space-between" align="center">
           <FlexBox
             borderRadius="0.25rem"
             width="4rem"
@@ -143,8 +143,8 @@ const Card = () => {
       </Banner>
 
       <FlexBox column rowGap="0.25rem" padding="0 1rem">
-        <FlexBox justify="space-between" padding="1rem 0 0 0">
-          <H2 bold>Gigi's Salon</H2>
+        <FlexBox justify="space-between" padding={dummydata?"1rem 0 0 0":"0"}>
+          <H3 bold>Gigi's Salon</H3>
           <FlexBox onClick={handleClick} cursor="pointer">
             {selected ? (
               <BsFillHeartFill size="1.25rem" color={PRIMARY_800} />
@@ -165,7 +165,7 @@ const Card = () => {
           </FlexBox>
         </FlexBox>
 
-        <H2 bold>Price starting at 300/-</H2>
+        <H5 bold>Price starting at 300/-</H5>
 
         <AminitiesWrapper>
           {aminities.map(item => (
