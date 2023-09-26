@@ -26,6 +26,7 @@ const CoinsRewardBox = styled(FlexBox)`
   color: white;
   justify-content: flex-end;
   align-items: center;
+  cursor:pointer;
 `;
 
 export const OffersCard = ({ data }) => {
@@ -45,7 +46,7 @@ export const OffersCard = ({ data }) => {
           <CoinsRewardBox row>
             <img src="/assets/coin.svg" alt="coin" width="27rem" />
             {coins}
-            <BsArrowRightShort color="white" size="1.5rem" />
+            <BsArrowRightShort color="white" size="1.5rem" onClick={() => alert("offer applied")}/>
           </CoinsRewardBox>
         </FlexBox>
       )}

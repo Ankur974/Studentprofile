@@ -114,7 +114,10 @@ const CoinHistory = () => {
           <Passbook row>
             <FlexBox column>
               <H3 bold>{item.name}</H3>
-              <Body2>{dayjs(item.time).format("DD/MM/YYYY")}</Body2>
+              <Body2>
+                {dayjs(item.time).format("DD/MM/YYYY")} at{" "}
+                {dayjs(item.time).format("h:mm A")}
+              </Body2>
             </FlexBox>
             <FlexBox>
               {item.credit ? (

@@ -26,7 +26,9 @@ export const BalanceCard = ({ showArrow = false, content }) => {
           <H3 bold> 100</H3>
         </FlexBox>
       </FlexBox>
-      {showArrow && <BiRightArrowAlt size="1.4rem" />}
+      {showArrow && (
+        <BiRightArrowAlt size="1.4rem" onClick={() => alert("100 balance")} cursor="pointer"/>
+      )}
     </Wrapper>
   );
 };

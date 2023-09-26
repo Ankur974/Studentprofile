@@ -48,3 +48,4 @@ export const STARCOLOR = "#FFC107";
 export const Tabcolor = "#F2F2F2";
 
 export const LOSS="#D900000D";
+export const BABERBACKGROUND="#000000";
