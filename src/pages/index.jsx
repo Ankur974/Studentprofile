@@ -1,8 +1,8 @@
 import Head from "next/head";
-import ShopListingPage from "../components/ShopListingPage";
 import HomePageLayout from "../layout/client/HomePageLayout";
+import Home from "../components/Home";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <main>
         <HomePageLayout>
-          <ShopListingPage />
+          <Home />
         </HomePageLayout>
       </main>
     </>
