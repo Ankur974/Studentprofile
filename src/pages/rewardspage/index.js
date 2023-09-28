@@ -1,11 +1,11 @@
 import React from "react";
-import Rewardspage from "../../components/Reward";
+import Rewardpage from "../../components/Reward";
 import CoinHistory from "../../components/Reward/CoinHistory";
 
 const Rewards = () => {
   return (
     <>
-      <Rewardspage />
+      <Rewardpage />
       {/* <CoinHistory/> */}
     </>
   );

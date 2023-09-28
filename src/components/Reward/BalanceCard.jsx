@@ -4,17 +4,20 @@ import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
 import { Body2, H3 } from "../common/ui/Headings";
 import { BiRightArrowAlt } from "react-icons/bi";
+import { useRouter } from "next/router";
 
 export const BalanceCard = ({ showArrow = false, content }) => {
+  const router = useRouter();
   const Wrapper = styled(FlexBox)`
     background-color: ${ACCENT_100};
     padding: 1rem;
-    align-items: flex-start;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.11);
     border-radius: 0.5rem;
     row-gap: 0.5rem;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
+    max-width: 75rem;
   `;
 
   return (
@@ -27,7 +30,11 @@ export const BalanceCard = ({ showArrow = false, content }) => {
         </FlexBox>
       </FlexBox>
       {showArrow && (
-        <BiRightArrowAlt size="1.4rem" onClick={() => alert("100 balance")} cursor="pointer"/>
+        <BiRightArrowAlt
+          size="1.4rem"
+          onClick={() => router.push("/shop-listing")}
+          cursor="pointer"
+        />
       )}
     </Wrapper>
   );

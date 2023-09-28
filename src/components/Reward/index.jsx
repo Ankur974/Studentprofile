@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from "next/router";
 import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
 import { ACCENT_100, PRIMARY_900, SECONDARY_100 } from "../common/ui/colors";
@@ -9,6 +10,7 @@ import { RedemptionCard } from "./RedemptionCard";
 import { device } from "../common/ui/Resposive";
 import { H2 } from "../common/ui/Headings";
 import { BarbarBanner } from "./BarbarBanner";
+import ReferModal from "./ReferModal";
 
 const dummyData = [
   {
@@ -130,15 +132,27 @@ const Wrapper = styled(FlexBox)`
   background-color: ${PRIMARY_900};
   height: 100%;
   width: 100%;
+
+  @media ${device.laptop} {
+    max-width: 73rem;
+    margin: auto;
+  }
 `;
 
 const CoinsContainer = styled(FlexBox)`
   width: calc(100% - 2rem);
+  justify-content: center;
+  margin: auto;
+  left: 1rem;
   position: absolute;
   bottom: -3rem;
-  left: 1rem;
+
   border-radius: 0.5rem;
-  box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.11);
+
+  @media ${device.laptop} {
+    left: none;
+    width: 100%;
+  }
 `;
 
 const Container = styled(FlexBox)`
@@ -149,13 +163,15 @@ const Container = styled(FlexBox)`
 
   @media ${device.laptop} {
     padding: 6rem 0rem 0 0rem;
+    border-radius: 0;
     justify-content: space-around;
   }
 `;
 
 const FlexScroll = styled(FlexBox)`
   column-gap: 1rem;
-  padding-left: 1rem;
+  padding: 0 2rem 0 2rem;
+  margin: 0 -1rem 0 -1rem;
   width: 100%;
   max-width: 75rem;
   overflow-x: scroll;
@@ -179,11 +195,10 @@ const CardWrapper = styled(FlexBox)`
 `;
 
 const RedeemBox = styled(FlexBox)`
-  padding: 1rem;
+  padding: 1rem 0 0 1rem;
 `;
 const RedemptionCardContainer = styled(FlexBox)`
   width: 100%;
-  padding: 2rem 1rem 0 1rem;
 
   @media ${device.laptop} {
     justify-content: space-around;
@@ -191,26 +206,29 @@ const RedemptionCardContainer = styled(FlexBox)`
 `;
 
 const RewardPage = () => {
+  const router = useRouter();
   return (
-    <Wrapper column>
+    <>
       <FlexBox position="relative" top="0">
         <RewardsBanner />
         <CoinsContainer>
           <BalanceCard showArrow />
         </CoinsContainer>
       </FlexBox>
-      <Container column>
-        <RedemptionCardContainer>
-          <FlexScroll>
-            {dummyData.map(item => (
-              <CardWrapper key={item.id}>
-                <OffersCard data={item} />
-              </CardWrapper>
-            ))}
-          </FlexScroll>
-        </RedemptionCardContainer>
-        <RedeemBox column>
-          <H2>Reedemption Offers</H2>
+      <Wrapper column>
+        <Container column>
+          <RedemptionCardContainer>
+            <FlexScroll>
+              {dummyData.map(item => (
+                <CardWrapper key={item.id}>
+                  <OffersCard data={item} />
+                </CardWrapper>
+              ))}
+            </FlexScroll>
+          </RedemptionCardContainer>
+          <RedeemBox>
+            <H2>Reedemption Offers</H2>
+          </RedeemBox>
           <RedemptionCardContainer>
             <FlexScroll>
               {redeemData.map(item => (
@@ -220,10 +238,11 @@ const RewardPage = () => {
               ))}
             </FlexScroll>
           </RedemptionCardContainer>
-        </RedeemBox>
-        <BarbarBanner />
-      </Container>
-    </Wrapper>
+          <BarbarBanner />
+        </Container>
+        <ReferModal />
+      </Wrapper>
+    </>
   );
 };
 
