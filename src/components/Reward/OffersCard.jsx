@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { TfiArrowRight } from "react-icons/tfi";
+
 import FlexBox from "../common/ui/FlexBox";
 import { Body2, H3 } from "../common/ui/Headings";
-import { PRIMARY_900 } from "../common/ui/colors";
-import { BsArrowRightShort } from "react-icons/bs";
+import { ACCENT_0, PRIMARY_900 } from "../common/ui/colors";
+import ReferModal from "./ReferModal";
 
 const Wrapper = styled(FlexBox)`
   border-radius: 1rem;
@@ -26,11 +28,15 @@ const CoinsRewardBox = styled(FlexBox)`
   color: white;
   justify-content: flex-end;
   align-items: center;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 export const OffersCard = ({ data }) => {
-  const { imgsrc, title, content, coins, backgroundColor } = data || {};
+  const { imgsrc, title, content, coins, backgroundColor, action } = data || {};
+
+  const [showModal, setModal] = useState(false);
+
+  const toggleModal = () => setModal(prevValue => !prevValue);
 
   return (
     <Wrapper backgroundColor={backgroundColor}>
@@ -42,14 +48,15 @@ export const OffersCard = ({ data }) => {
         {content && <Body2>{content}</Body2>}
       </DetailsWrapper>
       {!!coins && (
-        <FlexBox justify="end">
+        <FlexBox justify="end" onClick={toggleModal}>
           <CoinsRewardBox row>
             <img src="/assets/coin.svg" alt="coin" width="27rem" />
             {coins}
-            <BsArrowRightShort color="white" size="1.5rem" onClick={() => alert("offer applied")}/>
+            <TfiArrowRight color={ACCENT_0} strokeWidth={1} />
           </CoinsRewardBox>
         </FlexBox>
       )}
+      {showModal && <ReferModal toggleModal={toggleModal} />}
     </Wrapper>
   );
 };

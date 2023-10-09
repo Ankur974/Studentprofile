@@ -36,7 +36,7 @@ export const Button = styled.button`
   line-height: 1.25rem;
   min-width: ${({ width }) => !width && "7rem"};
   width: ${({ width }) => (width ? width : "fit-content")};
-  font-family: "Poppins";
+  font-family: Poppins;
   font-size: 0.875rem;
   font-weight: 700;
   border-radius: 0.625rem;

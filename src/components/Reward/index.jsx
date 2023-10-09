@@ -1,7 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
-import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
+
+import FlexBox from "../common/ui/FlexBox";
 import { ACCENT_100, PRIMARY_900, SECONDARY_100 } from "../common/ui/colors";
 import { RewardsBanner } from "./RewardsBanner";
 import { OffersCard } from "./OffersCard";
@@ -11,6 +12,7 @@ import { device } from "../common/ui/Resposive";
 import { H2 } from "../common/ui/Headings";
 import { BarbarBanner } from "./BarbarBanner";
 import ReferModal from "./ReferModal";
+import { OfferCard2Card } from "./OfferCard2";
 
 const dummyData = [
   {
@@ -21,6 +23,7 @@ const dummyData = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
     coins: 5,
     backgroundColor: "pink",
+    action: "",
   },
   {
     id: 2,
@@ -30,6 +33,7 @@ const dummyData = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
     coins: 5,
     backgroundColor: SECONDARY_100,
+    action: "",
   },
   {
     id: 3,
@@ -39,6 +43,7 @@ const dummyData = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
     coins: 5,
     backgroundColor: "pink",
+    action: "",
   },
   {
     id: 1,
@@ -48,6 +53,7 @@ const dummyData = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
     coins: 5,
     backgroundColor: "pink",
+    action: "",
   },
   {
     id: 2,
@@ -57,6 +63,7 @@ const dummyData = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
     coins: 5,
     backgroundColor: SECONDARY_100,
+    action: "",
   },
   {
     id: 3,
@@ -66,6 +73,7 @@ const dummyData = [
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
     coins: 5,
     backgroundColor: "pink",
+    action: "",
   },
 ];
 
@@ -125,6 +133,17 @@ const redeemData = [
     imgsrc: "/assets/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+  },
+];
+
+const offerCard2data = [
+  {
+    id: 1,
+    color:"linear-gradient(320deg, rgba(209,0,0,0.6090805951286764) 0%, rgba(253,45,57,0.9508172898065477) 100%);",
+    title: "GET 40% OFF",
+    desc: "Lorem ipsum, dolor sit amet consectetur.",
+    imglogo: "/assets/coin.svg",
+    mainimg: "/assets/coin.svg",
   },
 ];
 
@@ -207,6 +226,10 @@ const RedemptionCardContainer = styled(FlexBox)`
 
 const RewardPage = () => {
   const router = useRouter();
+
+  const toggleReferModal = () => {
+    alert("clicked");
+  };
   return (
     <>
       <FlexBox position="relative" top="0">
@@ -240,7 +263,7 @@ const RewardPage = () => {
           </RedemptionCardContainer>
           <BarbarBanner />
         </Container>
-        <ReferModal />
+        <OfferCard2Card offerCard2data={offerCard2data}/>
       </Wrapper>
     </>
   );

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { H3, Body1, H2, H5 } from "../common/ui/Headings";
+import { IoShareSocialOutline } from "react-icons/io5";
+import { AiOutlineClose } from "react-icons/ai";
+
+import { H3, Body1 } from "../common/ui/Headings";
 import Modal from "../common/ui/Modal";
 import FlexBox from "../common/ui/FlexBox";
-import { AiOutlineClose } from "react-icons/ai";
 import { ACCENT_0, PRIMARY_0, PRIMARY_900 } from "../common/ui/colors";
-import { useState } from "react";
-import { IoShareSocialOutline } from "react-icons/io5";
 
 const steps = [
   {
@@ -55,11 +55,13 @@ const StepCount = styled(FlexBox)`
   background-color: ${PRIMARY_900};
   color: ${ACCENT_0};
 `;
+
 const CouponBox = styled(FlexBox)`
   width: 100%;
   justify-content: center;
   column-gap: 0;
 `;
+
 const CodeBox = styled(FlexBox)`
   font-size: small;
   padding: 1rem;
@@ -69,6 +71,7 @@ const CodeBox = styled(FlexBox)`
   border-radius: 0.5rem 0 0 0.5rem;
   cursor: no-drop;
 `;
+
 const CopyButton = styled(FlexBox)`
   font-size: small;
   padding: 1rem;
@@ -97,7 +100,11 @@ const ShareBox = styled(FlexBox)`
   align-self: center;
 `;
 
-const ReferModal = () => {
+const IconWrapper = styled(FlexBox)`
+  align-self: flex-end;
+`;
+
+const ReferModal = ({ toggleModal, action }) => {
   const [copied, setCopied] = useState(false);
 
   const couponCode = "PAMPRAZZIREF";
@@ -131,15 +138,14 @@ const ReferModal = () => {
   };
 
   return (
-    <Modal borderRadius="0.5rem" M1>
+    <Modal borderRadius="0.5rem" M1 height="fit-content">
       <Wrapper column>
-        <FlexBox justify="flex-end">
+        <IconWrapper padding="0.5rem" cursor="pointer" onClick={toggleModal}>
           <AiOutlineClose />
-        </FlexBox>
-        <FlexBox justify="center">
-          <H3 bold>Refer a Friend</H3>
-        </FlexBox>
-
+        </IconWrapper>
+        <H3 bold textAlign="center">
+          Refer a Friend
+        </H3>
         <MainContainer column>
           <HeadingSec row>
             <img src="/assets/gift.svg" alt="picture" width="50rem" />
@@ -156,7 +162,6 @@ const ReferModal = () => {
               </StepBox>
             ))}
           </FlexBox>
-
           <CouponBox>
             <CodeBox>{couponCode}</CodeBox>
             <CopyButton onClick={handleCopyCouponCode}>COPY COUPON</CopyButton>

@@ -11,7 +11,9 @@ const Wrapper = styled(FlexBox)`
 `;
 
 const Content = styled(FlexBox)`
-  margin: 0.5rem 0.5rem 0.5rem 0;
+  height: 5px;
+  width: 70%;
+  padding: 1rem 0.5rem 0 0;
 `;
 
 export const BarbarBanner = () => {
@@ -20,7 +22,7 @@ export const BarbarBanner = () => {
       <FlexBox width="100%">
         <img src="/assets/barber-cloud.svg" alt="picture" />
       </FlexBox>
-      <Content height="5px" column width="70%" padding="1.5rem 0.5rem 0 0">
+      <Content column>
         <H2 bold>Connect your favroite barber to Pamparazzi!</H2>
         <Body2>Earn mega rewards when they join our platform.</Body2>
       </Content>
