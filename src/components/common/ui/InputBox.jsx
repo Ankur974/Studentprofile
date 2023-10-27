@@ -24,7 +24,7 @@ export const InputBox = styled.input`
   padding: 0;
   border: none;
   outline: none;
-  font-family: "Poppins";
+  font-family: Poppins;
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: ${({ fontWeight }) => fontWeight || 500};

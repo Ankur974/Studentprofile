@@ -32,7 +32,7 @@ export const BalanceCard = ({ showArrow = false, content }) => {
       {showArrow && (
         <BiRightArrowAlt
           size="1.4rem"
-          onClick={() => router.push("/shop-listing")}
+          onClick={() => router.push("/coin-history")}
           cursor="pointer"
         />
       )}
