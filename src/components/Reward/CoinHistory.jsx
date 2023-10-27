@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import FlexBox from "../common/ui/FlexBox";
 import { H3, H2, Body2 } from "../common/ui/Headings";
 import { device } from "../common/ui/Resposive";
-import { SECONDARY_901, LOSS } from "../common/ui/colors";
+import { SECONDARY_901, LOSS } from "../common/ui/colors"; //TODO: to be revisited later - DS
 import { BalanceCard } from "./BalanceCard";
 
 const transactions = [
@@ -110,8 +110,8 @@ const CoinHistory = () => {
       <BalanceCard />
 
       <FlexBox column rowGap="1rem">
-        {transactions.map(item => (
-          <Passbook row>
+        {transactions.map((item, index) => (
+          <Passbook key={index} row>
             <FlexBox column>
               <H3 bold>{item.name}</H3>
               <Body2>

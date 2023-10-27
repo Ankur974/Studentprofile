@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
 import CoinHistory from "../../components/Reward/CoinHistory";
+import HomePageLayout from "../../layout/client/HomePageLayout";
 
-export const Coin_History = () => {
+const CoinHistoryPage = () => {
   return (
-    <>
-        <CoinHistory/>
-    </>
-  )
-}
+    <HomePageLayout>
+      <CoinHistory />
+    </HomePageLayout>
+  );
+};
+
+export default CoinHistoryPage;

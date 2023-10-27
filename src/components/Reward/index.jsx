@@ -226,11 +226,6 @@ const RedemptionCardContainer = styled(FlexBox)`
 `;
 
 const RewardPage = () => {
-  const router = useRouter();
-
-  const toggleReferModal = () => {
-    alert("clicked");
-  };
   return (
     <>
       <FlexBox position="relative" top="0">
