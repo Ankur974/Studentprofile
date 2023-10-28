@@ -2,26 +2,26 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Text } from "@common/Text";
 import dayjs from "dayjs";
 
-// const Container = styled(FlexBox)`
-//   justify-content: space-around;
-//   align-items: center;
-//   padding-top: 1rem;
-//   padding-bottom: 1rem;
-//   border-bottom: 1px solid RGBA(24, 42, 136, 8%);
-// `;
+const Container = styled(FlexBox)`
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid RGBA(24, 42, 136, 8%);
+`;
 
-// const CalendarNavigationButton = styled(FlexBox)`
-//   justify-content: center;
-//   align-items: center;
-//   background-color: ${SECONDARY_700};
-//   border-radius: 1rem;
-//   height: 1.5rem;
-//   width: 1.5rem;
-//   overflow: hidden;
-//   opacity: ${props => props.disabled && "0.6"};
-//   pointer-events: ${props => props.disabled && "none"};
-//   cursor: pointer;
-// `;
+const CalendarNavigationButton = styled(FlexBox)`
+  justify-content: center;
+  align-items: center;
+  background-color: ${SECONDARY_700};
+  border-radius: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  overflow: hidden;
+  opacity: ${props => props.disabled && "0.6"};
+  pointer-events: ${props => props.disabled && "none"};
+  cursor: pointer;
+`;
 
 const CustomHeader = ({
   monthDate,

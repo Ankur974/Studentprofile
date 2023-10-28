@@ -115,7 +115,7 @@ const Slider = ({ list = [], title, children, setActiveIndex, icon }) => {
                 <FaChevronLeft size="0.75rem" color={SECONDARY_700} />
               </NavArrow>
               {list?.map((val, index) => (
-                <Dots isActive={index === activeItem} />
+                <Dots key={index} isActive={index === activeItem} />
               ))}
               <NavArrow onClick={handleForward}>
                 <FaChevronRight size="0.75rem" color={SECONDARY_700} />

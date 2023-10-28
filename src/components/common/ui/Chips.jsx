@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import {
   ACCENT_200,
   ACCENT_400,
-  GREEN_200,
+  // GREEN_200,
   ACCENT_300,
   PRIMARY_200,
 } from "./colors";
@@ -41,12 +41,12 @@ const Wrapper = styled(FlexBox)`
   ${({ selected2 }) =>
     selected2 &&
     css`
-      border-color: ${GREEN_200};
-      background-color: ${GREEN_200};
+      // border-color: ${GREEN_200};
+      // background-color: ${GREEN_200};
 
       &:hover {
-        border-color: ${GREEN_200};
-        background-color: ${GREEN_200};
+        // border-color: ${GREEN_200};
+        // background-color: ${GREEN_200};
       }
     `}
 

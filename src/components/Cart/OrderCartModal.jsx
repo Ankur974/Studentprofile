@@ -77,7 +77,7 @@ const OrderCart = () => {
             My Cart
           </H2>
           <Body2 bold>Total Time: 1 hours 15 min</Body2>
-          <Body2 color={ACCENT_600}>Gigi's</Body2>
+          <Body2 color={ACCENT_600}>Gigis</Body2>
         </FlexBox>
         <ItemsContainer column>
           {cartdata.map(item =>

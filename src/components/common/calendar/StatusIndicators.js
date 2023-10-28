@@ -1,27 +1,27 @@
 import { LIGHT_BLUE_GREY } from "@constants/colors";
 
-// const Dot = styled.div`
-//   display: flex;
-//   justify-content: space-around !important;
-//   width: 18rem;
-//   margin: ${props => props.margin && "auto"};
-// `;
+const Dot = styled.div`
+  display: flex;
+  justify-content: space-around !important;
+  width: 18rem;
+  margin: ${props => props.margin && "auto"};
+`;
 
-// const DotContainer = styled.div`
-//   max-width: 6rem;
-//   display: flex;
-//   align-items: center;
-//   column-gap: 2px;
-// `;
+const DotContainer = styled.div`
+  max-width: 6rem;
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+`;
 
-// const StatusIndicator = styled.div`
-//   background-color: ${props => props.color};
-//   width: 0.8rem;
-//   height: 0.8rem;
-//   margin-right: 0.2rem;
-//   border-radius: 50%;
-//   border: none;
-// `;
+const StatusIndicator = styled.div`
+  background-color: ${props => props.color};
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.2rem;
+  border-radius: 50%;
+  border: none;
+`;
 
 const StatusIndicators = ({ margin }) => {
   return (
@@ -29,13 +29,13 @@ const StatusIndicators = ({ margin }) => {
       {availabileDatesStatus.map(status => (
         <DotContainer key={status.text}>
           <StatusIndicator color={status.color} />
-          <Text
+          {/* <Text
             fontSize="0.8rem"
             color={LIGHT_BLUE_GREY}
             textTransform="capitalize"
           >
             {status.text}
-          </Text>
+          </Text> */}
         </DotContainer>
       ))}
     </Dot>

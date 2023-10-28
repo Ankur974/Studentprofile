@@ -5,16 +5,15 @@ import {
   ACCENT_100,
   PRIMARY_900,
   ACCENT_500,
-  ERROR_RED_500,
-  ERROR_RED_600,
-  MOSS_GREEN_800,
-  MOSS_GREEN_900,
-  white,
-  MOSS_GREEN_400,
-  MOSS_GREEN_500,
+  ERROR,
+  // MOSS_GREEN_800,
+  // MOSS_GREEN_900,
+  ACCENT_0,
+  // MOSS_GREEN_400,
+  // MOSS_GREEN_500,
   ACCENT_400,
-  BRICK_TERRACOTA_400,
-  BRICK_TERRACOTA_500,
+  // BRICK_TERRACOTA_400,
+  // BRICK_TERRACOTA_500,
   ACCENT_800,
 } from "./colors";
 import FlexBox from "./FlexBox";
@@ -45,7 +44,7 @@ export const Button = styled.button`
   letter-spacing: 0.07rem;
   cursor: pointer;
   text-transform: uppercase;
-  white-space: nowrap;
+  ACCENT_0-space: nowrap;
 
   &:hover {
     background-color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
@@ -56,14 +55,14 @@ export const Button = styled.button`
   ${({ danger }) =>
     danger &&
     css`
-      border: 1px solid ${ERROR_RED_500};
-      background-color: ${ERROR_RED_500};
-      color: ${({ color }) => color || white};
+      border: 1px solid ${ERROR};
+      background-color: ${ERROR};
+      color: ${({ color }) => color || ACCENT_0};
 
       &:hover {
-        background-color: ${ERROR_RED_600};
-        border-color: ${ERROR_RED_600};
-        color: ${({ hoverColor }) => hoverColor || white};
+        background-color: ${ERROR};
+        border-color: ${ERROR};
+        color: ${({ hoverColor }) => hoverColor || ACCENT_0};
       }
     `}
 
@@ -73,11 +72,11 @@ export const Button = styled.button`
     css`
       border: 1px solid ${ACCENT_800};
       background-color: ${ACCENT_800};
-      color: ${({ color }) => color || white};
+      color: ${({ color }) => color || ACCENT_0};
 
       &:hover {
         background-color: ${ACCENT_800};
-        color: ${({ hoverColor }) => hoverColor || white};
+        color: ${({ hoverColor }) => hoverColor || ACCENT_0};
         border-color: ${ACCENT_800};
       }
     `}
@@ -89,12 +88,12 @@ export const Button = styled.button`
     css`
       background-color: transparent;
       color: ${({ color }) => color || PRIMARY_800};
-      border-color: ${BRICK_TERRACOTA_400};
+      // border-color: ${BRICK_TERRACOTA_400};
 
       &:hover {
         background-color: transparent;
         color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
-        border-color: ${BRICK_TERRACOTA_500};
+        // border-color: ${BRICK_TERRACOTA_500};
       }
     `}
 
@@ -103,14 +102,14 @@ export const Button = styled.button`
     outline &&
     secondary &&
     css`
-      border: 1px solid ${MOSS_GREEN_400};
+      // border: 1px solid ${MOSS_GREEN_400};
       background-color: ${ACCENT_100};
-      color: ${({ color }) => color || MOSS_GREEN_800};
+      // color: ${({ color }) => color || MOSS_GREEN_800};
 
       &:hover {
         background-color: ${ACCENT_100};
-        color: ${({ hoverColor }) => hoverColor || MOSS_GREEN_900};
-        border-color: ${MOSS_GREEN_500};
+        // color: ${({ hoverColor }) => hoverColor || MOSS_GREEN_900};
+        // border-color: ${MOSS_GREEN_500};
       }
     `}
 
@@ -120,12 +119,12 @@ export const Button = styled.button`
     tertiary &&
     css`
       background-color: transparent;
-      color: ${({ color }) => color || MOSS_GREEN_800};
+      // color: ${({ color }) => color || MOSS_GREEN_800};
       border: 1px solid ${ACCENT_400};
 
       &:hover {
         background-color: transparent;
-        color: ${({ hoverColor }) => hoverColor || MOSS_GREEN_900};
+        // color: ${({ hoverColor }) => hoverColor || MOSS_GREEN_900};
         border-color: ${ACCENT_500};
       }
     `}
@@ -137,11 +136,11 @@ export const Button = styled.button`
     css`
       border: 1px solid ${ACCENT_400};
       background-color: transparent;
-      color: ${({ color }) => color || ERROR_RED_500};
+      color: ${({ color }) => color || ERROR};
 
       &:hover {
         background-color: transparent;
-        color: ${({ hoverColor }) => hoverColor || ERROR_RED_600};
+        color: ${({ hoverColor }) => hoverColor || ERROR};
         border-color: ${ACCENT_400};
       }
     `}
@@ -186,7 +185,7 @@ export const Button = styled.button`
     textCta &&
     secondary &&
     css`
-      color: ${({ color }) => color || MOSS_GREEN_800};
+      // color: ${({ color }) => color || MOSS_GREEN_800};
       border: none;
       padding: 0.5rem 0rem;
       min-width: unset;
@@ -195,7 +194,7 @@ export const Button = styled.button`
 
       &:hover {
         background-color: transparent;
-        color: ${({ color }) => color || MOSS_GREEN_900};
+        // color: ${({ color }) => color || MOSS_GREEN_900};
       }
     `}
 `;

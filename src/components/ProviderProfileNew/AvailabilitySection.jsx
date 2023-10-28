@@ -240,7 +240,7 @@ const ButtonGroup = ({ next, previous, payload, ...rest }) => {
       </ArrowIcon>
       <FlexBox align="center" justify="center" columnGap="0.25rem">
         {[...Array(totalItems)]?.map((val, index) => {
-          return <Dots isActive={index === currentSlide} />;
+          return <Dots key={index} isActive={index === currentSlide} />;
         })}
       </FlexBox>
       <ArrowIcon onClick={handleNext} isDisabled={isNextDisabled}>
@@ -519,8 +519,9 @@ const AvailabilitySection = ({
           <>
             {isCfProvider && (
               <MulticenterChipContainer>
-                {providerData?.offline_offering?.map(item => (
+                {providerData?.offline_offering?.map((item,index) => (
                   <CenterChip
+                  key={index}
                     onClick={() => setOfflineOffering(item)}
                     selected={item?.clinic?.id === offlineOffering?.clinic?.id}
                   >

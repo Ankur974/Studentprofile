@@ -1,5 +1,5 @@
 import React from "react";
-import ShopDetailPage from "../../components/shopDetailPage";
+import ShopDetailPage from "../../components/ShopDetailPage";
 import HomePageLayout from "../../layout/client/HomePageLayout";
 
 const ShopDetails = () => {

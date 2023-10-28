@@ -37,7 +37,7 @@ const HeroBanner = () => {
       <Img src="/assets/banner-new.svg" />
       <BannerContent column rowGap="0.25rem">
         <H1 bold color={ACCENT_0}>
-          Gigi's Salon
+          Gigis Salon
         </H1>
         <FlexBox columnGap="0.75rem">
           <FlexBox columnGap="0.25rem">

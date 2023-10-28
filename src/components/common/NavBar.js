@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
-import { BLACK, PRIMARY_800 } from "./ui/colors";
+import {  PRIMARY_800 } from "./ui/colors";
 // import NavLinks from "@components/NavBar/NavLinks";
 import FlexBox from "./ui/FlexBox";
 import { device } from "./ui/Resposive";
@@ -12,7 +12,7 @@ const FallBack = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: ${BLACK};
+  // background-color: ${BLACK};
   opacity: 0.4;
   z-index: 401;
 

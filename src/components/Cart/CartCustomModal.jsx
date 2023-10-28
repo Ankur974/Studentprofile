@@ -1,7 +1,7 @@
 import { useEffect, useRef,useState } from "react";
 import styled from "styled-components";
 import { ACCENT_100 } from "../common/ui/colors";
-import boxShadowDs2 from "../common/ui/styles";
+import {boxShadowDs2} from "../common/ui/styles";
 import { device } from "../common/ui/Resposive";
 import CartIcons from "./CartIcons";
 import FlexBox from "../common/ui/FlexBox";

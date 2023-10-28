@@ -379,7 +379,7 @@ const ProfileDropdown = ({
           </FlexBox>
 
           {profileOptions?.map(({ label, link }) => (
-            <DropdownOption onClick={() => history.push(link)}>
+            <DropdownOption key={label} onClick={() => history.push(link)}>
               <Body2 bold fontSize="0.875rem" color="var(--accent-800)">
                 {label}
               </Body2>

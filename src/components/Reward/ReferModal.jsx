@@ -7,6 +7,7 @@ import { H3, Body1 } from "../common/ui/Headings";
 import Modal from "../common/ui/Modal";
 import FlexBox from "../common/ui/FlexBox";
 import { ACCENT_0, PRIMARY_0, PRIMARY_900 } from "../common/ui/colors";
+import { indexOf } from "lodash";
 
 const steps = [
   {
@@ -155,8 +156,8 @@ const ReferModal = ({ toggleModal, action }) => {
           </HeadingSec>
           <Body1 bold>How it works?</Body1>
           <FlexBox column rowGap="0.5rem">
-            {steps.map(item => (
-              <StepBox>
+            {steps.map((item,index) => (
+              <StepBox key={index}> 
                 <StepCount>{item.id}</StepCount>
                 {item.content}
               </StepBox>

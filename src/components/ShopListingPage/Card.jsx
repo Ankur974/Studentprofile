@@ -144,7 +144,7 @@ const Card = () => {
 
       <FlexBox column rowGap="0.25rem" padding="0 1rem">
         <FlexBox justify="space-between" padding={dummydata?"1rem 0 0 0":"0"}>
-          <H3 bold>Gigi's Salon</H3>
+          <H3 bold>Gigis Salon</H3>
           <FlexBox onClick={handleClick} cursor="pointer">
             {selected ? (
               <BsFillHeartFill size="1.25rem" color={PRIMARY_800} />
