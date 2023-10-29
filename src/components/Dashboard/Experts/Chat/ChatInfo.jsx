@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Body2, H2 } from "@common/Dashboard/Headings";
+import { Body2, H2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_800 } from "@common/ui/colors";
 

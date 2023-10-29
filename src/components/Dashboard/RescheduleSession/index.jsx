@@ -11,11 +11,11 @@ import axiosInstance from "@axiosInstance";
 import urls from "@urls";
 import { Modal } from "@common/Dashboard/Modal";
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_400, WHITE } from "@common/ui/colors";
+import { ACCENT_400, WHITE } from "@common/ui/colors";
 import { formatSlotTime } from "@utils/helpers";
 import { Button } from "@common/Dashboard/Buttons";
-import { Body2, H3 } from "@common/Dashboard/Headings";
-import { Loader } from "@common/Loader";
+import { Body2, H3 } from "@common/ui/Headings";
+import Loader from "@common/ui/Loader";
 
 const CheckAvailableSlots = dynamic(() => import("../Availability"), {
   loading: () => <Loader />,
@@ -44,7 +44,7 @@ const Wrapper = styled.div`
 const ModalHeader = styled(FlexBox)`
   padding: 1rem 1rem 1rem 1.5rem;
   justify-content: space-between;
-  border-bottom: 1px solid ${DAVYS_GREY_400};
+  border-bottom: 1px solid ${ACCENT_400};
 `;
 
 const CloseIconWrapper = styled(FlexBox)`
@@ -88,7 +88,7 @@ const ModalFooter = styled(FlexBox)`
   justify-content: flex-end;
   align-self: flex-end;
   padding: 1rem 1.5rem 1.5rem;
-  border-top: 1px solid ${DAVYS_GREY_400};
+  border-top: 1px solid ${ACCENT_400};
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
@@ -102,7 +102,7 @@ const Left = styled(FlexBox)`
   padding: 1rem 1.5rem 6rem;
   flex: 1;
   max-width: 18rem;
-  border-right: 1px solid ${DAVYS_GREY_400};
+  border-right: 1px solid ${ACCENT_400};
   overflow-y: scroll;
 
   @media screen and (max-width: 768px) {
@@ -227,19 +227,6 @@ const RescheduleSession = ({
   };
 
   const handleRescheduleSession = () => {
-    // dispatch(
-    //   SessionReschedule({
-    //     bookingId: bookingId,
-    //     payload,
-    //     analyticPayload: {
-    //       event: "session_reschedule_success",
-    //       payload: {
-    //         [`${userType}_name`]: userName,
-    //         [`${userType}_uuid`]: userUUID,
-    //       },
-    //     },
-    //   })
-    // );
     setTimeout(() => {
       reloadSessionList();
     }, 1000);

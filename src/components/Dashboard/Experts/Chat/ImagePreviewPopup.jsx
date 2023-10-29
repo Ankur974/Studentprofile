@@ -5,11 +5,11 @@ import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 import styled, { css } from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H4, Support } from "@common/Dashboard/Headings";
+import { H4, Support } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
 import {
   SECONDARY_800,
-  DAVYS_GREY_300,
+  ACCENT_300,
   ACCENT_100,
   ACCENT_400,
 } from "@common/ui/colors";
@@ -22,7 +22,7 @@ const Header = styled(FlexBox)`
 
 const ImageWrapper = styled(FlexBox)`
   flex: 1;
-  background-color: ${DAVYS_GREY_300};
+  background-color: ${ACCENT_300};
   justify-content: center;
   -webkit-user-select: none;
   -ms-user-select: none;

@@ -6,8 +6,8 @@ import { StringParam, useQueryParams } from "use-query-params";
 
 import { Button } from "@common/Dashboard/Buttons";
 import FlexBox from "@common/ui/FlexBox";
-import { Loader } from "@common/Loader";
-import { ACCENT_100, DAVYS_GREY_300 } from "@common/ui/colors";
+import Loader from "@common/ui/Loader";
+import { ACCENT_100, ACCENT_300 } from "@common/ui/colors";
 import { useChatEncryptionKey } from "@hooks/useChatEncryptionKey";
 import ChatHeader from "./Header";
 import ChatInput from "./Input";
@@ -45,8 +45,8 @@ const Content = styled(FlexBox)`
   flex: 1;
   width: 100%;
   overflow-y: hidden;
-  border-top: 1px solid ${DAVYS_GREY_300};
-  border-bottom: 1px solid ${DAVYS_GREY_300};
+  border-top: 1px solid ${ACCENT_300};
+  border-bottom: 1px solid ${ACCENT_300};
 `;
 
 const Footer = styled(FlexBox)`

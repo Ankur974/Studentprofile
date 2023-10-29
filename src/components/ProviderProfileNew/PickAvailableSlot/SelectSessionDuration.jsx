@@ -18,7 +18,7 @@ import {
 } from "@common/ui/colors";
 import { copyToClipboard } from "@utils/helpers";
 import { couponCodes, DEFAULT_COUPON } from "@metadata/BookingNew/couponCodes";
-import { DAVYS_GRAY_400 } from "../../../constants/colors";
+import { DAVYS_GRAY_400 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;

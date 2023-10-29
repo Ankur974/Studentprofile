@@ -17,7 +17,7 @@ import {
 import { Button } from "@common/Buttons";
 import FlexBox from "@common/ui/FlexBox";
 import { FiX } from "react-icons/fi";
-import { logout } from "@redux/actions/authActions";
+// import { logout } from "@redux/actions/authActions";
 
 const Container = styled.div`
   position: fixed;
@@ -126,7 +126,7 @@ const EditProfileDeleteModal = ({ toggleModal, visible }) => {
         email: store.auth.user?.email,
       });
       if (res.status === 200) {
-        dispatch(logout());
+        // dispatch(logout());
       } else {
         setErrorText("Error while deleting account");
         showError(true);

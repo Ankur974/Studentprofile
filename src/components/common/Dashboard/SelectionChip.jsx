@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_200,
-  DAVYS_GREY_800,
-  DAVYS_GREY_400,
+  ACCENT_100,
+  ACCENT_200,
+  ACCENT_800,
+  ACCENT_400,
   DARK_MOSS_GREEN_200,
   DARK_MOSS_GREEN_800,
   DARK_MOSS_GREEN_900,
@@ -16,9 +16,9 @@ const Container = styled(FlexBox)`
   justify-content: center;
   align-items: center;
   padding: ${({ padding }) => (padding ? padding : "0.5rem 1rem")};
-  color: ${DAVYS_GREY_800};
-  background-color: ${DAVYS_GREY_100};
-  border: 1px solid ${DAVYS_GREY_400};
+  color: ${ACCENT_800};
+  background-color: ${ACCENT_100};
+  border: 1px solid ${ACCENT_400};
   border-radius: 0.5rem;
   cursor: pointer;
   flex-direction: ${({ iconPosition }) =>
@@ -32,7 +32,7 @@ const Container = styled(FlexBox)`
     selected &&
     css`
       background-color: ${lightBg ? DARK_MOSS_GREEN_200 : DARK_MOSS_GREEN_800};
-      color: ${lightBg ? DARK_MOSS_GREEN_900 : DAVYS_GREY_100};
+      color: ${lightBg ? DARK_MOSS_GREEN_900 : ACCENT_100};
       border-color: ${lightBg ? DARK_MOSS_GREEN_200 : DARK_MOSS_GREEN_800};
     `}
 
@@ -40,7 +40,7 @@ const Container = styled(FlexBox)`
     !selected &&
     css`
       :hover {
-        background-color: ${DAVYS_GREY_200};
+        background-color: ${ACCENT_200};
       }
     `}
 

@@ -3,7 +3,7 @@ import FlexBox from "@common/ui/FlexBox";
 import DomainAreaContainer from "./DomainAreaContainer";
 import BottomSection from "../BottomSection";
 import AvailabilitySection from "../AvailabilitySection";
-import { ACCENT_800, BRICK_TERRACOTA, WHITE } from "../../../constants/colors";
+import { ACCENT_800, BRICK_TERRACOTA, WHITE } from "@common/ui/colors";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { useEffect, useState, useMemo, useRef } from "react";
 import { RenderCfTag } from "../../ProfileCardNew";

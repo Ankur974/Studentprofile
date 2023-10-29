@@ -3,9 +3,9 @@ import styled, { css } from "styled-components";
 import { useQueryParam, StringParam, withDefault } from "use-query-params";
 import FlexBox from "@common/ui/FlexBox";
 import {
-  DAVYS_GREY_400,
-  DAVYS_GREY_600,
-  DAVYS_GREY_700,
+  ACCENT_400,
+  ACCENT_600,
+  ACCENT_700,
   DARK_MOSS_GREEN_900,
 } from "@common/ui/colors";
 import { H2 } from "./Headings";
@@ -46,7 +46,7 @@ const TabItem = styled(FlexBox)`
     css`
       :hover {
         ${H2} {
-          color: ${DAVYS_GREY_700};
+          color: ${ACCENT_700};
         }
       }
     `}
@@ -57,7 +57,7 @@ const Divider = styled.div`
   left: 0;
   right: 0;
   top: 3.625rem;
-  border-bottom: 2px solid ${DAVYS_GREY_400};
+  border-bottom: 2px solid ${ACCENT_400};
 `;
 
 const TabContent = styled.div`
@@ -110,7 +110,7 @@ const Tabs = ({ children, defaultTabId, headerHeight = "0rem" }) => {
             >
               <H2
                 bold
-                color={isActive ? DARK_MOSS_GREEN_900 : DAVYS_GREY_600}
+                color={isActive ? DARK_MOSS_GREEN_900 : ACCENT_600}
                 whiteSpace="nowrap"
               >
                 {tabLabel}

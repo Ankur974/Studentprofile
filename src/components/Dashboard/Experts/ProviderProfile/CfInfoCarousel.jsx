@@ -4,7 +4,7 @@ import { useState } from "react";
 import FlexBox from "@common/ui/FlexBox";
 import Slider from "./Slider";
 import { cfInfoCarousel } from "@metadata/cfInfo";
-import { H3, H4 } from "@common/Dashboard/Headings";
+import { H3, H4 } from "@common/ui/Headings";
 import { WHITE, ACCENT_500 } from "@common/ui/colors";
 
 const ContentWrapper = styled(FlexBox)`

@@ -7,9 +7,9 @@ import { FiX } from "react-icons/fi";
 
 import { Modal } from "@common/Dashboard/Modal";
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_400, WHITE } from "@common/ui/colors";
+import { ACCENT_400, WHITE } from "@common/ui/colors";
 import { Button } from "@common/Dashboard/Buttons";
-import { H3 } from "@common/Dashboard/Headings";
+import { H3 } from "@common/ui/Headings";
 import ClientInfo from "./ClientInfo";
 import ReasonSelector from "./ReasonSelector";
 import RecommendRescheduling from "./RecommendRescheduling";
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 const ModalHeader = styled(FlexBox)`
   padding: 1rem 1rem 1rem 1.5rem;
   justify-content: space-between;
-  border-bottom: 1px solid ${DAVYS_GREY_400};
+  border-bottom: 1px solid ${ACCENT_400};
 `;
 
 const CloseIconWrapper = styled(FlexBox)`
@@ -69,7 +69,7 @@ const ModalFooter = styled(FlexBox)`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.5rem 1.5rem;
-  border-top: 1px solid ${DAVYS_GREY_400};
+  border-top: 1px solid ${ACCENT_400};
   box-sizing: border-box;
   position: absolute;
   bottom: 0;
@@ -91,7 +91,7 @@ const Left = styled(FlexBox)`
   padding: 1rem 1.5rem 6rem;
   flex: 1;
   max-width: 50%;
-  border-right: 1px solid ${DAVYS_GREY_400};
+  border-right: 1px solid ${ACCENT_400};
   overflow-y: scroll;
 
   @media screen and (max-width: 768px) {

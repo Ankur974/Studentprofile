@@ -7,7 +7,7 @@ import AlertsContainer from "@components/common/AlertsContainer";
 import { Text } from "@common/Text";
 import FlexBox from "@common/ui/FlexBox";
 import { Button } from "@common/Buttons";
-import { Loader } from "@common/Loader";
+import Loader from "@common/ui/Loader";
 import SessionsListing from "./SessionsListing";
 import LatestPrescription from "./LatestPrescription";
 import useMobileView from "@hooks/useMobileView";

@@ -10,14 +10,14 @@ import { useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 import { BooleanParam, useQueryParams } from "use-query-params";
 
-import { H2 } from "@common/Dashboard/Headings";
+import { H2 } from "@common/ui/Headings";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import FlexBox from "@common/ui/FlexBox";
-import { Loader } from "@common/Loader";
+import Loader from "@common/ui/Loader";
 import {
-  DAVYS_GREY_300,
-  DAVYS_GREY_400,
-  DAVYS_GREY_800,
+  ACCENT_300,
+  ACCENT_400,
+  ACCENT_800,
   ERROR,
   WHITE,
 } from "@common/ui/colors";
@@ -38,16 +38,7 @@ const ProfileOptionsDropdown = dynamic(
   { ssr: false }
 );
 
-const ChatWithProvidersComponent = dynamic(
-  () => import("../ChatWithProvidersComponent"),
-  { ssr: false }
-);
-
 const MoreActions = dynamic(() => import("./MoreActions"), {
-  ssr: false,
-});
-
-const EmergencySos = dynamic(() => import("../EmergencySos"), {
   ssr: false,
 });
 
@@ -56,15 +47,6 @@ const SessionDetails = dynamic(() => import("../SessionDetails"), {
 });
 
 const MobileMenu = dynamic(() => import("./MobileMenu"), {
-  ssr: false,
-});
-
-const PreferencesPermissionsModal = dynamic(
-  () => import("../PreferencesPermissionsModal"),
-  { ssr: false }
-);
-
-const NoteShareModal = dynamic(() => import("../NoteShareModal"), {
   ssr: false,
 });
 
@@ -90,7 +72,7 @@ const ContentWrapper = styled(FlexBox)`
   max-height: calc(100vh - 5rem);
   margin-bottom: 5rem;
   @media screen and (min-width: 768px) {
-    background: ${DAVYS_GREY_300};
+    background: ${ACCENT_300};
     margin-bottom: 0;
   }
 `;
@@ -137,7 +119,7 @@ const Header = styled(FlexBox)`
 const commonIconProps = {
   size: "1.5rem",
   cursor: "pointer",
-  color: DAVYS_GREY_800,
+  color: ACCENT_800,
 };
 
 const PageHading = styled(FlexBox)`
@@ -170,7 +152,7 @@ const ProviderImage = styled.img`
   overflow: hidden;
   object-fit: cover;
   border-radius: 50%;
-  border: 1px solid ${DAVYS_GREY_800};
+  border: 1px solid ${ACCENT_800};
 `;
 
 const AvatarWithName = styled(FlexBox)`
@@ -201,7 +183,7 @@ const Footer = styled.div`
   height: 5rem;
   bottom: 0;
   border-radius: 1rem 1rem 0rem 0rem;
-  border: 1px solid ${DAVYS_GREY_400};
+  border: 1px solid ${ACCENT_400};
   background: ${WHITE};
   ${boxShadowDs1}
   transform: ${({ hideFooter }) =>
@@ -224,7 +206,6 @@ const DashboardLayout = ({
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showMoreActions, setShowMoreActions] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [showNoteShareModal, setShowNoteShareModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const [queryParams] = useQueryParams({
@@ -233,11 +214,7 @@ const DashboardLayout = ({
     showPreferencesModal: BooleanParam,
   });
 
-  const {
-    showEmergencySosModal,
-    showSessionDetailsModal,
-    showPreferencesModal,
-  } = queryParams;
+  const { showSessionDetailsModal } = queryParams;
 
   const toggleNavigation = () => setShowNavigation(!showNavigation);
   const toggleChatWithProviders = () =>
@@ -247,16 +224,11 @@ const DashboardLayout = ({
   const toggleProfileDropdown = () => setShowProfileDropdown(prev => !prev);
   const toggleMoreActions = () => setShowMoreActions(prev => !prev);
   const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu);
-  const toggleNoteShareModal = () => setShowNoteShareModal(!showNoteShareModal);
   const toggleLogoutModal = () => setShowLogoutModal(!showLogoutModal);
 
   return (
     <>
-      {showEmergencySosModal && <EmergencySos />}
       {showSessionDetailsModal && <SessionDetails />}
-      {showChatWithProviders && (
-        <ChatWithProvidersComponent toggleDropdown={toggleChatWithProviders} />
-      )}
       {showNotificationsPopup && (
         <NotificationsPopup toggleDropdown={toggleNotificationsPopup} />
       )}
@@ -268,10 +240,6 @@ const DashboardLayout = ({
       )}
       {showMoreActions && <MoreActions toggleDropdown={toggleMoreActions} />}
       {showMobileMenu && <MobileMenu toggleMobileMenu={toggleMobileMenu} />}
-      {showPreferencesModal && <PreferencesPermissionsModal />}
-      {showNoteShareModal && (
-        <NoteShareModal toggleModal={toggleNoteShareModal} />
-      )}
       {showLogoutModal && <LogoutModal toggleModal={toggleLogoutModal} />}
       <Container>
         <Sidebar expanded={showNavigation} />
@@ -309,7 +277,7 @@ const DashboardLayout = ({
                   onClick={toggleChatWithProviders}
                 >
                   <FiMessageCircle
-                    color={DAVYS_GREY_800}
+                    color={ACCENT_800}
                     size="1.5rem"
                     cursor="pointer"
                   />
@@ -326,7 +294,7 @@ const DashboardLayout = ({
                 <BellIcon
                   size="1.5rem"
                   strokeWidth={2}
-                  color={DAVYS_GREY_800}
+                  color={ACCENT_800}
                   showAnimation={false}
                   pointerEvents="none"
                 />

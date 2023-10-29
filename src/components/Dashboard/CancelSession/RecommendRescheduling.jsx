@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H4 } from "@common/Dashboard/Headings";
-import { DAVYS_GREY_800, SECONDARY_800 } from "@common/ui/colors";
+import { H4 } from "@common/ui/Headings";
+import { ACCENT_800, SECONDARY_800 } from "@common/ui/colors";
 
 const Dot = styled.div`
   width: 0.25rem;
   height: 0.25rem;
   border-radius: 4rem;
-  background-color: ${DAVYS_GREY_800};
+  background-color: ${ACCENT_800};
 `;
 
 const TextCta = styled.button`

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { H3 } from "@common/Dashboard/Headings";
+import { H3 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import Link from "next/link";
 import { navigationOptions } from "../navigationOptions";

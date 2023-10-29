@@ -7,11 +7,11 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import CircularProgressBar from "@common/Dashboard/CircularProgressBar";
-import { Caption, H5 } from "@common/Dashboard/Headings";
+import { Caption, H5 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import {
   ACCENT_100,
-  DAVYS_GREY_300,
+  ACCENT_300,
   ERROR_RED_400,
   PRIMARY_800,
 } from "@common/ui/colors";
@@ -50,7 +50,7 @@ const RepliedToMessageContainer = styled(FlexBox)`
   padding: 1rem 1.5rem;
   box-sizing: border-box;
   background-color: ${ACCENT_100};
-  border-bottom: 1px solid ${DAVYS_GREY_300};
+  border-bottom: 1px solid ${ACCENT_300};
   box-shadow: 0px -10px 10px rgb(0 0 0 / 4%);
 
   animation: fade-up 0.1s ease-in-out;
@@ -96,7 +96,7 @@ const UploadedFile = styled(FlexBox)`
   padding: 1rem 1.5rem;
   box-sizing: border-box;
   background-color: ${ACCENT_100};
-  border-bottom: 1px solid ${DAVYS_GREY_300};
+  border-bottom: 1px solid ${ACCENT_300};
   box-shadow: 0px -10px 10px rgb(0 0 0 / 4%);
 
   .CircularProgressbar {

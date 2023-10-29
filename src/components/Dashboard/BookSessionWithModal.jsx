@@ -1,7 +1,7 @@
 import { FiX } from "react-icons/fi";
 import styled from "styled-components";
 
-import { H3 } from "@common/Dashboard/Headings";
+import { H3 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
 import ProviderCard from "@common/Dashboard/ProviderCard";
 import FlexBox from "@common/ui/FlexBox";

@@ -5,9 +5,9 @@ import styled from "styled-components";
 
 import { formatSlotTime } from "@utils/helpers";
 import FlexBox from "@common/ui/FlexBox";
-import { Body2, Support } from "@common/Dashboard/Headings";
+import { Body2, Support } from "@common/ui/Headings";
 import { FilterChip } from "@common/Dashboard/SelectionChip";
-import { DAVYS_GREY_600, white } from "@common/ui/colors";
+import { ACCENT_600, white } from "@common/ui/colors";
 import { SlotsLoader } from "./Loaders";
 
 dayjs.extend(advancedFormat);
@@ -115,14 +115,10 @@ const TimeSlots = ({
                   align="center"
                   justify="space-between"
                 >
-                  <Support
-                    bold
-                    color={DAVYS_GREY_600}
-                    textTransform="uppercase"
-                  >
+                  <Support bold color={ACCENT_600} textTransform="uppercase">
                     {key}
                   </Support>
-                  <Support bold color={DAVYS_GREY_600}>
+                  <Support bold color={ACCENT_600}>
                     {slotTimeRanges[key]}
                   </Support>
                 </FlexBox>

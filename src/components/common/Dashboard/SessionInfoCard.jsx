@@ -4,12 +4,12 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { H4, Support } from "@common/dashboard/Headings";
-import { DAVYS_GREY_100, DAVYS_GREY_400 } from "@common/ui/colors";
+import { ACCENT_100, ACCENT_400 } from "@common/ui/colors";
 
 const Card = styled(FlexBox)`
   border-radius: 0.5rem;
-  background: ${DAVYS_GREY_100};
-  border: 1px solid ${DAVYS_GREY_400};
+  background: ${ACCENT_100};
+  border: 1px solid ${ACCENT_400};
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;

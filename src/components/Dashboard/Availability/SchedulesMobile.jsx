@@ -5,8 +5,8 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 
 import { SchedulesLoader } from "./Loaders";
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_600, WHITE, DAVYS_GREY_800 } from "@common/ui/colors";
-import { Body2, Caption, H5 } from "@common/Dashboard/Headings";
+import { ACCENT_600, WHITE, ACCENT_800 } from "@common/ui/colors";
+import { Body2, Caption, H5 } from "@common/ui/Headings";
 import { FilterChip } from "@common/Dashboard/SelectionChip";
 
 dayjs.extend(advancedFormat);
@@ -35,7 +35,7 @@ const RenderDateSlot = ({
       bold
       textAlign="center"
       textTransform="uppercase"
-      color={DAVYS_GREY_600}
+      color={ACCENT_600}
     >
       {dayName}
     </Caption>
@@ -46,16 +46,12 @@ const RenderDateSlot = ({
       padding="0.5rem"
     >
       <FlexBox column>
-        <Body2
-          textAlign="center"
-          bold
-          color={selected ? WHITE : DAVYS_GREY_800}
-        >
+        <Body2 textAlign="center" bold color={selected ? WHITE : ACCENT_800}>
           {date}
         </Body2>
         <H5
           textAlign="center"
-          color={selected ? WHITE : DAVYS_GREY_800}
+          color={selected ? WHITE : ACCENT_800}
           whiteSpace="nowrap"
         >
           {!slotsAvailable ? "not available" : `${slotsAvailable} available`}

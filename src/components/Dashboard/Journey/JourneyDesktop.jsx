@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
 import { Case, Default, Switch } from "@common/ConditionalRendering";
-import { H2 } from "@common/Dashboard/Headings";
+import { H2 } from "@common/ui/Headings";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import FlexBox from "@common/ui/FlexBox";
-import { Loader } from "@common/Loader";
+import Loader from "@common/ui/Loader";
 import {
   ACCENT_800,
   DARK_MOSS_GREEN_800,
   DAVYS_GRAY_400,
-  DAVYS_GREY_100,
+  ACCENT_100,
 } from "@common/ui/colors";
 import { journeyDummyData } from "@metadata/dashboard/journey";
 import CollapsedState from "./CollapsedState";
@@ -51,7 +51,7 @@ const Desktop = styled.div`
 `;
 
 const LeftSection = styled.div`
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   transition: all 500ms ease-in-out;
   ${boxShadowDs1}
@@ -59,7 +59,7 @@ const LeftSection = styled.div`
 `;
 
 const RightSection = styled.div`
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   ${boxShadowDs1}
   overflow: auto;

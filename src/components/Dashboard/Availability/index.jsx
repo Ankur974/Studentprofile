@@ -8,8 +8,8 @@ import TimeSlots from "./TimeSlots";
 import { CalendarLoader } from "./Loaders";
 import SchedulesMobile from "./SchedulesMobile";
 import SchedulesDesktop from "./SchedulesDesktop";
-import { ACCENT_800, DAVYS_GREY_400 } from "@common/ui/colors";
-import { Body2 } from "@common/Dashboard/Headings";
+import { ACCENT_800, ACCENT_400 } from "@common/ui/colors";
+import { Body2 } from "@common/ui/Headings";
 
 const Calendar = dynamic(() => import("./Calendar"), {
   ssr: false,
@@ -40,7 +40,7 @@ const IconWrapper = styled(FlexBox)`
 
 const Divider = styled.div`
   height: 1px;
-  border-bottom: 1px solid ${DAVYS_GREY_400};
+  border-bottom: 1px solid ${ACCENT_400};
   flex: 1;
 `;
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { BooleanParam, StringParam, useQueryParams } from "use-query-params";
 
 import { IconButton } from "@common/Dashboard/Buttons";
-import { Body2, H3 } from "@common/Dashboard/Headings";
+import { Body2, H3 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
 import FlexBox from "@common/ui/FlexBox";
 import {

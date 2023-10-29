@@ -2,7 +2,7 @@ import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_300, WHITE, DARK_MOSS_GREEN_800 } from "@common/ui/colors";
+import { ACCENT_300, WHITE, DARK_MOSS_GREEN_800 } from "@common/ui/colors";
 import { H2 } from "./Headings";
 import { IconButton } from "./Buttons";
 
@@ -11,14 +11,14 @@ const Wrapper = styled(FlexBox)`
   border-radius: 1rem;
   width: 100%;
   @media screen and (min-width: 768px) {
-    border-bottom: 1px solid ${DAVYS_GREY_300};
+    border-bottom: 1px solid ${ACCENT_300};
     overflow: hidden;
   }
 `;
 
 const Title = styled(FlexBox)`
   @media screen and (min-width: 768px) {
-    border-bottom: 1px solid ${DAVYS_GREY_300};
+    border-bottom: 1px solid ${ACCENT_300};
     padding: 1.5rem;
   }
   padding: 0 1.5rem;

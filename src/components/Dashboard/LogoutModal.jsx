@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import { logout } from "@redux/actions/authActions";
+// import { logout } from "@redux/actions/authActions";
 import FlexBox from "@common/ui/FlexBox";
-import { H2, H4 } from "@common/Dashboard/Headings";
+import { H2, H4 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
 import { Button } from "../common/Dashboard/Buttons";
 import Checkbox from "@common/Dashboard/Checkbox";
@@ -22,7 +22,7 @@ const LogoutModal = ({ toggleModal }) => {
   const handleLogout = () => {
     const allDevices = checked && "yes";
     toggleModal();
-    dispatch(logout(allDevices));
+    // dispatch(logout(allDevices));
   };
 
   return (

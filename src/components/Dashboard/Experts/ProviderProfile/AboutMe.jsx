@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_800 } from "@common/ui/colors";
-import { H3, H4 } from "@common/Dashboard/Headings";
+import { H3, H4 } from "@common/ui/Headings";
 
 const Dot = styled.div`
   width: 0.25rem;

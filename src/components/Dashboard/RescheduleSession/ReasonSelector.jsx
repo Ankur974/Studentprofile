@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Dropdown from "@common/Dashboard/Dropdown";
 import Input from "@common/Dashboard/Input";
-import { Body2 } from "@common/Dashboard/Headings";
+import { Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import TextArea from "@common/Dashboard/TextArea";
 

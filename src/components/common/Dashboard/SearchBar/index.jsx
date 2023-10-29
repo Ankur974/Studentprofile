@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Select from "react-select";
 import { FiSearch } from "react-icons/fi";
-import { DAVYS_GREY_800 } from "@common/ui/colors";
+import { ACCENT_800 } from "@common/ui/colors";
 import dropdownStyles from "./CustomDropdown/dropdownStyles";
 import ClearIndicator from "./CustomDropdown/ClearIndicator";
 import Option from "./CustomDropdown/Option";
@@ -19,7 +19,7 @@ const SearchIcon = styled(FiSearch)`
   box-sizing: border-box;
   padding: 0.25rem;
   stroke-width: 3;
-  color: ${DAVYS_GREY_800};
+  color: ${ACCENT_800};
   position: absolute;
   top: 0.8rem;
   left: 0.8rem;

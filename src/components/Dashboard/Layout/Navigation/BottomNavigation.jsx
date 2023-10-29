@@ -1,9 +1,9 @@
 import styled from "styled-components";
-
-import { Caption } from "@common/Dashboard/Headings";
-import FlexBox from "@common/ui/FlexBox";
 import Link from "next/link";
-import { DAVYS_GREY_600, PRIMARY_800 } from "../../../../constants/colors";
+
+import { Caption } from "@common/ui/Headings";
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_600, PRIMARY_800 } from "@common/ui/colors";
 import { navigationOptions } from "../navigationOptions";
 
 const NavLink = styled(FlexBox)``;
@@ -33,7 +33,7 @@ const BottomNavigation = () => {
             data-testid={`menu-icon-${index}`}
           />
           <Caption
-            color={activeOption ? PRIMARY_800 : DAVYS_GREY_600}
+            color={activeOption ? PRIMARY_800 : ACCENT_600}
             data-testid={`menu-item-${index}`}
           >
             {title}

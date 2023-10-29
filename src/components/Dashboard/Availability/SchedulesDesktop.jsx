@@ -9,14 +9,14 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import { SchedulesLoader } from "./Loaders";
 import {
   ACCENT_400,
-  DAVYS_GREY_400,
-  DAVYS_GREY_600,
-  DAVYS_GREY_800,
+  ACCENT_400,
+  ACCENT_600,
+  ACCENT_800,
   MOSS_GREEN_800,
   WHITE,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
-import { Body2, Caption, H5 } from "@common/Dashboard/Headings";
+import { Body2, Caption, H5 } from "@common/ui/Headings";
 import { FilterChip } from "@common/Dashboard/SelectionChip";
 
 dayjs.extend(advancedFormat);
@@ -59,10 +59,10 @@ const CarouselNav = styled(FlexBox)`
     css`
       pointer-events: none;
       cursor: not-allowed;
-      border: 1px solid ${DAVYS_GREY_400};
+      border: 1px solid ${ACCENT_400};
 
       svg {
-        color: ${DAVYS_GREY_400};
+        color: ${ACCENT_400};
       }
     `}
 `;
@@ -83,7 +83,7 @@ const RenderDateSlot = ({
       bold
       textAlign="center"
       textTransform="uppercase"
-      color={DAVYS_GREY_600}
+      color={ACCENT_600}
     >
       {dayName}
     </Caption>
@@ -94,17 +94,13 @@ const RenderDateSlot = ({
       padding="0.5rem"
     >
       <FlexBox column>
-        <Body2
-          textAlign="center"
-          bold
-          color={selected ? WHITE : DAVYS_GREY_800}
-        >
+        <Body2 textAlign="center" bold color={selected ? WHITE : ACCENT_800}>
           {date}
         </Body2>
         <H5
           width="100%"
           textAlign="center"
-          color={selected ? WHITE : DAVYS_GREY_600}
+          color={selected ? WHITE : ACCENT_600}
         >
           {!slotsAvailable ? "not available" : `${slotsAvailable} available`}
         </H5>

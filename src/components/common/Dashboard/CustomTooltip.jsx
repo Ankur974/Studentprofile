@@ -1,5 +1,5 @@
 import { Tooltip } from "react-tooltip";
-import { DAVYS_GREY_100, DAVYS_GREY_800 } from "@common/ui/colors";
+import { ACCENT_100, ACCENT_800 } from "@common/ui/colors";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -7,11 +7,11 @@ const Container = styled.div`
     width: ${({ width }) => width};
     max-width: 20rem;
     padding: 1rem;
-    background-color: ${DAVYS_GREY_800};
-    color: ${DAVYS_GREY_100};
+    background-color: ${ACCENT_800};
+    color: ${ACCENT_100};
     border-radius: 0.5rem;
     * {
-      color: ${DAVYS_GREY_100};
+      color: ${ACCENT_100};
     }
   }
 `;

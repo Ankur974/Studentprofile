@@ -3,7 +3,7 @@ import Bugsnag from "@bugsnag/js";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { Loader } from "@common/Loader";
+import Loader from "@common/ui/Loader";
 import axiosInstance from "@axiosInstance";
 import urls from "@urls";
 import { CF_PROVIDER_ROLE } from "@constants";

@@ -14,13 +14,13 @@ import { NumberParam, StringParam, useQueryParams } from "use-query-params";
 
 import axiosInstance from "@axiosInstance";
 import { Button } from "@common/Dashboard/Buttons";
-import { Body2, Caption } from "@common/Dashboard/Headings";
+import { Body2, Caption } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { COUPLE_THERAPIST, PSYCHIATRIST, THERAPIST } from "@constants";
 import {
   ACCENT_800,
   DARK_MOSS_GREEN_100,
-  DAVYS_GREY_600,
+  ACCENT_600,
   SECONDARY_800,
 } from "@common/ui/colors";
 import urls from "@urls";
@@ -203,7 +203,7 @@ const NSPMessage = ({
         </ButtonContainer>
       </Card>
       <Timestamp>
-        <Caption bold color={DAVYS_GREY_600}>
+        <Caption bold color={ACCENT_600}>
           {getTimestampString(message.time_stamp)}
         </Caption>
       </Timestamp>

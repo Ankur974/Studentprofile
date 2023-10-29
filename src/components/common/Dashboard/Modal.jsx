@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 import Bugsnag from "@bugsnag/js";
 import useOutsideAlert from "@hooks/useOutsideAlert";
-import { DAVYS_GREY_100 } from "@common/ui/colors";
+import { ACCENT_100 } from "@common/ui/colors";
 import { boxShadowDs2 } from "./boxShadowStyles";
 import ClientOnlyPortal from "./ClientOnlyPortal";
 
@@ -23,7 +23,7 @@ const Content = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border: ${({ border }) => border || "none"};
   border-radius: ${({ borderRadius }) => borderRadius};
   ${({ boxShadow }) => boxShadow && boxShadowDs2};

@@ -2,21 +2,20 @@ import styled from "styled-components";
 import dayjs from "dayjs";
 import FlexBox from "@common/ui/FlexBox";
 import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_200,
-  DAVYS_GREY_300,
-  DAVYS_GREY_600,
+  ACCENT_100,
+  ACCENT_200,
+  ACCENT_300,
+  ACCENT_600,
   DARK_MOSS_GREEN_900,
 } from "@common/ui/colors";
-import { H4, H5 } from "@common/Dashboard/Headings";
+import { H4, H5 } from "@common/ui/Headings";
 
 const Item = styled(FlexBox)`
   flex-direction: column;
   padding: ${({ padding }) => padding || "1rem 1.5rem"};
   row-gap: 0.5rem;
-  background-color: ${({ isRead }) =>
-    !isRead ? DAVYS_GREY_200 : DAVYS_GREY_100};
-  border-top: 1px solid ${DAVYS_GREY_300};
+  background-color: ${({ isRead }) => (!isRead ? ACCENT_200 : ACCENT_100)};
+  border-top: 1px solid ${ACCENT_300};
   cursor: pointer;
 `;
 
@@ -30,7 +29,7 @@ const NotificationItem = ({ notification, padding }) => {
       <H4 bold={!isRead} color={!isRead && DARK_MOSS_GREEN_900}>
         {description}
       </H4>
-      <H5 bold color={DAVYS_GREY_600}>
+      <H5 bold color={ACCENT_600}>
         {dayjs(date).format("DD MMM YYYY, hh:mm A")}
       </H5>
     </Item>

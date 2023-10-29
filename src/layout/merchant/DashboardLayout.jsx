@@ -829,8 +829,7 @@ const DashboardLayout = ({ children }) => {
                         user={user}
                         userName={userName}
                         userType={userType}
-                        // TODO: logout not working
-                        logout={() => dispatch(logout)}
+                        // logout={() => dispatch(logout)}
                         supervisionMode={isSupervisionMode}
                         toggleDropdown={toggleProfileDropdown}
                         toggleLogoutModal={() => setShowLogoutModal(true)}

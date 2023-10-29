@@ -1,17 +1,17 @@
 import dynamic from "next/dynamic";
 import styled, { css } from "styled-components";
+import Link from "next/link";
 
-import { H3 } from "@common/Dashboard/Headings";
+import { H3 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
-import { Loader } from "@common/Loader";
+import Loader from "@common/ui/Loader";
 import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_800,
+  ACCENT_100,
+  ACCENT_800,
   SECONDARY_100,
   SECONDARY_800,
   WHITE,
 } from "@common/ui/colors";
-import Link from "next/link";
 
 const Navigation = dynamic(() => import("./Navigation"), {
   loading: () => <Loader />,
@@ -40,23 +40,13 @@ const NavigationContainer = styled.div`
   }
 `;
 
-const AmahaLogo = styled.img`
-  width: 40%;
-  min-width: 6rem;
-  min-height: 2.5rem;
-  max-width: 10rem;
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
 const NavigationWrapper = styled(FlexBox)`
   width: 100%;
   height: 100%;
   row-gap: 2.5rem;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
 
   .navigation-link {
     width: 100%;
@@ -66,7 +56,7 @@ const NavigationWrapper = styled(FlexBox)`
     ${H3} {
       font-weight: bold;
       white-space: nowrap;
-      color: ${DAVYS_GREY_800};
+      color: ${ACCENT_800};
     }
 
     :hover {
@@ -96,24 +86,16 @@ const NavigationWrapper = styled(FlexBox)`
 `;
 
 const Sidebar = ({ expanded }) => (
-  <div data-testid="expanded-container">
-    <NavigationContainer expanded={expanded}>
-      <NavigationWrapper>
-        <FlexBox column rowGap="2.5rem">
-          <FlexBox padding="2.5rem">
-            <Link href="/user/dashboard">
-              <AmahaLogo
-                src="https://cdn.theinnerhour.com/assets/images/AmahaLogo.svg"
-                alt="Amaha logo"
-                draggable="false"
-              />
-            </Link>
-          </FlexBox>
-          <Navigation />
+  <NavigationContainer expanded={expanded}>
+    <NavigationWrapper>
+      <FlexBox column rowGap="2.5rem">
+        <FlexBox padding="2.5rem">
+          <Link href="/user/dashboard">Pamprazzi logo</Link>
         </FlexBox>
-      </NavigationWrapper>
-    </NavigationContainer>
-  </div>
+        <Navigation />
+      </FlexBox>
+    </NavigationWrapper>
+  </NavigationContainer>
 );
 
 export default Sidebar;

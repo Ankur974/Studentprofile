@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H3 } from "@common/Dashboard/Headings";
+import { H3 } from "@common/ui/Headings";
 import {
   SECONDARY_700,
   ACCENT_300,

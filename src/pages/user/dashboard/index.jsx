@@ -1,13 +1,13 @@
 import React from "react";
 
-import HomePageLayout from "../../../layout/client/HomePageLayout";
-import Dashboard from "../../../components/Dashboard";
+import Dashboard from "@components/Dashboard";
+import DashboardLayout from "@components/Dashboard/Layout";
 
 const UserDashboard = () => {
   return (
-    <HomePageLayout>
+    <DashboardLayout>
       <Dashboard />
-    </HomePageLayout>
+    </DashboardLayout>
   );
 };
 export default UserDashboard;

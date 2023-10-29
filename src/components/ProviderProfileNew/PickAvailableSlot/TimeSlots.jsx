@@ -16,7 +16,7 @@ import {
 } from "@common/ui/colors";
 import { formatSlotTime } from "@utils/helpers";
 import { SlotsLoader } from "./Loaders";
-import { ACCENT_100 } from "../../../constants/colors";
+import { ACCENT_100 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   row-gap: 1.5rem;

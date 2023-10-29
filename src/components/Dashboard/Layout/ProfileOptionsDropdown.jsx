@@ -3,10 +3,10 @@ import { useRef } from "react";
 import { FiChevronRight, FiLogOut } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { DAVYS_GREY_200, DAVYS_GREY_800 } from "@common/ui/colors";
+import { ACCENT_200, ACCENT_800 } from "@common/ui/colors";
 import useOutsideAlert from "@hooks/useOutsideAlert";
 import DropdownWrapper from "@common/Dashboard/DropdownWrapper";
-import { Body2, H4, Support } from "@common/Dashboard/Headings";
+import { Body2, H4, Support } from "@common/ui/Headings";
 import { IconButton } from "@common/Dashboard/Buttons";
 import { profileOptions } from "./allOptions";
 
@@ -31,10 +31,10 @@ const DropdownOption = styled(FlexBox)`
   }
 
   :hover {
-    background-color: ${DAVYS_GREY_200};
+    background-color: ${ACCENT_200};
 
     svg {
-      color: ${DAVYS_GREY_800};
+      color: ${ACCENT_800};
     }
   }
 `;
@@ -75,7 +75,7 @@ const ProfileOptionsDropdown = ({
           {profileOptions?.map(({ label }, index) => (
             <DropdownOption key={index}>
               <Body2 bold>{label}</Body2>
-              <FiChevronRight size="1.5rem" color={DAVYS_GREY_800} />
+              <FiChevronRight size="1.5rem" color={ACCENT_800} />
             </DropdownOption>
           ))}
 

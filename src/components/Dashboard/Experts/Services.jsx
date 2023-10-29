@@ -2,10 +2,10 @@ import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 
 import { IconButton } from "@common/Dashboard/Buttons";
-import { Body1, Body2, Support } from "@common/Dashboard/Headings";
+import { Body1, Body2, Support } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import LazyImage from "@common/LazyImage";
-import { DAVYS_GREY_400, DAVYS_GREY_700 } from "@common/ui/colors";
+import { ACCENT_400, ACCENT_700 } from "@common/ui/colors";
 import { services } from "@metadata/dashboard/services";
 
 const Container = styled(FlexBox)`
@@ -14,7 +14,7 @@ const Container = styled(FlexBox)`
 `;
 
 const Card = styled(FlexBox)`
-  border: 1px solid ${DAVYS_GREY_400};
+  border: 1px solid ${ACCENT_400};
   border-radius: 1rem;
   overflow: hidden;
   padding: 1rem;
@@ -39,10 +39,10 @@ const Services = () => {
             <Img src={service.image} />
             <FlexBox column>
               <Body2 bold>{service.title}</Body2>
-              <Support color={DAVYS_GREY_700}>{service.subtitle}</Support>
+              <Support color={ACCENT_700}>{service.subtitle}</Support>
             </FlexBox>
           </FlexBox>
-          <Support color={DAVYS_GREY_700} margin="0.5rem 0">
+          <Support color={ACCENT_700} margin="0.5rem 0">
             {service.description}
           </Support>
           <FlexBox justify="end">

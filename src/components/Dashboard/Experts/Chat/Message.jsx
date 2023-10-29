@@ -3,13 +3,13 @@ import ReactHTMLParser from "react-html-parser";
 import { FiChevronRight, FiCornerUpLeft } from "react-icons/fi";
 import styled, { css } from "styled-components";
 
-import { Caption, Body2 } from "@common/Dashboard/Headings";
+import { Caption, Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { PSYCHIATRIST } from "@constants";
 import {
   ACCENT_800,
-  DAVYS_GREY_600,
-  DAVYS_GREY_400,
+  ACCENT_600,
+  ACCENT_400,
   BRICK_TERRACOTA_200,
   BRICK_TERRACOTA_300,
   DARK_MOSS_GREEN_100,
@@ -119,7 +119,7 @@ const MessageActionButton = styled(FlexBox)`
   pointer-events: none;
   justify-content: center;
   transition: all 250ms ease-in-out;
-  border: 1px solid ${DAVYS_GREY_400};
+  border: 1px solid ${ACCENT_400};
   cursor: pointer;
 `;
 
@@ -226,7 +226,7 @@ const Message = ({
         </Card>
       </MessageRow>
       <Timestamp isProviderMessage={isProviderMessage}>
-        <Caption bold color={DAVYS_GREY_600}>
+        <Caption bold color={ACCENT_600}>
           {getTimestampString(message.time_stamp)}
         </Caption>
       </Timestamp>

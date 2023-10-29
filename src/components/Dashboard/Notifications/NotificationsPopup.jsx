@@ -4,13 +4,9 @@ import styled from "styled-components";
 import { FiX } from "react-icons/fi";
 import FlexBox from "@common/ui/FlexBox";
 import useOutsideAlert from "@hooks/useOutsideAlert";
-import { Body1 } from "@common/Dashboard/Headings";
+import { Body1 } from "@common/ui/Headings";
 import { Button } from "@common/Dashboard/Buttons";
-import {
-  DAVYS_GREY_100,
-  DAVYS_GRAY_400,
-  DAVYS_GREY_800,
-} from "@common/ui/colors";
+import { ACCENT_100, DAVYS_GRAY_400, ACCENT_800 } from "@common/ui/colors";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import NotificationItem from "./NotificationItem";
 import { notificationsData } from ".";
@@ -20,7 +16,7 @@ const Container = styled(FlexBox)`
   z-index: 22;
   inset: 0;
   flex-direction: column;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   overflow-y: auto;
   @media screen and (min-width: 769px) {
     width: 25rem;
@@ -39,7 +35,7 @@ const Header = styled(FlexBox)`
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
@@ -49,7 +45,7 @@ const CloseIcon = styled(FiX)`
   min-width: 1.5rem;
   height: 1.5rem;
   padding: 0.25rem;
-  color: ${DAVYS_GREY_800};
+  color: ${ACCENT_800};
   cursor: pointer;
   stroke-width: 3;
   @media screen and (min-width: 769px) {
@@ -61,7 +57,7 @@ const Footer = styled(FlexBox)`
   position: sticky;
   bottom: 0;
   z-index: 1;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   padding: 1rem 1rem 1.5rem;
   justify-content: center;
   align-items: center;

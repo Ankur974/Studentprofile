@@ -4,7 +4,7 @@ import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { PSYCHIATRIST } from "@constants";
 import { domainareas_images } from "@metadata/domainareas_images";
-import { H3, H6 } from "@common/Dashboard/Headings";
+import { H3, H6 } from "@common/ui/Headings";
 
 const CarouselBody = styled(FlexBox)`
   width: calc(100% + 3rem);

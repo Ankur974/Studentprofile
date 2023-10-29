@@ -4,11 +4,14 @@ import styled from "styled-components";
 import useMobileView from "@hooks/useMobileView";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import axiosInstance from "@axiosInstance";
-import urls from "@urls";
+import { FiPhone, FiMessageCircle, FiVideo } from "react-icons/fi";
+import { useSelector } from "react-redux";
+
+// import axiosInstance from "@axiosInstance";
+// import urls from "@urls";
 import { Modal } from "@common/Modal";
 import { Text } from "@common/Text";
-import { Button } from "@common/Button";
+import { Button } from "@common/ui/Buttons";
 import FlexBox from "@common/ui/FlexBox";
 import { openLink } from "@utils/helpers";
 import {
@@ -22,9 +25,7 @@ import {
   ACCENT_800,
   ACCENT_400,
 } from "@common/ui/colors";
-import { FiPhone, FiMessageCircle, FiVideo } from "react-icons/fi";
 import { isVerifiedCorporateUser } from "@utils/helpers";
-import { useSelector } from "react-redux";
 dayjs.extend(advancedFormat);
 
 const Content = styled.div`
@@ -153,12 +154,10 @@ const CancelModal = ({
   item,
   toggleModal,
   tracker,
-  cancellationOption,
   ContentIndex,
   confirmToggle,
   providerDetails,
   providerType,
-  isPackagingFlow,
   isFirstSession,
   setShowOfflineModal,
   providerPublicProfile,
@@ -169,17 +168,7 @@ const CancelModal = ({
   const index = ContentIndex();
   const cancelSession = async () => {
     try {
-      const payload = {
-        booking_id: item.id,
-        session_cancel_by: "patient",
-        cash_refund: false,
-        session_cancelled_on: window.Android
-          ? "ANDROID_APP"
-          : window.ReactNativeWebView
-          ? "IOS_APP"
-          : "website",
-      };
-      await axiosInstance.post(`${urls.cancelSession}`, payload);
+      // await axiosInstance.post(`${urls.cancelSession}`, payload);
       tracker("therapy_psychiatry_cancel_confirm");
       handleConfirm();
     } catch (error) {

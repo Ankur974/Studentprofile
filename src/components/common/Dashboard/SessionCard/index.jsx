@@ -1,45 +1,27 @@
-import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { FiMoreHorizontal, FiX } from "react-icons/fi";
 import styled from "styled-components";
+import dayjs from "dayjs";
 
 import FlexBox from "@common/ui/FlexBox";
-import RescheduleSession from "@components/Dashboard/RescheduleSession";
-import ViewLocationModal from "@components/Dashboard/ViewLocationModal";
 import {
   BRICK_TERRACOTA,
-  DAVYS_GREY_100,
-  DAVYS_GREY_400,
-  DAVYS_GREY_700,
-  DAVYS_GREY_800,
+  ACCENT_100,
+  ACCENT_400,
+  ACCENT_700,
+  ACCENT_800,
   PRIMARY_400,
   PRIMARY_800,
   WHITE,
 } from "@common/ui/colors";
-import dayjs from "dayjs";
 import { Button } from "../Buttons";
 import { Body2, Support } from "../Headings";
-import SessionOptionsDropdown from "./SessionOptionsDropdown";
-import CancelSession from "@components/Dashboard/CancelSession";
-
-const dummySessionDetails = {
-  providerName: "Pratistha Trivedi Mirza",
-  sessionTime: "2023-09-08T08:30:00.000Z",
-  sessionType: "single",
-  sessionMode: "in-person",
-  sessionDuration: 1800,
-};
-
-const ChangeSessionMode = dynamic(
-  () => import("../../../Dashboard/ChangeSessionMode"),
-  { ssr: false }
-);
 
 const Card = styled(FlexBox)`
   border-radius: 0.5rem;
-  background: ${({ isNsp }) => (isNsp ? BRICK_TERRACOTA : DAVYS_GREY_100)};
+  background: ${({ isNsp }) => (isNsp ? BRICK_TERRACOTA : ACCENT_100)};
   border: ${({ isNsp }) =>
-    isNsp ? `1px dashed ${PRIMARY_800}` : `1px solid ${DAVYS_GREY_400}`};
+    isNsp ? `1px dashed ${PRIMARY_800}` : `1px solid ${ACCENT_400}`};
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
@@ -54,7 +36,7 @@ const ProviderImg = styled.img`
 const commonIconProps = {
   size: "1.5rem",
   cursor: "pointer",
-  color: DAVYS_GREY_800,
+  color: ACCENT_800,
 };
 
 const SessionDetails = styled.div`
@@ -129,7 +111,7 @@ const SessionCard = ({ session, isNsp }) => {
   const providerName = session.provider?.firstname + session.provider?.lastname;
   return (
     <RelativeDiv column>
-      {showSessionOptions && (
+      {/* {showSessionOptions && (
         <SessionOptionsDropdown
           toggleDropdown={toggleSessionOptions}
           bookingId={session?.id}
@@ -158,20 +140,14 @@ const SessionCard = ({ session, isNsp }) => {
           bookingDetails={session}
           // reloadSessionList={reloadSessionList}
         />
-      )}
+      )} */}
 
-      {showChangeSessionModeModal && (
-        <ChangeSessionMode
-          handleChangeSessionModal={handleChangeSessionModal}
-          sessionDetails={dummySessionDetails} // TODO PK: Add session details
-        />
-      )}
       <Card column isNsp={isNsp}>
         <FlexBox align="center" justify="space-between" width="100%">
           <FlexBox align="center" columnGap="0.5rem">
             <ProviderImg src="https://cdn.theinnerhour.com/assets/images/avatar_flower_1.png" />
             <FlexBox column justify="center" padding="0 1rem" rowGap="0.5rem">
-              <Support color={DAVYS_GREY_700} textTransform="capitalize">
+              <Support color={ACCENT_700} textTransform="capitalize">
                 {session.provider_role} session with
               </Support>
               <Body2 bold>{providerName || "Varsha Shinde"}</Body2>

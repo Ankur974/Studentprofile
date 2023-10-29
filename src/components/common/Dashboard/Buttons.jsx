@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 import { FiPlus } from "react-icons/fi";
 import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_200,
-  DAVYS_GREY_400,
-  DAVYS_GREY_500,
+  ACCENT_100,
+  ACCENT_200,
+  ACCENT_400,
+  ACCENT_500,
   BRICK_TERRACOTA_400,
   BRICK_TERRACOTA_500,
   BRICK_TERRACOTA_800,
@@ -21,7 +21,7 @@ import {
 export const Button = styled.button`
   box-sizing: border-box;
   display: ${({ block }) => (block ? "block" : "inline-block")};
-  color: ${({ color }) => color || DAVYS_GREY_100};
+  color: ${({ color }) => color || ACCENT_100};
   background-color: ${({ bgColor }) => bgColor || BRICK_TERRACOTA_800};
   width: ${({ width }) => width || "auto"};
   padding: ${({ padding }) => padding || "0.5rem 1.5rem"};
@@ -36,7 +36,7 @@ export const Button = styled.button`
   cursor: ${({ cursor }) => cursor || "pointer"};
 
   :hover {
-    color: ${({ hoverColor }) => hoverColor || DAVYS_GREY_100};
+    color: ${({ hoverColor }) => hoverColor || ACCENT_100};
     background-color: ${({ hoverBgColor }) =>
       hoverBgColor || BRICK_TERRACOTA_900};
     border-color: ${({ hoverBorderColor }) =>
@@ -48,12 +48,12 @@ export const Button = styled.button`
     danger &&
     css`
       background-color: ${ERROR_RED_500};
-      color: ${({ color }) => color || DAVYS_GREY_100};
+      color: ${({ color }) => color || ACCENT_100};
       border-color: ${ERROR_RED_500};
 
       :hover {
         background-color: ${ERROR_RED_600};
-        color: ${({ hoverColor }) => hoverColor || DAVYS_GREY_100};
+        color: ${({ hoverColor }) => hoverColor || ACCENT_100};
         border-color: ${ERROR_RED_600};
       }
     `}
@@ -63,12 +63,12 @@ export const Button = styled.button`
     secondary &&
     css`
       background-color: ${DARK_MOSS_GREEN_800};
-      color: ${({ color }) => color || DAVYS_GREY_100};
+      color: ${({ color }) => color || ACCENT_100};
       border-color: ${DARK_MOSS_GREEN_800};
 
       :hover {
         background-color: ${DARK_MOSS_GREEN_900};
-        color: ${({ hoverColor }) => hoverColor || DAVYS_GREY_100};
+        color: ${({ hoverColor }) => hoverColor || ACCENT_100};
         border-color: ${DARK_MOSS_GREEN_900};
       }
     `}
@@ -77,12 +77,12 @@ export const Button = styled.button`
   ${({ outline }) =>
     outline &&
     css`
-      background-color: ${DAVYS_GREY_100};
+      background-color: ${ACCENT_100};
       color: ${({ color }) => color || BRICK_TERRACOTA_800};
       border-color: ${BRICK_TERRACOTA_400};
 
       :hover {
-        background-color: ${DAVYS_GREY_100};
+        background-color: ${ACCENT_100};
         color: ${({ hoverColor }) => hoverColor || BRICK_TERRACOTA_900};
         border-color: ${BRICK_TERRACOTA_500};
       }
@@ -106,15 +106,15 @@ export const Button = styled.button`
   ${({ tertiary }) =>
     tertiary &&
     css`
-      background-color: ${DAVYS_GREY_100};
+      background-color: ${ACCENT_100};
       color: ${({ color }) => color || DARK_MOSS_GREEN_800};
-      border-color: ${({ borderColor }) => borderColor || DAVYS_GREY_400};
+      border-color: ${({ borderColor }) => borderColor || ACCENT_400};
       border-radius: ${({ borderRadius }) => borderRadius || "2.5rem"};
 
       :hover {
-        background-color: ${DAVYS_GREY_200};
+        background-color: ${ACCENT_200};
         color: ${({ hoverColor }) => hoverColor || DARK_MOSS_GREEN_800};
-        border-color: ${({ borderColor }) => borderColor || DAVYS_GREY_400};
+        border-color: ${({ borderColor }) => borderColor || ACCENT_400};
         border-radius: ${({ borderRadius }) => borderRadius || "2.5rem"};
       }
     `}
@@ -124,12 +124,12 @@ export const Button = styled.button`
     outline &&
     danger &&
     css`
-      background-color: ${DAVYS_GREY_100};
+      background-color: ${ACCENT_100};
       color: ${({ color }) => color || ERROR_RED_500};
       border-color: ${ERROR_RED_400};
 
       :hover {
-        background-color: ${DAVYS_GREY_100};
+        background-color: ${ACCENT_100};
         color: ${({ hoverColor }) => hoverColor || ERROR_RED_600};
         border-color: ${ERROR_RED_500};
       }
@@ -140,15 +140,15 @@ export const Button = styled.button`
     textCta &&
     css`
       padding: 0.5rem;
-      background-color: ${DAVYS_GREY_100};
+      background-color: ${ACCENT_100};
       color: ${({ color }) => color || BRICK_TERRACOTA_800};
-      border-color: ${DAVYS_GREY_100};
+      border-color: ${ACCENT_100};
       text-decoration: ${({ textDecoration }) => textDecoration || "unset"};
 
       :hover {
-        background-color: ${DAVYS_GREY_100};
+        background-color: ${ACCENT_100};
         color: ${({ color }) => color || BRICK_TERRACOTA_900};
-        border-color: ${DAVYS_GREY_100};
+        border-color: ${ACCENT_100};
       }
     `}
 
@@ -168,25 +168,25 @@ export const Button = styled.button`
   ${({ disabled, outline, tertiary, textCta }) => {
     // primary, secondary
     let disabledStyles = css`
-      background-color: ${DAVYS_GREY_500};
-      color: ${DAVYS_GREY_100};
-      border-color: ${DAVYS_GREY_500};
+      background-color: ${ACCENT_500};
+      color: ${ACCENT_100};
+      border-color: ${ACCENT_500};
     `;
 
     // outline, tertiary
     if (outline || tertiary)
       disabledStyles = css`
-        background-color: ${DAVYS_GREY_100};
-        color: ${DAVYS_GREY_500};
-        border-color: ${DAVYS_GREY_400};
+        background-color: ${ACCENT_100};
+        color: ${ACCENT_500};
+        border-color: ${ACCENT_400};
       `;
 
     // textCta
     if (textCta)
       disabledStyles = css`
-        background-color: ${DAVYS_GREY_100};
-        color: ${DAVYS_GREY_500};
-        border-color: ${DAVYS_GREY_100};
+        background-color: ${ACCENT_100};
+        color: ${ACCENT_500};
+        border-color: ${ACCENT_100};
       `;
 
     return (
@@ -241,7 +241,7 @@ const IconBtn = styled(Button)`
  *
  * for controlling border styles specify borderColor, borderRadius
  * @example - rectangular icon button without border
- * `<IconButton borderRadius="0.5rem" borderColor={DAVYS_GREY_100} />`
+ * `<IconButton borderRadius="0.5rem" borderColor={ACCENT_100} />`
  *
  * Button Text Props
  * @param {string} [children] - optional button text

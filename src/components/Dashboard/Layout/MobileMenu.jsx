@@ -5,12 +5,12 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { BooleanParam, useQueryParams } from "use-query-params";
 
-import { Body2, H3 } from "@common/Dashboard/Headings";
+import { Body2, H3 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import {
-  DAVYS_GREY_300,
-  DAVYS_GREY_700,
-  DAVYS_GREY_800,
+  ACCENT_300,
+  ACCENT_700,
+  ACCENT_800,
   PRIMARY_800,
   WHITE,
 } from "@common/ui/colors";
@@ -49,7 +49,7 @@ const ProviderImage = styled.img`
   overflow: hidden;
   object-fit: cover;
   border-radius: 50%;
-  border: 1px solid ${DAVYS_GREY_800};
+  border: 1px solid ${ACCENT_800};
 `;
 
 const CloseIcon = styled.div`
@@ -59,7 +59,7 @@ const CloseIcon = styled.div`
 const Divider = styled.div`
   height: 1px;
   width: 100%;
-  background-color: ${DAVYS_GREY_300};
+  background-color: ${ACCENT_300};
 `;
 
 const Arrow = styled(FlexBox)`
@@ -76,7 +76,7 @@ const MenuOptions = styled(FlexBox)`
 `;
 
 const OptionItem = styled(FlexBox)`
-  border-bottom: 1px solid ${DAVYS_GREY_300};
+  border-bottom: 1px solid ${ACCENT_300};
 `;
 
 const MobileMenu = ({ toggleMobileMenu }) => {
@@ -117,7 +117,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
             onClick={toggleMobileMenu}
           />
           <H3 bold>Hi, Varsha</H3>
-          <Body2 color={DAVYS_GREY_700}>Started on 18 Jun 2020</Body2>
+          <Body2 color={ACCENT_700}>Started on 18 Jun 2020</Body2>
         </FlexBox>
         <CloseIcon>
           <FiX
@@ -126,7 +126,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
             cursor="pointer"
             className="close-icon"
             strokeWidth={3}
-            color={DAVYS_GREY_800}
+            color={ACCENT_800}
           />
         </CloseIcon>
       </FlexBox>
@@ -147,7 +147,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
                 cursor="pointer"
                 className="close-icon"
                 strokeWidth={3}
-                color={DAVYS_GREY_800}
+                color={ACCENT_800}
               />
             </Arrow>
           </OptionItem>
@@ -160,7 +160,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
             key={index}
             onClick={() => handleClick(label, link)}
           >
-            <Body2 color={index === 0 ? PRIMARY_800 : DAVYS_GREY_800} bold>
+            <Body2 color={index === 0 ? PRIMARY_800 : ACCENT_800} bold>
               {label}
             </Body2>
             <Arrow>
@@ -169,7 +169,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
                 cursor="pointer"
                 className="close-icon"
                 strokeWidth={3}
-                color={DAVYS_GREY_800}
+                color={ACCENT_800}
               />
             </Arrow>
           </OptionItem>

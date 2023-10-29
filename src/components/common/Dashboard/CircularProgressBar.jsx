@@ -1,7 +1,7 @@
 import React from "react";
 
 import { CircularProgressbar as ReactCircularProgressbar } from "react-circular-progressbar";
-import { DAVYS_GREY_300, SECONDARY_800 } from "@common/ui/colors";
+import { ACCENT_300, SECONDARY_800 } from "@common/ui/colors";
 
 const CircularProgressBar = ({ progress }) => {
   return (
@@ -14,7 +14,7 @@ const CircularProgressBar = ({ progress }) => {
           transition: "stroke-dashoffset 0.5s ease 0s",
         },
         trail: {
-          stroke: DAVYS_GREY_300,
+          stroke: ACCENT_300,
         },
       }}
       value={progress}

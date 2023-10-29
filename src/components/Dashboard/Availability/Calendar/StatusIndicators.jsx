@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_500, PRIMARY_800, SECONDARY_800 } from "@common/ui/colors";
-import { H5 } from "@common/Dashboard/Headings";
+import { H5 } from "@common/ui/Headings";
 
 const Wrapper = styled(FlexBox)`
   column-gap: 1.5rem;

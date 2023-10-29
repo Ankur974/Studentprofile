@@ -18,7 +18,7 @@ import {
   PRIMARY_800,
 } from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
-import { DAVYS_GRAY_400 } from "../../../constants/colors";
+import { DAVYS_GRAY_400 } from "@common/ui/colors";
 
 const Calendar = dynamic(() => import("./Calendar"), {
   ssr: false,

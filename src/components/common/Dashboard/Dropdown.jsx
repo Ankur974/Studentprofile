@@ -4,10 +4,10 @@ import { FiChevronRight, FiCheck } from "react-icons/fi";
 import FlexBox from "@common/ui/FlexBox";
 import useOutsideAlert from "@hooks/useOutsideAlert";
 import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_200,
-  DAVYS_GREY_400,
-  DAVYS_GREY_500,
+  ACCENT_100,
+  ACCENT_200,
+  ACCENT_400,
+  ACCENT_500,
   DARK_MOSS_GREEN_100,
   DARK_MOSS_GREEN_900,
 } from "@common/ui/colors";
@@ -23,8 +23,8 @@ const Container = styled.div`
   right: ${({ right }) => right || "0"};
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
-  background-color: ${DAVYS_GREY_100};
-  border: 1px solid ${DAVYS_GREY_400};
+  background-color: ${ACCENT_100};
+  border: 1px solid ${ACCENT_400};
   border-radius: ${({ size }) => (size === "small" ? "0.5rem" : "1rem")};
   overflow: hidden;
   transition: ${({ isOpen }) => `${isOpen ? "all 200ms ease-in-out" : "none"}`};
@@ -58,7 +58,7 @@ const Option = styled(FlexBox)`
   justify-content: space-between;
   transition: all 200ms ease-in-out;
   background-color: ${({ isSelected }) =>
-    isSelected ? DARK_MOSS_GREEN_100 : DAVYS_GREY_100};
+    isSelected ? DARK_MOSS_GREEN_100 : ACCENT_100};
 
   :first-child {
     padding-top: ${({ size }) => (size === "small" ? "0.75rem" : "1.5rem")};
@@ -73,7 +73,7 @@ const Option = styled(FlexBox)`
     !isSelected &&
     css`
       :hover {
-        background-color: ${DAVYS_GREY_200};
+        background-color: ${ACCENT_200};
       }
     `}
 
@@ -82,10 +82,10 @@ const Option = styled(FlexBox)`
     !isSelected &&
     css`
       svg {
-        color: ${DAVYS_GREY_500};
+        color: ${ACCENT_500};
       }
       :hover {
-        background-color: ${disabled ? DAVYS_GREY_100 : DAVYS_GREY_200};
+        background-color: ${disabled ? ACCENT_100 : ACCENT_200};
         svg {
           color: ${DARK_MOSS_GREEN_900};
         }
@@ -233,7 +233,7 @@ const Dropdown = ({
           if (!option) return null;
           const { label, labelColor, disabled } = option;
           const isSelected = getSelectedStatus(label);
-          const textColor = disabled ? DAVYS_GREY_500 : labelColor;
+          const textColor = disabled ? ACCENT_500 : labelColor;
           const showChevron =
             !isSelectDropdown && !disabled && size === "large";
 

@@ -3,7 +3,7 @@ import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 
 import { Case, Default, Switch } from "@common/ConditionalRendering";
-import { H4 } from "@common/Dashboard/Headings";
+import { H4 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_800 } from "@common/ui/colors";
 

@@ -4,7 +4,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { Text } from "@common/Text";
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_400, ACCENT_400, SECONDARY_800 } from "@common/ui/colors";
+import { ACCENT_400, ACCENT_400, SECONDARY_800 } from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
 
 const Container = styled(FlexBox)`
@@ -23,7 +23,7 @@ const CalendarNavigationButton = styled(FlexBox)`
   justify-content: center;
   align-items: center;
   border-radius: 2.5rem;
-  border: 1px solid ${DAVYS_GREY_400};
+  border: 1px solid ${ACCENT_400};
 
   svg {
     color: ${SECONDARY_800};
@@ -36,7 +36,7 @@ const CalendarNavigationButton = styled(FlexBox)`
       pointer-events: none;
 
       svg {
-        color: ${DAVYS_GREY_400};
+        color: ${ACCENT_400};
       }
     `}
 `;

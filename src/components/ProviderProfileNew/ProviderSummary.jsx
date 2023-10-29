@@ -5,8 +5,8 @@ import ReactHtmlParser from "react-html-parser";
 import FlexBox from "@common/ui/FlexBox";
 import { H4, TextCTA } from "@common/Headings";
 import { currentFlow, trackEvent } from "@utils/helpers";
-import { SECONDARY_800 } from "../../constants/colors";
-import { DAVYS_GRAY_400 } from "../../constants/colors";
+import { SECONDARY_800 } from "@common/ui/colors";
+import { DAVYS_GRAY_400 } from "@common/ui/colors";
 
 const Container = styled(FlexBox)`
   width: 100%;

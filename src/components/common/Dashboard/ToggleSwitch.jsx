@@ -1,10 +1,6 @@
 import styled, { css } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_500,
-  SUCCESS_GREEN_500,
-} from "@common/ui/colors";
+import { ACCENT_100, ACCENT_500, SUCCESS_GREEN_500 } from "@common/ui/colors";
 
 const ToggleContainer = styled(FlexBox)`
   padding: 2px;
@@ -13,7 +9,7 @@ const ToggleContainer = styled(FlexBox)`
   cursor: pointer;
   align-items: center;
   border-radius: 0.875rem;
-  background-color: ${DAVYS_GREY_500};
+  background-color: ${ACCENT_500};
 
   ${({ checked }) =>
     checked &&
@@ -34,7 +30,7 @@ const Switch = styled(FlexBox)`
   aspect-ratio: 1;
   border-radius: 50%;
   transform: translateX(0);
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   transition: transform 300ms ease-in-out;
 
   ${({ checked }) =>

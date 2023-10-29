@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import Card from "@/components/common/Dashboard/Card";
-import NullState from "@/components/common/Dashboard/NullState";
-import SessionCreditCard from "@/components/common/Dashboard/SessionCreditCard";
-import Loader from "@/components/ui/Loader";
-import FlexBox from "@/components/ui/FlexBox";
-import { Button } from "@/components/ui/Button";
-import { Support } from "@/components/common/ui/Headings";
+import Card from "@common/Dashboard/Card";
+import NullState from "@common/Dashboard/NullState";
+// import SessionCreditCard from "@common/Dashboard/SessionCreditCard";
+import Loader from "@common/ui/Loader";
+import FlexBox from "@common/ui/FlexBox";
+import { Button } from "@common/ui/Buttons";
+import { Support } from "@common/ui/Headings";
 import AllSessions from "./AllSessions";
 // import BookSessionWithComponent from "./BookSessionWithComponent";
 // import UpcomingSessions from "./UpcomingSessions";
@@ -60,7 +60,9 @@ const Dashboard = () => {
   const [showAllSessions, setShowAllSessions] = useState(false);
   const [suggestedSessions, setSuggestedSessions] = useState([]);
 
-  const showCreditsNullState = true;
+  const showCreditsNullState = true; //todo: to be updated
+  const loading = false;
+  const upcomingSessions = [];
 
   // useEffect(async () => {
   //   try {
@@ -139,8 +141,8 @@ const Dashboard = () => {
               <SessionCreditsWrapper>
                 <FlexBox column rowGap="1rem" margin="1.5rem 0 0">
                   <FlexBox column rowGap="1rem">
-                    <SessionCreditCard />
-                    <SessionCreditCard />
+                    {/* <SessionCreditCard />
+                    <SessionCreditCard /> */}
                   </FlexBox>
                   <Support margin="0 0 1.5rem 0">
                     You can use your credits to book an online or in-person

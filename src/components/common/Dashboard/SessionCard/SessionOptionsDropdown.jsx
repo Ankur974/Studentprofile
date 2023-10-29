@@ -4,12 +4,12 @@ import styled from "styled-components";
 import { BooleanParam, StringParam, useQueryParams } from "use-query-params";
 
 import DropdownWrapper from "@common/Dashboard/DropdownWrapper";
-import { Body2, Support } from "@common/Dashboard/Headings";
+import { Body2, Support } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import {
   DAVYS_GRAY_400,
-  DAVYS_GREY_200,
-  DAVYS_GREY_800,
+  ACCENT_200,
+  ACCENT_800,
   PRIMARY_800,
 } from "@common/ui/colors";
 import useOutsideAlert from "@hooks/useOutsideAlert";
@@ -38,10 +38,10 @@ const DropdownOption = styled(FlexBox)`
 
   :hover {
     border-radius: 1rem 1rem 0 0;
-    background-color: ${DAVYS_GREY_200};
+    background-color: ${ACCENT_200};
 
     svg {
-      color: ${DAVYS_GREY_800};
+      color: ${ACCENT_800};
     }
   }
   :last-child {
@@ -108,13 +108,13 @@ const SessionOptionsDropdown = ({
           {sessionOptions?.map(({ title, subtitle, handleClick }, index) => (
             <DropdownOption key={index} onClick={handleClick}>
               <FlexBox column>
-                <Body2 bold color={index === 0 ? PRIMARY_800 : DAVYS_GREY_800}>
+                <Body2 bold color={index === 0 ? PRIMARY_800 : ACCENT_800}>
                   {title}
                 </Body2>
                 <Support>{subtitle}</Support>
               </FlexBox>
 
-              <FiChevronRight size="1.5rem" color={DAVYS_GREY_800} />
+              <FiChevronRight size="1.5rem" color={ACCENT_800} />
             </DropdownOption>
           ))}
         </FlexBox>

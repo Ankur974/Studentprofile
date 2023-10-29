@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { Loader } from "@common/Loader";
+import Loader from "@common/ui/Loader";
 import { getFirebaseClient } from "@firebaseInstance";
 import { useChatStatus } from "@hooks/useChatStatus";
 import { decryptMessage } from "@utils/helpers";

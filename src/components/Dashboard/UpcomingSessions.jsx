@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Button } from "@common/Dashboard/Buttons";
 import SessionCard from "@common/Dashboard/SessionCard";
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_300, WHITE } from "@common/ui/colors";
+import { ACCENT_300, WHITE } from "@common/ui/colors";
 
 const Divider = styled.div`
   height: 1px;
@@ -25,7 +25,7 @@ const BookCTAWrapper = styled(FlexBox)`
   border-radius: 0 0 1rem 1rem;
   @media screen and (min-width: 768px) {
     padding: 1.5rem;
-    border-top: 1px solid ${DAVYS_GREY_300};
+    border-top: 1px solid ${ACCENT_300};
     position: absolute;
     bottom: 0;
   }

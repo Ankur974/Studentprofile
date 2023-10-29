@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
-import {
-  ACCENT_800,
-  DAVYS_GREY_600,
-  ERROR_500,
-  white,
-} from "@common/ui/colors";
+import { ACCENT_800, ACCENT_600, ERROR_500, white } from "@common/ui/colors";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Body2, Support } from "@components/common/Dashboard/Headings";
@@ -36,7 +31,7 @@ const TextAreaInput = styled.textarea`
   resize: vertical;
   color: ${ACCENT_800};
   ::placeholder {
-    color: ${DAVYS_GREY_600};
+    color: ${ACCENT_600};
   }
 `;
 
@@ -102,7 +97,7 @@ TextArea.defaultProps = {
   theme: {
     input: {
       padding: "0.75rem",
-      border: DAVYS_GREY_600,
+      border: ACCENT_600,
       requiredColor: ACCENT_800,
       IconColor: ACCENT_800,
       crossIconColor: ACCENT_800,

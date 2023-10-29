@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
 
-import { Body2, Support } from "@common/Dashboard/Headings";
+import { Body2, Support } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 
 const Wrapper = styled(FlexBox)`

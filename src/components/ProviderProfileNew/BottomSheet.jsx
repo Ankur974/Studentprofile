@@ -3,7 +3,7 @@ import { FiX } from "react-icons/fi";
 import styled, { keyframes } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { H4, H5 } from "@common/Headings";
-import { ACCENT_800, WHITE } from "../../constants/colors";
+import { ACCENT_800, WHITE } from "@common/ui/colors";
 
 const MethodImg = styled.img`
   height: 5rem;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import Slider from "./Slider";
-import { H3, H4 } from "@common/Dashboard/Headings";
+import { H3, H4 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { WHITE, ACCENT_500 } from "@common/ui/colors";
 

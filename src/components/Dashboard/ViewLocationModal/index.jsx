@@ -1,13 +1,9 @@
 import styled from "styled-components";
 import { FiX, FiMapPin } from "react-icons/fi";
 import FlexBox from "@common/ui/FlexBox";
-import { H2, H4, H5 } from "@common/Dashboard/Headings";
+import { H2, H4, H5 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
-import {
-  DAVYS_GREY_100,
-  DAVYS_GREY_300,
-  DAVYS_GREY_800,
-} from "@common/ui/colors";
+import { ACCENT_100, ACCENT_300, ACCENT_800 } from "@common/ui/colors";
 import { IconButton } from "@common/Dashboard/Buttons";
 import { handleMapOpen } from "@utils/helpers";
 import ClinicImagesCarousel from "./ClinicImagesCarousel";
@@ -16,18 +12,18 @@ const Header = styled(FlexBox)`
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   padding: 1rem 1rem 1rem 1.5rem;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid ${DAVYS_GREY_300};
+  border-bottom: 1px solid ${ACCENT_300};
 `;
 
 const CloseIcon = styled(FiX)`
   min-width: 1.5rem;
   height: 1.5rem;
   padding: 0.25rem;
-  color: ${DAVYS_GREY_800};
+  color: ${ACCENT_800};
   cursor: pointer;
   stroke-width: 3;
 `;

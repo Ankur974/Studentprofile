@@ -8,10 +8,10 @@ import {
   ACCENT_800,
   WHITE,
   LIGHT_YELLOW,
-  DAVYS_GREY_200,
+  ACCENT_200,
   ACCENT_100,
 } from "@common/ui/colors";
-import { H2, H3, H6 } from "@common/Dashboard/Headings";
+import { H2, H3, H6 } from "@common/ui/Headings";
 import VideoPlayerModal from "@common/Dashboard/VideoPlayerModal";
 
 const BannerContainer = styled(FlexBox)`
@@ -100,7 +100,7 @@ const CloseButton = styled(FlexBox)`
   cursor: pointer;
   color: ${ACCENT_800};
   :hover {
-    background-color: ${DAVYS_GREY_200};
+    background-color: ${ACCENT_200};
   }
 `;
 

@@ -5,7 +5,7 @@ import FooterNote from "@common/FooterNote";
 import Footer from "@common/Footer";
 import CustomLinkComponent from "@utils/CustomLinkComponent";
 import useMobileView from "@hooks/useMobileView";
-import { Loader } from "@common/Loader";
+import Loader from "@common/ui/Loader";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_400, PRIMARY_800, WHITE } from "@common/ui/colors";
 

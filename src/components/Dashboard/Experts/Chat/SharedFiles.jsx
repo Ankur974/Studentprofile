@@ -3,10 +3,10 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import styled from "styled-components";
 
-import { Body1, Caption, Support } from "@common/Dashboard/Headings";
+import { Body1, Caption, Support } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
-import { Loader } from "@common/Loader";
-import { ACCENT_400, DAVYS_GREY_600, SECONDARY_800 } from "@common/ui/colors";
+import Loader from "@common/ui/Loader";
+import { ACCENT_400, ACCENT_600, SECONDARY_800 } from "@common/ui/colors";
 import { useChatAttachments } from "@hooks/useChatAttachments";
 
 const ImagePreviewPopup = dynamic(() => import("./ImagePreviewPopup"), {
@@ -242,7 +242,7 @@ const SharedFiles = () => {
                       <FileName bold textAlign="center">
                         {file_name}
                       </FileName>
-                      <Caption color={DAVYS_GREY_600}>
+                      <Caption color={ACCENT_600}>
                         {uploaded_at
                           ? dayjs(uploaded_at * 1000).format("DD MMM YYYY")
                           : ""}
@@ -269,7 +269,7 @@ const SharedFiles = () => {
                     <FileName bold textAlign="center">
                       {file_name}
                     </FileName>
-                    <Caption color={DAVYS_GREY_600}>
+                    <Caption color={ACCENT_600}>
                       {uploaded_at
                         ? dayjs(uploaded_at * 1000).format("DD MMM YYYY")
                         : ""}

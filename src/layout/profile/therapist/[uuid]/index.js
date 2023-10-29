@@ -7,7 +7,7 @@
 // import ProfilePage from "@components/ProfilePage";
 // import { THERAPIST } from "@constants";
 // import Meta from "@layout/Meta";
-// import { Loader } from "@common/Loader";
+// import Loader from "@common/ui/Loader";
 // import { encodeQueryData, isStringNullable } from "@utils/helpers";
 // import HomePageLayout from "@layout/HomePageLayout";
 

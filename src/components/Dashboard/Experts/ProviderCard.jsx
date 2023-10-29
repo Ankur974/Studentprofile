@@ -2,17 +2,17 @@ import { FiChevronRight, FiMessageCircle } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { Body1, Body2, Support } from "@common/Dashboard/Headings";
+import { Body1, Body2, Support } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import LazyImage from "@common/LazyImage";
 import { COUPLE_THERAPIST, THERAPIST } from "@constants";
 import {
   ACCENT_100,
-  DAVYS_GREY_200,
-  DAVYS_GREY_300,
-  DAVYS_GREY_500,
-  DAVYS_GREY_700,
-  DAVYS_GREY_800,
+  ACCENT_200,
+  ACCENT_300,
+  ACCENT_500,
+  ACCENT_700,
+  ACCENT_800,
   ERROR_RED_400,
   SECONDARY_100,
   SECONDARY_800,
@@ -21,7 +21,7 @@ import { useChatUnreadMessages } from "@hooks/useChatUnreadMessages";
 
 const Card = styled(FlexBox)`
   border-radius: 1rem;
-  border: 1px solid ${DAVYS_GREY_300};
+  border: 1px solid ${ACCENT_300};
   overflow: hidden;
 `;
 
@@ -29,7 +29,7 @@ const ProviderImg = styled.div`
   img {
     height: 3rem;
     aspect-ratio: 1;
-    border: 1px solid ${DAVYS_GREY_800};
+    border: 1px solid ${ACCENT_800};
     overflow: hidden;
     object-fit: cover;
     border-radius: 50%;
@@ -41,13 +41,13 @@ const ClickableRow = styled(FlexBox)`
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid ${DAVYS_GREY_300};
+  border-top: 1px solid ${ACCENT_300};
   cursor: pointer;
   background-color: ${({ isSelected }) =>
     isSelected ? SECONDARY_100 : ACCENT_100};
   :hover {
     background-color: ${({ isSelected }) =>
-      isSelected ? SECONDARY_100 : DAVYS_GREY_200};
+      isSelected ? SECONDARY_100 : ACCENT_200};
   }
 `;
 
@@ -55,7 +55,7 @@ const ChatIcon = styled(FlexBox)`
   position: relative;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${DAVYS_GREY_300};
+  border: 1px solid ${ACCENT_300};
   border-radius: 50%;
   overflow: hidden;
   height: 3rem;
@@ -65,7 +65,7 @@ const ChatIcon = styled(FlexBox)`
     isSelected ? SECONDARY_100 : ACCENT_100};
   :hover {
     background-color: ${({ isSelected }) =>
-      isSelected ? SECONDARY_100 : DAVYS_GREY_200};
+      isSelected ? SECONDARY_100 : ACCENT_200};
   }
 `;
 
@@ -143,7 +143,7 @@ const ProviderCard = ({
           </ChatIcon>
         </FlexBox>
 
-        <Support color={DAVYS_GREY_700} textTransform="capitalize">
+        <Support color={ACCENT_700} textTransform="capitalize">
           Your{" "}
           {providerType === COUPLE_THERAPIST
             ? "Couples Therapist"
@@ -162,7 +162,7 @@ const ProviderCard = ({
       >
         <Body2>View profile</Body2>
         <FiChevronRight
-          color={isViewProfileSelected ? SECONDARY_800 : DAVYS_GREY_500}
+          color={isViewProfileSelected ? SECONDARY_800 : ACCENT_500}
           strokeWidth={3}
         />
       </ClickableRow>
@@ -178,7 +178,7 @@ const ProviderCard = ({
             : "View sessions, prescriptions, and tools"}
         </Body2>
         <FiChevronRight
-          color={isViewSessionsSelected ? SECONDARY_800 : DAVYS_GREY_500}
+          color={isViewSessionsSelected ? SECONDARY_800 : ACCENT_500}
           strokeWidth={3}
         />
       </ClickableRow>

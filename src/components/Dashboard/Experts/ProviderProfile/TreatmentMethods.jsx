@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { SECONDARY_700, ACCENT_500 } from "@common/ui/colors";
-import { H3, H4 } from "@common/Dashboard/Headings";
+import { H3, H4 } from "@common/ui/Headings";
 
 const TreatmentMethods = styled.div`
   display: flex;

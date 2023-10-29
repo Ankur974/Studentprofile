@@ -6,7 +6,7 @@ import { trackEvent, currentFlow } from "@utils/helpers";
 import Slider from "./Slider";
 import { Text } from "@common/Text";
 import { cfInfoCarousel } from "../../../metadata/cfInfo";
-import { PRIMARY_800 } from "../../../constants/colors";
+import { PRIMARY_800 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { trackEvent } from "@utils/helpers";
 import { Modal } from "@common/Modal";
 import { Text } from "@common/Text";
-import { Button } from "@common/Button";
+import { Button } from "@common/ui/Buttons";
 import { LIGHT_RED, WHITE, DARK_BLUE } from "@common/ui/colors";
 
 const ContentDiv = styled.div`

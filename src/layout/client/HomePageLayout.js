@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import { Loader } from "../../components/common/Loader";
-import NavBar from "../../components/common/NavBar";
-import Footer from "../../components/common/Footer";
+import Loader from "@common/ui/Loader";
+import NavBar from "@common/NavBar";
+import Footer from "@common/Footer";
 
 const HomePageLayout = ({
   children,

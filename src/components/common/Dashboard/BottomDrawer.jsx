@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_400, WHITE } from "@common/ui/colors";
+import { ACCENT_400, WHITE } from "@common/ui/colors";
 import useOutsideAlert from "@hooks/useOutsideAlert";
 import { Body2 } from "./Headings";
 
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   border-radius: 1rem 1rem 0rem 0rem;
-  border: 1px solid ${DAVYS_GREY_400};
+  border: 1px solid ${ACCENT_400};
   background: ${WHITE};
   ${boxShadowDs1}
   z-index: 5;

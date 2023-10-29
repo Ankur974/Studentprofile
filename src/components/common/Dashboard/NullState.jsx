@@ -2,7 +2,7 @@ import ReactHtmlParser from "react-html-parser";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_700 } from "@common/ui/colors";
+import { ACCENT_700 } from "@common/ui/colors";
 import { H3, H5 } from "./Headings";
 
 const Container = styled(FlexBox)`
@@ -47,7 +47,7 @@ const NullState = ({
             {text}
           </H3>
           {subtext && (
-            <H5 color={DAVYS_GREY_700} textAlign="center">
+            <H5 color={ACCENT_700} textAlign="center">
               {ReactHtmlParser(subtext)}
             </H5>
           )}

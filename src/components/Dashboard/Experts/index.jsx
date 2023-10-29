@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { NumberParam, StringParam, useQueryParams } from "use-query-params";
 
 import FlexBox from "@common/ui/FlexBox";
-import { Loader } from "@common/Loader";
+import Loader from "@common/ui/Loader";
 import DashboardLayout from "@components/Dashboard/Layout";
-import { DAVYS_GREY_300 } from "@common/ui/colors";
+import { ACCENT_300 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import ProviderCard from "./ProviderCard";
 
@@ -31,7 +31,7 @@ const Container = styled(FlexBox)`
   box-sizing: border-box;
   padding: 1.5rem;
   column-gap: 1.5rem;
-  background-color: ${DAVYS_GREY_300};
+  background-color: ${ACCENT_300};
   @media screen and (max-width: 768px) {
     width: 100vw;
     padding: 0;

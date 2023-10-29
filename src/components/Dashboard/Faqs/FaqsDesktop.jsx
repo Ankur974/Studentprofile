@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { BsPlayFill } from "react-icons/bs";
 
-import { DAVYS_GREY_100 } from "@common/ui/colors";
+import { ACCENT_100 } from "@common/ui/colors";
 import { faqCategories, faqs } from "@metadata/About/faqs";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import {
   ACCENT_800,
   DARK_MOSS_GREEN_100,
   DARK_MOSS_GREEN_800,
-  DAVYS_GREY_300,
+  ACCENT_300,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { Accordion } from "@common/Dashboard/Accordion";
@@ -26,7 +26,7 @@ const Desktop = styled.div`
 
 const LeftSection = styled.div`
   min-width: 15rem;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   overflow: hidden;
   transition: all 500ms ease-in-out;
@@ -35,7 +35,7 @@ const LeftSection = styled.div`
 
 const CenterSection = styled.div`
   min-width: 42rem;
-  background-color: ${DAVYS_GREY_100};
+  background-color: ${ACCENT_100};
   border-radius: 1rem;
   padding-top: 0.5rem;
   ${boxShadowDs1}
@@ -57,7 +57,7 @@ const Option = styled(FlexBox)`
 `;
 
 const BottomBorder = styled.div`
-  border-bottom: 1px solid ${DAVYS_GREY_300};
+  border-bottom: 1px solid ${ACCENT_300};
 `;
 
 const FaqsDesktop = () => {

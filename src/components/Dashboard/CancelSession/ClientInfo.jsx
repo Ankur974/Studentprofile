@@ -2,16 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
 
-import { Body2, Support } from "@common/Dashboard/Headings";
+import { Body2, Support } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
-import { DAVYS_GREY_400 } from "@common/ui/colors";
+import { ACCENT_400 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   padding: 1rem;
   flex-direction: column;
   gap: 0.25rem;
   border-radius: 0.5rem;
-  border: 1px solid ${DAVYS_GREY_400};
+  border: 1px solid ${ACCENT_400};
 `;
 
 const ClientInfo = ({ bookingDetails }) => {

@@ -31,8 +31,7 @@ import {
   isVerifiedCorporateUser,
 } from "@utils/helpers";
 import * as storage from "@utils/storageFactory";
-import { CF_PROVIDER_ROLE } from "../../constants";
-import { PRIMARY_500 } from "../../constants/colors";
+import { PRIMARY_500 } from "@common/ui/colors";
 
 const Container = styled(FlexBox)`
   width: 100%;
@@ -327,8 +326,6 @@ const AvailabilitySection = ({
   const [providerSessionModes, setProviderSessionModes] = useState([]);
   const [showPlaceInfo, setShowPlaceInfo] = useState(false);
 
-  const isCfProvider = providerData?.roles?.includes(CF_PROVIDER_ROLE);
-
   const user = useSelector(state => state.auth?.user);
   const appVisibility = useSelector(state => state.appConfig.appVisibility);
   const isTflFlow = useSelector(state => state.tfl?.isTflFlow);
@@ -517,19 +514,6 @@ const AvailabilitySection = ({
         </SessionModes>
         {showPlaceInfo && (
           <>
-            {isCfProvider && (
-              <MulticenterChipContainer>
-                {providerData?.offline_offering?.map((item, index) => (
-                  <CenterChip
-                    key={index}
-                    onClick={() => setOfflineOffering(item)}
-                    selected={item?.clinic?.id === offlineOffering?.clinic?.id}
-                  >
-                    {item?.clinic.short_name}
-                  </CenterChip>
-                ))}
-              </MulticenterChipContainer>
-            )}
             <OfflineInfo align="center" justify="space-between">
               <OfflineAddress column>
                 <AddressHeader>{offlineOffering?.clinic?.name}</AddressHeader>

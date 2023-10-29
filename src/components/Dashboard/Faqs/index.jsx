@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { Case, Switch } from "@common/ConditionalRendering";
-import { Loader } from "@common/Loader";
-import { DAVYS_GREY_300 } from "@common/ui/colors";
+import Loader from "@common/ui/Loader";
+import { ACCENT_300 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 
 const FaqsDesktop = dynamic(() => import("./FaqsDesktop"), {
@@ -22,7 +22,7 @@ const Container = styled.div`
   height: 100%;
   overflow-x: hidden;
   @media screen and (min-width: 769px) {
-    background-color: ${DAVYS_GREY_300};
+    background-color: ${ACCENT_300};
     padding: 1.5rem;
   }
 `;
