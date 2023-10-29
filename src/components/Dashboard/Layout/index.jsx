@@ -83,7 +83,6 @@ const Content = styled(FlexBox)`
   overflow: auto;
   flex-direction: column;
   transition: max-width 300ms ease-in-out;
-  /* max-width: calc(100vw - max(14.75rem, 16.4%)); */
 
   ${({ navigationCollapsed }) =>
     navigationCollapsed &&
@@ -264,7 +263,7 @@ const DashboardLayout = ({
                   src={"https:" + user?.image}
                   onClick={toggleMobileMenu}
                 />
-                <H2 bold>Hi, Varsha</H2>
+                <H2 bold>Hello, Usera</H2>
               </FlexBox>
             </AvatarWithName>
             <FlexBox align="center" columnGap="1.5rem">

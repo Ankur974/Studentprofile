@@ -605,9 +605,6 @@ export const isPartnerDomain = () => {
 
 export const getPartnerSlug = () => {
   try {
-    // const url = new URL(
-    //   "https://ankit-testing-org.integrations.amahahealth.com/therapy-psychiatry/?source=topnav&activeTab=therapist"
-    // );
     const url = new URL(window.location.href);
     const subdomain = url?.hostname?.split(".")?.[0];
 

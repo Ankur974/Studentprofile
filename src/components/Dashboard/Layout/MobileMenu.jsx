@@ -116,7 +116,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
             src={"https:" + user?.image}
             onClick={toggleMobileMenu}
           />
-          <H3 bold>Hi, Varsha</H3>
+          <H3 bold>Hello, Usera</H3>
           <Body2 color={ACCENT_700}>Started on 18 Jun 2020</Body2>
         </FlexBox>
         <CloseIcon>

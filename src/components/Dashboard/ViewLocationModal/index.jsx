@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FiX, FiMapPin } from "react-icons/fi";
+
 import FlexBox from "@common/ui/FlexBox";
 import { H2, H4, H5 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";

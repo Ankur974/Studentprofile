@@ -15,11 +15,6 @@ const Services = dynamic(() => import("./Services"), {
   ssr: false,
 });
 
-const Chat = dynamic(() => import("./Chat"), {
-  loading: () => <Loader />,
-  ssr: false,
-});
-
 const ProviderProfile = dynamic(() => import("./ProviderProfile"), {
   loading: () => <Loader />,
   ssr: false,
@@ -126,9 +121,7 @@ const Experts = () => {
           />
         </Left>
         <Right>
-          {selected === "chat" ? (
-            <Chat closeChat={router.back} />
-          ) : selected === "profile" ? (
+          {selected === "profile" ? (
             <ProviderProfile />
           ) : selected === "session-tools" ? (
             <div>Show Sessions, tools, prescriptions</div>
