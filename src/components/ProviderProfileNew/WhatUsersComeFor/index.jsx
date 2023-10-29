@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 
 import ThoughtsMobile from "./ThoughtsMobile";
 import ThoughtsDesktop from "./ThoughtsDesktop";

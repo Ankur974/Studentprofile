@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 dayjs.extend(advancedFormat);
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { SchedulesLoader } from "./Loaders";
 import {
   ACCENT_400,
@@ -16,7 +16,7 @@ import {
   WHITE,
   DAVYS_GRAY_400,
   SECONDARY_800,
-} from "@constants/colors";
+} from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { MobileOnly } from "@common/MobileOnly";
 
-import { ACCENT_200 } from "@constants/colors";
+import { ACCENT_200 } from "@common/ui/colors";
 
 const Wrapper = styled(MobileOnly)`
   width: 92.5vw;

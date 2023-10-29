@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { H4, TextCTA } from "@common/Headings";
 
-import { WHITE, PRIMARY_800 } from "@constants/colors";
+import { WHITE, PRIMARY_800 } from "@common/ui/colors";
 import { currentFlow, trackEvent } from "@utils/helpers";
 
 const Wrapper = styled(FlexBox)`

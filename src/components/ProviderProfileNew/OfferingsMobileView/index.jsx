@@ -6,8 +6,8 @@ import {
   BRICK_TERRACOTA,
   SECONDARY_800,
   WHITE,
-} from "@constants/colors";
-import { FlexBox } from "@common/FlexBox";
+} from "@common/ui/colors";
+import FlexBox from "@common/ui/FlexBox";
 import DomainAreaMobile from "./DomainAreaMobile";
 import AvailabilitySection from "../AvailabilitySection";
 import { trackEvent, currentFlow } from "@utils/helpers";

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 
 import Header from "./Header";
 import Container from "./Container";

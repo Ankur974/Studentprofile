@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 
-import { ACCENT_500 } from "@constants/colors";
+import { ACCENT_500 } from "@common/ui/colors";
 
 const CalendarWrapper = styled.div`
   width: 100%;

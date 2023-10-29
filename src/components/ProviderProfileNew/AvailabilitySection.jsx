@@ -1,7 +1,7 @@
 import isEmpty from "lodash/isEmpty";
 import React, { useState, useEffect, useMemo } from "react";
 import styled, { css } from "styled-components";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { FaClinicMedical } from "react-icons/fa";
 import {
   ACCENT_400,
@@ -10,7 +10,7 @@ import {
   SECONDARY_800,
   WHITE,
   DAVYS_GRAY_400,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { THERAPIST, PSYCHIATRIST } from "@constants";
 import { useSelector } from "react-redux";
 import {
@@ -519,9 +519,9 @@ const AvailabilitySection = ({
           <>
             {isCfProvider && (
               <MulticenterChipContainer>
-                {providerData?.offline_offering?.map((item,index) => (
+                {providerData?.offline_offering?.map((item, index) => (
                   <CenterChip
-                  key={index}
+                    key={index}
                     onClick={() => setOfflineOffering(item)}
                     selected={item?.clinic?.id === offlineOffering?.clinic?.id}
                   >

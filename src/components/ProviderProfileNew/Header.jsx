@@ -9,7 +9,7 @@ import { useFeature } from "@growthbook/growthbook-react";
 
 import { Text } from "@common/Text";
 import { Button } from "@common/Buttons";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { H1, H3 } from "@common/Headings";
 import BtoBVerificationModal from "@components/BtoBVerificationModal";
 import BtobBookingLimitModal from "@components/Booking/BtobBookingLimitModal";
@@ -30,7 +30,7 @@ import {
   ACCENT_800,
   ACCENT_100,
   SECONDARY_800,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { useSelector } from "react-redux";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { BooleanParam, useQueryParam, withDefault } from "use-query-params";

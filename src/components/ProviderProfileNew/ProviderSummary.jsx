@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import ReactHtmlParser from "react-html-parser";
 
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { H4, TextCTA } from "@common/Headings";
 import { currentFlow, trackEvent } from "@utils/helpers";
 import { SECONDARY_800 } from "../../constants/colors";
@@ -68,8 +68,9 @@ const ProviderSummary = ({
     if (providerData?.uuid === "a9c7f59f-13ed-4e6e-a665-3ad7b601e722") {
       return "Dr Divya Ganesh Nallur";
     }
-    return `${providerData?.firstname || ""} ${providerData?.lastname || ""
-      }`.trim();
+    return `${providerData?.firstname || ""} ${
+      providerData?.lastname || ""
+    }`.trim();
   }, [providerData?.uuid]);
 
   const payload = {
@@ -111,10 +112,7 @@ const ProviderSummary = ({
 
   return (
     <Container>
-      <Summary
-        ref={summaryRef}
-        expanded={showExpanded}
-      >
+      <Summary ref={summaryRef} expanded={showExpanded}>
         {ReactHtmlParser(summary)}
       </Summary>
       {isExceeding && (

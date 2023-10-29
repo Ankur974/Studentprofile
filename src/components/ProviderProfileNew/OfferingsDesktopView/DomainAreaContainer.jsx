@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import {
   ACCENT_800,
   SECONDARY_100,
@@ -12,7 +12,7 @@ import {
   SECONDARY_700,
   SECONDARY_800,
   WHITE,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { PSYCHIATRIST } from "@constants";
 import SelectedMethodModal from "../SelectedMethodModal";
 import { domainareas_images } from "@metadata/domainareas_images";

@@ -2,9 +2,9 @@ import { useState } from "react";
 import styled, { css } from "styled-components";
 
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 
-import { ACCENT_700 } from "@constants/colors";
+import { ACCENT_700 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;

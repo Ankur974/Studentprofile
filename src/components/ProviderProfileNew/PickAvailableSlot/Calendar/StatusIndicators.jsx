@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 
-import { ACCENT_500, PRIMARY_800, SECONDARY_500 } from "@constants/colors";
+import { ACCENT_500, PRIMARY_800, SECONDARY_500 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   column-gap: 1.5rem;

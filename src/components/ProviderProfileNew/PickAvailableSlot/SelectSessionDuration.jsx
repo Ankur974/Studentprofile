@@ -5,7 +5,7 @@ import { FiCopy } from "react-icons/fi";
 import styled, { css } from "styled-components";
 
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { SessionDurationLoader, PackagesLoader } from "./Loaders";
 
 import {
@@ -15,7 +15,7 @@ import {
   SECONDARY_200,
   SECONDARY_800,
   WHITE,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { copyToClipboard } from "@utils/helpers";
 import { couponCodes, DEFAULT_COUPON } from "@metadata/BookingNew/couponCodes";
 import { DAVYS_GRAY_400 } from "../../../constants/colors";
@@ -291,9 +291,9 @@ const SelectSessionDuration = ({
                       ₹
                       {Math.ceil(
                         selectedPackage?.flatprice *
-                        ((100 -
-                          couponCodes[DEFAULT_COUPON].discountPercentage) /
-                          100)
+                          ((100 -
+                            couponCodes[DEFAULT_COUPON].discountPercentage) /
+                            100)
                       )}
                       /
                     </Text>

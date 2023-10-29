@@ -2,7 +2,7 @@ import { useState } from "react";
 import Bugsnag from "@bugsnag/js";
 import styled, { css } from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { H3 } from "@common/Headings";
 import {
   SECONDARY_700,
@@ -10,7 +10,7 @@ import {
   ACCENT_700,
   ACCENT_800,
   DAVYS_GRAY_400,
-} from "@constants/colors";
+} from "@common/ui/colors";
 
 const NavArrow = styled(FlexBox)`
   width: 2rem;

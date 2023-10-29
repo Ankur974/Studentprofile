@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import { NumberParam, useQueryParam, withDefault } from "use-query-params";
 import Header from "@components/Header";
 import Sidebar from "@components/SidebarNew";
-import { FlexBox } from "@common/FlexBox";
-import { WHITE, PRIMARY_100, PRIMARY_800 } from "@constants/colors";
+import FlexBox from "@common/ui/FlexBox";
+import { WHITE, PRIMARY_100, PRIMARY_800 } from "@common/ui/colors";
 import Meta from "./Meta";
 import axiosInstance, { tokenKey } from "@axiosInstance";
 import {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ReactHtmlParser from "react-html-parser";
 
 import { Modal } from "@common/Modal";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { H4, H5 } from "@common/Headings";
 
 const MethodImg = styled.img`

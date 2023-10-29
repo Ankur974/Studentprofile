@@ -6,8 +6,8 @@ import Footer from "@common/Footer";
 import CustomLinkComponent from "@utils/CustomLinkComponent";
 import useMobileView from "@hooks/useMobileView";
 import { Loader } from "@common/Loader";
-import { FlexBox } from "@common/FlexBox";
-import { ACCENT_400, PRIMARY_800, WHITE } from "@constants/colors";
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_400, PRIMARY_800, WHITE } from "@common/ui/colors";
 
 const NavContainer = styled(FlexBox)`
   padding: 1rem 0;

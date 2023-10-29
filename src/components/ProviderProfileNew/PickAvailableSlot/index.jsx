@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
 import { Button } from "@common/Buttons";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import CheckAvailableSlots from "./CheckAvailableSlots";
 import SelectSessionDuration from "./SelectSessionDuration";
 

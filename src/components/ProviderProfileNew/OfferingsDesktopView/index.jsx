@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import DomainAreaContainer from "./DomainAreaContainer";
 import BottomSection from "../BottomSection";
 import AvailabilitySection from "../AvailabilitySection";

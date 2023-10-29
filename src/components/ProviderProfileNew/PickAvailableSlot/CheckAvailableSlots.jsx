@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FiCalendar, FiX } from "react-icons/fi";
 import styled, { css } from "styled-components";
 
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { Text } from "@common/Text";
 
 import TimeSlots from "./TimeSlots";
@@ -16,7 +16,7 @@ import {
   ACCENT_800,
   PRIMARY_100,
   PRIMARY_800,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
 import { DAVYS_GRAY_400 } from "../../../constants/colors";
 

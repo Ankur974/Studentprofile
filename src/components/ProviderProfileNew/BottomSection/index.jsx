@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import styled from "styled-components";
-import { FlexBox } from "@common/FlexBox";
-import { WHITE } from "@constants/colors";
+import FlexBox from "@common/ui/FlexBox";
+import { WHITE } from "@common/ui/colors";
 import { trackEvent, currentFlow } from "@utils/helpers";
 import Slider from "./Slider";
 import { Text } from "@common/Text";

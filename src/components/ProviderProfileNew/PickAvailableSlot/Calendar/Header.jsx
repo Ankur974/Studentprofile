@@ -3,14 +3,14 @@ import styled, { css } from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 
 import {
   PRIMARY_100,
   PRIMARY_800,
   ACCENT_400,
   ACCENT_800,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
 
 const Container = styled(FlexBox)`

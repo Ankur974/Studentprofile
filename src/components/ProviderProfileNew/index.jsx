@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 
 import Header from "./Header";
 import OfferingsMobileView from "./OfferingsMobileView";
@@ -12,7 +12,7 @@ import {
   fetchCompletedSessions,
   fetchUpcomingSessions,
 } from "@redux/actions/sessionsActions";
-import { ACCENT_400 } from "@constants/colors";
+import { ACCENT_400 } from "@common/ui/colors";
 import { trackEvent, currentFlow } from "@utils/helpers";
 import { PSYCHIATRIST, THERAPIST } from "@constants";
 

@@ -3,10 +3,10 @@ import Bugsnag from "@bugsnag/js";
 import styled from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { H3, H4 } from "@common/Headings";
 
-import { SECONDARY_100, SECONDARY_700 } from "@constants/colors";
+import { SECONDARY_100, SECONDARY_700 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Bugsnag from "@bugsnag/js";
 import { fetchProvider } from "@redux/actions/providerAction";
 import { TitleText } from "@common/TitleText";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { H4 } from "@common/Headings";
 import {
   WHITE,
@@ -18,7 +18,7 @@ import {
   PRIMARY_100,
   PRIMARY_800,
   ACCENT_700,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { PSYCHIATRIST, COUPLE_THERAPIST, THERAPIST } from "@constants";
 import { trackEvent } from "@utils/helpers";
 import Meta from "./Meta";

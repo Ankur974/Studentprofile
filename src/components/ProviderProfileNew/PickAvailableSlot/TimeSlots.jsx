@@ -6,14 +6,14 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 dayjs.extend(advancedFormat);
 
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 
 import {
   ACCENT_400,
   ACCENT_700,
   SECONDARY_800,
   WHITE,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { formatSlotTime } from "@utils/helpers";
 import { SlotsLoader } from "./Loaders";
 import { ACCENT_100 } from "../../../constants/colors";

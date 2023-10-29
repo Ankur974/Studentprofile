@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import {
   ACCENT_800,
   SECONDARY_400,
   SECONDARY_700,
   WHITE,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import { PSYCHIATRIST } from "@constants";
 import { domainareas_images } from "@metadata/domainareas_images";
 import { trackEvent, currentFlow } from "@utils/helpers";

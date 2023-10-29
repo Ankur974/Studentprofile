@@ -4,10 +4,10 @@ import styled, { css } from "styled-components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { Text } from "@common/Text";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { DesktopOnly } from "@common/DesktopOnly";
 
-import { ACCENT_200, SECONDARY_100, SECONDARY_700 } from "@constants/colors";
+import { ACCENT_200, SECONDARY_100, SECONDARY_700 } from "@common/ui/colors";
 
 const Wrapper = styled(DesktopOnly)`
   box-sizing: border-box;

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { NumberParam, useQueryParam, withDefault } from "use-query-params";
 import { fetchProvider } from "@redux/actions/providerAction";
 import { TitleText } from "@common/TitleText";
-import { FlexBox } from "@common/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import { H6 } from "@common/Headings";
 import {
   WHITE,
@@ -19,7 +19,7 @@ import {
   ACCENT_700,
   PRIMARY_100,
   SECONDARY_200,
-} from "@constants/colors";
+} from "@common/ui/colors";
 import {
   PSYCHIATRIST,
   COUPLE_THERAPIST,
