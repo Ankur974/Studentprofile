@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ACCENT_0, ACCENT_800 } from "./colors";
+import { ACCENT_0, ACCENT_200, ACCENT_800 } from "./colors";
 import { Body1 } from "./Headings";
+
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
 const Tablist = styled.ul`
   width: ${props => props.tabWidth || "100%"};
@@ -17,8 +21,7 @@ const Tablist = styled.ul`
 `;
 
 const List = styled.li`
-  background-color: ${props => (props.active ? ACCENT_800 : "inherit")};
-  /* width: ${props => props.tabWidth || "10rem"}; */
+  background-color: ${props => (props.active ? ACCENT_800 : ACCENT_200)};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,7 +43,7 @@ const Tabs = ({ children }) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <Tablist tabJustify="space-around">
         {React.Children.map(children, (child, index) => (
           <List
@@ -59,7 +62,7 @@ const Tabs = ({ children }) => {
         if (activeTab !== index) return null;
         return <TabContent key={index}>{child.props.children}</TabContent>;
       })}
-    </div>
+    </Wrapper>
   );
 };
 

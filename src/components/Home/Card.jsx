@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Body1, Body2 } from "../common/ui/Headings";
 import { Button } from "../common/ui/Buttons";
+import { useRouter } from "next/router";
 
 const CardContainer = styled.div`
   width: 300px;
@@ -12,6 +13,7 @@ const CardContainer = styled.div`
   margin: 20px;
   transition: transform 0.2s ease-in-out;
   position: relative;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.05);
@@ -46,18 +48,20 @@ const CardOverlay = styled.div`
   }
 `;
 
-const Card = ({ title, description, imageUrl }) => {
-  const handleButtonClick = () => {
-    console.log(`Button clicked for ${title}`);
-  };
+const Card = ({ title, description, imageUrl, redirectUrl }) => {
+  const router = useRouter();
 
   return (
-    <CardContainer>
+    <CardContainer
+      onClick={() => {
+        router.push(redirectUrl);
+      }}
+    >
       <CardImage src={imageUrl} alt="Card Image" />
       <CardContent>
         <Body1>{title}</Body1>
         <Body2>{description}</Body2>
-        <Button onClick={handleButtonClick}>View Details</Button>
+        <Button>View Details</Button>
       </CardContent>
       <CardOverlay />
     </CardContainer>

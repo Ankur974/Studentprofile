@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
-import { H3, H5 } from "../common/ui/Headings";
-import { Body2 } from "../common/ui/Headings";
+import { BsFillHeartFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
+import { CiDiscount1 } from "react-icons/ci";
+
+import { H5 } from "../common/ui/Headings";
+import { Body2 } from "../common/ui/Headings";
 import {
   ACCENT_0,
   ACCENT_700,
@@ -12,10 +16,8 @@ import {
   listingChip,
 } from "../common/ui/colors";
 import Chip from "../common/ui/Chips";
-import { CiDiscount1 } from "react-icons/ci";
 import { Button } from "../common/ui/Buttons";
 import { device } from "../common/ui/Resposive";
-import { BsFillHeartFill } from "react-icons/bs";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -26,10 +28,9 @@ const Wrapper = styled(FlexBox)`
   row-gap: 0.5rem;
   margin: auto;
 
-  @media ${device.laptop}{
-    margin:0;
+  @media ${device.laptop} {
+    margin: 0;
   }
-  
 `;
 
 const aminities = [
@@ -68,7 +69,6 @@ const ActionWrapper = styled(FlexBox)`
 const AminitiesWrapper = styled(FlexBox)`
   gap: 0.5rem;
   overflow-x: auto;
-  ${'' /* width: 100%; */}
   margin: 0 -1rem;
   padding: 0 1rem;
   width: calc(100% + 2rem);
@@ -92,6 +92,8 @@ const OfferBanner = styled(FlexBox)`
 
 const Card = () => {
   const [selected, setSelected] = useState(false);
+
+  const router = useRouter();
 
   const handleClick = () => setSelected(!selected);
 
@@ -133,7 +135,7 @@ const Card = () => {
             columnGap="0.4rem"
             margin="0 1rem"
           >
-            <img src="/assets/star.svg" />
+            <img src="/assets/star.svg" alt="star" />
             <Body2 color={ACCENT_0}>4.2</Body2>
           </FlexBox>
         </ActionWrapper>
@@ -143,8 +145,11 @@ const Card = () => {
       </Banner>
 
       <FlexBox column rowGap="0.25rem" padding="0 1rem">
-        <FlexBox justify="space-between" padding={dummydata?"1rem 0 0 0":"0"}>
-          <H3 bold>Gigis Salon</H3>
+        <FlexBox
+          justify="space-between"
+          padding={dummydata ? "1rem 0 0 0" : "0"}
+        >
+          <H5 bold>Gigis Salon</H5>
           <FlexBox onClick={handleClick} cursor="pointer">
             {selected ? (
               <BsFillHeartFill size="1.25rem" color={PRIMARY_800} />
@@ -174,7 +179,13 @@ const Card = () => {
             </Chip>
           ))}
         </AminitiesWrapper>
-        <Button secondary rowGap="1rem">
+        <Button
+          secondary
+          rowGap="1rem"
+          onClick={() => {
+            router.push("/shop-details");
+          }}
+        >
           View Details
         </Button>
       </FlexBox>

@@ -38,13 +38,13 @@ const Home = () => {
           title="Hot Selling Salon 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           imageUrl="/assets/banner-new.svg"
-          link="/salon-details1"
+          redirectUrl="/shop-listing"
         />
         <Card
           title="Hot Selling Salon 2"
           description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
           imageUrl="/assets/banner-new.svg"
-          link="/salon-details2"
+          redirectUrl="/shop-listing"
         />
       </FlexBox>
     </Wrapper>

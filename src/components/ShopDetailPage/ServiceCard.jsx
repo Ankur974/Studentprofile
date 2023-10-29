@@ -1,10 +1,10 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { SlClock, SlStar } from "react-icons/sl";
 
 import { Body1, Body2 } from "../common/ui/Headings";
 import FlexBox from "../common/ui/FlexBox";
 import { ACCENT_800, PRIMARY_800 } from "../common/ui/colors";
-import { SlClock, SlStar } from "react-icons/sl";
 import { device } from "../common/ui/Resposive";
 
 const CardContainer = styled.div`
@@ -39,12 +39,7 @@ const ServiceDetails = styled(FlexBox)`
   }
 `;
 
-const ServiceCard = ({ item, lastItem, clicked }) => {
-  // const handleAddClick = () => {
-  //   console.log("Hello World");
-  //   // setClicked(true);
-  // };
-
+const ServiceCard = ({ item, lastItem }) => {
   return (
     <CardContainer hideBorder={lastItem}>
       <Card>
@@ -72,34 +67,6 @@ const ServiceCard = ({ item, lastItem, clicked }) => {
             </FlexBox>
             <Body2 bold>₹ {item.prize}</Body2>
           </ServiceDetails>
-          {/* <Button
-            color={SECONDARY_800}
-            width="5.5rem"
-            height="2.5rem"
-            align="center"
-            justify="center"
-            borderRadius="0.6rem"
-            onClick={handleAddClick}
-            hoverColor="none"
-          >
-            {clicked ? (
-              <FlexBox columnGap="0.7rem">
-                <H3 bold color={ACCENT_0}>
-                  +
-                </H3>
-                <H3 bold color={ACCENT_0}>
-                  1
-                </H3>
-                <H3 bold color={ACCENT_0}>
-                  -
-                </H3>
-              </FlexBox>
-            ) : (
-              <Body2 bold color={ACCENT_0}>
-                Add
-              </Body2>
-            )}
-          </Button> */}
         </FlexBox>
       </Card>
     </CardContainer>

@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import FlexBox from "../common/ui/FlexBox";
+import Tabs from "../common/ui/Tabs";
 import Services from "./Services";
 import HeroBanner from "./Banner";
 import RealAbout from "./About";
-import Tabs from "../common/ui/Tabs";
 
 const Container = styled(FlexBox)`
   flex-direction: column;
@@ -18,6 +18,7 @@ const Wrapper = styled(FlexBox)`
   max-width: 50rem;
   margin: auto;
   padding-inline: 1rem;
+  padding-bottom: 2.5rem;
 `;
 
 const Tab = styled(FlexBox)``;

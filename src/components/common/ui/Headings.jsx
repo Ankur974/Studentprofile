@@ -67,7 +67,7 @@ export const H5 = styled.h5`
   line-height: 1.4rem;
 
   @media ${device.laptop} {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: ${({ lineHeight }) => lineHeight || "1.75rem"};
   }
 `;
@@ -78,7 +78,7 @@ export const H6 = styled.h5`
   line-height: 1.25rem;
 
   @media ${device.laptop} {
-    font-size: 1.25rem;
+    font-size: 0.875rem;
     line-height: ${({ lineHeight }) => lineHeight || "1.75rem"};
   }
 `;

@@ -32,6 +32,8 @@ export const ACCENT_700 = "#4C4C4C";
 export const ACCENT_800 = "#212121";
 export const ACCENT_900 = "#171717";
 
+export const WHITE = "#FFFFFF";
+
 export const SUCCESS = "#008C51";
 export const CART_NUMBER = "#FB7A7A";
 
@@ -47,5 +49,5 @@ export const RATEBACKGROUND = "#00000066";
 export const STARCOLOR = "#FFC107";
 export const Tabcolor = "#F2F2F2";
 
-export const LOSS="#D900000D";
-export const BABERBACKGROUND="#000000";
+export const LOSS = "#D900000D";
+export const BABERBACKGROUND = "#000000";
