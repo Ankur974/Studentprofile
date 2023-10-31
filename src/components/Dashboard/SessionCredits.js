@@ -3,7 +3,7 @@ import { Text } from "@common/Text";
 import { TitleText } from "@common/TitleText";
 import FlexBox from "@common/ui/FlexBox";
 import { Button } from "@common/Buttons";
-import { LIGHTEST_GREY, SECONDARY_700, SECONDARY_800 } from "@common/ui/colors";
+import { LIGHTEST_GREY, PRIMARY_700, PRIMARY_800 } from "@common/ui/colors";
 import { useSelector } from "react-redux";
 import { isVerifiedCorporateUser } from "@utils/helpers";
 import { GRANT_THORNTON_ID, TFL_ORG_ID } from "../../constants";
@@ -105,8 +105,8 @@ const Credits = ({
           <Button
             medium
             outline
-            color={SECONDARY_800}
-            hoverColor={SECONDARY_700}
+            color={PRIMARY_800}
+            hoverColor={PRIMARY_700}
             onClick={() => tracker(true, parseInt(duration) / 60)}
           >
             BOOK
@@ -137,8 +137,8 @@ const Credits = ({
           <Button
             medium
             outline
-            color={SECONDARY_800}
-            hoverColor={SECONDARY_700}
+            color={PRIMARY_800}
+            hoverColor={PRIMARY_700}
             onClick={() => tracker(true, parseInt(duration) / 60)}
           >
             BOOK

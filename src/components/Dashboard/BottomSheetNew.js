@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { WHITE, SECONDARY_700 } from "@common/ui/colors";
+import { WHITE, PRIMARY_700 } from "@common/ui/colors";
 
 const Container = styled.div`
   background-color: ${WHITE};
@@ -29,7 +29,7 @@ const DraggingBar = styled.div`
   width: 32px;
   height: 4px;
   border-radius: 2px;
-  background-color: ${SECONDARY_700};
+  background-color: ${PRIMARY_700};
 `;
 
 const BottomSheet = ({ children }) => {

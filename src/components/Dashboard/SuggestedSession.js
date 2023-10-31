@@ -10,8 +10,8 @@ import FlexBox from "@common/ui/FlexBox";
 import {
   PRIMARY_100,
   ACCENT_800,
-  SECONDARY_700,
-  SECONDARY_800,
+  PRIMARY_700,
+  PRIMARY_800,
 } from "@common/ui/colors";
 import { trackEvent, currentFlow } from "@utils/helpers";
 import { COUPLE_THERAPIST, PSYCHIATRIST, THERAPIST } from "@constants";
@@ -87,11 +87,11 @@ const SuggestedSession = ({ session, provider, source }) => {
         <FlexBox align="center" justify="space-between">
           <FlexBox align="center" columnGap="1.75rem">
             {session?.session_mode?.toLowerCase() === "live" ? (
-              <FiVideo color={SECONDARY_700} size="2rem" />
+              <FiVideo color={PRIMARY_700} size="2rem" />
             ) : session?.session_mode?.toLowerCase() === "voice" ? (
-              <FiPhone color={SECONDARY_700} size="2rem" />
+              <FiPhone color={PRIMARY_700} size="2rem" />
             ) : session?.session_mode?.toLowerCase() === "chat" ? (
-              <FiMessageCircle color={SECONDARY_700} size="2rem" />
+              <FiMessageCircle color={PRIMARY_700} size="2rem" />
             ) : session?.session_mode?.toLowerCase() === "offline" ? (
               <Icon>
                 <img
@@ -116,7 +116,7 @@ const SuggestedSession = ({ session, provider, source }) => {
               </Text>
             </FlexBox>
           </FlexBox>
-          <Button small color={SECONDARY_800} hoverColor={SECONDARY_700}>
+          <Button small color={PRIMARY_800} hoverColor={PRIMARY_700}>
             Book
           </Button>
         </FlexBox>

@@ -6,7 +6,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import FlexBox from "@common/ui/FlexBox";
 import { H3 } from "@common/ui/Headings";
 import {
-  SECONDARY_700,
+  PRIMARY_700,
   ACCENT_300,
   ACCENT_700,
   ACCENT_800,
@@ -109,13 +109,13 @@ const Slider = ({ list = [], title, children, setActiveIndex, icon }) => {
           {list.length > 1 && (
             <FlexBox align="center" columnGap="0.5rem">
               <NavArrow onClick={handleBackward}>
-                <FaChevronLeft size="0.75rem" color={SECONDARY_700} />
+                <FaChevronLeft size="0.75rem" color={PRIMARY_700} />
               </NavArrow>
               {list.map((val, index) => (
                 <Dots key={index} isActive={index === activeItem} />
               ))}
               <NavArrow onClick={handleForward}>
-                <FaChevronRight size="0.75rem" color={SECONDARY_700} />
+                <FaChevronRight size="0.75rem" color={PRIMARY_700} />
               </NavArrow>
             </FlexBox>
           )}

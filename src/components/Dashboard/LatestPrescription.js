@@ -2,7 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 import styled from "styled-components";
 import { Text } from "@common/Text";
-import { ACCENT_600, ACCENT_200, SECONDARY_700 } from "@common/ui/colors";
+import { ACCENT_600, ACCENT_200, PRIMARY_700 } from "@common/ui/colors";
 import { FiDownload } from "react-icons/fi";
 
 const Container = styled.div`
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 
 const PrescriptionCard = styled.div`
   background-color: ${ACCENT_200};
-  border: 1px solid ${SECONDARY_700};
+  border: 1px solid ${PRIMARY_700};
   border-radius: 12px;
   padding: 1rem;
   display: flex;
@@ -59,7 +59,7 @@ const LatestPrescription = ({ prescription, onClick, handleDownload }) => {
           </PrescriptionText>
           <div onClick={() => handleDownload(prescription?.file)}>
             <FiDownload
-              color={SECONDARY_700}
+              color={PRIMARY_700}
               size="1.5rem"
               cursor="pointer"
               onClick={onClick}

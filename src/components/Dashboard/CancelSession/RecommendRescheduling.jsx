@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { H4 } from "@common/ui/Headings";
-import { ACCENT_800, SECONDARY_800 } from "@common/ui/colors";
+import { ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
 
 const Dot = styled.div`
   width: 0.25rem;
@@ -16,7 +16,7 @@ const TextCta = styled.button`
   background: none;
   border: none;
   width: fit-content;
-  color: ${SECONDARY_800};
+  color: ${PRIMARY_800};
   font-family: Quicksand;
   font-size: 0.875rem;
   font-style: normal;

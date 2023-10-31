@@ -4,7 +4,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { Text } from "@common/Text";
 import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_400, ACCENT_400, SECONDARY_800 } from "@common/ui/colors";
+import { ACCENT_400, ACCENT_400, PRIMARY_800 } from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
 
 const Container = styled(FlexBox)`
@@ -26,7 +26,7 @@ const CalendarNavigationButton = styled(FlexBox)`
   border: 1px solid ${ACCENT_400};
 
   svg {
-    color: ${SECONDARY_800};
+    color: ${PRIMARY_800};
   }
 
   ${({ disabled }) =>

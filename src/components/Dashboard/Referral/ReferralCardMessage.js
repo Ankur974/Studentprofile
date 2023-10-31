@@ -6,13 +6,13 @@ import { H3, H5, H6, TextCTA } from "@common/Headings";
 import {
   WHITE,
   PRIMARY_800,
-  SECONDARY_400,
+  PRIMARY_400,
   ACCENT_500,
   ACCENT_800,
   ACCENT_600,
-  SECONDARY_100,
-  SECONDARY_700,
-  SECONDARY_800,
+  PRIMARY_100,
+  PRIMARY_700,
+  PRIMARY_800,
 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import { TextButton } from "@common/Buttons";
@@ -32,7 +32,7 @@ const Title = styled(H3)`
 const MessageCard = styled(FlexBox)`
   flex-direction: column;
   gap: 1.375rem;
-  border: 1px solid ${SECONDARY_400};
+  border: 1px solid ${PRIMARY_400};
   width: 88%;
   min-height: ${props => (props.height ? props.height : "auto")};
   justify-content: space-between;
@@ -68,7 +68,7 @@ const Input = styled.input`
 
 const MessageContainer = styled(FlexBox)`
   flex-direction: column;
-  background-color: ${SECONDARY_100};
+  background-color: ${PRIMARY_100};
   padding: 1.5rem;
   border-radius: 0.5rem;
 `;
@@ -523,11 +523,11 @@ const Message = ({
         {referralsExperiment.value === "v0" && (
           <>
             <FlexBox column>
-              <H6 color={SECONDARY_700}>Here’s the message they will get:</H6>
+              <H6 color={PRIMARY_700}>Here’s the message they will get:</H6>
               <Text>{ReactHtmlParser(messageBody)}</Text>
               {/* <Text dangerouslySetInnerHTML={{ __html: messageBody }}></Text> */}
             </FlexBox>
-            <H6 color={SECONDARY_700}>
+            <H6 color={PRIMARY_700}>
               Enter your loved one’s mobile number on which they will recieve
               this message
             </H6>
@@ -545,7 +545,7 @@ const Message = ({
                 {showContactPicker && (
                   <FiBook
                     size="1.25rem"
-                    color={SECONDARY_800}
+                    color={PRIMARY_800}
                     onClick={getContacts}
                   />
                 )}
@@ -558,7 +558,7 @@ const Message = ({
         {referralsExperiment.value === "v1" && (
           <>
             <FlexBox justify="space-between">
-              <H5 color={SECONDARY_700}>Curated Message:</H5>
+              <H5 color={PRIMARY_700}>Curated Message:</H5>
               <TextCTA
                 color={PRIMARY_800}
                 onClick={() => {
@@ -594,7 +594,7 @@ const Message = ({
           {referralsExperiment.value === "v0" && (
             <>
               <TextCTA
-                color={SECONDARY_800}
+                color={PRIMARY_800}
                 onClick={() => {
                   trackEvent({
                     event: "teleref_back_click",
@@ -628,7 +628,7 @@ const Message = ({
           {referralsExperiment.value === "v1" && (
             <>
               <TextCTA
-                color={SECONDARY_800}
+                color={PRIMARY_800}
                 onClick={() => {
                   trackEvent({
                     event: "teleref_back_click",

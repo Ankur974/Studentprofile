@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import {
   WHITE,
-  SECONDARY_500,
+  PRIMARY_500,
   PRIMARY_800,
   ACCENT_400,
   ACCENT_500,
@@ -25,7 +25,7 @@ const CalendarContainer = styled.div`
   }
   .slots-available {
     font-size: 0.875rem;
-    color: ${SECONDARY_500};
+    color: ${PRIMARY_500};
   }
 
   .react-datepicker__month-container {
@@ -52,7 +52,7 @@ const CalendarContainer = styled.div`
     padding: 0 1.5rem;
     align-items: center;
     padding-bottom: 0.5rem;
-    color: ${SECONDARY_500};
+    color: ${PRIMARY_500};
     justify-content: space-between;
     border-bottom: 1px solid ${ACCENT_400};
   }
@@ -61,7 +61,7 @@ const CalendarContainer = styled.div`
     color: ${ACCENT_600} !important;
   }
   .react-datepicker__day {
-    color: ${SECONDARY_500};
+    color: ${PRIMARY_500};
     margin: 0.5rem;
   }
   .react-datepicker__day:hover {

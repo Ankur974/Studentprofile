@@ -5,11 +5,11 @@ import { H4, H5, H6, TextCTA } from "@common/Headings";
 import {
   WHITE,
   PRIMARY_800,
-  SECONDARY_400,
+  PRIMARY_400,
   ACCENT_800,
-  SECONDARY_100,
-  SECONDARY_600,
-  SECONDARY_800,
+  PRIMARY_100,
+  PRIMARY_600,
+  PRIMARY_800,
 } from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
 import { FiCopy } from "react-icons/fi";
@@ -63,7 +63,7 @@ const SuccessCardWrapper = styled(FlexBox)`
   width: 96%;
   margin: auto;
   height: 32.875rem;
-  border: 1px solid ${SECONDARY_400};
+  border: 1px solid ${PRIMARY_400};
   border-radius: 1rem;
   padding: 1rem;
 
@@ -98,7 +98,7 @@ const CouponWrapper = styled(FlexBox)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${SECONDARY_100};
+  background-color: ${PRIMARY_100};
   gap: 1rem;
   border-radius: 0.5rem;
 
@@ -252,7 +252,7 @@ const SuccessCard = ({
         </FlexBox>
       )}
       <BackToHomeCTA
-        color={referralsExperiment.value === "v0" ? SECONDARY_800 : PRIMARY_800}
+        color={referralsExperiment.value === "v0" ? PRIMARY_800 : PRIMARY_800}
         onClick={() => {
           trackEvent({
             event: "teleref_back_click",

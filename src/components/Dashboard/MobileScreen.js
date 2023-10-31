@@ -24,8 +24,8 @@ import {
 import {
   ACCENT_100,
   ACCENT_800,
-  SECONDARY_100,
-  SECONDARY_800,
+  PRIMARY_100,
+  PRIMARY_800,
   PRIMARY_700,
 } from "@common/ui/colors";
 import groupBy from "lodash/groupBy";
@@ -45,7 +45,7 @@ const MobileMain = styled.div`
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: ${SECONDARY_100};
+  background-color: ${PRIMARY_100};
 `;
 
 const ProviderCardContainer = styled.div`
@@ -324,7 +324,7 @@ const MobileScreen = ({
                 <ServiceBoxInnerContainer>
                   <ServiceBoxAnimation />
                   <ServiceImage>
-                    <FiFileText color={SECONDARY_800} size="1.75rem" />
+                    <FiFileText color={PRIMARY_800} size="1.75rem" />
                   </ServiceImage>
                 </ServiceBoxInnerContainer>
                 <ServiceName>Tools</ServiceName>
@@ -340,7 +340,7 @@ const MobileScreen = ({
               >
                 {state.bse.bseTools.length > 0 && <PendingDot />}
                 <ServiceImage>
-                  <FiFileText color={SECONDARY_800} size="1.75rem" />
+                  <FiFileText color={PRIMARY_800} size="1.75rem" />
                 </ServiceImage>
                 <ServiceName>Tools</ServiceName>
               </ServiceBox>
@@ -353,7 +353,7 @@ const MobileScreen = ({
           >
             <ServiceBox>
               <ServiceImage>
-                <FiBriefcase color={SECONDARY_800} size="1.75rem" />
+                <FiBriefcase color={PRIMARY_800} size="1.75rem" />
               </ServiceImage>
               <ServiceName>Prescriptions</ServiceName>
             </ServiceBox>
@@ -369,7 +369,7 @@ const MobileScreen = ({
             }
           >
             <ServiceImage>
-              <FiCalendar color={SECONDARY_800} size="1.75rem" />
+              <FiCalendar color={PRIMARY_800} size="1.75rem" />
             </ServiceImage>
             <ServiceName>Sessions</ServiceName>
           </ServiceBox>

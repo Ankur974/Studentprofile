@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { Button } from "@common/Buttons";
-import {
-  WHITE,
-  SECONDARY_700,
-  SECONDARY_800,
-  ACCENT_200,
-} from "@common/ui/colors";
+import { WHITE, PRIMARY_700, PRIMARY_800, ACCENT_200 } from "@common/ui/colors";
 import * as storage from "@utils/storageFactory";
 import { Text } from "@common/Text";
 
@@ -96,8 +91,8 @@ const FirstSessionCard = ({
       </FlexBox>
       <ButtonWrapper>
         <Button
-          color={SECONDARY_800}
-          hoverColor={SECONDARY_700}
+          color={PRIMARY_800}
+          hoverColor={PRIMARY_700}
           onClick={bookButtonClick}
           width="14rem"
           display="block"

@@ -4,11 +4,11 @@ import FlexBox from "@common/ui/FlexBox";
 import { H3, H4, H5, TextCTA } from "@common/Headings";
 import {
   PRIMARY_800,
-  SECONDARY_400,
+  PRIMARY_400,
   ACCENT_500,
   ACCENT_700,
-  SECONDARY_100,
-  SECONDARY_800,
+  PRIMARY_100,
+  PRIMARY_800,
   ACCENT_800,
 } from "@common/ui/colors";
 import { FiCheck } from "react-icons/fi";
@@ -23,7 +23,7 @@ const Title = styled(H3)`
 const Container = styled(FlexBox)`
   flex-direction: column;
   gap: 1rem;
-  border: 1px solid ${SECONDARY_400};
+  border: 1px solid ${PRIMARY_400};
   width: 88%;
   min-height: 33.375rem;
   margin: auto;
@@ -61,7 +61,7 @@ const IconWrapper = styled(FlexBox)`
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 8rem;
-  background-color: ${SECONDARY_100};
+  background-color: ${PRIMARY_100};
   align-items: center;
   justify-content: center;
 `;
@@ -154,7 +154,7 @@ const ShareProviderCard = ({
                     Refer Therapy
                   </H4>
                   <IconWrapper>
-                    <FiCheck color={SECONDARY_800} />
+                    <FiCheck color={PRIMARY_800} />
                   </IconWrapper>
                 </FlexBox>
                 <H5 color={ACCENT_700}>
@@ -256,7 +256,7 @@ const ShareProviderCard = ({
                     Refer Psychiatry
                   </H4>
                   <IconWrapper>
-                    <FiCheck color={SECONDARY_800} />
+                    <FiCheck color={PRIMARY_800} />
                   </IconWrapper>
                 </FlexBox>
                 <H5 color={ACCENT_700}>
@@ -368,7 +368,7 @@ const ShareProviderCard = ({
                     Refer a free 20-min coach call
                   </H4>
                   <IconWrapper>
-                    <FiCheck color={SECONDARY_800} />
+                    <FiCheck color={PRIMARY_800} />
                   </IconWrapper>
                 </FlexBox>
                 <H5 color={ACCENT_700}>
@@ -386,7 +386,7 @@ const ShareProviderCard = ({
       <FlexBox>
         <CTAContainer align="center" justify="space-between">
           <TextCTA
-            color={SECONDARY_800}
+            color={PRIMARY_800}
             onClick={() => {
               trackEvent({
                 event: "teleref_back_click",

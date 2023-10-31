@@ -15,13 +15,13 @@ import { Button } from "@common/ui/Buttons";
 import FlexBox from "@common/ui/FlexBox";
 import { openLink } from "@utils/helpers";
 import {
-  SECONDARY_800,
+  PRIMARY_800,
   ACCENT_200,
   PRIMARY_800,
   WHITE,
   SEA_BLUE,
-  SECONDARY_600,
-  SECONDARY_700,
+  PRIMARY_600,
+  PRIMARY_700,
   ACCENT_800,
   ACCENT_400,
 } from "@common/ui/colors";
@@ -81,7 +81,7 @@ const SessionCard = styled.div`
   width: 12rem;
   height: 2rem;
   margin: 0 auto;
-  border: 1px solid ${SECONDARY_700};
+  border: 1px solid ${PRIMARY_700};
   display: flex;
   align-items: center;
   background-color: ${ACCENT_200};
@@ -258,7 +258,7 @@ const CancelModal = ({
       ctaCancel: "CANCEL",
       ctaConfirm: "RESCHEDULE",
       colorCancelCta: PRIMARY_800,
-      colorCancelConfirm: SECONDARY_800,
+      colorCancelConfirm: PRIMARY_800,
       ctaCancelFunc: cancelSession,
       ctaConfirmFunc: rescheduleSession,
     },
@@ -268,7 +268,7 @@ const CancelModal = ({
       ctaCancel: "CANCEL",
       ctaConfirm: "GO BACK",
       colorCancelCta: PRIMARY_800,
-      colorCancelConfirm: SECONDARY_800,
+      colorCancelConfirm: PRIMARY_800,
       ctaCancelFunc: cancelSession,
       ctaConfirmFunc: toggleModal,
     },
@@ -332,13 +332,13 @@ const CancelModal = ({
             </FlexBox>
             <SessionCardNew>
               {item.typeofsession === "live" ? (
-                <FiVideo color={SECONDARY_600} size="2rem" />
+                <FiVideo color={PRIMARY_600} size="2rem" />
               ) : item.typeofsession === "voice" ? (
-                <FiPhone color={SECONDARY_600} size="2rem" />
+                <FiPhone color={PRIMARY_600} size="2rem" />
               ) : item.typeofsession === "offline" ? (
                 <img src="https://cdn.theinnerhour.com/assets/images/icon-inperson-filled.svg" />
               ) : (
-                <FiMessageCircle color={SECONDARY_600} size="2rem" />
+                <FiMessageCircle color={PRIMARY_600} size="2rem" />
               )}
               <SessionDetails>
                 <Text fontSize="0.875rem" block bold>
@@ -371,8 +371,8 @@ const CancelModal = ({
             <ButtonWrapper>
               <Button
                 backgroundColor={WHITE}
-                color={SECONDARY_800}
-                border={`1px solid ${SECONDARY_800}`}
+                color={PRIMARY_800}
+                border={`1px solid ${PRIMARY_800}`}
                 onClick={CancellationContent[index].ctaCancelFunc}
               >
                 {CancellationContent[index].ctaCancel}
@@ -477,13 +477,13 @@ const CancelModal = ({
             <>
               <SessionCard>
                 {item.typeofsession === "live" ? (
-                  <FiVideo color={SECONDARY_700} size="2rem" />
+                  <FiVideo color={PRIMARY_700} size="2rem" />
                 ) : item.typeofsession === "voice" ? (
-                  <FiPhone color={SECONDARY_700} size="2rem" />
+                  <FiPhone color={PRIMARY_700} size="2rem" />
                 ) : item.typeofsession === "offline" ? (
                   <img src="https://cdn.theinnerhour.com/assets/images/icon-inperson-filled.svg" />
                 ) : (
-                  <FiMessageCircle color={SECONDARY_700} size="2rem" />
+                  <FiMessageCircle color={PRIMARY_700} size="2rem" />
                 )}
                 <SessionDetails>
                   <Text fontSize="0.75rem" block bold>
@@ -516,9 +516,9 @@ const CancelModal = ({
                 <Button
                   width="11.5rem"
                   backgroundColor={WHITE}
-                  color={index === 3 ? SECONDARY_800 : PRIMARY_800}
+                  color={index === 3 ? PRIMARY_800 : PRIMARY_800}
                   border={`1px solid ${
-                    index === 3 ? SECONDARY_800 : PRIMARY_800
+                    index === 3 ? PRIMARY_800 : PRIMARY_800
                   }`}
                   onClick={CancellationContent[index].ctaCancelFunc}
                 >

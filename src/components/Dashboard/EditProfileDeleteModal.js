@@ -11,8 +11,8 @@ import {
   ACCENT_800,
   WHITE,
   PRIMARY_800,
-  SECONDARY_700,
-  SECONDARY_800,
+  PRIMARY_700,
+  PRIMARY_800,
 } from "@common/ui/colors";
 import { Button } from "@common/Buttons";
 import FlexBox from "@common/ui/FlexBox";
@@ -150,7 +150,7 @@ const EditProfileDeleteModal = ({ toggleModal, visible }) => {
             toggleModal();
           }}
         >
-          <FiX color={SECONDARY_800} />
+          <FiX color={PRIMARY_800} />
         </Cross>
         <Heading>Delete Account</Heading>
         <Description>
@@ -161,8 +161,8 @@ const EditProfileDeleteModal = ({ toggleModal, visible }) => {
         {showError && <Error>{!!errorText ? errorText : "Wrong Code"}</Error>}
         <FlexBox justify="center" margin="1rem 0 0">
           <Button
-            color={SECONDARY_800}
-            hoverColor={SECONDARY_700}
+            color={PRIMARY_800}
+            hoverColor={PRIMARY_700}
             onClick={() => !clicked && handleDeleteAction()}
             className={clicked && "clicked"}
           >

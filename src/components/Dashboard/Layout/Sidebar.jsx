@@ -8,8 +8,8 @@ import Loader from "@common/ui/Loader";
 import {
   ACCENT_100,
   ACCENT_800,
-  SECONDARY_100,
-  SECONDARY_800,
+  PRIMARY_100,
+  PRIMARY_800,
   WHITE,
 } from "@common/ui/colors";
 
@@ -60,23 +60,23 @@ const NavigationWrapper = styled(FlexBox)`
     }
 
     :hover {
-      background-color: ${SECONDARY_100};
+      background-color: ${PRIMARY_100};
 
       ${H3} {
-        color: ${SECONDARY_800};
+        color: ${PRIMARY_800};
       }
     }
   }
 
   .navigation-link.active {
-    background-color: ${SECONDARY_800};
+    background-color: ${PRIMARY_800};
 
     ${H3} {
       color: ${WHITE};
     }
 
     :hover {
-      background-color: ${SECONDARY_800};
+      background-color: ${PRIMARY_800};
     }
   }
 

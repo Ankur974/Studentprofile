@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_500, PRIMARY_800, SECONDARY_800 } from "@common/ui/colors";
+import { ACCENT_500, PRIMARY_800, PRIMARY_800 } from "@common/ui/colors";
 import { H5 } from "@common/ui/Headings";
 
 const Wrapper = styled(FlexBox)`
@@ -22,7 +22,7 @@ const ColorIndicator = styled(FlexBox)`
 `;
 
 const indicators = [
-  { color: SECONDARY_800, label: "Available" },
+  { color: PRIMARY_800, label: "Available" },
   { color: PRIMARY_800, label: "Few left" },
   { color: ACCENT_500, label: "Unavailable" },
 ];

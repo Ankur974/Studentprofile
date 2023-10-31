@@ -4,9 +4,9 @@ import FlexBox from "@common/ui/FlexBox";
 import { H3, H5, TextCTA } from "@common/Headings";
 import {
   PRIMARY_800,
-  SECONDARY_500,
+  PRIMARY_500,
   ACCENT_800,
-  SECONDARY_600,
+  PRIMARY_600,
   WHITE,
 } from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
@@ -29,7 +29,7 @@ const CardWrapper = styled(FlexBox)`
   box-sizing: border-box;
   width: 96%;
   margin: auto;
-  border: 1px solid ${SECONDARY_500};
+  border: 1px solid ${PRIMARY_500};
   border-radius: 0.75rem;
   cursor: pointer;
   gap: 1rem;
@@ -61,7 +61,7 @@ const CouponCodeWrapper = styled(FlexBox)`
   align-items: center;
   justify-content: center;
   color: ${PRIMARY_800};
-  border: 1px dashed ${SECONDARY_600};
+  border: 1px dashed ${PRIMARY_600};
   border-image-width: 3;
   font-weight: 700;
   font-size: 0.875rem;
@@ -74,7 +74,7 @@ const CouponContainer = styled(FlexBox)`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border: 1px solid ${SECONDARY_500};
+  border: 1px solid ${PRIMARY_500};
   border-top: none;
   padding: 1.5rem;
   border-radius: 0 0 0.75rem 0.75rem;

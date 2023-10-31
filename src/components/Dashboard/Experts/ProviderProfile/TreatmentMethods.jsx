@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { SECONDARY_700, ACCENT_500 } from "@common/ui/colors";
+import { PRIMARY_700, ACCENT_500 } from "@common/ui/colors";
 import { H3, H4 } from "@common/ui/Headings";
 
 const TreatmentMethods = styled.div`
@@ -37,7 +37,7 @@ const TreatmentMethod = ({ providerData }) => {
         <FlexBox wrap="wrap" columnGap="1rem" rowGap="1rem" align="center">
           {providerData?.treatment_areas?.map((method, index) => (
             <MethodCapsule key={index}>
-              <H4 bold color={SECONDARY_700}>
+              <H4 bold color={PRIMARY_700}>
                 {method.name}
               </H4>
             </MethodCapsule>

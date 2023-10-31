@@ -25,8 +25,8 @@ import {
   LIGHT_GREY,
   ACCENT_200,
   ACCENT_800,
-  SECONDARY_700,
-  SECONDARY_800,
+  PRIMARY_700,
+  PRIMARY_800,
 } from "@common/ui/colors";
 import { PSYCHIATRIST, COUPLE_THERAPIST, THERAPIST, COACH } from "@constants";
 import axiosInstance from "@axiosInstance";
@@ -549,8 +549,8 @@ const DashboardSessions = ({
                 style={{ backgroundColor: !isMobile && ACCENT_200 }}
               >
                 <Button
-                  color={SECONDARY_800}
-                  hoverColor={SECONDARY_700}
+                  color={PRIMARY_800}
+                  hoverColor={PRIMARY_700}
                   onClick={bookButtonClick}
                   width="14rem"
                   display="block"

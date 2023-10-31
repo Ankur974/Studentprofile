@@ -5,7 +5,7 @@ import ReactHtmlParser from "react-html-parser";
 import FlexBox from "@common/ui/FlexBox";
 import { H4, TextCTA } from "@common/Headings";
 import { currentFlow, trackEvent } from "@utils/helpers";
-import { DAVYS_GRAY_400, SECONDARY_800 } from "@common/ui/colors";
+import { DAVYS_GRAY_400, PRIMARY_800 } from "@common/ui/colors";
 
 const Container = styled(FlexBox)`
   width: 100%;
@@ -113,7 +113,7 @@ const Summary = ({ providerData, providerType, sessionType = "single" }) => {
       {isExceeding && (
         <SeeMoreWrapper align="center" columnGap="0.5rem">
           <Divider />
-          <TextCta onClick={handleSeeMore} color={SECONDARY_800}>
+          <TextCta onClick={handleSeeMore} color={PRIMARY_800}>
             {showExpanded ? "Show less" : "Read more"}
           </TextCta>
         </SeeMoreWrapper>

@@ -14,8 +14,8 @@ import {
   ACCENT_700,
   ACCENT_800,
   ERROR_RED_400,
-  SECONDARY_100,
-  SECONDARY_800,
+  PRIMARY_100,
+  PRIMARY_800,
 } from "@common/ui/colors";
 import { useChatUnreadMessages } from "@hooks/useChatUnreadMessages";
 
@@ -44,10 +44,10 @@ const ClickableRow = styled(FlexBox)`
   border-top: 1px solid ${ACCENT_300};
   cursor: pointer;
   background-color: ${({ isSelected }) =>
-    isSelected ? SECONDARY_100 : ACCENT_100};
+    isSelected ? PRIMARY_100 : ACCENT_100};
   :hover {
     background-color: ${({ isSelected }) =>
-      isSelected ? SECONDARY_100 : ACCENT_200};
+      isSelected ? PRIMARY_100 : ACCENT_200};
   }
 `;
 
@@ -62,10 +62,10 @@ const ChatIcon = styled(FlexBox)`
   aspect-ratio: 1;
   cursor: pointer;
   background-color: ${({ isSelected }) =>
-    isSelected ? SECONDARY_100 : ACCENT_100};
+    isSelected ? PRIMARY_100 : ACCENT_100};
   :hover {
     background-color: ${({ isSelected }) =>
-      isSelected ? SECONDARY_100 : ACCENT_200};
+      isSelected ? PRIMARY_100 : ACCENT_200};
   }
 `;
 
@@ -136,7 +136,7 @@ const ProviderCard = ({
             onClick={() => openChat(providerId)}
             isSelected={isChatSelected}
           >
-            <FiMessageCircle color={SECONDARY_800} size="1.5rem" />
+            <FiMessageCircle color={PRIMARY_800} size="1.5rem" />
             {unreadMessagesCount > 0 && (
               <RedDot data-testid="unread-msgs-dot" />
             )}
@@ -162,7 +162,7 @@ const ProviderCard = ({
       >
         <Body2>View profile</Body2>
         <FiChevronRight
-          color={isViewProfileSelected ? SECONDARY_800 : ACCENT_500}
+          color={isViewProfileSelected ? PRIMARY_800 : ACCENT_500}
           strokeWidth={3}
         />
       </ClickableRow>
@@ -178,7 +178,7 @@ const ProviderCard = ({
             : "View sessions, prescriptions, and tools"}
         </Body2>
         <FiChevronRight
-          color={isViewSessionsSelected ? SECONDARY_800 : ACCENT_500}
+          color={isViewSessionsSelected ? PRIMARY_800 : ACCENT_500}
           strokeWidth={3}
         />
       </ClickableRow>
