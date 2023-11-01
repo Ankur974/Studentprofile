@@ -1,11 +1,9 @@
 import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
 import styled from "styled-components";
 import { NumberParam, StringParam, useQueryParams } from "use-query-params";
 
 import FlexBox from "@common/ui/FlexBox";
 import Loader from "@common/ui/Loader";
-import DashboardLayout from "@components/Dashboard/Layout";
 import { ACCENT_300 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import ProviderCard from "./ProviderCard";
@@ -69,7 +67,6 @@ const Right = styled(Card)`
 
 const Experts = () => {
   const isMobile = useMobileView();
-  const router = useRouter();
 
   const [queryParams, setQueryParams] = useQueryParams({
     selected: StringParam,
@@ -100,28 +97,21 @@ const Experts = () => {
   const showLeftSection = !selected;
 
   return (
-    <DashboardLayout
-      hideHeader={isMobile && !showLeftSection}
-      hideFooter={!showLeftSection}
-      hideChat
-      title="Experts"
-    >
-      <Container showLeftSection={showLeftSection}>
-        <Left>
-          <ProviderCard
-            providerId={1234}
-            openChat={openChat}
-            openProfile={openProfile}
-            openSessionsAndTools={openSessionsAndTools}
-          />
-        </Left>
-        <Right>
-          {selected === "profile" ? null : selected === "session-tools" ? ( // <ProviderProfile />
-            <div>Show Sessions, tools, prescriptions</div>
-          ) : !isMobile ? null : null}
-        </Right>
-      </Container>
-    </DashboardLayout>
+    <Container showLeftSection={showLeftSection}>
+      <Left>
+        <ProviderCard
+          providerId={1234}
+          openChat={openChat}
+          openProfile={openProfile}
+          openSessionsAndTools={openSessionsAndTools}
+        />
+      </Left>
+      <Right>
+        {selected === "profile" ? null : selected === "session-tools" ? ( // <ProviderProfile />
+          <div>Show Sessions, tools, prescriptions</div>
+        ) : !isMobile ? null : null}
+      </Right>
+    </Container>
   );
 };
 
