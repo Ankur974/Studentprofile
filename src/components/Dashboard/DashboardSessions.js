@@ -42,7 +42,6 @@ import usePaginatedSessions from "@hooks/usePaginatedSessions";
 import useSessions from "@hooks/useSessions";
 import { CF_PROVIDER_ROLE, TFL_ORG_ID, WHATSAPP_URL } from "../../constants";
 import ReferralCard from "./Referral";
-import AddMemberDashboardCard from "../B2B/AddFamilyMember/DashboardCard";
 import FirstSessionCard from "./FirstSessionCard";
 
 const Section = styled.div`
@@ -497,9 +496,6 @@ const DashboardSessions = ({
         </CardRight>
       </Section>
 
-      {user?.organisation_id === TFL_ORG_ID && appVisibility?.showAddMember && (
-        <AddMemberDashboardCard />
-      )}
       {!isMobileApp && !isMobile && (
         <SupportText>
           <Text fontSize="0.75rem">
