@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { H3, H4, H5, TextCTA } from "@common/Headings";
+import { H3, H4, H5, TextCTA } from "@common/ui/Headings";
 import {
   PRIMARY_800,
   PRIMARY_400,

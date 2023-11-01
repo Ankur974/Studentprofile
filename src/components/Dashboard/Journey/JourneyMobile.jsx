@@ -10,7 +10,7 @@ import {
 } from "@common/ui/colors";
 import { Case, Default, Switch } from "@common/ConditionalRendering";
 import FlexBox from "@common/ui/FlexBox";
-import { H2 } from "@common/Headings";
+import { H2 } from "@common/ui/Headings";
 import Loader from "@common/ui/Loader";
 import CollapsedState from "./CollapsedState";
 import JourneyItem from "./JourneyItem";

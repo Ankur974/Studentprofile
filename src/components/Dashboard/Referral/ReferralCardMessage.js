@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import ReactHtmlParser from "react-html-parser";
 import FlexBox from "@common/ui/FlexBox";
-import { H3, H5, H6, TextCTA } from "@common/Headings";
+import { H3, H5, H6, TextCTA } from "@common/ui/Headings";
 import {
   WHITE,
   PRIMARY_800,

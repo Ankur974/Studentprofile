@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { H4, H5, H6, TextCTA } from "@common/Headings";
+import { H4, H5, TextCTA } from "@common/ui/Headings";
 import {
   WHITE,
   PRIMARY_800,
   PRIMARY_400,
   ACCENT_800,
   PRIMARY_100,
-  PRIMARY_600,
   PRIMARY_800,
 } from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";

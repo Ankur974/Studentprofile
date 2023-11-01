@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import ReactHtmlParser from "react-html-parser";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H4, TextCTA } from "@common/Headings";
+import { H4, TextCTA } from "@common/ui/Headings";
 import { currentFlow, trackEvent } from "@utils/helpers";
 import { DAVYS_GRAY_400, PRIMARY_800 } from "@common/ui/colors";
 

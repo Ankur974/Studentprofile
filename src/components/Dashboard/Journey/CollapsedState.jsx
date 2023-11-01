@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 
 import { Case, Default, Switch } from "@common/ConditionalRendering";
 import FlexBox from "@common/ui/FlexBox";
-import { H4 } from "@common/Headings";
+import { H4 } from "@common/ui/Headings";
 import { ACCENT_800, DARK_MOSS_GREEN_800 } from "@common/ui/colors";
 import JourneyItem from "./JourneyItem";
 

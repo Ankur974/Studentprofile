@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import Bugsnag from "@bugsnag/js";
+import isEmpty from "lodash/isEmpty";
+import { BooleanParam, useQueryParam, withDefault } from "use-query-params";
+
 import { fetchBseTools, showBseTag } from "@redux/actions/bseAction";
 import AlertsContainer from "@components/common/AlertsContainer";
 import { Text } from "@common/Text";
@@ -13,8 +17,6 @@ import LatestPrescription from "./LatestPrescription";
 import useMobileView from "@hooks/useMobileView";
 import SessionCredits from "./SessionCredits";
 import SuggestedSession from "./SuggestedSession";
-import BtobBookingLimitModal from "@components/Booking/BtobBookingLimitModal";
-import BtobBookingLimitBottomSheet from "@components/Booking/BtobBookingLimitBottomSheet";
 import {
   isVerifiedCorporateUser,
   trackEvent,
@@ -32,8 +34,6 @@ import { PSYCHIATRIST, COUPLE_THERAPIST, THERAPIST, COACH } from "@constants";
 import axiosInstance from "@axiosInstance";
 import { getFirebaseClient } from "@firebaseInstance";
 import urls from "@urls";
-import Bugsnag from "@bugsnag/js";
-import isEmpty from "lodash/isEmpty";
 import OnlineOfflineBottomSheet from "@components/Booking/OnlineOfflineBottomSheet";
 import OnlineOfflineModal from "@components/Booking/OnlineOfflineModal";
 import * as storage from "@utils/storageFactory";
@@ -44,8 +44,6 @@ import { CF_PROVIDER_ROLE, TFL_ORG_ID, WHATSAPP_URL } from "../../constants";
 import ReferralCard from "./Referral";
 import AddMemberDashboardCard from "../B2B/AddFamilyMember/DashboardCard";
 import FirstSessionCard from "./FirstSessionCard";
-import { BooleanParam, useQueryParam, withDefault } from "use-query-params";
-// import NoteSharePopup from "../Popups/NoteSharePopup";
 
 const Section = styled.div`
   display: flex;
@@ -62,7 +60,6 @@ const CardLeft = styled.div`
   position: relative;
   height: 75vh;
   padding: 0 1.5rem;
-  /* padding: 2rem; */
   overflow-y: ${props => (props.dropDownStatus ? "hidden" : "auto")};
   width: 100%;
 
@@ -149,7 +146,6 @@ const DashboardSessions = ({
   providerPublicProfile,
 }) => {
   const [bookClicked, setBookClicked] = useState(false);
-  const [showBtobLimitModal, setShowBtobLimitModal] = useState(false);
   const [isMobileApp, setIsMobileApp] = useState(false);
   const dispatch = useDispatch();
   const isMobile = useMobileView();
@@ -159,8 +155,6 @@ const DashboardSessions = ({
   const appVisibility = useSelector(state => state.appConfig.appVisibility);
   const loadingConsents = useSelector(state => state.consent?.loadingConsents);
   const consents = useSelector(state => state.consent?.consents);
-  // TODO : add logic to show note sharing consent popup
-  const [showNoteSharingConsent, setShowNoteSharingConsent] = useState(true);
   const [page, setPage] = useState(1);
 
   const { user, dropDownStatus, bseTools, provider, providerId } = useSelector(
@@ -258,13 +252,6 @@ const DashboardSessions = ({
     }
   }, [bseTools]);
 
-  // const handleConsentAction = allow => {
-  //   setShowNoteSharingConsent(false);
-  //   // if (allow) {
-  //   // } else {
-  //   // }
-  // };
-
   const checkIfNewToolsAssigned = () =>
     dispatch(fetchBseTools(providerType, "pending", 20, providerId));
 
@@ -320,67 +307,8 @@ const DashboardSessions = ({
     return null;
   };
 
-  const routeToBooking = () => {
-    try {
-      if (user?.organisation_id === TFL_ORG_ID) {
-        router.push({
-          pathname: `/booking/${providerProfile?.uuid}/${providerCategory}/${sessionType}`,
-          query: { credit_duration: 1800 },
-        });
-
-        return;
-      }
-
-      var today = new Date().setHours(0, 0, 0, 0);
-      if (
-        upcomingSessions.length === 2 &&
-        user.usertype !== "patient" &&
-        storage.local.getItem(`case3/understood/${today}/${user.uuid}`) !==
-          "true"
-      ) {
-        setShowBtobLimitModal(true);
-      } else {
-        const latestSession = getLatestSession();
-
-        const query = { journey: "rebooking" };
-
-        if (providerPublicProfile?.offline_offering?.length > 0) {
-          query.clinic_id = providerPublicProfile.offline_offering[0].clinic.id;
-        }
-
-        // If latest session is not offline, show "Virtual" mode selected by default in Booking flow
-        if (!latestSession?.ih_clinic_id) {
-          query.default_mode = "online";
-        }
-
-        router.push({
-          pathname: `/booking/${providerProfile?.uuid}/${providerCategory}/${sessionType}`,
-          query,
-        });
-      }
-    } catch (err) {
-      console.log(err);
-      Bugsnag.notify(err);
-    }
-  };
-
-  const routeToCreditBooking = creditDetails => {
-    const query = { journey: "rebooking" };
-
-    if (!!creditDetails) {
-      const { sessionduration, ih_clinic_id } = creditDetails;
-
-      query.credit_duration = sessionduration;
-      if (ih_clinic_id) {
-        query.clinic_id = ih_clinic_id;
-      }
-    }
-
-    router.push({
-      pathname: `/booking/${providerProfile?.uuid}/${providerCategory}/${sessionType}`,
-      query,
-    });
-  };
+  const routeToBooking = () => {};
+  const routeToCreditBooking = () => {};
 
   const bookButtonClick = () => {
     if (!providerPublicProfile) return;
@@ -448,9 +376,6 @@ const DashboardSessions = ({
 
   return (
     <>
-      {/* {showNoteSharingConsent && (
-        <NoteSharePopup handleConsentAction={handleConsentAction} />
-      )} */}
       {showOfflineModal && (
         <>
           <OnlineOfflineBottomSheet
@@ -464,40 +389,6 @@ const DashboardSessions = ({
             provider={providerPublicProfile}
             onClose={() => setShowOfflineModal(false)}
             routeToBookingFromModal={routeToBookingFromModal}
-          />
-        </>
-      )}
-
-      {showBtobLimitModal && (
-        <>
-          <BtobBookingLimitBottomSheet
-            description={`You already have two upcoming sessions. We recommended you finish atleast one of them before making further bookings.<br /><br /> Your ${providerType} can help you decide when you would need the next session.`}
-            toggleModal={() => setShowBtobLimitModal(!showBtobLimitModal)}
-            onUnderstoodClick={() => {
-              var today = new Date().setHours(0, 0, 0, 0);
-              storage.local.setItem(
-                `case3/understood/${today}/${user.uuid}`,
-                "true"
-              );
-              setBookClicked(false);
-            }}
-            ctaText={"BOOK ANYWAY"}
-            onCtaClick={bookAnyWayClick}
-          />
-          <BtobBookingLimitModal
-            sessions={upcomingSessions}
-            description={`You already have two upcoming sessions. We recommended you finish atleast one of them before making further bookings.<br /><br /> Your ${providerType} can help you decide when you would need the next session.`}
-            toggleModal={() => setShowBtobLimitModal(!showBtobLimitModal)}
-            onUnderstoodClick={() => {
-              var today = new Date().setHours(0, 0, 0, 0);
-              storage.local.setItem(
-                `case3/understood/${today}/${user.uuid}`,
-                "true"
-              );
-              setBookClicked(false);
-            }}
-            ctaText={"BOOK ANYWAY"}
-            onCtaClick={bookAnyWayClick}
           />
         </>
       )}
@@ -556,7 +447,6 @@ const DashboardSessions = ({
                   display="block"
                   margin="auto"
                   style={{ opacity: bookClicked && "0.3" }}
-                  // Users can't book a session again from dashboard for a CF provider
                   disabled={isCfProvider}
                 >
                   {bookClicked ? "LOADING..." : "BOOK SESSION"}
