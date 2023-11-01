@@ -267,21 +267,6 @@ const DashboardLayout = ({
               </FlexBox>
             </AvatarWithName>
             <FlexBox align="center" columnGap="1.5rem">
-              {!hideChat && (
-                <FlexBox
-                  align="center"
-                  justify="center"
-                  id="chat-providers"
-                  cursor="pointer"
-                  onClick={toggleChatWithProviders}
-                >
-                  <FiMessageCircle
-                    color={ACCENT_800}
-                    size="1.5rem"
-                    cursor="pointer"
-                  />
-                </FlexBox>
-              )}
               <FlexBox
                 align="center"
                 justify="center"

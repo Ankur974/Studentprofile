@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import styled, { css } from "styled-components";
 import Link from "next/link";
 
-import { H3 } from "@common/ui/Headings";
+import { Body1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import Loader from "@common/ui/Loader";
 import {
@@ -17,6 +17,11 @@ const Navigation = dynamic(() => import("./Navigation"), {
   loading: () => <Loader />,
   ssr: false,
 });
+
+const Logo = styled.img`
+  width: 100%;
+  cursor: pointer;
+`;
 
 const NavigationContainer = styled.div`
   height: 100%;
@@ -51,9 +56,9 @@ const NavigationWrapper = styled(FlexBox)`
   .navigation-link {
     width: 100%;
     cursor: pointer;
-    padding: 1rem 2.5rem;
+    padding: 0 2.5rem;
 
-    ${H3} {
+    ${Body1} {
       font-weight: bold;
       white-space: nowrap;
       color: ${ACCENT_800};
@@ -62,7 +67,7 @@ const NavigationWrapper = styled(FlexBox)`
     :hover {
       background-color: ${PRIMARY_100};
 
-      ${H3} {
+      ${Body1} {
         color: ${PRIMARY_800};
       }
     }
@@ -70,8 +75,9 @@ const NavigationWrapper = styled(FlexBox)`
 
   .navigation-link.active {
     background-color: ${PRIMARY_800};
+    padding: 1rem 2.5rem;
 
-    ${H3} {
+    ${Body1} {
       color: ${WHITE};
     }
 
@@ -90,7 +96,15 @@ const Sidebar = ({ expanded }) => (
     <NavigationWrapper>
       <FlexBox column rowGap="2.5rem">
         <FlexBox padding="2.5rem">
-          <Link href="/user/dashboard">Pamprazzi logo</Link>
+          <Link href="/user/dashboard">
+            <Logo
+              isStatic
+              height={36}
+              draggable={false}
+              src="/assets/pamprazzi-logo.svg"
+              alt="pamprazzi Logo"
+            />
+          </Link>
         </FlexBox>
         <Navigation />
       </FlexBox>
