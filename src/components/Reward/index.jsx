@@ -17,7 +17,7 @@ import { OfferCard2Card } from "./OfferCard2";
 const dummyData = [
   {
     id: 1,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -27,7 +27,7 @@ const dummyData = [
   },
   {
     id: 2,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -37,7 +37,7 @@ const dummyData = [
   },
   {
     id: 3,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -47,7 +47,7 @@ const dummyData = [
   },
   {
     id: 1,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -57,7 +57,7 @@ const dummyData = [
   },
   {
     id: 2,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -67,7 +67,7 @@ const dummyData = [
   },
   {
     id: 3,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -81,56 +81,56 @@ const redeemData = [
   {
     id: 1,
     valid: true,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 2,
     valid: false,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 3,
     valid: true,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 4,
     valid: false,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 1,
     valid: true,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 2,
     valid: false,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 3,
     valid: true,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 4,
     valid: false,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
@@ -143,8 +143,8 @@ const offerCard2data = [
       "linear-gradient(320deg, rgba(209,0,0,0.6090805951286764) 0%, rgba(253,45,57,0.9508172898065477) 100%);",
     title: "GET 40% OFF",
     desc: "Lorem ipsum, dolor sit amet consectetur.",
-    imglogo: "/assets/coin.svg",
-    mainimg: "/assets/coin.svg",
+    imglogo: "/assets/images/coin.svg",
+    mainimg: "/assets/images/coin.svg",
   },
 ];
 

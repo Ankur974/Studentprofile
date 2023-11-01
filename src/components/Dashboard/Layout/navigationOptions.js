@@ -6,22 +6,10 @@ export const navigationOptions = [
     title: "Dashboard",
   },
   {
-    icon: "/assets/images/dashboard/experts-gray.svg",
-    iconActive: "/assets/images/dashboard/experts.svg",
+    icon: "/assets/images/test.svg",
+    iconActive: "/assets/images/test.svg",
     link: "/",
-    title: "Experts",
-  },
-  {
-    icon: "/assets/images/dashboard/tools-gray.svg",
-    iconActive: "/assets/images/dashboard/tools.svg",
-    link: "/",
-    title: "Care Tools",
-  },
-  {
-    icon: "/assets/images/dashboard/prescriptions-gray.svg",
-    iconActive: "/assets/images/dashboard/prescriptions.svg",
-    link: "/",
-    title: "Prescriptions",
+    title: "My Salons",
   },
   {
     icon: "/assets/images/dashboard/journey-gray.svg",

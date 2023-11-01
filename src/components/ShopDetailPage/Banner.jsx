@@ -34,7 +34,7 @@ const BannerContent = styled(FlexBox)`
 const HeroBanner = () => {
   return (
     <Banner>
-      <Img src="/assets/banner-new.svg" />
+      <Img src="/assets/images/banner-new.svg" />
       <BannerContent column rowGap="0.25rem">
         <H1 bold color={ACCENT_0}>
           Gigis Salon

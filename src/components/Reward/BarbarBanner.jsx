@@ -20,7 +20,7 @@ export const BarbarBanner = () => {
   return (
     <Wrapper>
       <FlexBox width="100%">
-        <img src="/assets/barber-cloud.svg" alt="picture" />
+        <img src="/assets/images/barber-cloud.svg" alt="picture" />
       </FlexBox>
       <Content column>
         <H2 bold>Connect your favroite barber to Pamparazzi!</H2>

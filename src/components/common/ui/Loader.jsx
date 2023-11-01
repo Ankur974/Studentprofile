@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import FlexBox from "./FlexBox";
-// import loader from "../../../revamp/assets/loading.gif";
+// import loader from "../../../revamp/assets/images/loading.gif";
 
 const Wrapper = styled(FlexBox)`
   height: 100%;

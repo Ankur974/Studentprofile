@@ -134,7 +134,7 @@ const FilterModal = ({ toggleModal }) => {
     <Modal M1>
       <Wrapper column>
         <FlexBox alignItems="center" justify="space-between">
-          <Img src="/assets/filter1.svg" />
+          <Img src="/assets/images/filter1.svg" />
           <H2 bold>Filters</H2>
           <FiX onClick={toggleModal} />
         </FlexBox>

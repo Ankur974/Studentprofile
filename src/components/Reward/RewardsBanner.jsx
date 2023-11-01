@@ -21,35 +21,33 @@ const Wrapper = styled(FlexBox)`
 `;
 
 const Rewardheading = styled(FlexBox)`
-flex-direction: row;
-align-items: center;
-position: relative;
-justify-content: center;
-
-@media ${device.laptop} {
+  flex-direction: row;
+  align-items: center;
+  position: relative;
   justify-content: center;
-}
+
+  @media ${device.laptop} {
+    justify-content: center;
+  }
 `;
 
 const Accountbutton = styled(FlexBox)`
-border-radius: 0.25rem;
-border: 0.1rem solid rgba(0, 0, 0, 0.2);
-padding: 0.4rem 0.4rem;
-cursor: pointer;
-position: absolute;
-left: 0;
-color: white;
+  border-radius: 0.25rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  padding: 0.4rem 0.4rem;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  color: white;
 `;
 
 const ActionWrapper = styled(FlexBox)`
-@media ${device.laptop} {
-  justify-content: space-evenly;
-}
+  @media ${device.laptop} {
+    justify-content: space-evenly;
+  }
 `;
 
 export const RewardsBanner = () => {
-
-
   return (
     <Wrapper column>
       <Rewardheading>
@@ -73,7 +71,7 @@ export const RewardsBanner = () => {
           </H3>
         </FlexBox>
         <FlexBox>
-          <img src="/assets/businessman.svg" alt="picture" />
+          <img src="/assets/images/businessman.svg" alt="picture" />
         </FlexBox>
       </ActionWrapper>
     </Wrapper>

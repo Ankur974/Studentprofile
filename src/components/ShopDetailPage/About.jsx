@@ -38,14 +38,14 @@ const RealAbout = () => {
       name: "John Doe",
       review:
         "I had a great experience with the pet-friendly amenities. My dog loved it!",
-      path: "/assets/Avatar.svg",
+      path: "/assets/images/Avatar.svg",
     },
     {
       id: 2,
       date: "2023-09-11",
       name: "Jane Smith",
       review: "The air conditioner was a lifesaver during the hot summer days.",
-      path: "/assets/Avatar.svg",
+      path: "/assets/images/Avatar.svg",
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ const RealAbout = () => {
       name: "Alice Johnson",
       review:
         "I appreciated the hygiene assurance measures in place. It made me feel safe.",
-      path: "/assets/Avatar.svg",
+      path: "/assets/images/Avatar.svg",
     },
   ];
 

@@ -102,7 +102,7 @@ const Dashboard = () => {
               <NullState
                 imgSrc="/assets/images/dashboard/sessions-null-state.png"
                 text="No Upcoming Sessions"
-                subtext="Book your next session now and keep progressing<br />towards your mental health goals."
+                subtext="Book your next session now and keep progressing<br />towards your pampering goals."
                 Button={<Button>BOOK SESSION</Button>}
               />
             </NullStateWrapper>

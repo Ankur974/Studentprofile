@@ -101,7 +101,7 @@ const Sidebar = ({ expanded }) => (
               isStatic
               height={36}
               draggable={false}
-              src="/assets/pamprazzi-logo.svg"
+              src="/assets/images/pamprazzi-logo.svg"
               alt="pamprazzi Logo"
             />
           </Link>
