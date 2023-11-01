@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { Button } from "@common/Buttons";
+import { Button } from "@common/ui/Buttons";
 import { WHITE, PRIMARY_700, PRIMARY_800, ACCENT_200 } from "@common/ui/colors";
 import * as storage from "@utils/storageFactory";
 import { Text } from "@common/Text";

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Text } from "@common/Text";
-import { Button } from "@common/Buttons";
+import { Button } from "@common/ui/Buttons";
 import FlexBox from "@common/ui/FlexBox";
 import {
   PRIMARY_100,

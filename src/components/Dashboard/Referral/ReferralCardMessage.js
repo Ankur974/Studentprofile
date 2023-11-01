@@ -15,7 +15,7 @@ import {
   PRIMARY_800,
 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
-import { TextButton } from "@common/Buttons";
+import { TextButton } from "@common/ui/Buttons";
 import { FiBook, FiCopy } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import axiosInstance from "@axiosInstance";

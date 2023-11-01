@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Text } from "@common/Text";
 import { TitleText } from "@common/TitleText";
 import FlexBox from "@common/ui/FlexBox";
-import { Button } from "@common/Buttons";
+import { Button } from "@common/ui/Buttons";
 import { LIGHTEST_GREY, PRIMARY_700, PRIMARY_800 } from "@common/ui/colors";
 import { useSelector } from "react-redux";
 import { isVerifiedCorporateUser } from "@utils/helpers";

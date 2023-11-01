@@ -6,7 +6,7 @@ import { fetchBseTools, showBseTag } from "@redux/actions/bseAction";
 import AlertsContainer from "@components/common/AlertsContainer";
 import { Text } from "@common/Text";
 import FlexBox from "@common/ui/FlexBox";
-import { Button } from "@common/Buttons";
+import { Button } from "@common/ui/Buttons";
 import Loader from "@common/ui/Loader";
 import SessionsListing from "./SessionsListing";
 import LatestPrescription from "./LatestPrescription";

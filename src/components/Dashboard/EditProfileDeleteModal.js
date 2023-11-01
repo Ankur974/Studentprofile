@@ -14,7 +14,7 @@ import {
   PRIMARY_700,
   PRIMARY_800,
 } from "@common/ui/colors";
-import { Button } from "@common/Buttons";
+import { Button } from "@common/ui/Buttons";
 import FlexBox from "@common/ui/FlexBox";
 import { FiX } from "react-icons/fi";
 // import { logout } from "@redux/actions/authActions";
