@@ -6,7 +6,6 @@ import { FiShare2 } from "react-icons/fi";
 import FlexBox from "@common/ui/FlexBox";
 import { trackEvent } from "@utils/helpers";
 import useMobileView from "@hooks/useMobileView";
-import { shareProvider } from "@utils/interfaces";
 import { WHITE, ACCENT_800 } from "@common/ui/colors";
 import { Button, IconButton } from "@common/Dashboard/Buttons";
 import { H4 } from "@common/ui/Headings";
@@ -92,28 +91,6 @@ const ActionButtons = ({
     const message = `Hey! I think you might be interested in checking ${fullName}'${
       !fullName?.endsWith("s") ? "s" : ""
     } profile on Amaha -`;
-
-    shareProviderTracker();
-    shareProvider("Share provider profile", "", window.location.href);
-    if (window.Android) {
-      window.Android.shareProvider(
-        "Share provider profile",
-        message,
-        window.location.href
-      );
-      return;
-    }
-
-    if (window.ReactNativeWebView) {
-      const data = JSON.stringify({
-        subject: "Share provider profile",
-        message: message,
-        url: window.location.href,
-      });
-
-      window.ReactNativeWebView.postMessage(`shareProvider,${data}`);
-      return;
-    }
 
     try {
       await navigator?.share?.({

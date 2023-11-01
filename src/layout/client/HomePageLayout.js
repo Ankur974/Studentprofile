@@ -14,7 +14,7 @@ const HomePageLayout = ({
   const [hideHeader, setHideHeader] = useState(false);
   const [hideFooter, setHideFooter] = useState(false);
   const [loading, setLoading] = useState(true);
-  const partnerMetaInfo = useSelector(state => state.auth?.partnerMetaInfo);
+  const partnerMetaInfo = useSelector(state => state?.auth?.partnerMetaInfo);
 
   useEffect(() => {
     const isMobileApp =

@@ -10,11 +10,6 @@ import { ACCENT_300 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import ProviderCard from "./ProviderCard";
 
-const Services = dynamic(() => import("./Services"), {
-  loading: () => <Loader />,
-  ssr: false,
-});
-
 const ProviderProfile = dynamic(() => import("./ProviderProfile"), {
   loading: () => <Loader />,
   ssr: false,
@@ -121,13 +116,9 @@ const Experts = () => {
           />
         </Left>
         <Right>
-          {selected === "profile" ? (
-            <ProviderProfile />
-          ) : selected === "session-tools" ? (
+          {selected === "profile" ? null : selected === "session-tools" ? ( // <ProviderProfile />
             <div>Show Sessions, tools, prescriptions</div>
-          ) : !isMobile ? (
-            <Services />
-          ) : null}
+          ) : !isMobile ? null : null}
         </Right>
       </Container>
     </DashboardLayout>
