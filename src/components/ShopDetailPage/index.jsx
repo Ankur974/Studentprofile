@@ -10,8 +10,9 @@ import RealAbout from "./About";
 const Container = styled(FlexBox)`
   flex-direction: column;
   width: 100%;
+  justify-content: center;
   row-gap: 2rem;
-  margin:auto;
+  margin: auto;
 `;
 
 const Wrapper = styled(FlexBox)`
