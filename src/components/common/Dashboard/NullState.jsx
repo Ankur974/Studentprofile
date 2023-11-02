@@ -4,6 +4,7 @@ import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_700 } from "@common/ui/colors";
 import { H3, H5 } from "./Headings";
+import { device } from "@common/ui/Resposive";
 
 const Container = styled(FlexBox)`
   width: 100%;
@@ -11,7 +12,8 @@ const Container = styled(FlexBox)`
   padding: 1.5rem 2.5rem;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 768px) {
+
+  @media ${device.tablet} {
     padding: 1.5rem 1rem;
   }
 `;

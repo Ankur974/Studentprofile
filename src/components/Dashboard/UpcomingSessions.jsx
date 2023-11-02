@@ -4,14 +4,15 @@ import { Button } from "@common/Dashboard/Buttons";
 import SessionCard from "@common/Dashboard/SessionCard";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_300, WHITE } from "@common/ui/colors";
+import { device } from "@common/ui/Resposive";
 
 const Divider = styled.div`
-  height: 1px;
+  height: 0.5rem;
   width: 100%;
 `;
 
 const SessionsWrapper = styled.div`
-  @media screen and (min-width: 768px) {
+  @media ${device.tablet}  {
     max-height: 60vh;
     overflow: auto;
   }
@@ -23,7 +24,7 @@ const BookCTAWrapper = styled(FlexBox)`
   justify-content: center;
   background: ${WHITE};
   border-radius: 0 0 1rem 1rem;
-  @media screen and (min-width: 768px) {
+  @media ${device.tablet}  {
     padding: 1.5rem;
     border-top: 1px solid ${ACCENT_300};
     position: absolute;
