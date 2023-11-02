@@ -1,68 +1,75 @@
-import dynamic from "next/dynamic";
 import styled from "styled-components";
 import { NumberParam, StringParam, useQueryParams } from "use-query-params";
 
 import FlexBox from "@common/ui/FlexBox";
-import Loader from "@common/ui/Loader";
 import { ACCENT_300 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import ProviderCard from "./ProviderCard";
-
-const ProviderProfile = dynamic(() => import("./ProviderProfile"), {
-  loading: () => <Loader />,
-  ssr: false,
-});
+import About from "@components/ShopDetailPage/About";
+import Services from "../../ShopDetailPage/Services";
+import { device } from "../../common/ui/Resposive";
 
 const Container = styled(FlexBox)`
-  width: 100%;
+  width: 100vw;
   height: 100%;
   box-sizing: border-box;
-  padding: 1.5rem;
-  column-gap: 1.5rem;
+  padding: 0;
+  column-gap: 0;
   background-color: ${ACCENT_300};
-  @media screen and (max-width: 768px) {
-    width: 100vw;
-    padding: 0;
-    position: fixed;
-    column-gap: 0;
-    transform: ${({ showLeftSection }) =>
-      showLeftSection ? "translateX(0)" : "translateX(-100vw)"};
-    transition: all 0.2s ease-in-out;
-    overflow-x: visible;
+  transform: ${({ showLeftSection }) =>
+    showLeftSection ? "translateX(0)" : "translateX(-100vw)"};
+  transition: all 0.2s ease-in-out;
+  overflow-x: visible;
+  position: fixed;
+
+  @media ${device.laptop} {
+    width: 100%;
+    padding: 1.5rem;
+    column-gap: 1.5rem;
+    transform: none;
+    overflow-x: none;
+    position: static;
   }
 `;
 
 const Card = styled(FlexBox)`
   background-color: #ffffff;
-  box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.04);
-  border-radius: 1rem;
-  width: 49%;
+  box-shadow: unset;
+  border-radius: 0;
+  width: 50%;
   flex-direction: column;
   overflow: hidden;
-  @media screen and (max-width: 768px) {
-    box-shadow: unset;
-    border-radius: 0;
-    width: 50%;
+
+  @media ${device.laptop} {
+    box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 1rem;
+    width: 49%;
   }
 `;
 
 const Left = styled(Card)`
-  flex: 1;
-  padding: 1.5rem;
+  width: 100vw;
+  flex: none;
 
-  @media screen and (max-width: 768px) {
-    width: 100vw;
-    flex: none;
+  @media ${device.laptop} {
+    flex: 1;
+    padding: 1.5rem;
   }
 `;
 
 const Right = styled(Card)`
-  flex: 1;
+  flex: none;
+  width: 100vw;
 
-  @media screen and (max-width: 768px) {
-    flex: none;
-    width: 100vw;
+  @media ${device.laptop} {
+    flex: 1;
   }
+`;
+
+const RightWrapper = styled(FlexBox)`
+  width: 100%;
+  padding: 1rem;
+  overflow-y: scroll;
 `;
 
 const Experts = () => {
@@ -70,28 +77,27 @@ const Experts = () => {
 
   const [queryParams, setQueryParams] = useQueryParams({
     selected: StringParam,
-    providerId: NumberParam,
+    saloonId: NumberParam,
   });
 
   const { selected } = queryParams || {};
 
-  const openChat = providerId =>
-    setQueryParams({
-      selected: "chat",
-      providerId: providerId || 20772,
-      pFbId: "ndqzVxrgog6EACxRq-_YTRUrP5xz",
-    });
-
-  const openProfile = providerId =>
+  const openProfile = saloonId =>
     setQueryParams({
       selected: "profile",
-      providerId,
+      saloonId: saloonId,
     });
 
-  const openSessionsAndTools = providerId =>
+  const openServices = saloonId =>
     setQueryParams({
-      selected: "session-tools",
-      providerId,
+      selected: "services",
+      saloonId: saloonId || 20772,
+    });
+
+  const openSessions = saloonId =>
+    setQueryParams({
+      selected: "sessions",
+      saloonId,
     });
 
   const showLeftSection = !selected;
@@ -100,16 +106,24 @@ const Experts = () => {
     <Container showLeftSection={showLeftSection}>
       <Left>
         <ProviderCard
-          providerId={1234}
-          openChat={openChat}
+          saloonId={1234}
           openProfile={openProfile}
-          openSessionsAndTools={openSessionsAndTools}
+          openSessions={openSessions}
+          openServices={openServices}
         />
       </Left>
       <Right>
-        {selected === "profile" ? null : selected === "session-tools" ? ( // <ProviderProfile />
-          <div>Show Sessions, tools, prescriptions</div>
-        ) : !isMobile ? null : null}
+        <RightWrapper>
+          {selected === "profile" ? (
+            <About />
+          ) : selected === "sessions" ? (
+            <div>Show </div>
+          ) : selected === "services" ? (
+            <Services />
+          ) : !isMobile ? (
+            <About />
+          ) : null}
+        </RightWrapper>
       </Right>
     </Container>
   );

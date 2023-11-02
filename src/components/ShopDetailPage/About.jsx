@@ -15,7 +15,7 @@ const Wrapper = styled(FlexBox)`
   gap: 0.3rem;
 `;
 
-const RealAbout = () => {
+const About = () => {
   const aminities = [
     {
       id: 1,
@@ -113,4 +113,4 @@ const RealAbout = () => {
     </Wrapper>
   );
 };
-export default RealAbout;
+export default About;
