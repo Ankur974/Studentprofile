@@ -100,7 +100,7 @@ const Dashboard = () => {
           ) : !upcomingSessions.length ? (
             <NullStateWrapper>
               <NullState
-                imgSrc="/assets/images/dashboard/sessions-null-state.png"
+                imgSrc="/assets/images/dashboard/nullimg.svg"
                 text="No Upcoming Sessions"
                 subtext="Book your next session now and keep progressing<br />towards your pampering goals."
                 Button={<Button>BOOK SESSION</Button>}
