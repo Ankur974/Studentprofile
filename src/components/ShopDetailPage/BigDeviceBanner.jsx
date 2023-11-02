@@ -3,6 +3,8 @@ import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 import { device } from "../common/ui/Resposive";
 import SalonInfo from "./SalonInfo";
+import { FaRegShareSquare, FaRegHeart } from "react-icons/fa";
+import { ACCENT_800 } from "../common/ui/colors";
 
 const Container = styled(FlexBox)`
   display: none;
@@ -35,6 +37,13 @@ const GrpImg = styled.img`
 `;
 const ImageContainer = styled(FlexBox)`
   width: 60%;
+  position: relative;
+`;
+const Icons = styled(FlexBox)`
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  column-gap: 10px;
 `;
 const DeviceBanner = () => {
   return (
@@ -43,6 +52,10 @@ const DeviceBanner = () => {
       <Container>
         <ImageContainer>
           <Img src="/assets/banner-new.svg" />
+          <Icons>
+            <FaRegShareSquare color={ACCENT_800} size="20px" />
+            <FaRegHeart color={ACCENT_800} size="20px" />
+          </Icons>
         </ImageContainer>
         <GroupImage>
           <GrpImg src="/assets/salon-image1.jpg" alt="" />
