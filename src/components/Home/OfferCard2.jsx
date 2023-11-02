@@ -5,7 +5,6 @@ import { Body2, H2 } from "../common/ui/Headings";
 import { ACCENT_0 } from "../common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
-  width: fit-content;
   border-radius: 1rem;
   min-width: 13rem;
   justify-content: space-between;
@@ -47,48 +46,41 @@ const ContentBox = styled(FlexBox)`
 
 const OfferCard2 = ({ data }) => {
   return (
-    <>
-      {data.map(item => (
-        <Wrapper key={item.id} color={item.color}>
-          <ContentBox column>
-            {item.title && (
-              <H2 bold color={ACCENT_0}>
-                {item.title}
-              </H2>
-            )}
-            {item.desc && <Body2 color={ACCENT_0}>{item.desc}</Body2>}
-            {item.onButtonClick && (
-              <ButtonFlex
-                onClick={item.onButtonClick}
-                textColor={item.textColor}
-              >
-                {item.buttonText || "View Details"}
-              </ButtonFlex>
-            )}
-          </ContentBox>
-          <ImgBox column margin="0 1.5rem 1.5rem 0">
-            {item.imglogo && (
-              <UpperBox>
-                <img
-                  src={item.imglogo}
-                  alt="picture"
-                  width={item.imgLogoWidth || "50px"}
-                  height={item.imgLogoHeight || "50px"}
-                />
-              </UpperBox>
-            )}
-            {item.mainimg && (
-              <img
-                src={item.mainimg}
-                alt="picture"
-                width={item.mainImgWidth || "100px"}
-                height={item.mainImgHeight || "100px"}
-              />
-            )}
-          </ImgBox>
-        </Wrapper>
-      ))}
-    </>
+    <Wrapper key={data?.id} color={data?.color}>
+      <ContentBox column>
+        {data?.title && (
+          <H2 bold color={ACCENT_0}>
+            {data?.title}
+          </H2>
+        )}
+        {data?.desc && <Body2 color={ACCENT_0}>{data?.desc}</Body2>}
+        {data?.onButtonClick && (
+          <ButtonFlex onClick={data?.onButtonClick} textColor={data?.textColor}>
+            {data?.buttonText || "View Details"}
+          </ButtonFlex>
+        )}
+      </ContentBox>
+      <ImgBox column margin="0 1.5rem 1.5rem 0">
+        {data?.imglogo && (
+          <UpperBox>
+            <img
+              src={data?.imglogo}
+              alt="picture"
+              width={data?.imgLogoWidth || "50px"}
+              height={data?.imgLogoHeight || "50px"}
+            />
+          </UpperBox>
+        )}
+        {data?.mainimg && (
+          <img
+            src={data?.mainimg}
+            alt="picture"
+            width={data?.mainImgWidth || "100px"}
+            height={data?.mainImgHeight || "100px"}
+          />
+        )}
+      </ImgBox>
+    </Wrapper>
   );
 };
 

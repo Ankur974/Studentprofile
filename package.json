@@ -40,6 +40,7 @@
     "redux-typescript": "^1.2.1",
     "sass": "^1.59.3",
     "styled-components": "^6.0.7",
+    "swiper": "^11.0.3",
     "typescript": "5.0.2",
     "universal-cookie": "^6.1.1",
     "use-query-params": "^2.2.1"
