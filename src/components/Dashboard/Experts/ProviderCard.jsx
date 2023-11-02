@@ -110,7 +110,7 @@ const ProviderCard = ({
         onClick={() => openSessionsAndTools(providerId)}
         isSelected={isViewSessionsSelected}
       >
-        <Body2>View sessions and tools</Body2>
+        <Body2>View Appointments</Body2>
         <FiChevronRight
           color={isViewSessionsSelected ? PRIMARY_800 : ACCENT_500}
           strokeWidth={3}
