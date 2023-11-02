@@ -64,7 +64,8 @@ const Services = () => {
   useEffect(() => {
     if (activeCategory) {
       const elem = document.getElementById(activeCategory);
-      elem.scrollIntoView({ behavior: "smooth" });
+      
+      elem?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
     }
   }, [activeCategory]);
 
@@ -84,8 +85,10 @@ const Services = () => {
       </Categories>
       <ServicesWrapper column>
         {categories?.map(category => (
-          <div key={category?.slug} id={category?.slug}>
-            <CategoryBanner categoryConfig={category} />
+
+          <div key={category?.slug} id={category?.slug} >
+            {/* <div /> */}
+          <CategoryBanner categoryConfig={category} />
             {category?.services?.map((item, index) => (
               <ServiceCard
                 key={item?.id}
