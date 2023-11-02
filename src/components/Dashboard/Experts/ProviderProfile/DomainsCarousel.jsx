@@ -2,8 +2,7 @@ import React, { memo } from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { PSYCHIATRIST } from "@constants";
-import { domainareas_images } from "@metadata/domainareas_images";
+// import { domainareas_images } from "@metadata/domainareas_images";
 import { H3, H6 } from "@common/ui/Headings";
 
 const CarouselBody = styled(FlexBox)`
@@ -33,11 +32,9 @@ const DomainsCarousel = ({ providerData, providerType }) => {
           width="48px"
           alt="Domains Icon"
         />
-        <H3 bold>
-          I offer {providerType === PSYCHIATRIST ? "psychiatry" : "therapy"} for
-        </H3>
+        <H3 bold>I offer</H3>
       </FlexBox>
-      <CarouselBody className="hide-scrollbar">
+      {/* <CarouselBody className="hide-scrollbar">
         {providerData?.domainareas?.map((item, index) => {
           const imageIndex = domainareas_images.findIndex(
             image => image.slug === item.slug
@@ -70,7 +67,7 @@ const DomainsCarousel = ({ providerData, providerType }) => {
               </OfferingBox>
             );
         })}
-      </CarouselBody>
+      </CarouselBody> */}
     </FlexBox>
   );
 };

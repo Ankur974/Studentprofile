@@ -1,23 +1,18 @@
-import { FiChevronRight, FiMessageCircle } from "react-icons/fi";
+import { FiChevronRight } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { Body1, Body2, Support } from "@common/ui/Headings";
+import { Body1, Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
-import LazyImage from "@common/LazyImage";
-import { COUPLE_THERAPIST, THERAPIST } from "@constants";
 import {
   ACCENT_100,
   ACCENT_200,
   ACCENT_300,
   ACCENT_500,
-  ACCENT_700,
   ACCENT_800,
-  ERROR_RED_400,
   PRIMARY_100,
   PRIMARY_800,
 } from "@common/ui/colors";
-import { useChatUnreadMessages } from "@hooks/useChatUnreadMessages";
 
 const Card = styled(FlexBox)`
   border-radius: 1rem;
@@ -51,35 +46,6 @@ const ClickableRow = styled(FlexBox)`
   }
 `;
 
-const ChatIcon = styled(FlexBox)`
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid ${ACCENT_300};
-  border-radius: 50%;
-  overflow: hidden;
-  height: 3rem;
-  aspect-ratio: 1;
-  cursor: pointer;
-  background-color: ${({ isSelected }) =>
-    isSelected ? PRIMARY_100 : ACCENT_100};
-  :hover {
-    background-color: ${({ isSelected }) =>
-      isSelected ? PRIMARY_100 : ACCENT_200};
-  }
-`;
-
-const RedDot = styled.div`
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  height: 0.5rem;
-  width: 0.5rem;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: ${ERROR_RED_400};
-`;
-
 /**
  * A component representing a card for displaying provider information.
  *
@@ -95,28 +61,17 @@ const RedDot = styled.div`
  * @returns {JSX.Element} The rendered React component.
  */
 const ProviderCard = ({
-  openChat,
   openProfile,
   openSessionsAndTools,
   providerId,
   // providerFirebaseId = "",
-  providerType = THERAPIST,
   providerName = "Pratistha Trivedi Mirza",
   selectedOption = { type: null, providerId: -1 },
   // FIXME: hardcoded
   providerImg = "https://assets.theinnerhour.com/profilepics/Nishtha_Baghla1665672703307.png",
 }) => {
-  const user = useSelector(state => state.auth.user);
-  const userFirebaseId = user?.firebaseid;
+  const user = useSelector(state => state?.auth?.user);
 
-  const { unreadMessagesCount } = useChatUnreadMessages(
-    // FIXME: hardcoded
-    `user_friend_map/${userFirebaseId}/ndqzVxrgog6EACxRq-_YTRUrP5xz`
-    // `user_friend_map/${userFirebaseId}/${providerFirebaseId}`
-  );
-
-  const isChatSelected =
-    selectedOption.type === "chat" && selectedOption.providerId === providerId;
   const isViewProfileSelected =
     selectedOption.type === "profile" &&
     selectedOption.providerId === providerId;
@@ -129,27 +84,10 @@ const ProviderCard = ({
       <FlexBox column padding="1rem">
         <FlexBox justify="space-between" margin="0 0 0.5rem 0">
           <ProviderImg data-testid="provider-img">
-            <LazyImage src={providerImg} alt={providerName} />
+            <img src={providerImg} alt={providerName} />
           </ProviderImg>
-          <ChatIcon
-            data-testid="chat-btn"
-            onClick={() => openChat(providerId)}
-            isSelected={isChatSelected}
-          >
-            <FiMessageCircle color={PRIMARY_800} size="1.5rem" />
-            {unreadMessagesCount > 0 && (
-              <RedDot data-testid="unread-msgs-dot" />
-            )}
-          </ChatIcon>
         </FlexBox>
 
-        <Support color={ACCENT_700} textTransform="capitalize">
-          Your{" "}
-          {providerType === COUPLE_THERAPIST
-            ? "Couples Therapist"
-            : providerType}{" "}
-          (23 Jan 2022 - Present)
-        </Support>
         <Body1 bold data-testid="provider-name">
           {providerName}
         </Body1>
@@ -172,11 +110,7 @@ const ProviderCard = ({
         onClick={() => openSessionsAndTools(providerId)}
         isSelected={isViewSessionsSelected}
       >
-        <Body2>
-          {providerType === THERAPIST
-            ? "View sessions and tools"
-            : "View sessions, prescriptions, and tools"}
-        </Body2>
+        <Body2>View sessions and tools</Body2>
         <FiChevronRight
           color={isViewSessionsSelected ? PRIMARY_800 : ACCENT_500}
           strokeWidth={3}

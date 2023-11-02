@@ -1,16 +1,11 @@
 import React, { useEffect, useState, useMemo } from "react";
-import Bugsnag from "@bugsnag/js";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import Loader from "@common/ui/Loader";
-import axiosInstance from "@axiosInstance";
-import urls from "@urls";
-import { CF_PROVIDER_ROLE } from "@constants";
 import Carousels from "./Carousels";
 import AboutMe from "./AboutMe";
 import TreatmentMethods from "./TreatmentMethods";
-import CfInfoCarousel from "./CfInfoCarousel";
 import Summary from "./Summary";
 import Thoughts from "./Thoughts";
 import Banner from "./Banner";
@@ -48,19 +43,19 @@ const ProviderProfile = ({ providerType, sessionType = "single" }) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      try {
-        const response = await axiosInstance.get(
-          `${urls.therapistPublicProfile}/${PROVIDER_UUID}`
-        );
-        setProviderData(response?.data?.therapist);
-      } catch (error) {
-        Bugsnag.notify(error);
-      } finally {
-        setLoading(false);
-      }
+      // try {
+      //   const response = await axiosInstance.get(
+      //     `${urls.therapistPublicProfile}/${PROVIDER_UUID}`
+      //   );
+      //   setProviderData(response?.data?.therapist);
+      // } catch (error) {
+      //   Bugsnag.notify(error);
+      // } finally {
+      //   setLoading(false);
+      // }
     };
 
-    fetchData(); // fetches data for dummy profile
+    fetchData();
   }, []);
 
   const closeProfile = () => {
@@ -81,8 +76,6 @@ const ProviderProfile = ({ providerType, sessionType = "single" }) => {
       providerData?.lastname || ""
     }`.trim();
   }, [providerData?.uuid]);
-
-  const isCfProvider = providerData?.roles?.includes(CF_PROVIDER_ROLE); //To be updated while API integration
 
   const checkDesignation = () => {
     let designation = "";
@@ -122,7 +115,6 @@ const ProviderProfile = ({ providerType, sessionType = "single" }) => {
           providerData={providerData}
           providerType={providerType}
         />
-        {isCfProvider && <CfInfoCarousel />}
         {providerData?.treatment_areas.length > 0 && (
           <TreatmentMethods providerData={providerData} />
         )}
