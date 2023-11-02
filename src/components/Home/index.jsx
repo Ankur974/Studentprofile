@@ -3,6 +3,7 @@ import Card from "./Card";
 import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 import { device } from "../common/ui/Resposive";
+import OfferCard2 from "./OfferCard2";
 
 const discounts = [
   {
@@ -30,6 +31,18 @@ const Wrapper = styled(FlexBox)`
   }
 `;
 
+const offerCard2data = [
+  {
+    id: 1,
+    color:
+      "linear-gradient(320deg, rgba(209,0,0,0.6090805951286764) 0%, rgba(253,45,57,0.9508172898065477) 100%);",
+    title: "GET 40% OFF",
+    desc: "Lorem ipsum, dolor sit amet consectetur.",
+    imglogo: "/assets/coin.svg",
+    mainimg: "/assets/coin.svg",
+  },
+];
+
 const Home = () => {
   return (
     <Wrapper>
@@ -46,6 +59,18 @@ const Home = () => {
           imageUrl="/assets/banner-new.svg"
           redirectUrl="/shop-listing"
         />
+      </FlexBox>
+
+      <FlexBox>
+        <OfferCard2 data={offerCard2data} />
+        {/* <OfferCard2 data={offerCard2data} />
+        <OfferCard2 data={offerCard2data} />
+        <OfferCard2 data={offerCard2data} />
+        <OfferCard2 data={offerCard2data} />
+        <OfferCard2 data={offerCard2data} />
+        <OfferCard2 data={offerCard2data} />
+        <OfferCard2 data={offerCard2data} />
+        <OfferCard2 data={offerCard2data} /> */}
       </FlexBox>
     </Wrapper>
   );
