@@ -12,7 +12,7 @@ import { device } from "../common/ui/Resposive";
 import { H2 } from "../common/ui/Headings";
 import { BarbarBanner } from "./BarbarBanner";
 import ReferModal from "./ReferModal";
-import { OfferCard2Card } from "./OfferCard2";
+import { OfferCard2Card } from "../Home/OfferCard2";
 
 const dummyData = [
   {
@@ -136,18 +136,6 @@ const redeemData = [
   },
 ];
 
-const offerCard2data = [
-  {
-    id: 1,
-    color:
-      "linear-gradient(320deg, rgba(209,0,0,0.6090805951286764) 0%, rgba(253,45,57,0.9508172898065477) 100%);",
-    title: "GET 40% OFF",
-    desc: "Lorem ipsum, dolor sit amet consectetur.",
-    imglogo: "/assets/images/coin.svg",
-    mainimg: "/assets/images/coin.svg",
-  },
-];
-
 const Wrapper = styled(FlexBox)`
   background-color: ${PRIMARY_900};
   height: 100%;
@@ -259,7 +247,6 @@ const RewardPage = () => {
           </RedemptionCardContainer>
           <BarbarBanner />
         </Container>
-        <OfferCard2Card offerCard2data={offerCard2data} />
       </Wrapper>
     </>
   );

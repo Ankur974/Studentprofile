@@ -4,19 +4,17 @@ import FlexBox from "../common/ui/FlexBox";
 import { Body2, H2 } from "../common/ui/Headings";
 import { ACCENT_0 } from "../common/ui/colors";
 
-
-
 const Wrapper = styled(FlexBox)`
   width: fit-content;
   border-radius: 1rem;
   min-width: 13rem;
   justify-content: space-between;
-  background: ${(props) => props.color};
+  background: ${props => props.color};
 `;
 
 const ButtonFlex = styled(FlexBox)`
   background-color: ${ACCENT_0};
-  color: ${(props) => props.color};
+  color: ${props => props.textColor};
   font-weight: bold;
   text-transform: uppercase;
   padding: 1rem;
@@ -24,9 +22,10 @@ const ButtonFlex = styled(FlexBox)`
   border-radius: 0.5rem;
   box-shadow: 0 5px 6px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  position:absolute;
-  bottom:0.5rem;
+  position: absolute;
+  bottom: 0.5rem;
 `;
+
 const UpperBox = styled(FlexBox)`
   align-self: flex-end;
   padding: 1rem 0.5rem 0.5rem 0.5rem;
@@ -34,20 +33,22 @@ const UpperBox = styled(FlexBox)`
   opacity: 0.6;
   border-radius: 0 0 0.5rem 0.5rem;
 `;
+
 const ImgBox = styled(FlexBox)`
   margin: 0 1.5rem 1.5rem 0;
   row-gap: 1.5rem;
 `;
+
 const ContentBox = styled(FlexBox)`
   margin: 1.5rem 0 1.5rem 1.5rem;
   row-gap: 1rem;
-  position:relative;
+  position: relative;
 `;
 
-export const OfferCard2Card = ({ offerCard2data }) => {
+const OfferCard2 = ({ data }) => {
   return (
     <>
-      {offerCard2data.map(item => (
+      {data.map(item => (
         <Wrapper key={item.id} color={item.color}>
           <ContentBox column>
             {item.title && (
@@ -56,7 +57,14 @@ export const OfferCard2Card = ({ offerCard2data }) => {
               </H2>
             )}
             {item.desc && <Body2 color={ACCENT_0}>{item.desc}</Body2>}
-            <ButtonFlex onClick={() => alert("chai") }color={item.color}>view details</ButtonFlex>
+            {item.onButtonClick && (
+              <ButtonFlex
+                onClick={item.onButtonClick}
+                textColor={item.textColor}
+              >
+                {item.buttonText || "View Details"}
+              </ButtonFlex>
+            )}
           </ContentBox>
           <ImgBox column margin="0 1.5rem 1.5rem 0">
             {item.imglogo && (
@@ -64,8 +72,8 @@ export const OfferCard2Card = ({ offerCard2data }) => {
                 <img
                   src={item.imglogo}
                   alt="picture"
-                  width="50px"
-                  height="50px"
+                  width={item.imgLogoWidth || "50px"}
+                  height={item.imgLogoHeight || "50px"}
                 />
               </UpperBox>
             )}
@@ -73,8 +81,8 @@ export const OfferCard2Card = ({ offerCard2data }) => {
               <img
                 src={item.mainimg}
                 alt="picture"
-                width="100px"
-                height="100px"
+                width={item.mainImgWidth || "100px"}
+                height={item.mainImgHeight || "100px"}
               />
             )}
           </ImgBox>
@@ -83,3 +91,5 @@ export const OfferCard2Card = ({ offerCard2data }) => {
     </>
   );
 };
+
+export default OfferCard2;

@@ -11,6 +11,7 @@ const Container = styled(FlexBox)`
   flex-direction: column;
   width: 100%;
   row-gap: 2rem;
+  margin:auto;
 `;
 
 const Wrapper = styled(FlexBox)`
