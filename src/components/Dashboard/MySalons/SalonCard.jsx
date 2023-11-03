@@ -40,7 +40,7 @@ const CarouselWrapper = styled.div`
   max-height: 8rem;
 `;
 
-const ProviderCard = ({
+const SalonCard = ({
   salonId,
   openProfile,
   openSessions,
@@ -110,4 +110,4 @@ const ProviderCard = ({
   );
 };
 
-export default ProviderCard;
+export default SalonCard;

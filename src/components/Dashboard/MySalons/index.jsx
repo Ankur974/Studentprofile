@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { NumberParam, StringParam, useQueryParams } from "use-query-params";
 
 import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_300 } from "@common/ui/colors";
+import { device } from "@common/ui/Resposive";
+import { ACCENT_300, WHITE } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
-import ProviderCard from "./ProviderCard";
+import SalonCard from "./SalonCard";
 import About from "@components/ShopDetailPage/About";
-import Services from "../../ShopDetailPage/Services";
-import { device } from "../../common/ui/Resposive";
+import Services from "@components/ShopDetailPage/Services";
 
 const Container = styled(FlexBox)`
   width: 100vw;
@@ -33,9 +33,7 @@ const Container = styled(FlexBox)`
 `;
 
 const Card = styled(FlexBox)`
-  background-color: #ffffff;
-  box-shadow: unset;
-  border-radius: 0;
+  background-color: ${WHITE};
   width: 50%;
   flex-direction: column;
   overflow: hidden;
@@ -105,7 +103,7 @@ const MySalons = () => {
   return (
     <Container showLeftSection={showLeftSection}>
       <Left>
-        <ProviderCard
+        <SalonCard
           saloonId={1234}
           openProfile={openProfile}
           openSessions={openSessions}
