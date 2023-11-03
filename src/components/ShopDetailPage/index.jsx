@@ -4,7 +4,7 @@ import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 import Tabs from "../common/ui/Tabs";
 import Services from "./Services";
-import RealAbout from "./About";
+import About from "./About";
 import MobileBanner from "./MobileBanner";
 import DesktopBanner from "./DesktopBanner";
 import { device } from "../common/ui/Resposive";
@@ -59,7 +59,7 @@ const ShopDetailPage = () => {
             <Services />
           </Tab>
           <Tab title="About">
-            <RealAbout />
+            <About />
           </Tab>
         </Tabs>
       </Wrapper>
