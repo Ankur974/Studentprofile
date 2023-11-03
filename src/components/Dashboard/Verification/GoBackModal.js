@@ -47,7 +47,7 @@ const GoBackModal = ({ isMobile, close, handleGoBack, backModalToggle }) => {
         width="30rem"
         showHeader={isMobile}
         imgHeader={isMobile}
-        headerSrc="https://cdn.theinnerhour.com/assets/images/back-modal-img.svg"
+        headerSrc="/assets/images/back-modal-img.svg"
         coverTop={isMobile}
       >
         {isMobile ? (

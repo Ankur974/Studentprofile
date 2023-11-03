@@ -484,7 +484,7 @@ const Message = ({
     <>
       <MessageCard column rowGap="1rem" height={cardHeight}>
         <FlexBox columnGap="1.1rem" align="center">
-          <img src="https://cdn.theinnerhour.com/assets/images/referral-card-visual.svg" />
+          <img src="/assets/images/referral-card-visual.svg" />
           <Title bold>Your loved one’s details</Title>
         </FlexBox>
         {referralsExperiment.value === "v0" && (

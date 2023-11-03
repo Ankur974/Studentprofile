@@ -35,11 +35,7 @@ const Thoughts = ({ providerData }) => {
       <FlexBox width="100%" wrap="wrap" columnGap="1rem" rowGap="1rem">
         {providerData?.user_phrases?.map(thought => (
           <Thought key={thought}>
-            <img
-              alt="Quote"
-              draggable={false}
-              src="https://cdn.theinnerhour.com/assets/images/comma.svg"
-            />
+            <img alt="Quote" draggable={false} src="/assets/images/comma.svg" />
             <H4 bold>{thought?.replaceAll('"', "")}</H4>
           </Thought>
         ))}

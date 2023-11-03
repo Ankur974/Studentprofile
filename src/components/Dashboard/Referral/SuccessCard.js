@@ -173,7 +173,7 @@ const SuccessCard = ({
       <img
         height="60px"
         width="60px"
-        src="https://cdn.theinnerhour.com/assets/images/referral-tick-done.svg"
+        src="/assets/images/referral-tick-done.svg"
       />
       {referralsExperiment.value === "v0" && (
         <>

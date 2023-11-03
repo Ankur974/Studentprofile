@@ -175,7 +175,7 @@ const ShareAmahaCard = ({
     <>
       <CardWrapper hasCouponCode={!!couponCode}>
         <FlexBox columnGap="1rem" align="center">
-          <img src="https://cdn.theinnerhour.com/assets/images/referral-card-visual.svg" />
+          <img src="/assets/images/referral-card-visual.svg" />
           <Title bold>Show a loved one that they’re not alone</Title>
           {isMobile && (
             <>

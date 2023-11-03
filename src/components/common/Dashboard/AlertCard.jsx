@@ -32,7 +32,7 @@ const AlertCard = () => {
   return (
     <Card align="center" justify="space-between">
       <FlexBox align="center" columnGap="0.5rem">
-        <ProviderImg src="https://cdn.theinnerhour.com/assets/images/avatar_flower_1.png" />
+        <ProviderImg src="/assets/images/avatar_flower_1.png" />
         <FlexBox column justify="center" padding="1rem" rowGap="0.2rem">
           <Body2 bold>Happiness Journal</Body2>
           <Support color={ACCENT_700}>by Pratishtha Mirza</Support>
