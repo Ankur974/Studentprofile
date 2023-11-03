@@ -12,7 +12,7 @@ const Divider = styled.div`
 `;
 
 const SessionsWrapper = styled.div`
-  @media ${device.tablet}  {
+  @media ${device.tablet} {
     max-height: 60vh;
     overflow: auto;
   }
@@ -24,7 +24,7 @@ const BookCTAWrapper = styled(FlexBox)`
   justify-content: center;
   background: ${WHITE};
   border-radius: 0 0 1rem 1rem;
-  @media ${device.tablet}  {
+  @media ${device.tablet} {
     padding: 1.5rem;
     border-top: 1px solid ${ACCENT_300};
     position: absolute;
@@ -50,11 +50,11 @@ const UpcomingSessions = ({
         </FlexBox>
       </SessionsWrapper>
       <Divider />
-      <BookCTAWrapper>
+      {/* <BookCTAWrapper>
         <Button outline onClick={toggleBookSessionWith}>
           BOOK Session
         </Button>
-      </BookCTAWrapper>
+      </BookCTAWrapper> */}
     </>
   );
 };

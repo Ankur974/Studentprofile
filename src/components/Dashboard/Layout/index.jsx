@@ -283,7 +283,7 @@ const DashboardLayout = ({
                   alt="User Image"
                   draggable="false"
                   id="header-user-image"
-                  src={"https:" + user?.image}
+                  src="/assets/images/stylists/men.jpg"
                   onClick={toggleProfileDropdown}
                 />
               </Avatar>
