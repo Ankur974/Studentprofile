@@ -3,8 +3,11 @@ import { device } from "../common/ui/Resposive";
 import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
 import SalonInfo from "./SalonInfo";
-import { FaRegShareSquare, FaRegHeart } from "react-icons/fa";
+import { Button } from "../common/ui/Buttons";
 import { ACCENT_0, ACCENT_800 } from "../common/ui/colors";
+
+import { useRouter } from "next/router";
+import { Body1 } from "../common/ui/Headings";
 
 const Banner = styled(FlexBox)`
   width: 100%;
@@ -31,16 +34,28 @@ const Icons = styled(FlexBox)`
   right: 2%;
   column-gap: 10px;
 `;
+
+const NewButton = styled(Button)`
+  position: absolute;
+  background-color: ${ACCENT_0};
+  bottom: 2%;
+  padding: 0.2rem;
+  border-radius: 6px;
+  right: 5%;
+  color: ${ACCENT_0};
+`;
+
 const MobileBanner = () => {
+  const router = useRouter();
   return (
     <Banner>
-      <BannerContainer>
+      <FlexBox position="relative">
         <Img src="/assets/banner-new.svg" />
-        <Icons>
-          <FaRegShareSquare color={ACCENT_800} size="25px" />
-          <FaRegHeart color={ACCENT_800} size="25px" />
-        </Icons>
-      </BannerContainer>
+        <NewButton onClick={() => router.push("/shop-details/carousel")}>
+          <Body1>show more</Body1>
+        </NewButton>
+      </FlexBox>
+
       <SalonInfo />
     </Banner>
   );

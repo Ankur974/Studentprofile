@@ -2,32 +2,24 @@ import React, { useState } from "react";
 import FlexBox from "./ui/FlexBox";
 import styled from "styled-components";
 import { ACCENT_0, ACCENT_800 } from "./ui/colors";
-import {
-  FaArrowCircleRight,
-  FaArrowCircleLeft,
-  FaRegShareSquare,
-  FaRegHeart,
-} from "react-icons/fa";
+import { FaRegShareSquare } from "react-icons/fa";
+import LoveReact from "./ui/LoveReact";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+
+import { Navigation } from "swiper/modules";
 
 const Carousel = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((currentIndex + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-  };
-
+  const [clicked, setClicked] = useState(false);
   const Container = styled(FlexBox)`
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
+    padding: 1rem;
   `;
 
   const Img = styled.img`
-    width: 30%;
+    width: 100%;
+    height: 100%;
   `;
 
   const Wrapper = styled(FlexBox)`
@@ -36,6 +28,15 @@ const Carousel = ({ images }) => {
     padding: 1rem;
     background-color: ${ACCENT_800};
     position: relative;
+    justify-content: center;
+    align-items: center;
+  `;
+
+  const ScrollableList = styled(FlexBox)`
+    width: 50%;
+    justify-content: space-between;
+    align-items;center;
+    height: 65%;
   `;
 
   const Icon = styled(FlexBox)`
@@ -49,13 +50,25 @@ const Carousel = ({ images }) => {
     <Wrapper>
       <Icon>
         <FaRegShareSquare color={ACCENT_0} />
-        <FaRegHeart color={ACCENT_0} />
+        <LoveReact clicked={clicked} setclicked={setClicked} color={ACCENT_0} />
       </Icon>
-      <Container>
-        <FaArrowCircleLeft onClick={prevSlide} color="white" size="40px" />
-        <Img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
-        <FaArrowCircleRight onClick={nextSlide} color="white" size="40px" />
-      </Container>
+
+      <ScrollableList>
+        <Swiper
+          modules={[Navigation]}
+          spaceBetween={8}
+          slidesPerView={1}
+          navigation
+        >
+          {images?.map(data => (
+            <SwiperSlide key={data.id}>
+              <Container>
+                <Img src={data.url} />
+              </Container>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </ScrollableList>
     </Wrapper>
   );
 };
