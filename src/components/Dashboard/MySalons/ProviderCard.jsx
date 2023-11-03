@@ -11,7 +11,7 @@ import {
   PRIMARY_100,
   PRIMARY_800,
 } from "@common/ui/colors";
-import SaloonCarousel from "./SaloonCarouselFile";
+import SaloonCarousel from "./SalonCarouselFile";
 
 const Card = styled(FlexBox)`
   border-radius: 1rem;

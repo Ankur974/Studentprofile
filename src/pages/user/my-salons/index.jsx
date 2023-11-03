@@ -1,6 +1,6 @@
 import React from "react";
 
-import Experts from "@components/Dashboard/Experts";
+import MySalons from "@components/Dashboard/MySalons";
 import DashboardLayout from "@components/Dashboard/Layout";
 import { useQueryParams, StringParam, NumberParam } from "use-query-params";
 import useMobileView from "../../../hooks/useMobileView";
@@ -24,7 +24,7 @@ const UserDashboard = () => {
       hideChat
       title="My Salons"
     >
-      <Experts />
+      <MySalons />
     </DashboardLayout>
   );
 };

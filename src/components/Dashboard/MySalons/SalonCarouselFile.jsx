@@ -9,13 +9,13 @@ import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 
 const imgdata = [
-  { id: 1, imgsrc: "/assets/images/usersallonimg/saloon1.jpeg" },
-  { id: 2, imgsrc: "/assets/images/usersallonimg/saloon2.jpeg" },
-  { id: 3, imgsrc: "/assets/images/usersallonimg/saloon3.jpeg" },
-  { id: 4, imgsrc: "/assets/images/usersallonimg/saloon4.jpeg" },
-  { id: 5, imgsrc: "/assets/images/usersallonimg/saloon5.jpeg" },
-  { id: 6, imgsrc: "/assets/images/usersallonimg/saloon6.jpeg" },
-  { id: 7, imgsrc: "/assets/images/usersallonimg/saloon7.jpeg" },
+  { id: 1, imgsrc: "/assets/images/salon/1.jpeg" },
+  { id: 2, imgsrc: "/assets/images/salon/2.jpeg" },
+  { id: 3, imgsrc: "/assets/images/salon/3.jpeg" },
+  { id: 4, imgsrc: "/assets/images/salon/4.jpeg" },
+  { id: 5, imgsrc: "/assets/images/salon/5.jpeg" },
+  { id: 6, imgsrc: "/assets/images/salon/6.jpeg" },
+  { id: 7, imgsrc: "/assets/images/salon/7.jpeg" },
 ];
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -25,7 +25,7 @@ const CardWrapper = styled.div`
   width: 24rem;
 `;
 
-const saloonCarousel = () => {
+const salonCarousel = () => {
   return (
     <Wrapper>
       <Swiper
@@ -47,7 +47,7 @@ const saloonCarousel = () => {
             <CardWrapper>
               <img
                 src={data.imgsrc}
-                alt="saloon-pictures"
+                alt="salon-pictures"
                 width="100%"
                 height="150px"
               />
@@ -59,4 +59,4 @@ const saloonCarousel = () => {
   );
 };
 
-export default saloonCarousel;
+export default salonCarousel;

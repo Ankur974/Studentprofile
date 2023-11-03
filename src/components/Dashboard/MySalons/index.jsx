@@ -72,7 +72,7 @@ const RightWrapper = styled(FlexBox)`
   overflow-y: scroll;
 `;
 
-const Experts = () => {
+const MySalons = () => {
   const isMobile = useMobileView();
 
   const [queryParams, setQueryParams] = useQueryParams({
@@ -129,4 +129,4 @@ const Experts = () => {
   );
 };
 
-export default Experts;
+export default MySalons;
