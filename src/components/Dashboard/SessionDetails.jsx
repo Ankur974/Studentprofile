@@ -7,7 +7,7 @@ import { Body2, H3 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
 import FlexBox from "@common/ui/FlexBox";
 import {
-  DAVYS_GRAY_400,
+  ACCENT_400,
   DUSTY_ORANGE_500,
   ERROR_RED_400,
   SUCCESS_GREEN_400,
@@ -24,7 +24,7 @@ const Content = styled(FlexBox)`
 
 const Title = styled(FlexBox)`
   padding: 1.5rem;
-  border-bottom: 1px solid ${DAVYS_GRAY_400};
+  border-bottom: 1px solid ${ACCENT_400};
 `;
 
 const ActionCTAWrapper = styled(FlexBox)`
@@ -37,7 +37,7 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   margin: 0.875rem 0;
-  background-color: ${DAVYS_GRAY_400};
+  background-color: ${ACCENT_400};
 `;
 
 const SessionDetails = () => {

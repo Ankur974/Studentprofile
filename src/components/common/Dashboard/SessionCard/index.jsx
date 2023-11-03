@@ -165,14 +165,14 @@ const SessionCard = ({ session, isNsp }) => {
         <SessionDetails>
           <FlexBox column rowGap="0.5rem">
             <Body2 bold>
-              {dayjs(session.datetime_at_customer_timezone.datetime).format(
+              {dayjs(session.datetime_at_customer_timezone?.datetime).format(
                 "DD MMM YYYY"
               )}
               ,
             </Body2>
             <Support bold>
               {dayjs(
-                session.datetime_at_customer_timezone.slot,
+                session.datetime_at_customer_timezone?.slot,
                 "HH:mm"
               ).format("hh:mm A")}
             </Support>

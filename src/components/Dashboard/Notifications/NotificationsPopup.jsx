@@ -6,7 +6,7 @@ import FlexBox from "@common/ui/FlexBox";
 import useOutsideAlert from "@hooks/useOutsideAlert";
 import { Body1 } from "@common/ui/Headings";
 import { Button } from "@common/Dashboard/Buttons";
-import { ACCENT_100, DAVYS_GRAY_400, ACCENT_800 } from "@common/ui/colors";
+import { ACCENT_100, ACCENT_400, ACCENT_800 } from "@common/ui/colors";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import NotificationItem from "./NotificationItem";
 import { notificationsData } from ".";
@@ -25,7 +25,7 @@ const Container = styled(FlexBox)`
     right: 7rem;
     left: unset;
     bottom: unset;
-    border: 1px solid ${DAVYS_GRAY_400};
+    border: 1px solid ${ACCENT_400};
     border-radius: 1rem;
     ${boxShadowDs1}
   }

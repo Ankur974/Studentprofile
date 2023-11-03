@@ -1,8 +1,9 @@
-import FlexBox from "@common/ui/FlexBox";
 import { useRef } from "react";
 import { FiChevronRight, FiLogOut } from "react-icons/fi";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+
+import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_200, ACCENT_800 } from "@common/ui/colors";
 import useOutsideAlert from "@hooks/useOutsideAlert";
 import DropdownWrapper from "@common/Dashboard/DropdownWrapper";

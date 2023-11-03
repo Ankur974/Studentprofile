@@ -2,12 +2,16 @@ import { useRouter } from "next/router";
 import { useRef } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
-import { BooleanParam, useQueryParams } from "use-query-params";
 
 import DropdownWrapper from "@common/Dashboard/DropdownWrapper";
 import { Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_200, ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
+import {
+  ACCENT_200,
+  ACCENT_500,
+  ACCENT_800,
+  PRIMARY_800,
+} from "@common/ui/colors";
 import useOutsideAlert from "@hooks/useOutsideAlert";
 import { moreActions } from "./allOptions";
 
@@ -27,13 +31,12 @@ const DropdownOption = styled(FlexBox)`
   transition: background-color 250ms ease-in-out;
 
   svg {
-    color: var(--accent-500);
+    color: ${ACCENT_500};
     transition: color 250ms ease-in-out;
   }
 
   :hover {
     background-color: ${ACCENT_200};
-
     svg {
       color: ${ACCENT_800};
     }
@@ -46,27 +49,9 @@ const MoreActions = ({ toggleDropdown = () => {} }) => {
 
   useOutsideAlert(containerRef, toggleDropdown, "header-actions");
 
-  // eslint-disable-next-line no-unused-vars
-  const [_, setQueryParams] = useQueryParams({
-    showEmergencySosModal: BooleanParam,
-    showPreferencesModal: BooleanParam,
-  });
-
   const handleClick = (id, link) => {
-    if (link) {
-      router.push(link);
-    } else {
-      if (id === "emergency-sos") {
-        setQueryParams(
-          {
-            showEmergencySosModal: 1,
-          },
-          "replaceIn"
-        );
-      }
-      if (id === "preferences-permissions")
-        setQueryParams({ showPreferencesModal: 1 });
-    }
+    if (!link) return;
+    router.push(link);
   };
 
   return (
