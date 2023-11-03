@@ -10,7 +10,7 @@ import Loader from "@common/ui/Loader";
 import {
   ACCENT_800,
   DARK_MOSS_GREEN_800,
-  DAVYS_GRAY_400,
+  ACCENT_400,
   ACCENT_100,
 } from "@common/ui/colors";
 import { journeyDummyData } from "@metadata/dashboard/journey";
@@ -95,7 +95,7 @@ const ProviderChip = styled(FlexBox)`
         `
       : css`
           color: ${ACCENT_800};
-          border: 1px solid ${DAVYS_GRAY_400};
+          border: 1px solid ${ACCENT_400};
         `}
 `;
 

@@ -11,11 +11,6 @@ export const profileOptions = [
 ];
 
 export const moreActions = [
-  { id: "emergency-sos", label: "Emergency SOS" },
-  {
-    id: "preferences-permissions",
-    label: "Preferences & Permissions",
-  },
   {
     label: "Terms & Conditions",
     link: "terms-conditions",

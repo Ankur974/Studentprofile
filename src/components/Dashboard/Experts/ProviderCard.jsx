@@ -1,5 +1,4 @@
 import { FiChevronRight } from "react-icons/fi";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
@@ -61,7 +60,7 @@ const ProviderCard = ({
 
   return (
     <Card column>
-      <SaloonCarousel/>
+      <SaloonCarousel />
       <ClickableRow
         data-testid="view-profile-btn"
         onClick={handleOpenProfile}
@@ -79,7 +78,7 @@ const ProviderCard = ({
         onClick={handleOpenSessions}
         isSelected={isViewSessionsSelected}
       >
-        <Body2>View sessions</Body2>
+        <Body2>View Appointments</Body2>
         <FiChevronRight
           color={isViewSessionsSelected ? PRIMARY_800 : ACCENT_500}
           strokeWidth={3}

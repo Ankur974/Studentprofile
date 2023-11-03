@@ -5,7 +5,7 @@ import ReactHtmlParser from "react-html-parser";
 import FlexBox from "@common/ui/FlexBox";
 import { H4, TextCTA } from "@common/ui/Headings";
 import { currentFlow, trackEvent } from "@utils/helpers";
-import { DAVYS_GRAY_400, PRIMARY_800 } from "@common/ui/colors";
+import { ACCENT_400, PRIMARY_800 } from "@common/ui/colors";
 
 const Container = styled(FlexBox)`
   width: 100%;
@@ -43,7 +43,7 @@ const SeeMoreWrapper = styled(FlexBox)`
 
 const Divider = styled.div`
   height: 1px;
-  border-bottom: 1px solid ${DAVYS_GRAY_400};
+  border-bottom: 1px solid ${ACCENT_400};
   flex: 1;
 `;
 

@@ -10,7 +10,7 @@ import {
   ACCENT_300,
   ACCENT_700,
   ACCENT_800,
-  DAVYS_GRAY_400,
+  ACCENT_400,
 } from "@common/ui/colors";
 
 const NavArrow = styled(FlexBox)`
@@ -20,7 +20,7 @@ const NavArrow = styled(FlexBox)`
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  border: 1px solid ${DAVYS_GRAY_400};
+  border: 1px solid ${ACCENT_400};
 `;
 
 const Header = styled(FlexBox)`
@@ -62,7 +62,7 @@ const Dots = styled.div`
 
 const Divider = styled.div`
   height: 1px;
-  border-bottom: 1px solid ${DAVYS_GRAY_400};
+  border-bottom: 1px solid ${ACCENT_400};
   flex: 1;
 `;
 

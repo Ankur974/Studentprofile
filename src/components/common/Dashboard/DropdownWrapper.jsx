@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { boxShadowDs1 } from "./boxShadowStyles";
-import { DAVYS_GRAY_400, WHITE } from "@common/ui/colors";
+import { ACCENT_400, WHITE } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   z-index: 22;
@@ -11,7 +11,7 @@ const Wrapper = styled(FlexBox)`
   flex-direction: column;
   box-sizing: border-box;
   background-color: ${WHITE};
-  border: 1px solid ${DAVYS_GRAY_400};
+  border: 1px solid ${ACCENT_400};
   ${boxShadowDs1}
 `;
 
