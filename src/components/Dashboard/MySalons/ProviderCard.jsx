@@ -11,16 +11,17 @@ import {
   PRIMARY_100,
   PRIMARY_800,
 } from "@common/ui/colors";
-import SaloonCarousel from "./SalonCarouselFile";
+import SalonCarousel from "./SalonCarouselFile";
 
 const Card = styled(FlexBox)`
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: 1px solid ${ACCENT_300};
   overflow: hidden;
+  max-width: 28rem;
 `;
 
 const ClickableRow = styled(FlexBox)`
-  padding: 1rem;
+  padding: 0.875rem 1rem;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid ${ACCENT_300};
@@ -33,35 +34,43 @@ const ClickableRow = styled(FlexBox)`
   }
 `;
 
+const CarouselWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  max-height: 8rem;
+`;
+
 const ProviderCard = ({
-  saloonId,
+  salonId,
   openProfile,
   openSessions,
   openServices,
-  selectedOption = { type: null, saloonId: -1 },
+  selectedOption = { type: null, salonId: -1 },
 }) => {
   const isViewProfileSelected =
-    selectedOption.type === "profile" && selectedOption.saloonId === saloonId;
+    selectedOption.type === "profile" && selectedOption.salonId === salonId;
   const isViewSessionsSelected =
-    selectedOption.type === "sessions" && selectedOption.saloonId === saloonId;
+    selectedOption.type === "sessions" && selectedOption.salonId === salonId;
   const isViewServicesSelected =
-    selectedOption.type === "services" && selectedOption.saloonId === saloonId;
+    selectedOption.type === "services" && selectedOption.salonId === salonId;
 
   const handleOpenProfile = () => {
-    openProfile(saloonId);
+    openProfile(salonId);
   };
 
   const handleOpenSessions = () => {
-    openSessions(saloonId);
+    openSessions(salonId);
   };
 
   const handleOpenServices = () => {
-    openServices(saloonId);
+    openServices(salonId);
   };
 
   return (
     <Card column>
-      <SaloonCarousel />
+      <CarouselWrapper>
+        <SalonCarousel />
+      </CarouselWrapper>
       <ClickableRow
         data-testid="view-profile-btn"
         onClick={handleOpenProfile}

@@ -1,11 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
-import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 
 const imgdata = [
@@ -18,40 +18,32 @@ const imgdata = [
   { id: 7, imgsrc: "/assets/images/salon/7.jpeg" },
 ];
 const Wrapper = styled(FlexBox)`
-  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
-const CardWrapper = styled.div`
-  width: 24rem;
-`;
-
-const salonCarousel = () => {
+const SalonCarousel = () => {
   return (
     <Wrapper>
       <Swiper
-        spaceBetween={1}
-        centeredSlides={true}
+        watchSlidesProgress={true}
+        slidesPerView={2}
+        spaceBetween={0}
+        loop={true}
         autoplay={{
-          delay: 3500,
+          delay: 1500,
           disableOnInteraction: false,
         }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay]}
         className="mySwiper"
       >
         {imgdata?.map(data => (
           <SwiperSlide key={data?.id}>
-            <CardWrapper>
-              <img
-                src={data.imgsrc}
-                alt="salon-pictures"
-                width="100%"
-                height="150px"
-              />
-            </CardWrapper>
+            <img src={data.imgsrc} alt="salon-pictures" />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -59,4 +51,4 @@ const salonCarousel = () => {
   );
 };
 
-export default salonCarousel;
+export default SalonCarousel;
