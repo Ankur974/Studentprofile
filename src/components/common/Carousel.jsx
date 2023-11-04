@@ -2,60 +2,87 @@ import React, { useState } from "react";
 import FlexBox from "./ui/FlexBox";
 import styled from "styled-components";
 import { ACCENT_0, ACCENT_800 } from "./ui/colors";
-import {
-  FaArrowCircleRight,
-  FaArrowCircleLeft,
-  FaRegShareSquare,
-  FaRegHeart,
-} from "react-icons/fa";
+import { FaRegShareSquare } from "react-icons/fa";
+import Favourite from "./ui/Favourite";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Pagination, Navigation } from "swiper/modules";
 
 const Carousel = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [clicked, setClicked] = useState(false);
 
-  const nextSlide = () => {
-    setCurrentIndex((currentIndex + 1) % images.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-  };
+  const Wrapper = styled(FlexBox)`
+    width: 100vw;
+    height: 100vh;
+    background-color: ${ACCENT_800};
+    overflow: hidden;
+    padding: 2.5rem;
+  `;
 
   const Container = styled(FlexBox)`
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    width: 90%;
+    max-width: 50rem;
+    margin: auto;
   `;
 
   const Img = styled.img`
-    width: 30%;
+    width: 100%;
+    height: 100%;
   `;
 
-  const Wrapper = styled(FlexBox)`
+  const ScrollableList = styled(FlexBox)`
     width: 100%;
-    height: 60.725rem;
-    padding: 1rem;
-    background-color: ${ACCENT_800};
-    position: relative;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .swiper-button-prev {
+      background-image: url("images/arrow-left.png"); //todo - update icon - SR
+      background-size: contain;
+      background-position: 50% 60%;
+      background-repeat: no-repeat;
+      left: 69px;
+    }
+
+    .swiper-pagination-fraction {
+    }
   `;
 
   const Icon = styled(FlexBox)`
-    position: absolute;
-    top: 1%;
-    right: 2%;
-    column-gap: 20px;
+    gap: 1rem;
+    justify-content: flex-end;
   `;
 
   return (
-    <Wrapper>
+    <Wrapper column>
       <Icon>
         <FaRegShareSquare color={ACCENT_0} />
-        <FaRegHeart color={ACCENT_0} />
+        <Favourite clicked={clicked} setclicked={setClicked} color={ACCENT_0} />
       </Icon>
-      <Container>
-        <FaArrowCircleLeft onClick={prevSlide} color="white" size="40px" />
-        <Img src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
-        <FaArrowCircleRight onClick={nextSlide} color="white" size="40px" />
-      </Container>
+
+      <ScrollableList>
+        <Swiper
+          modules={[Pagination, Navigation]}
+          spaceBetween={8}
+          slidesPerView={1}
+          pagination={{
+            type: "fraction",
+          }}
+          navigation
+        >
+          {images?.map(data => (
+            <SwiperSlide key={data.id}>
+              <Container>
+                <Img src={data.url} />
+              </Container>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </ScrollableList>
     </Wrapper>
   );
 };
