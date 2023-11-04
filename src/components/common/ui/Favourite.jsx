@@ -1,9 +1,9 @@
 import React from "react";
-import FlexBox from "../ui/FlexBox";
+import FlexBox from "./FlexBox";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { ACCENT_800, PRIMARY_900 } from "./colors";
 
-const LoveReact = ({ clicked, setclicked, color }) => {
+const Favourite = ({ clicked, setclicked, color }) => {
   return (
     <FlexBox onClick={() => setclicked(!clicked)} style={{ cursor: "pointer" }}>
       {clicked ? (
@@ -15,4 +15,4 @@ const LoveReact = ({ clicked, setclicked, color }) => {
   );
 };
 
-export default LoveReact;
+export default Favourite;

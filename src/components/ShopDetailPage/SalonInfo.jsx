@@ -8,7 +8,7 @@ import { Body2, H1 } from "../common/ui/Headings";
 import FlexBox from "../common/ui/FlexBox";
 import { ACCENT_800 } from "../common/ui/colors";
 import { device } from "../common/ui/Resposive";
-import LoveReact from "../common/ui/LoveReact";
+import Favourite from "../common/ui/Favourite";
 
 const BannerContent = styled(FlexBox)`
   width: 100%;
@@ -42,7 +42,7 @@ const SalonInfo = () => {
         <H1 bold>Gigis Salon</H1>
         <Icons>
           <FaRegShareSquare color={ACCENT_800} size="20px" />
-          <LoveReact clicked={Clicked} setclicked={setClicked} />
+          <Favourite clicked={Clicked} setclicked={setClicked} />
         </Icons>
       </FlexBox>
       <ContentWrapper>

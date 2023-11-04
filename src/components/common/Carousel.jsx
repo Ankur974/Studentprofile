@@ -3,7 +3,7 @@ import FlexBox from "./ui/FlexBox";
 import styled from "styled-components";
 import { ACCENT_0, ACCENT_800 } from "./ui/colors";
 import { FaRegShareSquare } from "react-icons/fa";
-import LoveReact from "./ui/LoveReact";
+import Favourite from "./ui/Favourite";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -50,7 +50,7 @@ const Carousel = ({ images }) => {
     <Wrapper>
       <Icon>
         <FaRegShareSquare color={ACCENT_0} />
-        <LoveReact clicked={clicked} setclicked={setClicked} color={ACCENT_0} />
+        <Favourite clicked={clicked} setclicked={setClicked} color={ACCENT_0} />
       </Icon>
 
       <ScrollableList>
