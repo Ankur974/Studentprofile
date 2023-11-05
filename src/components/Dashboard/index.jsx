@@ -10,13 +10,15 @@ import { Button } from "@common/ui/Buttons";
 import { Support } from "@common/ui/Headings";
 import AllSessions from "./AllSessions";
 import UpcomingSessions from "./UpcomingSessions";
+import { device } from "@common/ui/Resposive";
 
 const Container = styled(FlexBox)`
   width: 100%;
   flex-direction: column;
   row-gap: 2rem;
   column-gap: 0;
-  @media screen and (min-width: 768px) {
+
+  @media ${device.laptop} {
     padding: 1.5rem;
     flex-direction: row;
     column-gap: 1.5rem;
@@ -25,23 +27,19 @@ const Container = styled(FlexBox)`
 `;
 
 const YourUpdatesWrapper = styled.div`
-  @media screen and (min-width: 768px) {
-    max-height: 30vh;
-    overflow: auto;
-  }
+  max-height: 30vh;
+  overflow: auto;
 `;
 
 const SessionCreditsWrapper = styled.div`
-  @media screen and (min-width: 768px) {
-    max-height: 30vh;
-    overflow: auto;
-  }
+  max-height: 30vh;
+  overflow: auto;
 `;
 
 const SectionRight = styled(FlexBox)`
-  row-gap: 1rem;
-  @media screen and (max-width: 768px) {
-    row-gap: 2rem;
+  row-gap: 2rem;
+  @media ${device.laptop} {
+    row-gap: 1rem;
   }
 `;
 

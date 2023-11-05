@@ -6,22 +6,24 @@ import FlexBox from "@common/ui/FlexBox";
 import { WHITE } from "@common/ui/colors";
 import { Body2 } from "@common/ui/Headings";
 import Chip from "@common/ui/Chips";
+import { device } from "@common/ui/Resposive";
 
 const Container = styled(FlexBox)`
   width: 100%;
-  flex-direction: column;
-  row-gap: 2rem;
-  column-gap: 0;
-  @media screen and (min-width: 768px) {
-    padding: 1.5rem;
-    flex-direction: row;
-    column-gap: 1.5rem;
-    row-gap: 0;
+  padding: 1.5rem;
+  flex-direction: row;
+  column-gap: 1.5rem;
+  row-gap: 0;
+  @media {device.laptop} {
+    padding: 0;
+    flex-direction: column;
+    row-gap: 2rem;
+    column-gap: 0;
   }
 `;
 
 const Wrapper = styled.div`
-  @media screen and (min-width: 768px) {
+  @media {device.tablet} {
     max-height: 68vh;
     overflow: auto;
   }
