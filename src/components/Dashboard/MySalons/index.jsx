@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { NumberParam, StringParam, useQueryParams } from "use-query-params";
 
 import FlexBox from "@common/ui/FlexBox";
+import { Body2 } from "@common/ui/Headings";
 import { device } from "@common/ui/Resposive";
 import { ACCENT_300, WHITE } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
@@ -66,9 +67,15 @@ const Right = styled(Card)`
 
 const RightWrapper = styled(FlexBox)`
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   overflow-y: scroll;
 `;
+
+const AboutBox=styled(FlexBox)`
+width:100%;
+align-items:center;
+
+`
 
 const MySalons = () => {
   const isMobile = useMobileView();
@@ -113,7 +120,11 @@ const MySalons = () => {
       <Right>
         <RightWrapper>
           {selected === "profile" ? (
+            <AboutBox column>
+            <Body2 bold>About </Body2>
             <About />
+            </AboutBox>
+           
           ) : selected === "sessions" ? (
             <div>Show </div>
           ) : selected === "services" ? (

@@ -31,6 +31,7 @@ const BottomNavigation = () => {
             src={activeOption ? iconActive : icon}
             alt={title}
             data-testid={`menu-icon-${index}`}
+            height="30px"
           />
           <Caption
             color={activeOption ? PRIMARY_800 : ACCENT_600}
