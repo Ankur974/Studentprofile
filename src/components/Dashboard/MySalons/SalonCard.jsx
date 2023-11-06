@@ -21,7 +21,7 @@ const Card = styled(FlexBox)`
 `;
 
 const ClickableRow = styled(FlexBox)`
-  padding: 0.875rem 1rem;
+  padding: 0.875rem 1.5rem;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid ${ACCENT_300};
