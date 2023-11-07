@@ -25,13 +25,6 @@ const Container = styled(FlexBox)`
   }
 `;
 
-const YourUpdatesWrapper = styled.div`
-  @media screen and (min-width: 768px) {
-    max-height: 30vh;
-    overflow: auto;
-  }
-`;
-
 const SessionCreditsWrapper = styled.div`
   @media screen and (min-width: 768px) {
     max-height: 30vh;
@@ -58,7 +51,6 @@ const CreditsNullStateWrapper = styled.div`
 const Dashboard = () => {
   const [showBookSessionWith, setShowBookSessionWith] = useState(false);
   const [showAllSessions, setShowAllSessions] = useState(false);
-  const [suggestedSessions, setSuggestedSessions] = useState([]);
 
   const showCreditsNullState = true; //todo: to be updated
   const loading = false;

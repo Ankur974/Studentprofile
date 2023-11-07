@@ -8,8 +8,6 @@ import {
   PRIMARY_400,
   ACCENT_800,
   PRIMARY_100,
-  PRIMARY_600,
-  PRIMARY_800,
 } from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
 import { FiCopy } from "react-icons/fi";

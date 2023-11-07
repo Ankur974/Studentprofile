@@ -9,7 +9,6 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import { SchedulesLoader } from "./Loaders";
 import {
   ACCENT_400,
-  ACCENT_400,
   ACCENT_600,
   ACCENT_800,
   MOSS_GREEN_800,

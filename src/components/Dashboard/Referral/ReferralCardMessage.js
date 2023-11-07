@@ -12,7 +12,6 @@ import {
   ACCENT_600,
   PRIMARY_100,
   PRIMARY_700,
-  PRIMARY_800,
 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import { TextButton } from "@common/Buttons";

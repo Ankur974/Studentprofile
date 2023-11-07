@@ -8,7 +8,6 @@ import {
   ACCENT_500,
   ACCENT_700,
   PRIMARY_100,
-  PRIMARY_800,
   ACCENT_800,
 } from "@common/ui/colors";
 import { FiCheck } from "react-icons/fi";

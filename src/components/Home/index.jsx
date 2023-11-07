@@ -1,20 +1,9 @@
 import React from "react";
 import Card from "./Card";
 import styled from "styled-components";
-import FlexBox from "../common/ui/FlexBox";
-import { device } from "../common/ui/Resposive";
+import FlexBox from "@common/ui/FlexBox";
+import { device } from "@common/ui/Resposive";
 
-const discounts = [
-  {
-    title: "Discount 1",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  },
-  {
-    title: "Discount 2",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
-  },
-];
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
