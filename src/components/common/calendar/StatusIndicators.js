@@ -1,4 +1,4 @@
-import { LIGHT_BLUE_GREY } from "@common/ui/colors";
+import styled from "styled-components";
 
 const Dot = styled.div`
   display: flex;
@@ -26,7 +26,8 @@ const StatusIndicator = styled.div`
 const StatusIndicators = ({ margin }) => {
   return (
     <Dot margin={margin}>
-      {availabileDatesStatus.map(status => (
+      {/* {availabileDatesStatus.map(status => ( */}
+      {[].map(status => (
         <DotContainer key={status.text}>
           <StatusIndicator color={status.color} />
           {/* <Text

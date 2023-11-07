@@ -6,7 +6,6 @@ import FlexBox from "@common/ui/FlexBox";
 import { WHITE } from "@common/ui/colors";
 import { Body2 } from "@common/ui/Headings";
 import Chip from "@common/ui/Chips";
-import { device } from "@common/ui/Resposive";
 
 const Container = styled(FlexBox)`
   width: 100%;

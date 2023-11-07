@@ -1,6 +1,10 @@
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { Text } from "@common/Text";
 import dayjs from "dayjs";
+import styled from "styled-components";
+
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_100, SECONDARY_700 } from "@common/ui/colors";
+import { Body2 } from "@common/ui/Headings";
 
 const Container = styled(FlexBox)`
   justify-content: space-around;
@@ -38,9 +42,9 @@ const CustomHeader = ({
       <FiChevronLeft color={ACCENT_100} />
     </CalendarNavigationButton>
 
-    <Text fontSize="1rem" opacity="0.6" bold>
+    <Body2 bold>
       {dayjs(monthDate).format("MMMM")}, {dayjs(monthDate).format("YYYY")}
-    </Text>
+    </Body2>
 
     <CalendarNavigationButton
       onClick={increaseMonth}

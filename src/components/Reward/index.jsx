@@ -1,18 +1,15 @@
 import React from "react";
-import { useRouter } from "next/router";
 import styled from "styled-components";
 
-import FlexBox from "../common/ui/FlexBox";
-import { ACCENT_100, PRIMARY_900, SECONDARY_100 } from "../common/ui/colors";
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_100, PRIMARY_900, SECONDARY_100 } from "@common/ui/colors";
+import { device } from "@common/ui/Resposive";
+import { H2 } from "@common/ui/Headings";
 import { RewardsBanner } from "./RewardsBanner";
 import { OffersCard } from "./OffersCard";
 import { BalanceCard } from "./BalanceCard";
 import { RedemptionCard } from "./RedemptionCard";
-import { device } from "../common/ui/Resposive";
-import { H2 } from "../common/ui/Headings";
 import { BarbarBanner } from "./BarbarBanner";
-import ReferModal from "./ReferModal";
-import { OfferCard2Card } from "../Home/OfferCard2";
 
 const dummyData = [
   {

@@ -1,14 +1,16 @@
 // import ReactTooltip from "react-tooltip";
-import { ACCENT_800 } from "./colors";
+// import { ACCENT_800 } from "./colors";
 
-const ToolTip = ({
-  children,
-  id,
-  className,
-  closeOnScroll = true,
-  delayHide,
-  place,
-}) => {
+// props
+
+// children,
+//   id,
+//   className,
+//   closeOnScroll = true,
+//   delayHide,
+//   place,
+
+const ToolTip = () => {
   return (
     // <ReactTooltip
     //   aria-haspopup="true"
