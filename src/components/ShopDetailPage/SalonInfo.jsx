@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { SlSymbleFemale } from "react-icons/sl";
 import { AiFillStar } from "react-icons/ai";
-import { FaRegShareSquare, FaRegHeart } from "react-icons/fa";
+import { FaRegShareSquare } from "react-icons/fa";
 
 import { Body2, H1 } from "../common/ui/Headings";
 import FlexBox from "../common/ui/FlexBox";
 import { ACCENT_800 } from "../common/ui/colors";
 import { device } from "../common/ui/Resposive";
+import Favourite from "../common/ui/Favourite";
 
 const BannerContent = styled(FlexBox)`
   width: 100%;
@@ -34,13 +35,14 @@ const Icons = styled(FlexBox)`
 `;
 
 const SalonInfo = () => {
+  const [Clicked, setClicked] = useState(false);
   return (
     <BannerContent column rowGap="0.25rem">
       <FlexBox align="center" justify="space-between">
         <H1 bold>Gigis Salon</H1>
         <Icons>
           <FaRegShareSquare color={ACCENT_800} size="20px" />
-          <FaRegHeart color={ACCENT_800} size="20px" />
+          <Favourite clicked={Clicked} setclicked={setClicked} />
         </Icons>
       </FlexBox>
       <ContentWrapper>

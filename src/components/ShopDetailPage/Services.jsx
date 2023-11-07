@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import styled, { css } from "styled-components";
 import { useQueryParam, StringParam } from "use-query-params";
 
-import { Body2 } from "../common/ui/Headings";
-import FlexBox from "../common/ui/FlexBox";
-import ServiceCard from "./ServiceCard";
-import { PRIMARY_800 } from "../common/ui/colors";
+import { Body2 } from "@common/ui/Headings";
+import FlexBox from "@common/ui/FlexBox";
+import { PRIMARY_800 } from "@common/ui/colors";
 import CategoryBanner from "./CategoryBanner";
+import ServiceCard from "./ServiceCard";
 import { categories } from "../../metadata/Categories";
 
 const Wrapper = styled(FlexBox)`
@@ -64,8 +64,12 @@ const Services = () => {
   useEffect(() => {
     if (activeCategory) {
       const elem = document.getElementById(activeCategory);
-      
-      elem?.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+
+      elem?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest",
+      });
     }
   }, [activeCategory]);
 
@@ -85,10 +89,8 @@ const Services = () => {
       </Categories>
       <ServicesWrapper column>
         {categories?.map(category => (
-
-          <div key={category?.slug} id={category?.slug} >
-            {/* <div /> */}
-          <CategoryBanner categoryConfig={category} />
+          <div key={category?.slug} id={category?.slug}>
+            <CategoryBanner categoryConfig={category} />
             {category?.services?.map((item, index) => (
               <ServiceCard
                 key={item?.id}

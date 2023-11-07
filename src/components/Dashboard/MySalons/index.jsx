@@ -71,11 +71,10 @@ const RightWrapper = styled(FlexBox)`
   overflow-y: scroll;
 `;
 
-const AboutBox=styled(FlexBox)`
-width:100%;
-align-items:center;
-
-`
+const AboutBox = styled(FlexBox)`
+  width: 100%;
+  align-items: center;
+`;
 
 const MySalons = () => {
   const isMobile = useMobileView();
@@ -121,10 +120,9 @@ const MySalons = () => {
         <RightWrapper>
           {selected === "profile" ? (
             <AboutBox column>
-            <Body2 bold>About </Body2>
-            <About />
+              <Body2 bold>About </Body2>
+              <About />
             </AboutBox>
-           
           ) : selected === "sessions" ? (
             <div>Show </div>
           ) : selected === "services" ? (
