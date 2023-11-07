@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 import { BooleanParam, useQueryParams } from "use-query-params";
 
-import { H2, H3 } from "@common/ui/Headings";
+import { H3 } from "@common/ui/Headings";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import FlexBox from "@common/ui/FlexBox";
 import Loader from "@common/ui/Loader";
@@ -193,8 +193,8 @@ const DashboardLayout = ({
   hideFooter,
 }) => {
   const user = useSelector(state => state.auth?.user);
+
   const [showNavigation, setShowNavigation] = useState(true);
-  const [showChatWithProviders, setShowChatWithProviders] = useState(false);
   const [showNotificationsPopup, setShowNotificationsPopup] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showMoreActions, setShowMoreActions] = useState(false);
@@ -210,8 +210,6 @@ const DashboardLayout = ({
   const { showSessionDetailsModal } = queryParams;
 
   const toggleNavigation = () => setShowNavigation(!showNavigation);
-  const toggleChatWithProviders = () =>
-    setShowChatWithProviders(!showChatWithProviders);
   const toggleNotificationsPopup = () =>
     setShowNotificationsPopup(prev => !prev);
   const toggleProfileDropdown = () => setShowProfileDropdown(prev => !prev);
