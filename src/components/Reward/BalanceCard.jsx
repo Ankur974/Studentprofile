@@ -25,7 +25,7 @@ export const BalanceCard = ({ showArrow = false, content }) => {
       <FlexBox column>
         <Body2 bold>CARE COINS BALANCE</Body2>
         <FlexBox columnGap="0.5rem">
-          <img src="/assets/coin.svg" />
+          <img src="/assets/images/coin.svg" />
           <H3 bold> 100</H3>
         </FlexBox>
       </FlexBox>

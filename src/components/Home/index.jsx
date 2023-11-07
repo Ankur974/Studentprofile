@@ -135,13 +135,13 @@ const Home = () => {
         <Card
           title="Hot Selling Salon 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          imageUrl="/assets/banner-new.svg"
+          imageUrl="/assets/images/banner-new.svg"
           redirectUrl="/shop-listing"
         />
         <Card
           title="Hot Selling Salon 2"
           description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
-          imageUrl="/assets/banner-new.svg"
+          imageUrl="/assets/images/banner-new.svg"
           redirectUrl="/shop-listing"
         />
       </FlexBox>

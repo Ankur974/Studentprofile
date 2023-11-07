@@ -3,7 +3,7 @@ import FlexBox from "../common/ui/FlexBox";
 import styled from "styled-components";
 import SalonInfo from "./SalonInfo";
 import { Button } from "../common/ui/Buttons";
-import { ACCENT_0, ACCENT_800 } from "../common/ui/colors";
+import { ACCENT_0 } from "../common/ui/colors";
 
 import { useRouter } from "next/router";
 import { Body1 } from "../common/ui/Headings";

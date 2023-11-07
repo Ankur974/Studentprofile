@@ -149,15 +149,15 @@ const ReferModal = ({ toggleModal, action }) => {
         </H3>
         <MainContainer column>
           <HeadingSec row>
-            <img src="/assets/gift.svg" alt="picture" width="50rem" />
+            <img src="/assets/images/gift.svg" alt="picture" width="50rem" />
             <H3 color={PRIMARY_900} bold>
               Share your referral code and earn care coins
             </H3>
           </HeadingSec>
           <Body1 bold>How it works?</Body1>
           <FlexBox column rowGap="0.5rem">
-            {steps.map((item,index) => (
-              <StepBox key={index}> 
+            {steps.map((item, index) => (
+              <StepBox key={index}>
                 <StepCount>{item.id}</StepCount>
                 {item.content}
               </StepBox>

@@ -115,7 +115,7 @@ const Card = () => {
   return (
     <Wrapper column>
       <Banner column>
-        <Img src="/assets/banner-new.svg" alt="Card1" />
+        <Img src="/assets/images/banner-new.svg" alt="Card1" />
         <ActionWrapper justify="space-between" align="center">
           <FlexBox
             borderRadius="0.25rem"
@@ -135,7 +135,7 @@ const Card = () => {
             columnGap="0.4rem"
             margin="0 1rem"
           >
-            <img src="/assets/star.svg" alt="star" />
+            <img src="/assets/images/star.svg" alt="star" />
             <Body2 color={ACCENT_0}>4.2</Body2>
           </FlexBox>
         </ActionWrapper>

@@ -50,7 +50,7 @@ export const OffersCard = ({ data }) => {
       {!!coins && (
         <FlexBox justify="end" onClick={toggleModal}>
           <CoinsRewardBox row>
-            <img src="/assets/coin.svg" alt="coin" width="27rem" />
+            <img src="/assets/images/coin.svg" alt="coin" width="27rem" />
             {coins}
             <TfiArrowRight color={ACCENT_0} strokeWidth={1} />
           </CoinsRewardBox>

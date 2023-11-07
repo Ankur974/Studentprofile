@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { SlSymbleFemale } from "react-icons/sl";
 import { AiFillStar } from "react-icons/ai";
-import { FaRegShareSquare, FaRegHeart } from "react-icons/fa";
+import { FaRegShareSquare } from "react-icons/fa";
 
 import { Body2, H1 } from "../common/ui/Headings";
 import FlexBox from "../common/ui/FlexBox";

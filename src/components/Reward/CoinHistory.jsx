@@ -3,10 +3,10 @@ import { IoIosArrowBack } from "react-icons/io";
 import styled from "styled-components";
 import dayjs from "dayjs";
 
-import FlexBox from "../common/ui/FlexBox";
-import { H3, H2, Body2 } from "../common/ui/Headings";
-import { device } from "../common/ui/Resposive";
-import { SECONDARY_901, LOSS } from "../common/ui/colors"; //TODO: to be revisited later - DS
+import FlexBox from "@common/ui/FlexBox";
+import { H3, H2, Body2 } from "@common/ui/Headings";
+import { device } from "@common/ui/Resposive";
+import { SECONDARY_901, LOSS } from "@common/ui/colors"; //TODO: to be revisited later - DS
 import { BalanceCard } from "./BalanceCard";
 
 const transactions = [

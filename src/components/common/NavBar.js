@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
-import {  PRIMARY_800 } from "./ui/colors";
+import { PRIMARY_800 } from "./ui/colors";
 // import NavLinks from "@components/NavBar/NavLinks";
 import FlexBox from "./ui/FlexBox";
 import { device } from "./ui/Resposive";
@@ -94,7 +94,7 @@ const NavBar = ({ navContainerStyles }) => {
               isStatic
               height={36}
               draggable={false}
-              src="/assets/pamprazzi-logo-white.svg"
+              src="/assets/images/pamprazzi-logo-white.svg"
               alt="pamprazzi Logo"
             />
           </LogoContainer>

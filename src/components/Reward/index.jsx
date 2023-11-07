@@ -17,7 +17,7 @@ import { OfferCard2Card } from "../Home/OfferCard2";
 const dummyData = [
   {
     id: 1,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -27,7 +27,7 @@ const dummyData = [
   },
   {
     id: 2,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -37,7 +37,7 @@ const dummyData = [
   },
   {
     id: 3,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -47,7 +47,7 @@ const dummyData = [
   },
   {
     id: 1,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -57,7 +57,7 @@ const dummyData = [
   },
   {
     id: 2,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -67,7 +67,7 @@ const dummyData = [
   },
   {
     id: 3,
-    imgsrc: "/assets/offerimage.svg",
+    imgsrc: "/assets/images/offerimage.svg",
     title: "Rating and Reviews",
     content:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et",
@@ -81,56 +81,56 @@ const redeemData = [
   {
     id: 1,
     valid: true,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 2,
     valid: false,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 3,
     valid: true,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 4,
     valid: false,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 1,
     valid: true,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 2,
     valid: false,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 3,
     valid: true,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
   {
     id: 4,
     valid: false,
-    imgsrc: "/assets/Beauty.svg",
+    imgsrc: "/assets/images/Beauty.svg",
     title: "Book a haircut cut in 7 days and earn care coins",
     content: " Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },

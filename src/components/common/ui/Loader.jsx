@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+
 import FlexBox from "./FlexBox";
-import loader from "../../../revamp/assets/loading.gif";
+// import loader from "../../../revamp/assets/images/loading.gif";
 
 const Wrapper = styled(FlexBox)`
   height: 100%;
@@ -13,7 +14,8 @@ const Wrapper = styled(FlexBox)`
 const Loader = ({ height }) => {
   return (
     <Wrapper>
-      <img src={loader} height={height || "90px"} alt="loader" />
+      {/* <img src={loader} height={height || "90px"} alt="loader" /> */}
+      Loader
     </Wrapper>
   );
 };

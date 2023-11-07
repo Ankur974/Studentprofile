@@ -1,4 +1,4 @@
-import { LIGHT_BLUE_GREY } from "@constants/colors";
+import { LIGHT_BLUE_GREY } from "@common/ui/colors";
 
 const Dot = styled.div`
   display: flex;
