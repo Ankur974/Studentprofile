@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Body1, Body2 } from "../common/ui/Headings";
 import { Button } from "../common/ui/Buttons";
 import { useRouter } from "next/router";
+import { WHITE } from "../common/ui/colors";
 
 const CardContainer = styled.div`
   width: 300px;
@@ -41,7 +42,7 @@ const CardOverlay = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
+  color: ${WHITE};
 
   ${CardContainer}:hover & {
     display: flex;
