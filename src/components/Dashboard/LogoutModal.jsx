@@ -14,13 +14,11 @@ const LogoutImage = styled.img`
 `;
 
 const LogoutModal = ({ toggleModal }) => {
-  const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
 
   const toggleCheck = () => setChecked(!checked);
 
   const handleLogout = () => {
-    const allDevices = checked && "yes";
     toggleModal();
     // dispatch(logout(allDevices));
   };

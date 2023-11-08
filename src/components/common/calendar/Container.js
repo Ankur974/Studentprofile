@@ -1,13 +1,4 @@
 import styled from "styled-components";
-import {
-  DARK_BLUE,
-  WHITE,
-  LIGHT_WHITE_GREY,
-  SECONDARY_700,
-  SECONDARY_500,
-  PRIMARY_800,
-  ACCENT_800,
-} from "@common/ui/colors";
 
 const CalendarContainer = styled.div`
   height: 19rem;

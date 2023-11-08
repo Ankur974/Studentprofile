@@ -8,7 +8,6 @@ import {
   ACCENT_500,
   ACCENT_700,
   PRIMARY_100,
-  PRIMARY_800,
   ACCENT_800,
 } from "@common/ui/colors";
 import { FiCheck } from "react-icons/fi";
@@ -91,11 +90,11 @@ const ShareProviderCard = ({
   useEffect(() => {
     if (!user) return;
     if (currentReferralState.selectedProviderType === "therapist") {
-      !!user.mytherapist
+      user.mytherapist
         ? setShareIndividualProvider(true)
         : setShareIndividualProvider(false);
     } else if (currentReferralState.selectedProviderType === "psychiatrist") {
-      !!user.mypsychiatrist
+      user.mypsychiatrist
         ? setShareIndividualProvider(true)
         : setShareIndividualProvider(false);
     }

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
@@ -8,7 +9,6 @@ import {
   PRIMARY_400,
   ACCENT_800,
   PRIMARY_100,
-  PRIMARY_800,
 } from "@common/ui/colors";
 import { trackEvent } from "@utils/helpers";
 import { FiCopy } from "react-icons/fi";

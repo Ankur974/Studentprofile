@@ -21,7 +21,7 @@ const Title = styled(FlexBox)`
 
 const Content = styled.div``;
 
-const SessionInfoCard = ({ sessionType, sessionDetails }) => {
+const SessionInfoCard = ({ sessionDetails }) => {
   const { providerName, sessionTime, sessionDuration } = sessionDetails;
   return (
     <Card column rowGap="0.25rem">

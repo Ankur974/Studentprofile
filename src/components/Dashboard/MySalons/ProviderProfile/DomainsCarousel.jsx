@@ -1,28 +1,28 @@
 import React, { memo } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 // import { domainareas_images } from "@metadata/domainareas_images";
-import { H3, H6 } from "@common/ui/Headings";
+import { H3 } from "@common/ui/Headings";
 
-const CarouselBody = styled(FlexBox)`
-  width: calc(100% + 3rem);
-  gap: 1rem;
-  overflow-x: scroll;
-  margin-left: -1.5rem;
-  padding-inline: 1.5rem;
-`;
+// const CarouselBody = styled(FlexBox)`
+//   width: calc(100% + 3rem);
+//   gap: 1rem;
+//   overflow-x: scroll;
+//   margin-left: -1.5rem;
+//   padding-inline: 1.5rem;
+// `;
 
-const OfferingBox = styled(FlexBox)`
-  height: fit-content;
-`;
+// const OfferingBox = styled(FlexBox)`
+//   height: fit-content;
+// `;
 
-const OfferingVisual = styled.img`
-  width: 4.5rem;
-  border-radius: 0.75rem;
-`;
+// const OfferingVisual = styled.img`
+//   width: 4.5rem;
+//   border-radius: 0.75rem;
+// `;
 
-const DomainsCarousel = ({ providerData, providerType }) => {
+const DomainsCarousel = (/*{ providerData, providerType }*/) => {
   return (
     <FlexBox column justify="center" rowGap="1rem">
       <FlexBox align="center" columnGap="0.5rem">

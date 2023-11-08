@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { TfiArrowRight } from "react-icons/tfi";
 
-import FlexBox from "../common/ui/FlexBox";
-import { Body2, H3 } from "../common/ui/Headings";
-import { ACCENT_0, PRIMARY_900 } from "../common/ui/colors";
+import FlexBox from "@common/ui/FlexBox";
+import { Body2, H3 } from "@common/ui/Headings";
+import { ACCENT_0, PRIMARY_900 } from "@common/ui/colors";
 import ReferModal from "./ReferModal";
 
 const Wrapper = styled(FlexBox)`
@@ -32,7 +32,7 @@ const CoinsRewardBox = styled(FlexBox)`
 `;
 
 export const OffersCard = ({ data }) => {
-  const { imgsrc, title, content, coins, backgroundColor, action } = data || {};
+  const { imgsrc, title, content, coins, backgroundColor } = data || {};
 
   const [showModal, setModal] = useState(false);
 

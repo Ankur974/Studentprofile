@@ -87,22 +87,22 @@ const RelativeDiv = styled(FlexBox)`
 
 const SessionCard = ({ session, isNsp }) => {
   const [showSessionOptions, setShowSessionOptions] = useState(false);
-  const [showViewLocationModal, setShowViewLocationModal] = useState(false);
-  const [showRescheduleScreen, setShowRescheduleScreen] = useState(false);
+  // const [showViewLocationModal, setShowViewLocationModal] = useState(false);
+  // const [showRescheduleScreen, setShowRescheduleScreen] = useState(false);
 
-  const [showChangeSessionModeModal, setShowChangeSessionModeModal] =
-    useState(false);
+  // const [showChangeSessionModeModal, setShowChangeSessionModeModal] =
+  //   useState(false);
 
-  const handleChangeSessionModal = () => {
-    setShowChangeSessionModeModal(!showChangeSessionModeModal);
-  };
+  // const handleChangeSessionModal = () => {
+  //   setShowChangeSessionModeModal(!showChangeSessionModeModal);
+  // };
 
   const toggleSessionOptions = () => setShowSessionOptions(!showSessionOptions);
-  const toggleViewLocationModal = () =>
-    setShowViewLocationModal(!showViewLocationModal);
+  // const toggleViewLocationModal = () =>
+  //   setShowViewLocationModal(!showViewLocationModal);
 
-  const toggleShowRescheduleScreen = () =>
-    setShowRescheduleScreen(!showRescheduleScreen);
+  // const toggleShowRescheduleScreen = () =>
+  //   setShowRescheduleScreen(!showRescheduleScreen);
 
   const providerName = session.provider?.firstname + session.provider?.lastname;
   return (

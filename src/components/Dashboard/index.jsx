@@ -26,11 +26,6 @@ const Container = styled(FlexBox)`
   }
 `;
 
-const YourUpdatesWrapper = styled.div`
-  max-height: 30vh;
-  overflow: auto;
-`;
-
 const SessionCreditsWrapper = styled.div`
   max-height: 30vh;
   overflow: auto;
@@ -55,7 +50,6 @@ const CreditsNullStateWrapper = styled.div`
 const Dashboard = () => {
   const [showBookSessionWith, setShowBookSessionWith] = useState(false);
   const [showAllSessions, setShowAllSessions] = useState(false);
-  const [suggestedSessions, setSuggestedSessions] = useState([]);
 
   const showCreditsNullState = true; //todo: to be updated
   const loading = false;
@@ -144,7 +138,7 @@ const Dashboard = () => {
           <UpcomingSessions
             toggleBookSessionWith={toggleBookSessionWith}
             sessions={upcomingSessions}
-            suggestedSessions={suggestedSessions}
+            // suggestedSessions={suggestedSessions}
           />
         )}
       </Card>

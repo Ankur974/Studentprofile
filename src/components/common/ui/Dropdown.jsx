@@ -1,17 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
+
 import FlexBox from "./FlexBox";
 import { boxShadowDs1, boxShadowDs2 } from "./styles";
 import { Body2 } from "./Headings";
 import { FiChevronRight, FiCheck } from "react-icons/fi";
-import useOutsideAlert from "../../../hooks/useOutsideAlert";
+import useOutsideAlert from "@hooks/useOutsideAlert";
 import {
   ACCENT_100,
   ACCENT_200,
   ACCENT_400,
   ACCENT_500,
-  MOSS_GREEN_100,
-  MOSS_GREEN_900,
+  PRIMARY_100,
+  PRIMARY_900,
 } from "./colors";
 import { Button } from "./Buttons";
 
@@ -58,7 +59,7 @@ const Option = styled(FlexBox)`
   justify-content: space-between;
   transition: all 200ms ease-in-out;
   background-color: ${({ isSelected }) =>
-    isSelected ? MOSS_GREEN_100 : ACCENT_100};
+    isSelected ? PRIMARY_100 : ACCENT_100};
 
   :first-child {
     padding-top: ${({ size }) => (size === "small" ? "0.75rem" : "1.5rem")};
@@ -87,7 +88,7 @@ const Option = styled(FlexBox)`
       &:hover {
         background-color: ${disabled ? ACCENT_100 : ACCENT_200};
         svg {
-          color: ${MOSS_GREEN_900};
+          color: ${PRIMARY_900};
         }
       }
     `}
@@ -190,7 +191,7 @@ const Dropdown = ({
 
   const handleOptionClick = (event, option) => {
     const handleNavigation = option.handleNavigation;
-    if (!!handleNavigation) {
+    if (handleNavigation) {
       if (option.disabled) {
         event?.stopPropagation();
         return;
@@ -207,7 +208,7 @@ const Dropdown = ({
         const filterCondition = currentOption =>
           currentOption?.label !== option?.label;
 
-        if (!!currentOptions?.find(isSelectedCheck))
+        if (currentOptions?.find(isSelectedCheck))
           return currentOptions?.filter(filterCondition);
 
         return [...currentOptions, option];
@@ -249,7 +250,7 @@ const Dropdown = ({
                 {label}
               </Body2>
               {showChevron && <FiChevronRight size="1.5rem" />}
-              {isSelected && <FiCheck size="1.25rem" color={MOSS_GREEN_900} />}
+              {isSelected && <FiCheck size="1.25rem" color={PRIMARY_900} />}
             </Option>
           );
         })}

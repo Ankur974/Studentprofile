@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { AiOutlineClose } from "react-icons/ai";
 
-import { H3, Body1 } from "../common/ui/Headings";
-import Modal from "../common/ui/Modal";
-import FlexBox from "../common/ui/FlexBox";
-import { ACCENT_0, PRIMARY_0, PRIMARY_900 } from "../common/ui/colors";
-import { indexOf } from "lodash";
+import { H3, Body1 } from "@common/ui/Headings";
+import Modal from "@common/ui/Modal";
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_0, PRIMARY_0, PRIMARY_900 } from "@common/ui/colors";
 
 const steps = [
   {

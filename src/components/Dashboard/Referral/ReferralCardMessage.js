@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-useless-escape */
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import ReactHtmlParser from "react-html-parser";
@@ -12,7 +14,6 @@ import {
   ACCENT_600,
   PRIMARY_100,
   PRIMARY_700,
-  PRIMARY_800,
 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import { TextButton } from "@common/ui/Buttons";
@@ -471,8 +472,8 @@ const Message = ({
     isMobile &&
     !window?.Android &&
     !window?.ReactNativeWebView &&
-    "contacts" in window?.navigator &&
-    "select" in window?.navigator?.contacts;
+    "contacts" in window.navigator &&
+    "select" in window.navigator.contacts;
 
   const cardHeight = referralsExperiment.value === "v0" ? "32.875rem" : "34rem";
 

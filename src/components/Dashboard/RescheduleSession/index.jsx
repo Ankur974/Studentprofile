@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import Bugsnag from "@bugsnag/js";

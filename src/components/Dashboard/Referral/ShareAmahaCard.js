@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";

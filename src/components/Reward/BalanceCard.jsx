@@ -1,12 +1,12 @@
 import React from "react";
-import { ACCENT_100 } from "../common/ui/colors";
-import FlexBox from "../common/ui/FlexBox";
+import { ACCENT_100 } from "@common/ui/colors";
+import FlexBox from "@common/ui/FlexBox";
 import styled from "styled-components";
-import { Body2, H3 } from "../common/ui/Headings";
+import { Body2, H3 } from "@common/ui/Headings";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { useRouter } from "next/router";
 
-export const BalanceCard = ({ showArrow = false, content }) => {
+export const BalanceCard = ({ showArrow = false }) => {
   const router = useRouter();
   const Wrapper = styled(FlexBox)`
     background-color: ${ACCENT_100};

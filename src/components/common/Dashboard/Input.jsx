@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import { FiX } from "react-icons/fi";
-import {
-  ACCENT_800,
-  ACCENT_600,
-  ACCENT_800,
-  ERROR_500,
-  white,
-} from "@common/ui/colors";
 
+import { ACCENT_800, ACCENT_600, ERROR_500, white } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { Body2, Support } from "@components/common/Dashboard/Headings";
 

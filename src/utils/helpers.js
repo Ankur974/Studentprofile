@@ -1,3 +1,6 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable no-unsafe-finally */
+/* eslint-disable no-unused-vars */
 import Bugsnag from "@bugsnag/js";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
@@ -41,7 +44,9 @@ export const trackEvent = async ({ event, payload }) => {
   let companyDetails;
   try {
     companyDetails = JSON.parse(localStorage.local.getItem("company_details"));
-  } catch (err) {}
+  } catch (err) {
+    /* empty */
+  }
 
   if (companyDetails) {
     updatedPayload.company_profile_name = companyDetails.name;
@@ -392,7 +397,7 @@ export const windowOpenFn = link => {
 
   let ad_user_params = localStorage.local.getItem("ad_user_params");
 
-  if (!!ad_user_params) {
+  if (ad_user_params) {
     ad_user_params = JSON.parse(ad_user_params);
     /**
      * Looping over the ad_user_params to append the queries to the url
@@ -421,95 +426,6 @@ export const windowOpenFn = link => {
  * @param {Boolean} shouldReturnAsObject
  * @returns {String | Object} string or object containing redirection pathname and query
  */
-
-export const getRedirectLink = (link, query, shouldReturnAsObject = false) => {
-  try {
-    let url = link;
-    // All the query parameters sent as an object or as query string will be kept as key value pair
-    let queryObj = {};
-    let queryString = "";
-    // If the url sent has query parameters then split it and store it as querystring
-    if (url.split("?").length > 1) {
-      queryString = url.split("?")[1];
-    }
-    if (queryString) {
-      // parse the queryString and store as key value pair in queryObj by replacing special characters such as ? & etc
-      queryObj = JSON.parse(
-        '{"' +
-          queryString
-            .replace(/"/g, '\\"')
-            .replace(/&/g, '","')
-            .replace(/=/g, '":"') +
-          '"}'
-      );
-    }
-    // Get the UTM params from the localStorage
-    let ad_user_params = localStorage.local.getItem("ad_user_params");
-
-    // Check if UTM params are present if not check the current url if it contains UTM params
-    if (!!ad_user_params) {
-      ad_user_params = JSON.parse(ad_user_params);
-      queryObj = { ...queryObj, ...ad_user_params };
-    } else {
-      let currentUrl = window.location.href;
-      /** If no UTM params available in the storege then check
-       * if the current url has UTM params if yes then only append
-       * UTM params removing other parametres if any.
-       * This is to avoid the unwanted query parametres passing to the urls
-       * Rest all the steps are similar to the one's we have done above
-       * */
-      if (currentUrl.indexOf("utm_source") != -1) {
-        let currentQueryObj = {};
-        let currentQueryString = "";
-        if (currentUrl.split("?").length > 1) {
-          currentQueryString = currentUrl.split("?")[1];
-        }
-        if (currentQueryString) {
-          currentQueryObj = JSON.parse(
-            '{"' +
-              currentQueryString
-                .replace(/"/g, '\\"')
-                .replace(/&/g, '","')
-                .replace(/=/g, '":"') +
-              '"}'
-          );
-        }
-        // at last append UTM parames to the queryObject
-        const mergedObject = Object.assign({}, queryObj, currentQueryObj);
-        queryObj = { ...mergedObject };
-      }
-    }
-    // If there is an query object passed to this function then append it to the existing queryObject
-    if (!!query) {
-      queryObj = { ...queryObj, ...query };
-    }
-
-    const company = localStorage.local.getItem("company");
-    if (company) {
-      queryObj.company = company;
-    }
-
-    /**
-     * This is to return as an object containing pathname and query.
-     * Mostly for the links and the places from where the redirection
-     * is done using router.push or router.replace we will return object
-     */
-    if (shouldReturnAsObject) {
-      return {
-        pathname: url.split("?")[0],
-        query: queryObj,
-      };
-    } else {
-      /**
-       * Looping over the queryObj to append the queries to the url
-       */
-      url = getAppendedUrl(url, queryObj, queryString);
-      return url;
-    }
-  } catch (error) {
-    Bugsnag.notify(error);
-  }
-};
 
 export const parseJwt = token => {
   const base64Url = token.split(".")[1];
