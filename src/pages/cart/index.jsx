@@ -1,8 +1,8 @@
-import React from 'react'
-import OrderCart from '../../components/Cart/OrderCartModal';
+import React from "react";
+import OrderCart from "@components/Cart/OrderCartModal";
 
-const index = () => {
-  return <OrderCart/>
-}
+const Cart = () => {
+  return <OrderCart />;
+};
 
-export default index;
+export default Cart;

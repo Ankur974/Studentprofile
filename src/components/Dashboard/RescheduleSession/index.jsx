@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import Bugsnag from "@bugsnag/js";
@@ -7,8 +8,6 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { FiX } from "react-icons/fi";
 
-import axiosInstance from "@axiosInstance";
-import urls from "@urls";
 import { Modal } from "@common/Dashboard/Modal";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_400, WHITE } from "@common/ui/colors";
@@ -162,37 +161,30 @@ const RescheduleSession = ({
     if (!PROVIDER_UUID || !selectedDuration_duration) return;
 
     try {
-      setFetchingSchedules(true);
-      const payload = {
-        end_date: null,
-        start_date: null,
-        duration: selectedDuration_duration,
-      };
-
-      // if (isBookingTypeOffline && !!clinic_id) payload.ih_clinic_id = clinic_id;
-
-      const res = await axiosInstance.post(
-        `${urls.api}/customers/schedules/${PROVIDER_UUID}/schedules_count`,
-        payload
-      ); // Todo : update with actual api
-
-      const schedules = res.data?.data;
-
-      if (!selectedDate) {
-        let latestAvailableDate = new Date();
-        const latestAvailableSchedule = schedules?.find(
-          schedule => schedule.available_slots > 0
-        );
-
-        if (latestAvailableSchedule) {
-          const latestScheduleTime = latestAvailableSchedule.epoch_time;
-          latestAvailableDate = new Date(latestScheduleTime);
-        }
-
-        setSelectedDate(latestAvailableDate);
-      }
-
-      setSchedules(schedules || []);
+      // setFetchingSchedules(true);
+      // const payload = {
+      //   end_date: null,
+      //   start_date: null,
+      //   duration: selectedDuration_duration,
+      // };
+      // // if (isBookingTypeOffline && !!clinic_id) payload.ih_clinic_id = clinic_id;
+      // const res = await axiosInstance.post(
+      //   `${urls.api}/customers/schedules/${PROVIDER_UUID}/schedules_count`,
+      //   payload
+      // ); // Todo : update with actual api
+      // const schedules = res.data?.data;
+      // if (!selectedDate) {
+      //   let latestAvailableDate = new Date();
+      //   const latestAvailableSchedule = schedules?.find(
+      //     schedule => schedule.available_slots > 0
+      //   );
+      //   if (latestAvailableSchedule) {
+      //     const latestScheduleTime = latestAvailableSchedule.epoch_time;
+      //     latestAvailableDate = new Date(latestScheduleTime);
+      //   }
+      //   setSelectedDate(latestAvailableDate);
+      // }
+      // setSchedules(schedules || []);
     } catch (err) {
       Bugsnag.notify(err);
     } finally {
@@ -203,27 +195,27 @@ const RescheduleSession = ({
   const fetchTimeSlotsForDate = async () => {
     if (!PROVIDER_UUID || !selectedDuration_duration || !selectedDate) return;
 
-    try {
-      setFetchingTimeSlots(true);
-      const payload = {
-        duration: selectedDuration_duration,
-        date: dayjs(selectedDate).format("YYYY-MM-DD"),
-      };
+    // try {
+    //   setFetchingTimeSlots(true);
+    //   const payload = {
+    //     duration: selectedDuration_duration,
+    //     date: dayjs(selectedDate).format("YYYY-MM-DD"),
+    //   };
 
-      // if (isBookingTypeOffline && !!clinic_id) payload.ih_clinic_id = clinic_id;
+    //   // if (isBookingTypeOffline && !!clinic_id) payload.ih_clinic_id = clinic_id;
 
-      const res = await axiosInstance.post(
-        `${urls.api}/customers/schedules/${PROVIDER_UUID}/schedules_date`,
-        payload
-      ); // Todo : update with actual api
+    //   const res = await axiosInstance.post(
+    //     `${urls.api}/customers/schedules/${PROVIDER_UUID}/schedules_date`,
+    //     payload
+    //   ); // Todo : update with actual api
 
-      const timeSlots = res?.data?.data?.slots;
-      setTimeSlotsForDate(timeSlots || []);
-    } catch (err) {
-      Bugsnag.notify(err);
-    } finally {
-      setFetchingTimeSlots(false);
-    }
+    //   const timeSlots = res?.data?.data?.slots;
+    //   setTimeSlotsForDate(timeSlots || []);
+    // } catch (err) {
+    //   Bugsnag.notify(err);
+    // } finally {
+    //   setFetchingTimeSlots(false);
+    // }
   };
 
   const handleRescheduleSession = () => {

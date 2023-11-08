@@ -1,18 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { trackEvent } from "@utils/helpers";
 import { useFeature } from "@growthbook/growthbook-react";
+import { useDispatch, useSelector } from "react-redux";
+
 import Success from "./SuccessCard";
 import Message from "./ReferralCardMessage";
 import ShareProviderCard from "./ShareProviderCard";
-import * as storage from "@utils/storageFactory";
-import axiosInstance from "@axiosInstance";
-import urls from "@urls";
-import Bugsnag from "@bugsnag/js";
-import { useDispatch, useSelector } from "react-redux";
 import ShareAmahaCard from "./ShareAmahaCard";
-import { PSYCHIATRIST, THERAPIST } from "@constants";
-import { setAssignedProviders } from "@redux/actions/providerAction";
-import { getPartnerSlug } from "../../../utils/helpers";
 
 const ReferralCard = () => {
   const initialReferralState = {
@@ -39,31 +33,7 @@ const ReferralCard = () => {
     getAssignedProviders();
   }, []);
 
-  const getAssignedProviders = async () => {
-    if (user.mytherapist && !assignedProviders?.therapist) {
-      try {
-        const res = await axiosInstance.get(urls.getTherapistSummaryNew);
-        setTherapistData(res?.data?.data);
-        dispatch(setAssignedProviders(THERAPIST, res?.data?.data));
-      } catch (err) {
-        Bugsnag.notify(err);
-      }
-    } else {
-      setTherapistData(assignedProviders?.therapist);
-    }
-
-    if (user?.mypsychiatrist && !assignedProviders?.psychiatrist) {
-      try {
-        const res = await axiosInstance.get(urls.getPsychiatristSummaryNew);
-        setPsychiatristData(res?.data?.data);
-        dispatch(setAssignedProviders(PSYCHIATRIST, res?.data?.data));
-      } catch (err) {
-        Bugsnag.notify(err);
-      }
-    } else {
-      setPsychiatristData(assignedProviders?.psychiatrist);
-    }
-  };
+  const getAssignedProviders = async () => {};
 
   useEffect(() => {
     if (!providerLoading && providerType) {
@@ -75,31 +45,6 @@ const ReferralCard = () => {
       });
     }
   }, [providerType]);
-
-  useEffect(() => {
-    if (
-      referralsExperiment.source === "experiment" &&
-      storage.local.getItem("expt_assigned_fired") !== "true" &&
-      !getPartnerSlug()
-    ) {
-      trackEvent({
-        event: "teleref_expt_assigned",
-        payload: {
-          expt_flow: referralsExperiment.value === "v0" ? 1 : 2,
-          platform: window.ReactNativeWebView
-            ? "ios_app"
-            : window.Android
-            ? "android_app"
-            : "website",
-        },
-      });
-      storage.local.setItem("expt_assigned_fired", "true");
-    }
-  }, [referralsExperiment.source]);
-
-  if (referralsExperiment.source !== "experiment" || getPartnerSlug()) {
-    return null;
-  }
 
   return (
     <>

@@ -1,7 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { H4, H5, H6, TextCTA } from "@common/Headings";
+import { H4, H5, TextCTA } from "@common/ui/Headings";
 import {
   WHITE,
   PRIMARY_800,
@@ -172,7 +173,7 @@ const SuccessCard = ({
       <img
         height="60px"
         width="60px"
-        src="https://cdn.theinnerhour.com/assets/images/referral-tick-done.svg"
+        src="/assets/images/referral-tick-done.svg"
       />
       {referralsExperiment.value === "v0" && (
         <>

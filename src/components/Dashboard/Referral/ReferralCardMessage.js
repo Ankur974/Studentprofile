@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-useless-escape */
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import ReactHtmlParser from "react-html-parser";
 import FlexBox from "@common/ui/FlexBox";
-import { H3, H5, H6, TextCTA } from "@common/Headings";
+import { H3, H5, H6, TextCTA } from "@common/ui/Headings";
 import {
   WHITE,
   PRIMARY_800,
@@ -14,14 +16,11 @@ import {
   PRIMARY_700,
 } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
-import { TextButton } from "@common/Buttons";
+import { TextButton } from "@common/ui/Buttons";
 import { FiBook, FiCopy } from "react-icons/fi";
 import { useSelector } from "react-redux";
-import axiosInstance from "@axiosInstance";
-import urls from "@urls";
 import Bugsnag from "@bugsnag/js";
 import { trackEvent } from "@utils/helpers";
-import { copyCoupon, shareProvider } from "../../../utils/interfaces";
 
 const Title = styled(H3)`
   font-size: 1rem;
@@ -145,19 +144,10 @@ const Message = ({
   };
 
   const handleCopy = () => {
-    copyCoupon(messageText);
-    if (window.Android) {
-      window.Android.copyCoupon(messageText);
-      showToast();
-    } else if (window.ReactNativeWebView) {
-      window.ReactNativeWebView.postMessage(`copyText,${messageText}`);
-      showToast();
-    } else {
-      navigator?.clipboard
-        ?.writeText(messageText)
-        ?.then(() => showToast())
-        ?.catch(() => window?.alert?.("Unable to copy"));
-    }
+    navigator?.clipboard
+      ?.writeText(messageText)
+      ?.then(() => showToast())
+      ?.catch(() => window?.alert?.("Unable to copy"));
   };
 
   useEffect(() => {
@@ -387,10 +377,7 @@ const Message = ({
       if (currentReferralState?.providerId) {
         referral.provider_id = `${currentReferralState?.providerId}`;
       }
-      const res = await axiosInstance.put(
-        `${urls.sendSMS}/${couponCodeData?.referral_id}`,
-        { referral }
-      );
+      const res = "";
       if (res?.data?.status?.code === 200) {
         trackEvent({
           event: "teleref_send_success",
@@ -415,24 +402,6 @@ const Message = ({
   };
 
   const onMobileShare = async () => {
-    shareProvider("", messageText, linkToBook);
-
-    if (window.Android) {
-      window.Android.shareProvider("", messageText, linkToBook);
-      return;
-    }
-
-    if (window.ReactNativeWebView) {
-      const data = JSON.stringify({
-        subject: "",
-        message: messageText,
-        url: linkToBook,
-      });
-
-      window.ReactNativeWebView.postMessage(`shareProvider,${data}`);
-      return;
-    }
-
     try {
       await navigator?.share?.({
         title: " ",
@@ -446,12 +415,12 @@ const Message = ({
   };
 
   const getCouponCode = async () => {
-    try {
-      const res = await axiosInstance.get(urls.getRefreeCouponCode);
-      setCouponCodeData(res.data);
-    } catch (error) {
-      Bugsnag.notify(error);
-    }
+    // try {
+    //   const res = await axiosInstance.get(urls.getRefreeCouponCode);
+    //   setCouponCodeData(res.data);
+    // } catch (error) {
+    //   Bugsnag.notify(error);
+    // }
   };
 
   const getShortUrl = async () => {
@@ -475,10 +444,10 @@ const Message = ({
         params.provider_id = currentReferralState?.providerId;
       }
 
-      const res = await axiosInstance.get(urls.getShortLink, {
-        params,
-      });
-      setLinkToBook(res?.data?.short_url);
+      // const res = await axiosInstance.get(urls.getShortLink, {
+      //   params,
+      // });
+      // setLinkToBook(res?.data?.short_url);
     } catch (error) {
       Bugsnag.notify(error);
     }
@@ -503,8 +472,8 @@ const Message = ({
     isMobile &&
     !window?.Android &&
     !window?.ReactNativeWebView &&
-    "contacts" in window?.navigator &&
-    "select" in window?.navigator?.contacts;
+    "contacts" in window.navigator &&
+    "select" in window.navigator.contacts;
 
   const cardHeight = referralsExperiment.value === "v0" ? "32.875rem" : "34rem";
 
@@ -516,7 +485,7 @@ const Message = ({
     <>
       <MessageCard column rowGap="1rem" height={cardHeight}>
         <FlexBox columnGap="1.1rem" align="center">
-          <img src="https://cdn.theinnerhour.com/assets/images/referral-card-visual.svg" />
+          <img src="/assets/images/referral-card-visual.svg" />
           <Title bold>Your loved one’s details</Title>
         </FlexBox>
         {referralsExperiment.value === "v0" && (

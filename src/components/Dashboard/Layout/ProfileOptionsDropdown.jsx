@@ -1,12 +1,13 @@
-import FlexBox from "@common/ui/FlexBox";
 import { useRef } from "react";
 import { FiChevronRight, FiLogOut } from "react-icons/fi";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+
+import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_200, ACCENT_800 } from "@common/ui/colors";
 import useOutsideAlert from "@hooks/useOutsideAlert";
 import DropdownWrapper from "@common/Dashboard/DropdownWrapper";
-import { Body2, H4, Support } from "@common/ui/Headings";
+import { Body2, H5, Support } from "@common/ui/Headings";
 import { IconButton } from "@common/Dashboard/Buttons";
 import { profileOptions } from "./allOptions";
 
@@ -51,7 +52,7 @@ const ProfileOptionsDropdown = ({
   toggleDropdown = () => {},
   toggleLogoutModal,
 }) => {
-  const user = useSelector(state => state.auth?.user);
+  const user = useSelector(state => state?.auth?.user);
   const containerRef = useRef(null);
   useOutsideAlert(containerRef, toggleDropdown, "header-user-image");
 
@@ -67,7 +68,7 @@ const ProfileOptionsDropdown = ({
             />
 
             <FlexBox column rowGap="0.375rem">
-              <H4 bold>{user?.firstname}</H4>
+              <H5 bold>{user?.firstname}</H5>
               <Support>joined on {user?.doj || "24 June 2015"}</Support>
             </FlexBox>
           </FlexBox>

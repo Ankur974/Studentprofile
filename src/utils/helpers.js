@@ -1,14 +1,16 @@
-import { PSYCHIATRIST, COUPLE_THERAPIST, THERAPIST, COACH } from "@constants";
+/* eslint-disable no-useless-escape */
+/* eslint-disable no-unsafe-finally */
+/* eslint-disable no-unused-vars */
 import Bugsnag from "@bugsnag/js";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
-import { moengage_events } from "@metadata/events/moengage";
-import { getTokenHeaders } from "../axiosInstance";
-import * as storage from "@utils/storageFactory";
-import { openMap } from "./interfaces";
-import { MixpanelTracker } from "../mixpanelInstance";
+// import { moengage_events } from "@metadata/events/moengage";
 import { createCipheriv, createDecipheriv, randomBytes } from "crypto";
-import { communityUrl } from "@constants/config";
+// import * as storage from "@utils/storageFactory";
+
+// import { getTokenHeaders } from "../axiosInstance";
+// import { openMap } from "./interfaces";
+// import { MixpanelTracker } from "../mixpanelInstance";
 
 dayjs.extend(advancedFormat);
 
@@ -19,12 +21,13 @@ export const limitString = (string = "", limit = 40) => {
 
 //analytics
 export const trackEvent = async ({ event, payload }) => {
-  const blockAnalytics = storage.local.getItem("block_analytics");
-  const skipAnalytics = storage.session.getItem("skip_analytics");
+  const blockAnalytics = localStorage.local.getItem("block_analytics");
+  const skipAnalytics = localStorage.session.getItem("skip_analytics");
 
   if (blockAnalytics === "true" || skipAnalytics === "true") return;
 
-  const tokenHeaders = await getTokenHeaders();
+  const tokenHeaders = null;
+  // const tokenHeaders = await getTokenHeaders();
   const updatedPayload = { ...payload };
   if (
     tokenHeaders &&
@@ -40,28 +43,30 @@ export const trackEvent = async ({ event, payload }) => {
   // Needed for partner organisations where user is not authenticated, so these details won't be available in tokenHeaders
   let companyDetails;
   try {
-    companyDetails = JSON.parse(storage.local.getItem("company_details"));
-  } catch (err) {}
+    companyDetails = JSON.parse(localStorage.local.getItem("company_details"));
+  } catch (err) {
+    /* empty */
+  }
 
   if (companyDetails) {
     updatedPayload.company_profile_name = companyDetails.name;
     updatedPayload.company_profile_uuid = companyDetails.uuid;
   }
 
-  const growthbookDeviceId = storage.local.getItem("deviceId");
+  const growthbookDeviceId = localStorage.local.getItem("deviceId");
   if (growthbookDeviceId) {
     updatedPayload.growthbook_device_id = growthbookDeviceId;
   }
 
-  MixpanelTracker.getInstance().trackEvent({ event, payload: updatedPayload });
-  if (moengage_events.includes(event)) {
-    try {
-      await Moengage?.track_event(event, updatedPayload);
-    } catch (error) {
-      console.log("error in this moengage event ", error);
-      Bugsnag.notify(error);
-    }
-  }
+  // MixpanelTracker.getInstance().trackEvent({ event, payload: updatedPayload });
+  // if (moengage_events.includes(event)) {
+  //   try {
+  //     await Moengage?.track_event(event, updatedPayload);
+  //   } catch (error) {
+  //     console.log("error in this moengage event ", error);
+  //     Bugsnag.notify(error);
+  //   }
+  // }
 };
 
 export const trackGTMEvent = eventPayload =>
@@ -154,33 +159,6 @@ export const isMobile = () => {
 export const isVerifiedCorporateUser = user => {
   if (!user || !user?.usertype) return false;
   return user?.usertype !== "patient" && !!user?.is_verified;
-};
-
-export const currentFlow = (value, sessionType) => {
-  let flow;
-  if (sessionType) {
-    flow =
-      value === PSYCHIATRIST
-        ? "psychiatry"
-        : value === THERAPIST && sessionType === "single"
-        ? "therapy"
-        : value === COACH
-        ? "coach"
-        : "couples";
-  } else {
-    flow =
-      value === PSYCHIATRIST
-        ? "psychiatry"
-        : value === THERAPIST
-        ? "therapy"
-        : value === COACH
-        ? "coach"
-        : value === COUPLE_THERAPIST
-        ? "couples"
-        : undefined;
-  }
-
-  return flow;
 };
 
 export const checkObjEmpty = (obj, filterCondition1, filterCondition2 = "") => {
@@ -291,17 +269,17 @@ export const handleMapOpen = (latitude, longitude, label) => {
   // opens map for locations, google maps on android and web, apple maps on ios
   // latitude: string, longitude: string, label: string
   try {
-    openMap(latitude, longitude, label);
-    if (window.Android) {
-      window.Android.openMap(latitude, longitude, label);
-    } else if (window.ReactNativeWebView) {
-      const mapUrl = `http://maps.apple.com/?ll=${latitude},${longitude}`;
-      window.ReactNativeWebView.postMessage(`openLink,${mapUrl}`);
-    } else {
-      window.open(
-        `https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`
-      );
-    }
+    // openMap(latitude, longitude, label);
+    // if (window.Android) {
+    //   window.Android.openMap(latitude, longitude, label);
+    // } else if (window.ReactNativeWebView) {
+    //   const mapUrl = `http://maps.apple.com/?ll=${latitude},${longitude}`;
+    //   window.ReactNativeWebView.postMessage(`openLink,${mapUrl}`);
+    // } else {
+    window.open(
+      `https://www.google.com/maps/search/?api=1&query=${latitude}%2C${longitude}`
+    );
+    // }
   } catch (err) {
     console.log(err, "Error in opening map");
     Bugsnag.notify(err);
@@ -408,7 +386,7 @@ const getAppendedUrl = (link, obj, queryString) => {
  *
  * @param {String} link
  * This function is a wrapper for the window.open function
- * This is append the UTM params available in the storage.
+ * This is append the UTM params available in the localStorage.
  */
 export const windowOpenFn = link => {
   let queryString = "";
@@ -417,9 +395,9 @@ export const windowOpenFn = link => {
   }
   let url = link;
 
-  let ad_user_params = storage.local.getItem("ad_user_params");
+  let ad_user_params = localStorage.local.getItem("ad_user_params");
 
-  if (!!ad_user_params) {
+  if (ad_user_params) {
     ad_user_params = JSON.parse(ad_user_params);
     /**
      * Looping over the ad_user_params to append the queries to the url
@@ -449,95 +427,6 @@ export const windowOpenFn = link => {
  * @returns {String | Object} string or object containing redirection pathname and query
  */
 
-export const getRedirectLink = (link, query, shouldReturnAsObject = false) => {
-  try {
-    let url = link;
-    // All the query parameters sent as an object or as query string will be kept as key value pair
-    let queryObj = {};
-    let queryString = "";
-    // If the url sent has query parameters then split it and store it as querystring
-    if (url.split("?").length > 1) {
-      queryString = url.split("?")[1];
-    }
-    if (queryString) {
-      // parse the queryString and store as key value pair in queryObj by replacing special characters such as ? & etc
-      queryObj = JSON.parse(
-        '{"' +
-          queryString
-            .replace(/"/g, '\\"')
-            .replace(/&/g, '","')
-            .replace(/=/g, '":"') +
-          '"}'
-      );
-    }
-    // Get the UTM params from the storage
-    let ad_user_params = storage.local.getItem("ad_user_params");
-
-    // Check if UTM params are present if not check the current url if it contains UTM params
-    if (!!ad_user_params) {
-      ad_user_params = JSON.parse(ad_user_params);
-      queryObj = { ...queryObj, ...ad_user_params };
-    } else {
-      let currentUrl = window.location.href;
-      /** If no UTM params available in the storege then check
-       * if the current url has UTM params if yes then only append
-       * UTM params removing other parametres if any.
-       * This is to avoid the unwanted query parametres passing to the urls
-       * Rest all the steps are similar to the one's we have done above
-       * */
-      if (currentUrl.indexOf("utm_source") != -1) {
-        let currentQueryObj = {};
-        let currentQueryString = "";
-        if (currentUrl.split("?").length > 1) {
-          currentQueryString = currentUrl.split("?")[1];
-        }
-        if (currentQueryString) {
-          currentQueryObj = JSON.parse(
-            '{"' +
-              currentQueryString
-                .replace(/"/g, '\\"')
-                .replace(/&/g, '","')
-                .replace(/=/g, '":"') +
-              '"}'
-          );
-        }
-        // at last append UTM parames to the queryObject
-        const mergedObject = Object.assign({}, queryObj, currentQueryObj);
-        queryObj = { ...mergedObject };
-      }
-    }
-    // If there is an query object passed to this function then append it to the existing queryObject
-    if (!!query) {
-      queryObj = { ...queryObj, ...query };
-    }
-
-    const company = storage.local.getItem("company");
-    if (company) {
-      queryObj.company = company;
-    }
-
-    /**
-     * This is to return as an object containing pathname and query.
-     * Mostly for the links and the places from where the redirection
-     * is done using router.push or router.replace we will return object
-     */
-    if (shouldReturnAsObject) {
-      return {
-        pathname: url.split("?")[0],
-        query: queryObj,
-      };
-    } else {
-      /**
-       * Looping over the queryObj to append the queries to the url
-       */
-      url = getAppendedUrl(url, queryObj, queryString);
-      return url;
-    }
-  } catch (error) {
-    Bugsnag.notify(error);
-  }
-};
-
 export const parseJwt = token => {
   const base64Url = token.split(".")[1];
   const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -553,8 +442,9 @@ export const parseJwt = token => {
 };
 
 export const isValidEmailDomain = async target => {
-  const blacklistedDomains = (await import("@metadata/blacklistedDomains"))
-    .default;
+  const blacklistedDomains = [];
+  // const blacklistedDomains = (await import("@metadata/blacklistedDomains"))
+  //   .default;
 
   let left = 0;
   let right = blacklistedDomains.length - 1;
@@ -577,21 +467,6 @@ export const isValidEmailDomain = async target => {
 
 export const capitalizeFirstLetter = str =>
   str?.charAt(0)?.toUpperCase() + str?.slice(1);
-
-export const getUrlWithToken = async () => {
-  try {
-    const token = await getTokenHeaders();
-    if (token) {
-      const tokenStr = JSON.stringify(token);
-      const base64Token = Buffer.from(tokenStr).toString("base64");
-      return `${communityUrl}/switch?token=${base64Token}`;
-    } else {
-      return communityUrl;
-    }
-  } catch (error) {
-    return communityUrl;
-  }
-};
 
 export const isPartnerDomain = () => {
   try {

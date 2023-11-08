@@ -1,11 +1,5 @@
 import styled, { css } from "styled-components";
-import {
-  ACCENT_200,
-  ACCENT_400,
-  // GREEN_200,
-  ACCENT_300,
-  PRIMARY_200,
-} from "./colors";
+import { ACCENT_200, ACCENT_400, ACCENT_300, PRIMARY_200 } from "./colors";
 import FlexBox from "./FlexBox";
 
 const Wrapper = styled(FlexBox)`
@@ -38,18 +32,6 @@ const Wrapper = styled(FlexBox)`
       }
     `}
 
-  ${({ selected2 }) =>
-    selected2 &&
-    css`
-      // border-color: ${GREEN_200};
-      // background-color: ${GREEN_200};
-
-      &:hover {
-        // border-color: ${GREEN_200};
-        // background-color: ${GREEN_200};
-      }
-    `}
-
   ${({ disabled }) =>
     !!disabled &&
     css`
@@ -62,7 +44,6 @@ const Wrapper = styled(FlexBox)`
 const Chip = ({
   onClick,
   selected,
-  selected2,
   disabled,
   children,
   width,
@@ -71,7 +52,6 @@ const Chip = ({
 }) => (
   <Wrapper
     selected={selected}
-    selected2={selected2}
     onClick={onClick}
     disabled={disabled}
     width={width}

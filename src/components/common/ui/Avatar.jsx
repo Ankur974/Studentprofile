@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { FiMoreHorizontal } from "react-icons/fi";
+
 import { DUSTY_ORANGE_700, ERROR } from "./colors";
 import { H3 } from "./Headings";
-import { FiMoreHorizontal } from "react-icons/fi";
 import FlexBox from "./FlexBox";
 
 const Container = styled(FlexBox)`
@@ -48,15 +49,9 @@ const Dot = styled.div`
   background-color: ${ERROR};
 `;
 
-const Img = styled.img`
-  width: 100%;
-  max-width: 3rem;
-  aspect-ratio: 1;
-`;
-
 const Avatar = ({ name, firstname, lastname, typing, showDot, isDisabled }) => {
   let initials = "";
-  const noName = !name && !firstname;
+
   if (name) {
     initials = name
       .split(" ")
@@ -64,9 +59,7 @@ const Avatar = ({ name, firstname, lastname, typing, showDot, isDisabled }) => {
       .join("")
       .slice(0, 2);
   } else if (firstname) {
-    initials = `${firstname?.charAt(0)}${
-      !!lastname ? lastname?.charAt(0) : ""
-    }`;
+    initials = `${firstname?.charAt(0)}${!lastname ? "" : lastname?.charAt(0)}`;
   }
 
   return (

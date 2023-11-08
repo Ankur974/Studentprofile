@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { H3, H5, TextCTA } from "@common/Headings";
+import { H3, H5, TextCTA } from "@common/ui/Headings";
 import {
   PRIMARY_800,
   PRIMARY_500,
@@ -12,11 +13,7 @@ import {
 import { trackEvent } from "@utils/helpers";
 import { FiChevronDown, FiChevronUp, FiCopy } from "react-icons/fi";
 import useMobileView from "@hooks/useMobileView";
-import * as storage from "@utils/storageFactory";
-import axiosInstance from "@axiosInstance";
-import urls from "@urls";
-import Bugsnag from "@bugsnag/js";
-import { copyCoupon } from "../../../utils/interfaces";
+// import * as storage from "@utils/storageFactory";
 
 const Title = styled(H3)`
   font-size: 1rem;
@@ -128,9 +125,9 @@ const ShareAmahaCard = ({
   const [couponCode, setCouponCode] = useState(null);
 
   useEffect(() => {
-    storage.local.getItem("isReferralCardExpanded") === "true"
-      ? setIsExpanded(true)
-      : setIsExpanded(false);
+    // storage.local.getItem("isReferralCardExpanded") === "true"
+    //   ? setIsExpanded(true)
+    //   : setIsExpanded(false);
     getOwnCouponCode();
   }, []);
 
@@ -142,28 +139,19 @@ const ShareAmahaCard = ({
   };
 
   const handleCopy = () => {
-    copyCoupon(couponCode);
-    if (window.Android) {
-      window.Android.copyCoupon(couponCode);
-      showToast();
-    } else if (window.ReactNativeWebView) {
-      window.ReactNativeWebView.postMessage(`copyText,${couponCode}`);
-      showToast();
-    } else {
-      navigator?.clipboard
-        ?.writeText(couponCode)
-        ?.then(() => showToast())
-        ?.catch(() => window?.alert?.("Unable to copy"));
-    }
+    navigator?.clipboard
+      ?.writeText(couponCode)
+      ?.then(() => showToast())
+      ?.catch(() => window?.alert?.("Unable to copy"));
   };
 
   const getOwnCouponCode = async () => {
-    try {
-      const res = await axiosInstance.get(urls.ownReferralCoupon);
-      setCouponCode(res?.data?.coupon_id);
-    } catch (error) {
-      Bugsnag.notify(error);
-    }
+    // try {
+    //   const res = await axiosInstance.get(urls.ownReferralCoupon);
+    //   setCouponCode(res?.data?.coupon_id);
+    // } catch (error) {
+    //   Bugsnag.notify(error);
+    // }
   };
 
   const toggleExpanded = () => {
@@ -180,7 +168,7 @@ const ShareAmahaCard = ({
         },
       });
     }
-    storage.local.setItem("isReferralCardExpanded", !isExpanded);
+    // storage.local.setItem("isReferralCardExpanded", !isExpanded);
     setIsExpanded(!isExpanded);
   };
 
@@ -188,7 +176,7 @@ const ShareAmahaCard = ({
     <>
       <CardWrapper hasCouponCode={!!couponCode}>
         <FlexBox columnGap="1rem" align="center">
-          <img src="https://cdn.theinnerhour.com/assets/images/referral-card-visual.svg" />
+          <img src="/assets/images/referral-card-visual.svg" />
           <Title bold>Show a loved one that they’re not alone</Title>
           {isMobile && (
             <>

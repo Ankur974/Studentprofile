@@ -22,7 +22,7 @@ const Card = styled(FlexBox)`
   background: ${({ isNsp }) => (isNsp ? BRICK_TERRACOTA : ACCENT_100)};
   border: ${({ isNsp }) =>
     isNsp ? `1px dashed ${PRIMARY_800}` : `1px solid ${ACCENT_400}`};
-  padding: 1rem;
+  padding: 0.875rem;
   width: 100%;
   box-sizing: border-box;
 `;
@@ -41,7 +41,7 @@ const commonIconProps = {
 
 const SessionDetails = styled.div`
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   grid-gap: 1em;
@@ -81,32 +81,28 @@ const NSPText = styled(Support)`
 `;
 
 const RelativeDiv = styled(FlexBox)`
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   position: relative;
-`;
-
-const SessionIcon = styled.div`
-  cursor: pointer;
 `;
 
 const SessionCard = ({ session, isNsp }) => {
   const [showSessionOptions, setShowSessionOptions] = useState(false);
-  const [showViewLocationModal, setShowViewLocationModal] = useState(false);
-  const [showRescheduleScreen, setShowRescheduleScreen] = useState(false);
+  // const [showViewLocationModal, setShowViewLocationModal] = useState(false);
+  // const [showRescheduleScreen, setShowRescheduleScreen] = useState(false);
 
-  const [showChangeSessionModeModal, setShowChangeSessionModeModal] =
-    useState(false);
+  // const [showChangeSessionModeModal, setShowChangeSessionModeModal] =
+  //   useState(false);
 
-  const handleChangeSessionModal = () => {
-    setShowChangeSessionModeModal(!showChangeSessionModeModal);
-  };
+  // const handleChangeSessionModal = () => {
+  //   setShowChangeSessionModeModal(!showChangeSessionModeModal);
+  // };
 
   const toggleSessionOptions = () => setShowSessionOptions(!showSessionOptions);
-  const toggleViewLocationModal = () =>
-    setShowViewLocationModal(!showViewLocationModal);
+  // const toggleViewLocationModal = () =>
+  //   setShowViewLocationModal(!showViewLocationModal);
 
-  const toggleShowRescheduleScreen = () =>
-    setShowRescheduleScreen(!showRescheduleScreen);
+  // const toggleShowRescheduleScreen = () =>
+  //   setShowRescheduleScreen(!showRescheduleScreen);
 
   const providerName = session.provider?.firstname + session.provider?.lastname;
   return (
@@ -145,12 +141,12 @@ const SessionCard = ({ session, isNsp }) => {
       <Card column isNsp={isNsp}>
         <FlexBox align="center" justify="space-between" width="100%">
           <FlexBox align="center" columnGap="0.5rem">
-            <ProviderImg src="https://cdn.theinnerhour.com/assets/images/avatar_flower_1.png" />
-            <FlexBox column justify="center" padding="0 1rem" rowGap="0.5rem">
+            <ProviderImg src="/assets/images/stylists/men.jpg" />
+            <FlexBox column justify="center">
               <Support color={ACCENT_700} textTransform="capitalize">
-                {session.provider_role} session with
+                session with
               </Support>
-              <Body2 bold>{providerName || "Varsha Shinde"}</Body2>
+              <Body2 bold>{providerName || "Ganesh Hairstylist"}</Body2>
             </FlexBox>
           </FlexBox>
           {!isNsp && (
@@ -163,33 +159,20 @@ const SessionCard = ({ session, isNsp }) => {
           )}
         </FlexBox>
         <SessionDetails>
-          <FlexBox column rowGap="0.5rem">
-            <Body2 bold>
-              {dayjs(session.datetime_at_customer_timezone.datetime).format(
-                "DD MMM YYYY"
-              )}
-              ,
-            </Body2>
-            <Support bold>
-              {dayjs(
-                session.datetime_at_customer_timezone.slot,
-                "HH:mm"
-              ).format("hh:mm A")}
-            </Support>
-          </FlexBox>
-          <FlexBox column justify="center" rowGap="0.5rem">
-            <SessionIcon>
-              <img
-                src="/assets/images/dashboard/icon-offline.svg"
-                width={24}
-                onClick={toggleViewLocationModal}
-                cursor="pointer"
-              />
-            </SessionIcon>
-            <Support bold>{session.duration / 60} mins</Support>
-          </FlexBox>
+          <Support bold color={ACCENT_700}>
+            {dayjs(session.datetime_at_customer_timezone?.datetime).format(
+              "DD MMM YYYY"
+            )}
+            {" | "}
+            {dayjs(session.datetime_at_customer_timezone?.slot, "HH:mm").format(
+              "hh:mm A"
+            )}
+            {" | "}
+            {session.duration} mins
+          </Support>
+
           <FlexBox align="center" justify="flex-end" columnGap="0.5rem">
-            {isNsp ? <Button>BOOK</Button> : <Button>JOIN</Button>}
+            {isNsp && <Button>BOOK</Button>}
             {isNsp && (
               <RoundedCloseIcon id="session-options">
                 <FiX

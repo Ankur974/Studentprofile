@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { H3, H4, H5, TextCTA } from "@common/Headings";
+import { H3, H4, H5, TextCTA } from "@common/ui/Headings";
 import {
   PRIMARY_800,
   PRIMARY_400,
@@ -90,11 +90,11 @@ const ShareProviderCard = ({
   useEffect(() => {
     if (!user) return;
     if (currentReferralState.selectedProviderType === "therapist") {
-      !!user.mytherapist
+      user.mytherapist
         ? setShareIndividualProvider(true)
         : setShareIndividualProvider(false);
     } else if (currentReferralState.selectedProviderType === "psychiatrist") {
-      !!user.mypsychiatrist
+      user.mypsychiatrist
         ? setShareIndividualProvider(true)
         : setShareIndividualProvider(false);
     }
@@ -131,7 +131,7 @@ const ShareProviderCard = ({
     <Container>
       <FlexBox column rowGap="1rem">
         <FlexBox columnGap="1.1rem" align="center">
-          <img src="https://cdn.theinnerhour.com/assets/images/referral-card-visual.svg" />
+          <img src="/assets/images/referral-card-visual.svg" />
           <Title bold>How do you want to support your loved one?</Title>
         </FlexBox>
         <FlexBox column rowGap="1.25rem" align="center">
@@ -181,9 +181,9 @@ const ShareProviderCard = ({
                       }}
                     >
                       {!shareIndividualProvider ? (
-                        <img src="https://cdn.theinnerhour.com/assets/images/icon-radio-green-inactive.svg" />
+                        <img src="/assets/images/icon-radio-green-inactive.svg" />
                       ) : (
-                        <img src="https://cdn.theinnerhour.com/assets/images/icon-radio-green-active.svg" />
+                        <img src="/assets/images/icon-radio-green-active.svg" />
                       )}
                       <H5 bold>Refer Your Therapist</H5>
                     </FlexBox>
@@ -220,9 +220,9 @@ const ShareProviderCard = ({
                   }}
                 >
                   {shareIndividualProvider ? (
-                    <img src="https://cdn.theinnerhour.com/assets/images/icon-radio-green-inactive.svg" />
+                    <img src="/assets/images/icon-radio-green-inactive.svg" />
                   ) : (
-                    <img src="https://cdn.theinnerhour.com/assets/images/icon-radio-green-active.svg" />
+                    <img src="/assets/images/icon-radio-green-active.svg" />
                   )}
                   <H5 bold>Share Therapy at Amaha</H5>
                 </FlexBox>
@@ -283,9 +283,9 @@ const ShareProviderCard = ({
                       }}
                     >
                       {!shareIndividualProvider ? (
-                        <img src="https://cdn.theinnerhour.com/assets/images/icon-radio-green-inactive.svg" />
+                        <img src="/assets/images/icon-radio-green-inactive.svg" />
                       ) : (
-                        <img src="https://cdn.theinnerhour.com/assets/images/icon-radio-green-active.svg" />
+                        <img src="/assets/images/icon-radio-green-active.svg" />
                       )}
                       <H5 bold>Refer Your Psychiatrist</H5>
                     </FlexBox>
@@ -322,9 +322,9 @@ const ShareProviderCard = ({
                   }}
                 >
                   {shareIndividualProvider ? (
-                    <img src="https://cdn.theinnerhour.com/assets/images/icon-radio-green-inactive.svg" />
+                    <img src="/assets/images/icon-radio-green-inactive.svg" />
                   ) : (
-                    <img src="https://cdn.theinnerhour.com/assets/images/icon-radio-green-active.svg" />
+                    <img src="/assets/images/icon-radio-green-active.svg" />
                   )}
                   <H5 bold>Share Psychiatry at Amaha</H5>
                 </FlexBox>

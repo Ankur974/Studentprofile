@@ -7,7 +7,7 @@ import DropdownWrapper from "@common/Dashboard/DropdownWrapper";
 import { Body2, Support } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import {
-  DAVYS_GRAY_400,
+  ACCENT_400,
   ACCENT_200,
   ACCENT_800,
   PRIMARY_800,
@@ -30,7 +30,7 @@ const DropdownOption = styled(FlexBox)`
   align-items: center;
   justify-content: space-between;
   transition: background-color 250ms ease-in-out;
-  border-bottom: 1px solid ${DAVYS_GRAY_400};
+  border-bottom: 1px solid ${ACCENT_400};
   svg {
     color: var(--accent-500);
     transition: color 250ms ease-in-out;

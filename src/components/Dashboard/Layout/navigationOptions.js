@@ -1,20 +1,20 @@
 export const navigationOptions = [
   {
-    icon: "/assets/images/dashboard/home-gray.svg",
-    iconActive: "/assets/images/dashboard/home.svg",
-    link: "/",
+    icon: "/assets/images/dashboard/dashboard.svg",
+    iconActive: "/assets/images/dashboard/dashboard.svg",
+    link: "/user/dashboard",
     title: "Dashboard",
   },
   {
-    icon: "/assets/images/test.svg",
-    iconActive: "/assets/images/test.svg",
-    link: "/",
+    icon: "/assets/images/dashboard/mysalon.svg",
+    iconActive: "/assets/images/dashboard/mysalon.svg",
+    link: "/user/my-salons",
     title: "My Salons",
   },
   {
-    icon: "/assets/images/dashboard/journey-gray.svg",
+    icon: "/assets/images/dashboard/journey.svg",
     iconActive: "/assets/images/dashboard/journey.svg",
-    link: "/",
+    link: "/user/my-journey",
     title: "Journey",
   },
 ];

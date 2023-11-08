@@ -1,16 +1,11 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import {
-  FiBell,
-  FiMenu,
-  FiMessageCircle,
-  FiMoreHorizontal,
-} from "react-icons/fi";
+import { FiBell, FiMenu, FiMoreHorizontal } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 import { BooleanParam, useQueryParams } from "use-query-params";
 
-import { H2 } from "@common/ui/Headings";
+import { H3 } from "@common/ui/Headings";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import FlexBox from "@common/ui/FlexBox";
 import Loader from "@common/ui/Loader";
@@ -196,11 +191,10 @@ const DashboardLayout = ({
   title = "Dashboard",
   hideHeader,
   hideFooter,
-  hideChat,
 }) => {
   const user = useSelector(state => state.auth?.user);
+
   const [showNavigation, setShowNavigation] = useState(true);
-  const [showChatWithProviders, setShowChatWithProviders] = useState(false);
   const [showNotificationsPopup, setShowNotificationsPopup] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showMoreActions, setShowMoreActions] = useState(false);
@@ -216,8 +210,6 @@ const DashboardLayout = ({
   const { showSessionDetailsModal } = queryParams;
 
   const toggleNavigation = () => setShowNavigation(!showNavigation);
-  const toggleChatWithProviders = () =>
-    setShowChatWithProviders(!showChatWithProviders);
   const toggleNotificationsPopup = () =>
     setShowNotificationsPopup(prev => !prev);
   const toggleProfileDropdown = () => setShowProfileDropdown(prev => !prev);
@@ -246,7 +238,7 @@ const DashboardLayout = ({
           <Header hideHeader={hideHeader}>
             <PageHading align="center" columnGap="1.5rem">
               <FiMenu onClick={toggleNavigation} {...commonIconProps} />
-              <H2 bold>{title}</H2>
+              <H3 bold>{title}</H3>
             </PageHading>
             <AvatarWithName position="relative" align="center" justify="center">
               <FlexBox
@@ -263,7 +255,7 @@ const DashboardLayout = ({
                   src={"https:" + user?.image}
                   onClick={toggleMobileMenu}
                 />
-                <H2 bold>Hello, Usera</H2>
+                <H3 bold>Hello, User</H3>
               </FlexBox>
             </AvatarWithName>
             <FlexBox align="center" columnGap="1.5rem">
@@ -289,7 +281,7 @@ const DashboardLayout = ({
                   alt="User Image"
                   draggable="false"
                   id="header-user-image"
-                  src={"https:" + user?.image}
+                  src="/assets/images/stylists/men.jpg"
                   onClick={toggleProfileDropdown}
                 />
               </Avatar>

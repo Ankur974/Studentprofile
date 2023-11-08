@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
-import FlexBox from "./ui/FlexBox";
-import { PRIMARY_800, ACCENT_100, ACCENT_200 } from "./ui/colors";
-import { H3, Support } from "./ui/Headings";
+
+import FlexBox from "@common/ui/FlexBox";
+import { PRIMARY_800, ACCENT_100, ACCENT_200 } from "@common/ui/colors";
+import { H3, Support } from "@common/ui/Headings";
 import { PamprazziFAQsData } from "../../metadata/HomePage";
 
 const ApproachContainer = styled.div`
@@ -78,7 +79,7 @@ const ChevronContainer = styled(FlexBox)`
   height: 1.5rem;
   border-radius: 50%;
   background-color: ${ACCENT_200};
-  transform: ${props => (props.up ? `rotate(-180deg)` : `rotate(0deg)`)};
+  transform: ${props => (props.up ? "rotate(-180deg)" : "rotate(0deg)")};
   transition: transform 0.25s ease-in-out;
 `;
 

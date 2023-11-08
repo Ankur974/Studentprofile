@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import FlexBox from "../common/ui/FlexBox";
-import { H2, Body2 } from "../common/ui/Headings";
-import { ACCENT_800, PRIMARY_800 } from "../common/ui/colors";
-import Rating from "../common/ui/Ratings";
-import { RxCheck, RxCross1 } from "react-icons/rx";
-import Chip from "../common/ui/Chips";
-import Modal from "../common/ui/Modal";
 import { FiX } from "react-icons/fi";
+import { RxCheck } from "react-icons/rx";
+
+import FlexBox from "@common/ui/FlexBox";
+import { H2, Body2 } from "@common/ui/Headings";
+import { ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
+import Rating from "@common/ui/Ratings";
+import Chip from "@common/ui/Chips";
+import Modal from "@common/ui/Modal";
 
 const services = [
   {

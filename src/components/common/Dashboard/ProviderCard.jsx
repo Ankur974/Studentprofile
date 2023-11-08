@@ -68,7 +68,7 @@ ProviderCard.defaultProps = {
     firstname: "Provider Name",
     lastname: "",
     type: "therapist",
-    avatar: "https://cdn.theinnerhour.com/assets/images/avatar_flower_1.png",
+    avatar: "/assets/images/avatar_flower_1.png",
     experience: 5,
     educations: [
       {
