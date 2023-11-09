@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { FiMoreHorizontal } from "react-icons/fi";
 
 import FlexBox from "@common/ui/FlexBox";
-import { DUSTY_ORANGE_700, ERROR_RED_400 } from "@common/ui/colors";
+import { DUSTY_ORANGE_700, ERROR } from "@common/ui/colors";
 import { H3 } from "./Headings";
 
 const Container = styled(FlexBox)`
@@ -52,7 +52,7 @@ const Dot = styled.div`
   top: 0.25rem;
   right: 0.25rem;
   border-radius: 4rem;
-  background-color: ${ERROR_RED_400};
+  background-color: ${ERROR};
 `;
 
 const DefaultImg = styled.img`

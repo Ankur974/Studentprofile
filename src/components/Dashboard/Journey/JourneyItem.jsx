@@ -3,7 +3,7 @@ import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 
 import { Case, Default, Switch } from "@common/ConditionalRendering";
-import { H4 } from "@common/ui/Headings";
+import { Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_800 } from "@common/ui/colors";
 
@@ -66,17 +66,17 @@ const JourneyItem = ({
           <Case condition={!isPrimary}>
             <Title>
               <Circle isPrimary={isPrimary} />
-              <H4 opacity={0.7}>{title}</H4>
+              <Body2 opacity={0.7}>{title}</Body2>
             </Title>
           </Case>
           <Default>
             <Title>
               <Circle isPrimary={isPrimary} />
-              <H4 bold>{title}</H4>
+              <Body2 bold>{title}</Body2>
             </Title>
           </Default>
         </Switch>
-        <H4 opacity={!isPrimary && 0.7}>{content}</H4>
+        <Body2 opacity={!isPrimary && 0.7}>{content}</Body2>
       </Content>
       <FiChevronRight />
     </Container>

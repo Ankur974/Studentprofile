@@ -2,7 +2,7 @@ import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_300, WHITE, DARK_MOSS_GREEN_800 } from "@common/ui/colors";
+import { ACCENT_300, WHITE, PRIMARY_800 } from "@common/ui/colors";
 import { H2 } from "./Headings";
 import { IconButton } from "./Buttons";
 
@@ -44,12 +44,12 @@ const Card = ({
             <H2
               bold
               onClick={toggleScreens}
-              color={DARK_MOSS_GREEN_800}
+              color={PRIMARY_800}
               cursor="pointer"
             >
               Dashboard
             </H2>{" "}
-            <FiChevronRight color={DARK_MOSS_GREEN_800} /> <H2 bold>{title}</H2>
+            <FiChevronRight color={PRIMARY_800} /> <H2 bold>{title}</H2>
           </FlexBox>
         ) : (
           <H2 bold>{title}</H2>

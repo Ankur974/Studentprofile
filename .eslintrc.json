@@ -5,6 +5,7 @@
     "node": true,
     "es2021": true
   },
+  "ignorePatterns": ["_app.tsx", "dummy.ts"],
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaVersion": "latest",

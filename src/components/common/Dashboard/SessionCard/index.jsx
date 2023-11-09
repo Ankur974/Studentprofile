@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 
 import FlexBox from "@common/ui/FlexBox";
 import {
-  BRICK_TERRACOTA,
+  ERROR,
   ACCENT_100,
   ACCENT_400,
   ACCENT_700,
@@ -19,7 +19,7 @@ import { Body2, Support } from "../Headings";
 
 const Card = styled(FlexBox)`
   border-radius: 0.5rem;
-  background: ${({ isNsp }) => (isNsp ? BRICK_TERRACOTA : ACCENT_100)};
+  background: ${({ isNsp }) => (isNsp ? ERROR : ACCENT_100)};
   border: ${({ isNsp }) =>
     isNsp ? `1px dashed ${PRIMARY_800}` : `1px solid ${ACCENT_400}`};
   padding: 0.875rem;

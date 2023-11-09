@@ -8,8 +8,8 @@ import { Modal } from "@common/Dashboard/Modal";
 import FlexBox from "@common/ui/FlexBox";
 import {
   ACCENT_400,
-  DUSTY_ORANGE_500,
-  ERROR_RED_400,
+  PRIMARY_500,
+  ERROR,
   SUCCESS_GREEN_400,
 } from "@common/ui/colors";
 
@@ -89,8 +89,8 @@ const SessionDetails = () => {
                 <Body2 bold>07 Jan 2023, 07:16 PM</Body2>
               </FlexBox>
               <FlexBox justify="space-between" align="center">
-                <Body2 color={ERROR_RED_400}>Cancelled on</Body2>
-                <Body2 color={ERROR_RED_400} bold>
+                <Body2 color={ERROR}>Cancelled on</Body2>
+                <Body2 color={ERROR} bold>
                   10 Jan 2023, 07:16 PM
                 </Body2>
               </FlexBox>
@@ -127,7 +127,7 @@ const SessionDetails = () => {
               </FlexBox>
               <FlexBox justify="space-between" align="center">
                 <Body2>Refund status</Body2>
-                <Body2 bold color={DUSTY_ORANGE_500}>
+                <Body2 bold color={PRIMARY_500}>
                   pending
                 </Body2>
               </FlexBox>

@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_800 } from "@common/ui/colors";
-import { H3, H4 } from "@common/ui/Headings";
+import { H3, Body2 } from "@common/ui/Headings";
 
 const Dot = styled.div`
   width: 0.25rem;
@@ -32,7 +32,7 @@ const AboutMe = ({ providerData }) => {
             />
             <H3 bold>Languages I speak</H3>
           </SectionTitle>
-          <H4>{languages?.map(lang => lang?.name)?.join(", ")}</H4>
+          <Body2>{languages?.map(lang => lang?.name)?.join(", ")}</Body2>
         </FlexBox>
       )}
 
@@ -46,11 +46,11 @@ const AboutMe = ({ providerData }) => {
             />
             <H3 bold>I can help you with</H3>
           </SectionTitle>
-          <H4>
+          <Body2>
             {Array.isArray(otherinterests)
               ? otherinterests.join(", ")
               : otherinterests}
-          </H4>
+          </Body2>
         </FlexBox>
       )}
 
@@ -73,13 +73,13 @@ const AboutMe = ({ providerData }) => {
               paddingBlock="0.1rem"
             >
               <Dot />
-              <H4>
+              <Body2>
                 {aff.designation} at {aff.organisation} from{" "}
                 {dayjs(aff.startdate).format("MMM YYYY")} to{" "}
                 {aff.iscurrent
                   ? "present"
                   : dayjs(aff.enddate).format("MMM YYYY")}
-              </H4>
+              </Body2>
             </FlexBox>
           ))}
         </FlexBox>

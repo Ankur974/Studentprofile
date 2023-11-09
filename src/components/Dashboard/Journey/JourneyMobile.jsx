@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 
 import { journeyDummyData } from "@metadata/dashboard/journey";
-import { ACCENT_800, DARK_MOSS_GREEN_800, ACCENT_400 } from "@common/ui/colors";
+import { ACCENT_800, PRIMARY_800, ACCENT_400 } from "@common/ui/colors";
 import { Case, Default, Switch } from "@common/ConditionalRendering";
 import FlexBox from "@common/ui/FlexBox";
 import { H2 } from "@common/ui/Headings";
@@ -62,8 +62,8 @@ const ProviderChip = styled(FlexBox)`
     isSelected
       ? css`
           color: white;
-          background-color: ${DARK_MOSS_GREEN_800};
-          border: 1px solid ${DARK_MOSS_GREEN_800};
+          background-color: ${PRIMARY_800};
+          border: 1px solid ${PRIMARY_800};
         `
       : css`
           color: ${ACCENT_800};

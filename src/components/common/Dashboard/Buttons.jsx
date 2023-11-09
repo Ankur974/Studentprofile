@@ -5,24 +5,18 @@ import {
   ACCENT_200,
   ACCENT_400,
   ACCENT_500,
-  BRICK_TERRACOTA_400,
-  BRICK_TERRACOTA_500,
-  BRICK_TERRACOTA_800,
-  BRICK_TERRACOTA_900,
-  DARK_MOSS_GREEN_400,
-  DARK_MOSS_GREEN_500,
-  DARK_MOSS_GREEN_800,
-  DARK_MOSS_GREEN_900,
-  ERROR_RED_400,
-  ERROR_RED_500,
-  ERROR_RED_600,
+  ERROR,
+  PRIMARY_400,
+  PRIMARY_500,
+  PRIMARY_800,
+  PRIMARY_900,
 } from "@common/ui/colors";
 
 export const Button = styled.button`
   box-sizing: border-box;
   display: ${({ block }) => (block ? "block" : "inline-block")};
   color: ${({ color }) => color || ACCENT_100};
-  background-color: ${({ bgColor }) => bgColor || BRICK_TERRACOTA_800};
+  background-color: ${({ bgColor }) => bgColor || ERROR};
   width: ${({ width }) => width || "auto"};
   padding: ${({ padding }) => padding || "0.5rem 1.5rem"};
   font-size: 0.875rem;
@@ -32,29 +26,27 @@ export const Button = styled.button`
   text-transform: uppercase;
   white-space: nowrap;
   border-radius: ${({ borderRadius }) => borderRadius || "2.5rem"};
-  border: 1px solid ${({ borderColor }) => borderColor || BRICK_TERRACOTA_800};
+  border: 1px solid ${({ borderColor }) => borderColor || ERROR};
   cursor: ${({ cursor }) => cursor || "pointer"};
 
   :hover {
     color: ${({ hoverColor }) => hoverColor || ACCENT_100};
-    background-color: ${({ hoverBgColor }) =>
-      hoverBgColor || BRICK_TERRACOTA_900};
-    border-color: ${({ hoverBorderColor }) =>
-      hoverBorderColor || BRICK_TERRACOTA_900};
+    background-color: ${({ hoverBgColor }) => hoverBgColor || ERROR};
+    border-color: ${({ hoverBorderColor }) => hoverBorderColor || ERROR};
   }
 
   /* Danger Button */
   ${({ danger }) =>
     danger &&
     css`
-      background-color: ${ERROR_RED_500};
+      background-color: ${ERROR};
       color: ${({ color }) => color || ACCENT_100};
-      border-color: ${ERROR_RED_500};
+      border-color: ${ERROR};
 
       :hover {
-        background-color: ${ERROR_RED_600};
+        background-color: ${ERROR};
         color: ${({ hoverColor }) => hoverColor || ACCENT_100};
-        border-color: ${ERROR_RED_600};
+        border-color: ${ERROR};
       }
     `}
 
@@ -62,14 +54,14 @@ export const Button = styled.button`
   ${({ secondary }) =>
     secondary &&
     css`
-      background-color: ${DARK_MOSS_GREEN_800};
+      background-color: ${PRIMARY_800};
       color: ${({ color }) => color || ACCENT_100};
-      border-color: ${DARK_MOSS_GREEN_800};
+      border-color: ${PRIMARY_800};
 
       :hover {
-        background-color: ${DARK_MOSS_GREEN_900};
+        background-color: ${PRIMARY_900};
         color: ${({ hoverColor }) => hoverColor || ACCENT_100};
-        border-color: ${DARK_MOSS_GREEN_900};
+        border-color: ${PRIMARY_900};
       }
     `}
 
@@ -78,13 +70,13 @@ export const Button = styled.button`
     outline &&
     css`
       background-color: ${ACCENT_100};
-      color: ${({ color }) => color || BRICK_TERRACOTA_800};
-      border-color: ${BRICK_TERRACOTA_400};
+      color: ${({ color }) => color || ERROR};
+      border-color: ${ERROR};
 
       :hover {
         background-color: ${ACCENT_100};
-        color: ${({ hoverColor }) => hoverColor || BRICK_TERRACOTA_900};
-        border-color: ${BRICK_TERRACOTA_500};
+        color: ${({ hoverColor }) => hoverColor || ERROR};
+        border-color: ${ERROR};
       }
     `}
 
@@ -93,12 +85,12 @@ export const Button = styled.button`
     outline &&
     secondary &&
     css`
-      color: ${({ color }) => color || DARK_MOSS_GREEN_800};
-      border-color: ${DARK_MOSS_GREEN_400};
+      color: ${({ color }) => color || PRIMARY_800};
+      border-color: ${PRIMARY_400};
 
       :hover {
-        color: ${({ hoverColor }) => hoverColor || DARK_MOSS_GREEN_900};
-        border-color: ${DARK_MOSS_GREEN_500};
+        color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
+        border-color: ${PRIMARY_500};
       }
     `}
 
@@ -107,13 +99,13 @@ export const Button = styled.button`
     tertiary &&
     css`
       background-color: ${ACCENT_100};
-      color: ${({ color }) => color || DARK_MOSS_GREEN_800};
+      color: ${({ color }) => color || PRIMARY_800};
       border-color: ${({ borderColor }) => borderColor || ACCENT_400};
       border-radius: ${({ borderRadius }) => borderRadius || "2.5rem"};
 
       :hover {
         background-color: ${ACCENT_200};
-        color: ${({ hoverColor }) => hoverColor || DARK_MOSS_GREEN_800};
+        color: ${({ hoverColor }) => hoverColor || PRIMARY_800};
         border-color: ${({ borderColor }) => borderColor || ACCENT_400};
         border-radius: ${({ borderRadius }) => borderRadius || "2.5rem"};
       }
@@ -125,13 +117,13 @@ export const Button = styled.button`
     danger &&
     css`
       background-color: ${ACCENT_100};
-      color: ${({ color }) => color || ERROR_RED_500};
-      border-color: ${ERROR_RED_400};
+      color: ${({ color }) => color || ERROR};
+      border-color: ${ERROR};
 
       :hover {
         background-color: ${ACCENT_100};
-        color: ${({ hoverColor }) => hoverColor || ERROR_RED_600};
-        border-color: ${ERROR_RED_500};
+        color: ${({ hoverColor }) => hoverColor || ERROR};
+        border-color: ${ERROR};
       }
     `}
 
@@ -141,13 +133,13 @@ export const Button = styled.button`
     css`
       padding: 0.5rem;
       background-color: ${ACCENT_100};
-      color: ${({ color }) => color || BRICK_TERRACOTA_800};
+      color: ${({ color }) => color || ERROR};
       border-color: ${ACCENT_100};
       text-decoration: ${({ textDecoration }) => textDecoration || "unset"};
 
       :hover {
         background-color: ${ACCENT_100};
-        color: ${({ color }) => color || BRICK_TERRACOTA_900};
+        color: ${({ color }) => color || ERROR};
         border-color: ${ACCENT_100};
       }
     `}
@@ -157,10 +149,10 @@ export const Button = styled.button`
     textCta &&
     secondary &&
     css`
-      color: ${({ color }) => color || DARK_MOSS_GREEN_800};
+      color: ${({ color }) => color || PRIMARY_800};
 
       :hover {
-        color: ${({ color }) => color || DARK_MOSS_GREEN_900};
+        color: ${({ color }) => color || PRIMARY_900};
       }
     `}
 
@@ -227,7 +219,7 @@ const IconBtn = styled(Button)`
         right: 0.5rem;
         width: 0.5rem;
         height: 0.5rem;
-        background-color: ${ERROR_RED_400};
+        background-color: ${ERROR};
         border-radius: 50%;
       }
     `};

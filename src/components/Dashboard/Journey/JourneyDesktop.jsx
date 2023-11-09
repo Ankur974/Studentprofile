@@ -9,7 +9,7 @@ import FlexBox from "@common/ui/FlexBox";
 import Loader from "@common/ui/Loader";
 import {
   ACCENT_800,
-  DARK_MOSS_GREEN_800,
+  PRIMARY_800,
   ACCENT_400,
   ACCENT_100,
 } from "@common/ui/colors";
@@ -90,8 +90,8 @@ const ProviderChip = styled(FlexBox)`
     isSelected
       ? css`
           color: white;
-          background-color: ${DARK_MOSS_GREEN_800};
-          border: 1px solid ${DARK_MOSS_GREEN_800};
+          background-color: ${PRIMARY_800};
+          border: 1px solid ${PRIMARY_800};
         `
       : css`
           color: ${ACCENT_800};

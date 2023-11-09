@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H4 } from "@common/ui/Headings";
+import { Body2 } from "@common/ui/Headings";
 import { ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
 
 const Dot = styled.div`
@@ -34,18 +34,18 @@ const recommendReschedulingText = [
 const RecommendRescheduling = () => {
   return (
     <>
-      <H4 bold>
+      <Body2 bold>
         Please note: Credits for sessions cancelled less than 12 hours before
         the scheduled time will not be reimbursed.
-      </H4>
-      <H4>
+      </Body2>
+      <Body2>
         We recommend rescheduling a session instead of cancelling, because:
-      </H4>
+      </Body2>
       <FlexBox column>
         {recommendReschedulingText.map((text, index) => (
           <FlexBox key={index} align="baseline" columnGap="0.5rem">
             <Dot />
-            <H4>{text}</H4>
+            <Body2>{text}</Body2>
           </FlexBox>
         ))}
       </FlexBox>

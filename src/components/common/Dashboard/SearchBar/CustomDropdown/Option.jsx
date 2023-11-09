@@ -2,8 +2,8 @@ import { components } from "react-select";
 import styled from "styled-components";
 import { FiCheck } from "react-icons/fi";
 import FlexBox from "@common/ui/FlexBox";
-import { DARK_MOSS_GREEN_900 } from "@common/ui/colors";
-import { H4 } from "../../Headings";
+import { PRIMARY_900 } from "@common/ui/colors";
+import { Body2 } from "../../Headings";
 
 const Container = styled(FlexBox)`
   padding: 0.75rem;
@@ -16,10 +16,8 @@ const Option = props => {
   return (
     <components.Option {...props}>
       <Container>
-        <H4>{props.label}</H4>
-        {props.isSelected && (
-          <FiCheck size="1.25rem" color={DARK_MOSS_GREEN_900} />
-        )}
+        <Body2>{props.label}</Body2>
+        {props.isSelected && <FiCheck size="1.25rem" color={PRIMARY_900} />}
       </Container>
     </components.Option>
   );

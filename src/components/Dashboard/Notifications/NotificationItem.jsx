@@ -6,9 +6,9 @@ import {
   ACCENT_200,
   ACCENT_300,
   ACCENT_600,
-  DARK_MOSS_GREEN_900,
+  PRIMARY_900,
 } from "@common/ui/colors";
-import { H4, H5 } from "@common/ui/Headings";
+import { Body2, H5 } from "@common/ui/Headings";
 
 const Item = styled(FlexBox)`
   flex-direction: column;
@@ -26,9 +26,9 @@ const NotificationItem = ({ notification, padding }) => {
 
   return (
     <Item isRead={isRead} padding={padding} onClick={handleRedirection}>
-      <H4 bold={!isRead} color={!isRead && DARK_MOSS_GREEN_900}>
+      <Body2 bold={!isRead} color={!isRead && PRIMARY_900}>
         {description}
-      </H4>
+      </Body2>
       <H5 bold color={ACCENT_600}>
         {dayjs(date).format("DD MMM YYYY, hh:mm A")}
       </H5>

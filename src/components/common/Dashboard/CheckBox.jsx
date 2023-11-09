@@ -5,7 +5,7 @@ import {
   ACCENT_100,
   ACCENT_400,
   ACCENT_500,
-  DARK_MOSS_GREEN_800,
+  PRIMARY_800,
 } from "@common/ui/colors";
 
 const Container = styled.div`
@@ -29,9 +29,8 @@ const Wrapper = styled(FlexBox)`
   justify-content: center;
   flex-shrink: 0;
   border-radius: 0.25rem;
-  border: 1px solid ${DARK_MOSS_GREEN_800};
-  background-color: ${({ checked }) =>
-    checked ? DARK_MOSS_GREEN_800 : ACCENT_100};
+  border: 1px solid ${PRIMARY_800};
+  background-color: ${({ checked }) => (checked ? PRIMARY_800 : ACCENT_100)};
 
   ${({ disabled }) =>
     disabled &&

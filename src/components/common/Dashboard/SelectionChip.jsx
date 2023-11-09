@@ -5,11 +5,11 @@ import {
   ACCENT_200,
   ACCENT_800,
   ACCENT_400,
-  DARK_MOSS_GREEN_200,
-  DARK_MOSS_GREEN_800,
-  DARK_MOSS_GREEN_900,
+  PRIMARY_200,
+  PRIMARY_800,
+  PRIMARY_900,
 } from "@common/ui/colors";
-import { H4 } from "./Headings";
+import { Body2 } from "./Headings";
 
 const Container = styled(FlexBox)`
   gap: ${({ gap }) => gap};
@@ -24,16 +24,16 @@ const Container = styled(FlexBox)`
   flex-direction: ${({ iconPosition }) =>
     iconPosition === "right" ? "row-reverse" : "row"};
 
-  ${H4} {
+  ${Body2} {
     color: inherit;
   }
 
   ${({ selected, lightBg }) =>
     selected &&
     css`
-      background-color: ${lightBg ? DARK_MOSS_GREEN_200 : DARK_MOSS_GREEN_800};
-      color: ${lightBg ? DARK_MOSS_GREEN_900 : ACCENT_100};
-      border-color: ${lightBg ? DARK_MOSS_GREEN_200 : DARK_MOSS_GREEN_800};
+      background-color: ${lightBg ? PRIMARY_200 : PRIMARY_800};
+      color: ${lightBg ? PRIMARY_900 : ACCENT_100};
+      border-color: ${lightBg ? PRIMARY_200 : PRIMARY_800};
     `}
 
   ${({ selected }) =>
@@ -68,7 +68,7 @@ export const FilterChip = ({
       disabled={disabled}
       padding={padding}
     >
-      <H4 bold>{children}</H4>
+      <Body2 bold>{children}</Body2>
     </Container>
   );
 };
@@ -95,7 +95,7 @@ export const IconChip = ({
       iconPosition={iconPosition}
     >
       {Icon && <Icon size={iconSize} strokeWidth={strokeWidth} />}
-      <H4 bold>{children}</H4>
+      <Body2 bold>{children}</Body2>
     </Container>
   );
 };
