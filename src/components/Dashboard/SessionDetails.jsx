@@ -6,12 +6,7 @@ import { IconButton } from "@common/Dashboard/Buttons";
 import { Body2, H3 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
 import FlexBox from "@common/ui/FlexBox";
-import {
-  ACCENT_400,
-  PRIMARY_500,
-  ERROR,
-  SUCCESS_GREEN_400,
-} from "@common/ui/colors";
+import { ACCENT_400, PRIMARY_500, ERROR, SUCCESS } from "@common/ui/colors";
 
 const Section = styled(FlexBox)`
   width: 100%;
@@ -133,7 +128,7 @@ const SessionDetails = () => {
               </FlexBox>
               <FlexBox justify="space-between" align="center">
                 <Body2>Session credit refund</Body2>
-                <Body2 color={SUCCESS_GREEN_400} bold>
+                <Body2 color={SUCCESS} bold>
                   completed
                 </Body2>
               </FlexBox>
