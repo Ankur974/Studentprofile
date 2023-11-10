@@ -2,10 +2,10 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { SlClock, SlStar } from "react-icons/sl";
 
-import { Body1, Body2 } from "../common/ui/Headings";
-import FlexBox from "../common/ui/FlexBox";
-import { ACCENT_800, PRIMARY_800 } from "../common/ui/colors";
-import { device } from "../common/ui/Resposive";
+import { Body1, Body2 } from "@common/ui/Headings";
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
+import { device } from "@common/ui/Resposive";
 
 const CardContainer = styled.div`
   width: 100%;

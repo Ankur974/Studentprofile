@@ -1,12 +1,12 @@
 import React from "react";
-import FlexBox from "../common/ui/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import styled from "styled-components";
 import SalonInfo from "./SalonInfo";
-import { Button } from "../common/ui/Buttons";
-import { ACCENT_0 } from "../common/ui/colors";
+import { Button } from "@common/ui/Buttons";
+import { ACCENT_0 } from "@common/ui/colors";
 
 import { useRouter } from "next/router";
-import { Body1 } from "../common/ui/Headings";
+import { Body1 } from "@common/ui/Headings";
 
 const Banner = styled(FlexBox)`
   width: 100%;
@@ -34,7 +34,7 @@ const MobileBanner = () => {
   return (
     <Banner>
       <FlexBox position="relative">
-        <Img src="/assets/banner-new.svg" />
+        <Img src="/assets/images/banner-new.svg" />
         <NewButton onClick={() => router.push("/shop-details/carousel")}>
           <Body1>show more</Body1>
         </NewButton>

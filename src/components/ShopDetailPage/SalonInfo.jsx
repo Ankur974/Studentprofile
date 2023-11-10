@@ -4,11 +4,11 @@ import { SlSymbleFemale } from "react-icons/sl";
 import { AiFillStar } from "react-icons/ai";
 import { FaRegShareSquare } from "react-icons/fa";
 
-import { Body2, H1 } from "../common/ui/Headings";
-import FlexBox from "../common/ui/FlexBox";
-import { ACCENT_800 } from "../common/ui/colors";
-import { device } from "../common/ui/Resposive";
-import Favourite from "../common/ui/Favourite";
+import { Body2, H1 } from "@common/ui/Headings";
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_800 } from "@common/ui/colors";
+import { device } from "@common/ui/Resposive";
+import Favourite from "@common/ui/Favourite";
 
 const BannerContent = styled(FlexBox)`
   width: 100%;

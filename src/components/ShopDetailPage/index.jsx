@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import FlexBox from "../common/ui/FlexBox";
-import Tabs from "../common/ui/Tabs";
+import FlexBox from "@common/ui/FlexBox";
+import Tabs from "@common/ui/Tabs";
 import Services from "./Services";
 import About from "./About";
 import MobileBanner from "./MobileBanner";
 import DesktopBanner from "./DesktopBanner";
-import { device } from "../common/ui/Resposive";
+import { device } from "@common/ui/Resposive";
 
 const Container = styled(FlexBox)`
   flex-direction: column;
