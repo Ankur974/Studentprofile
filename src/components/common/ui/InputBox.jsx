@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { FiX } from "react-icons/fi";
-import { ACCENT_800, ACCENT_600, Red, white } from "./colors";
-import FlexBox from "./FlexBox";
+import { ACCENT_800, ACCENT_0, ERROR, ACCENT_600 } from "./colors";
 import { Body2, Support } from "./Headings";
+import FlexBox from "./FlexBox";
 
 const Wrapper = styled(FlexBox)`
   width: ${({ width }) => width || "100%"};
@@ -12,19 +12,19 @@ const Wrapper = styled(FlexBox)`
   align-items: center;
   border-radius: 0.5rem;
   box-sizing: border-box;
-  background-color: ${white};
+  background-color: ${ACCENT_0};
   padding: ${({ theme }) => theme?.input?.padding};
   border: 1px solid ${({ theme }) => theme?.input?.border};
 `;
 
 export const InputBox = styled.input`
   flex: 1;
-  width: ${({ width }) => width || "auto"};
+  width: ${({ width }) => width};
   margin: 0;
   padding: 0;
   border: none;
   outline: none;
-  font-family: Poppins;
+  font-family: "Poppins";
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: ${({ fontWeight }) => fontWeight || 500};
@@ -35,13 +35,13 @@ export const InputBox = styled.input`
 `;
 
 const CloseIconWrapper = styled(FlexBox)`
-  background-color: ${white};
+  background-color: ${ACCENT_0};
   align-items: center;
   justify-content: center;
 `;
 
 const RequiredIndicator = styled.span`
-  color: ${({ theme }) => theme?.input?.requiredColor || ACCENT_800};
+  color: ${({ theme }) => theme?.input?.requiredColor || ERROR};
 `;
 
 const Input = ({
@@ -62,7 +62,7 @@ const Input = ({
   theme,
   onBlur,
   width,
-  wrapperWidth,
+  wrapperWidth = "100%",
   onClick = () => {},
   readOnly = false,
   max,
@@ -89,7 +89,7 @@ const Input = ({
           onFocus={onFocus}
           onBlur={onBlur}
           placeholder={placeholder}
-          onChange={e => onChange(e.target.value)}
+          onChange={onChange}
           onKeyDown={onKeyDown || handleKeyDown}
           theme={theme}
           readOnly={readOnly}
@@ -109,7 +109,7 @@ const Input = ({
           />
         )}
       </Wrapper>
-      {error && <Support color={Red}>{error}</Support>}
+      {error && <Support color={ERROR}>{error}</Support>}
     </FlexBox>
   );
 };
@@ -119,7 +119,7 @@ Input.defaultProps = {
     input: {
       padding: "0.75rem",
       border: ACCENT_600,
-      requiredColor: ACCENT_800,
+      requiredColor: "red",
       IconColor: ACCENT_800,
       crossIconColor: ACCENT_800,
     },
