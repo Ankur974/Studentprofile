@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Body1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import SalonInfo from "./SalonInfo";
-import { Button } from "@common/ui/Buttons";
 import { ACCENT_0 } from "@common/ui/colors";
 import { useRouter } from "next/router";
 
@@ -34,12 +33,12 @@ const Img = styled.img`
 const GrpImg = styled.img`
   width: 47%;
 `;
-const NewButton = styled(Button)`
+const NewButton = styled.div`
   position: absolute;
   background-color: ${ACCENT_0};
   bottom: 2%;
-  padding: 0.2rem;
-  border-radius: 6px;
+  padding: 0.4rem;
+  border-radius: 1rem;
   right: 5%;
   color: ${ACCENT_0};
 `;

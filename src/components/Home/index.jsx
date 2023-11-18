@@ -1,15 +1,11 @@
 import React from "react";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Body2 } from "@common/ui/Headings";
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
 import Card from "./Card";
-import OfferCard2 from "./OfferCard2";
-import { ACCENT_0 } from "../common/ui/colors";
+import SliderComponent from "@common/ui/SliderComponent";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -25,27 +21,6 @@ const Wrapper = styled(FlexBox)`
   }
 `;
 
-const ScrollableList = styled.div`
-  width: 100%;
-  position: relative;
-`;
-
-const CardWrapper = styled.div`
-  width: 24rem;
-`;
-const AddImage = styled.div`
-  background-color: black;
-  position: absolute;
-  bottom: 5%;
-  right: 2%;
-  z-index: 5;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  cursor: pointer;
-`;
-const handleClick = () => {
-  alert("you have clicked");
-};
 const offerCard2data = [
   {
     id: 1,
@@ -148,25 +123,11 @@ const Home = () => {
         />
       </FlexBox>
 
-      <ScrollableList>
-        <Swiper
-          modules={[Navigation]}
-          spaceBetween={8}
-          slidesPerView={3}
-          navigation
-        >
-          {offerCard2data?.map(data => (
-            <SwiperSlide key={data?.id}>
-              <CardWrapper>
-                <OfferCard2 data={data} />
-              </CardWrapper>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <AddImage onClick={handleClick}>
-          <Body2 color={ACCENT_0}>Click to add image</Body2>
-        </AddImage>
-      </ScrollableList>
+      <SliderComponent
+        data={offerCard2data}
+        heading="Get my salon"
+        subHeadings="Choose your offers"
+      />
     </Wrapper>
   );
 };
