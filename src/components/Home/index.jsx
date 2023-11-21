@@ -122,7 +122,6 @@ const Home = () => {
           redirectUrl="/shop-listing"
         />
       </FlexBox>
-
       <SliderComponent
         data={offerCard2data}
         heading="Get my salon"
