@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import FlexBox from "./FlexBox";
-import { Body1, H2, H3, H5 } from "./Headings";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { FaChevronRight } from "react-icons/fa";
-import OfferCard2 from "@/components/Home/OfferCard2";
-import { device } from "./Resposive";
+import { FiChevronRight } from "react-icons/fi";
+
+import FlexBox from "@common/ui/FlexBox";
+import { Body1, Body2, H2 } from "@common/ui/Headings";
+import { device } from "@common/ui/Resposive";
+import OfferCard2 from "@components/Home/OfferCard2";
 
 const Wrapper = styled(FlexBox)`
   background-color: #f4d0c4;
@@ -21,12 +22,14 @@ const Wrapper = styled(FlexBox)`
     position: relative;
   }
 `;
+
 const Heading = styled(FlexBox)`
   flex-direction: column;
   top: 10%;
   z-index: 5;
   width: 50%;
 `;
+
 const BodyContent = styled(FlexBox)`
   height: 100%;
   justify-content: flex-end;
@@ -36,10 +39,12 @@ const BodyContent = styled(FlexBox)`
   bottom: 2%;
   width: 97%;
 `;
+
 const SubHeading = styled(FlexBox)`
   justify-content: space-between;
   width: 99%;
 `;
+
 const MobileScrollableList = styled.div`
   display: block;
   width: 95%;
@@ -48,6 +53,7 @@ const MobileScrollableList = styled.div`
     display: none;
   }
 `;
+
 const DeviceScrollableList = styled.div`
   display: none;
   @media ${device.laptop} {
@@ -63,6 +69,7 @@ const CardWrapper = styled.div`
     width: 23rem;
   }
 `;
+
 const ViewButton = styled(FlexBox)`
   column-gap: 2px;
   align-items: center;
@@ -72,10 +79,12 @@ const ViewButton = styled(FlexBox)`
     align-items: center;
   }
 `;
+
 const TopContent = styled(FlexBox)`
   flex-direction: column;
   width: 100%;
 `;
+
 const Img = styled.img`
   width: 45%;
   height: 40%;
@@ -90,22 +99,6 @@ const Img = styled.img`
     right: 2%;
   }
 `;
-const MobileView = styled.div`
-  display: block;
-  @media ${device.laptop} {
-    display: none;
-  }
-`;
-const DesktopView = styled.div`
-  display: none;
-  @media ${device.laptop} {
-    display: block;
-  }
-`;
-const RightArrow = styled(FaChevronRight)`
-  width: 10px;
-  height: 10px;
-`;
 
 const SliderComponent = ({ data, heading, subHeadings }) => {
   return (
@@ -119,15 +112,10 @@ const SliderComponent = ({ data, heading, subHeadings }) => {
       </TopContent>
       <BodyContent>
         <SubHeading>
-          <MobileView>
-            <H5>{subHeadings} </H5>
-          </MobileView>
-          <DesktopView>
-            <H3>{subHeadings}</H3>
-          </DesktopView>
+          <Body2>{subHeadings} </Body2>
           <ViewButton>
             <Body1>View All</Body1>
-            <RightArrow />
+            <FiChevronRight />
           </ViewButton>
         </SubHeading>
         <MobileScrollableList>

@@ -2,10 +2,11 @@ import React from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import styled from "styled-components";
+
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
+import SliderComponent from "@common/SliderComponent";
 import Card from "./Card";
-import SliderComponent from "@common/ui/SliderComponent";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
