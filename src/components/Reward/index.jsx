@@ -180,6 +180,7 @@ const FlexScroll = styled(FlexBox)`
   width: 100%;
   max-width: 75rem;
   overflow-x: scroll;
+  
 
   @media ${device.laptop} {
     overflow: hidden;

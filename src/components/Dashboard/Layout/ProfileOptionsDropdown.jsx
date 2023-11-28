@@ -64,7 +64,7 @@ const ProfileOptionsDropdown = ({
             <ProfileImage
               alt="User Image"
               draggable="false"
-              src={"https:" + user?.image}
+              src="/assets/images/dashboard"
             />
 
             <FlexBox column rowGap="0.375rem">
