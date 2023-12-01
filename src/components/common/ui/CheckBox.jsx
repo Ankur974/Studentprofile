@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ACCENT_400, ACCENT_500, MOSS_GREEN_800, white } from "./colors";
+import { ACCENT_400, ACCENT_500, ACCENT_0 } from "./colors";
 import { FiCheck } from "react-icons/fi";
 
 const Container = styled.div`
@@ -22,8 +22,8 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-shrink: 0;
   border-radius: 0.25rem;
-  border: 1px solid ${MOSS_GREEN_800};
-  background-color: ${props => (props.check ? MOSS_GREEN_800 : "none")};
+  border: 1px solid ${ACCENT_400};
+  background-color: ${props => (props.check ? ACCENT_400 : "none")};
 
   ${({ disabled }) =>
     disabled &&
@@ -36,10 +36,9 @@ const Wrapper = styled.div`
 `;
 
 const CheckBox = ({ check, disabled, onClick }) => (
-  //Container adds extra padding around it to ensure the minimum interactive target space is 32x32 pixels
   <Container disabled={disabled} onClick={onClick}>
     <Wrapper check={check} disabled={disabled}>
-      <FiCheck color={white} strokeWidth={3} />
+      <FiCheck color={ACCENT_0} strokeWidth={3} />
     </Wrapper>
   </Container>
 );
