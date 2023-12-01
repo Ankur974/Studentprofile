@@ -26,7 +26,7 @@ const GrpImg = styled.img`
       ? "100%"
       : numOfImages === 1
       ? "100%"
-      : `calc(50% - 0.5rem)`};
+      : "calc(50% - 0.5rem)"};
   margin-bottom: ${({ numOfImages, index }) =>
     numOfImages === 1 || (numOfImages % 2 === 1 && index === numOfImages - 1)
       ? "0.5rem"

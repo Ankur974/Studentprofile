@@ -1,9 +1,6 @@
-export UpperLower=[
-
-    upperSection{
-
-    },
-    lowerSection{
-
-    },
-]
+export const UpperLower = [
+  // upperSection{
+  // },
+  // lowerSection{
+  // },
+];
