@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FiX, FiMapPin } from "react-icons/fi";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H2, H4, H5 } from "@common/ui/Headings";
+import { H2, Body2, H5 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
 import { ACCENT_100, ACCENT_300, ACCENT_800 } from "@common/ui/colors";
 import { IconButton } from "@common/Dashboard/Buttons";
@@ -77,7 +77,7 @@ const index = ({ toggleModal, clinicDetails = data }) => {
       <Content>
         <FlexBox columnGap="1rem" align="flex-start">
           <FlexBox column>
-            <H4 bold>{clinicName}</H4>
+            <Body2 bold>{clinicName}</Body2>
             <H5>
               {address_line_1} {address_line_2}
             </H5>

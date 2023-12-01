@@ -5,8 +5,8 @@ import styled, { css } from "styled-components";
 
 import { Case, Default, Switch } from "@common/ConditionalRendering";
 import FlexBox from "@common/ui/FlexBox";
-import { H4 } from "@common/ui/Headings";
-import { ACCENT_800, DARK_MOSS_GREEN_800 } from "@common/ui/colors";
+import { Body2 } from "@common/ui/Headings";
+import { ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
 import JourneyItem from "./JourneyItem";
 
 const SecondaryContainer = styled(FlexBox)``;
@@ -56,21 +56,15 @@ const CollapsedState = ({ journeyObject }) => {
             onClick={handleExpandList}
             style={{ cursor: "pointer" }}
           >
-            <H4 bold color={DARK_MOSS_GREEN_800}>
+            <Body2 bold color={PRIMARY_800}>
               {journeyObject?.event_list?.length} more row/s
-            </H4>
+            </Body2>
             <Switch>
               <Case condition={isOpen}>
-                <FiChevronUp
-                  strokeWidth={"0.2rem"}
-                  color={DARK_MOSS_GREEN_800}
-                />
+                <FiChevronUp strokeWidth={"0.2rem"} color={PRIMARY_800} />
               </Case>
               <Default>
-                <FiChevronDown
-                  strokeWidth={"0.2rem"}
-                  color={DARK_MOSS_GREEN_800}
-                />
+                <FiChevronDown strokeWidth={"0.2rem"} color={PRIMARY_800} />
               </Default>
             </Switch>
           </FlexBox>

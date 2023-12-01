@@ -4,7 +4,7 @@ import { FiArrowLeft, FiChevronRight } from "react-icons/fi";
 
 import {
   ACCENT_800,
-  DARK_MOSS_GREEN_100,
+  PRIMARY_100,
   ACCENT_300,
   ACCENT_500,
 } from "@common/ui/colors";
@@ -24,7 +24,7 @@ const Option = styled(FlexBox)`
   font-weight: 700;
   justify-content: space-between;
   align-items: center;
-  background-color: ${props => props.isSelected && DARK_MOSS_GREEN_100};
+  background-color: ${props => props.isSelected && PRIMARY_100};
   cursor: pointer;
   border-bottom: 1px solid ${ACCENT_300};
 `;

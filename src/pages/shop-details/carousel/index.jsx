@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel from "../../../components/common/Carousel";
+import Carousel from "@components/common/Carousel";
 
 const Main = () => {
   const images = [

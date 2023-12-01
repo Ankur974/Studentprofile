@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Body1 } from "../common/ui/Headings";
-import FlexBox from "../common/ui/FlexBox";
+import { Body1 } from "@common/ui/Headings";
+import FlexBox from "@common/ui/FlexBox";
 import SalonInfo from "./SalonInfo";
-import { Button } from "../common/ui/Buttons";
-import { ACCENT_0 } from "../common/ui/colors";
+import { Button } from "@common/ui/Buttons";
+import { ACCENT_0 } from "@common/ui/colors";
 import { useRouter } from "next/router";
 
 const Container = styled(FlexBox)`
@@ -57,7 +57,7 @@ const DesktopBanner = () => {
           <GrpImg src="/assets/salon-image1.jpg" alt="" />
           <GrpImg src="/assets/salon-image2.jpg" alt="" />
           <GrpImg src="/assets/salon-image2.jpg" alt="" />
-          <GrpImg src="/assets/banner-new.svg" />
+          <GrpImg src="/assets/images/banner-new.svg" />
         </GroupImage>
       </Container>
     </Wrapper>

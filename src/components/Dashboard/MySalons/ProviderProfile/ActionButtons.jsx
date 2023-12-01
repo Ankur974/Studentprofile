@@ -8,7 +8,7 @@ import { trackEvent } from "@utils/helpers";
 import useMobileView from "@hooks/useMobileView";
 import { WHITE, ACCENT_800 } from "@common/ui/colors";
 import { Button, IconButton } from "@common/Dashboard/Buttons";
-import { H4 } from "@common/ui/Headings";
+import { Body2 } from "@common/ui/Headings";
 
 const CopiedAnimation = keyframes`
   0% {
@@ -119,7 +119,7 @@ const ActionButtons = ({
       </IconButton>
       {showCopyPopup && (
         <CopyPopup>
-          <H4 color={WHITE}>Link Copied!</H4>
+          <Body2 color={WHITE}>Link Copied!</Body2>
         </CopyPopup>
       )}
     </Wrapper>

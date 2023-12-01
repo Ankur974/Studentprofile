@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { GiCircle } from "react-icons/gi";
 import { RiArrowDownSLine } from "react-icons/ri";
 
-import { Body2, Body1, H6 } from "../common/ui/Headings";
-import FlexBox from "../common/ui/FlexBox";
-import Chip from "../common/ui/Chips";
-import Ratings from "../common/ui/Ratings";
+import { Body2, Body1, H6 } from "@common/ui/Headings";
+import FlexBox from "@common/ui/FlexBox";
+import Chip from "@common/ui/Chips";
+import Ratings from "@common/ui/Ratings";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;

@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import FlexBox from "../common/ui/FlexBox";
-import { Body2 } from "../common/ui/Headings";
-import { ACCENT_800, PRIMARY_600 } from "../common/ui/colors";
+import FlexBox from "@common/ui/FlexBox";
+import { Body2 } from "@common/ui/Headings";
+import { ACCENT_800, PRIMARY_600 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   background-color: ${props => props.backgroundColor || PRIMARY_600};

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 
 import Slider from "./Slider";
-import { H3, H4 } from "@common/ui/Headings";
+import { H3, Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { WHITE, ACCENT_500 } from "@common/ui/colors";
 
@@ -83,13 +83,13 @@ const Carousels = ({ providerData }) => {
         >
           <ContentWrapper>
             <TestimonialCard>
-              <H4>
+              <Body2>
                 {
                   providerData?.addon_profile_details?.testimonials?.[
                     activeTestmonial
                   ]?.message
                 }
-              </H4>
+              </Body2>
               <H3 bold textAlign="end">
                 -{" "}
                 {
@@ -111,7 +111,7 @@ const Carousels = ({ providerData }) => {
           <ContentWrapper>
             <QuestionCard>
               <H3 bold>{providerData?.questions?.[activeFaq]?.question}</H3>
-              <H4>{providerData?.questions?.[activeFaq]?.answer}</H4>
+              <Body2>{providerData?.questions?.[activeFaq]?.answer}</Body2>
             </QuestionCard>
           </ContentWrapper>
         </Slider>

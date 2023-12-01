@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { H4, H5, TextCTA } from "@common/ui/Headings";
+import { Body2, H5, TextCTA } from "@common/ui/Headings";
 import {
   WHITE,
   PRIMARY_800,
@@ -71,12 +71,12 @@ const SuccessCardWrapper = styled(FlexBox)`
   }
 `;
 
-const SuccessTitle = styled(H4)`
+const SuccessTitle = styled(Body2)`
   font-size: 1rem;
   text-align: center;
 `;
 
-const SuccessMessage = styled(H4)`
+const SuccessMessage = styled(Body2)`
   font-size: 0.875rem;
   max-width: 15.25rem;
   width: 100%;

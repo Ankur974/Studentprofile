@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 // import { logout } from "@redux/actions/authActions";
 import FlexBox from "@common/ui/FlexBox";
-import { H2, H4 } from "@common/ui/Headings";
+import { H2, Body2 } from "@common/ui/Headings";
 import { Modal } from "@common/Dashboard/Modal";
+import CheckBox from "@common/ui/CheckBox";
 import { Button } from "../common/Dashboard/Buttons";
-import Checkbox from "@common/Dashboard/Checkbox";
 
 const LogoutImage = styled.img`
   width: 100%;
@@ -36,8 +35,8 @@ const LogoutModal = ({ toggleModal }) => {
       <FlexBox column padding="1rem" rowGap="1rem">
         <H2 bold>Are you sure want to log out?</H2>
         <FlexBox columnGap="0.5rem" align="center">
-          <Checkbox checked={checked} onClick={toggleCheck} />
-          <H4 bold>Log out from all devices</H4>
+          <CheckBox checked={checked} onClick={toggleCheck} />
+          <Body2 bold>Log out from all devices</Body2>
         </FlexBox>
       </FlexBox>
       <FlexBox padding="1rem" justify="space-between">

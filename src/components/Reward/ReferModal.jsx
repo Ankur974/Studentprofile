@@ -104,7 +104,7 @@ const IconWrapper = styled(FlexBox)`
   align-self: flex-end;
 `;
 
-const ReferModal = ({ toggleModal, action }) => {
+const ReferModal = ({ toggleModal }) => {
   const [copied, setCopied] = useState(false);
 
   const couponCode = "PAMPRAZZIREF";

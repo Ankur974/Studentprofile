@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { PiShoppingCartThin } from "react-icons/pi";
 import { TfiClose } from "react-icons/tfi";

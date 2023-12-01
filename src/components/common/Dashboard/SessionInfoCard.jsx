@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H4, Support } from "@common/dashboard/Headings";
+import { Body2, Support } from "@common/dashboard/Headings";
 import { ACCENT_100, ACCENT_400 } from "@common/ui/colors";
 
 const Card = styled(FlexBox)`
@@ -26,7 +26,7 @@ const SessionInfoCard = ({ sessionDetails }) => {
   return (
     <Card column rowGap="0.25rem">
       <Title>
-        <H4 bold>{providerName}</H4>
+        <Body2 bold>{providerName}</Body2>
       </Title>
       <Content>
         <Support>

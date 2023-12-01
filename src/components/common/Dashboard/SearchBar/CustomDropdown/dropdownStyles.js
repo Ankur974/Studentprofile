@@ -5,8 +5,8 @@ import {
   ACCENT_600,
   ACCENT_700,
   ACCENT_800,
-  DARK_MOSS_GREEN_100,
-  DARK_MOSS_GREEN_800,
+  PRIMARY_100,
+  PRIMARY_800,
 } from "@common/ui/colors";
 
 const dropdownStyles = {
@@ -23,7 +23,7 @@ const dropdownStyles = {
   }),
   loadingIndicator: baseStyles => ({
     ...baseStyles,
-    color: DARK_MOSS_GREEN_800,
+    color: PRIMARY_800,
   }),
   clearIndicator: baseStyles => ({
     ...baseStyles,
@@ -81,9 +81,9 @@ const dropdownStyles = {
   option: (baseStyles, state) => ({
     padding: 0,
     cursor: "pointer",
-    backgroundColor: state.isSelected ? DARK_MOSS_GREEN_100 : ACCENT_100,
+    backgroundColor: state.isSelected ? PRIMARY_100 : ACCENT_100,
     "&:hover": {
-      backgroundColor: state.isSelected ? DARK_MOSS_GREEN_100 : ACCENT_200,
+      backgroundColor: state.isSelected ? PRIMARY_100 : ACCENT_200,
     },
   }),
 };

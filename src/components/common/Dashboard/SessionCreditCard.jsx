@@ -3,7 +3,7 @@ import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 
 import {
-  BRICK_TERRACOTA,
+  ERROR,
   BUTTERSCOTH_200,
   ACCENT_100,
   ACCENT_400,
@@ -16,7 +16,7 @@ import FlexBox from "../ui/FlexBox";
 
 const Card = styled(FlexBox)`
   border-radius: 0.5rem;
-  background: ${({ isNsp }) => (isNsp ? BRICK_TERRACOTA : ACCENT_100)};
+  background: ${({ isNsp }) => (isNsp ? ERROR : ACCENT_100)};
   border: ${({ isNsp }) =>
     isNsp ? `1px dashed ${PRIMARY_800}` : `1px solid ${ACCENT_400}`};
   padding: 1rem;

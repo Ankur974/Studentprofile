@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { H3, H4, H5, TextCTA } from "@common/ui/Headings";
+import { H3, Body2, H5, TextCTA } from "@common/ui/Headings";
 import {
   PRIMARY_800,
   PRIMARY_400,
@@ -149,9 +149,9 @@ const ShareProviderCard = ({
             {currentReferralState?.selectedProviderType === "therapist" ? (
               <FlexBox column rowGap="1rem">
                 <FlexBox align="center" justify="space-between">
-                  <H4 bold color={PRIMARY_800}>
+                  <Body2 bold color={PRIMARY_800}>
                     Refer Therapy
-                  </H4>
+                  </Body2>
                   <IconWrapper>
                     <FiCheck color={PRIMARY_800} />
                   </IconWrapper>
@@ -251,9 +251,9 @@ const ShareProviderCard = ({
             {currentReferralState?.selectedProviderType === "psychiatrist" ? (
               <FlexBox column rowGap="1rem">
                 <FlexBox align="center" justify="space-between">
-                  <H4 bold color={PRIMARY_800}>
+                  <Body2 bold color={PRIMARY_800}>
                     Refer Psychiatry
-                  </H4>
+                  </Body2>
                   <IconWrapper>
                     <FiCheck color={PRIMARY_800} />
                   </IconWrapper>
@@ -363,9 +363,9 @@ const ShareProviderCard = ({
             {currentReferralState?.selectedProviderType === "coach" ? (
               <FlexBox column rowGap="1rem">
                 <FlexBox align="center" justify="space-between">
-                  <H4 bold color={PRIMARY_800}>
+                  <Body2 bold color={PRIMARY_800}>
                     Refer a free 20-min coach call
-                  </H4>
+                  </Body2>
                   <IconWrapper>
                     <FiCheck color={PRIMARY_800} />
                   </IconWrapper>

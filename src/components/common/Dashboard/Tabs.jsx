@@ -6,7 +6,7 @@ import {
   ACCENT_400,
   ACCENT_600,
   ACCENT_700,
-  DARK_MOSS_GREEN_900,
+  PRIMARY_900,
 } from "@common/ui/colors";
 import { H2 } from "./Headings";
 
@@ -37,7 +37,7 @@ const TabItem = styled(FlexBox)`
         left: 0;
         right: 0;
         bottom: 0;
-        border-bottom: 2px solid ${DARK_MOSS_GREEN_900};
+        border-bottom: 2px solid ${PRIMARY_900};
       }
     `}
 
@@ -110,7 +110,7 @@ const Tabs = ({ children, defaultTabId, headerHeight = "0rem" }) => {
             >
               <H2
                 bold
-                color={isActive ? DARK_MOSS_GREEN_900 : ACCENT_600}
+                color={isActive ? PRIMARY_900 : ACCENT_600}
                 whiteSpace="nowrap"
               >
                 {tabLabel}

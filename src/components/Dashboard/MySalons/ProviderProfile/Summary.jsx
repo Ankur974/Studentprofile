@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import ReactHtmlParser from "react-html-parser";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H4, TextCTA } from "@common/ui/Headings";
+import { Body2, TextCTA } from "@common/ui/Headings";
 import { currentFlow, trackEvent } from "@utils/helpers";
 import { ACCENT_400, PRIMARY_800 } from "@common/ui/colors";
 
@@ -14,7 +14,7 @@ const Container = styled(FlexBox)`
   align-items: flex-start;
 `;
 
-const SummaryWrapper = styled(H4)`
+const SummaryWrapper = styled(Body2)`
   line-clamp: 3;
   overflow: hidden;
   display: -webkit-box;

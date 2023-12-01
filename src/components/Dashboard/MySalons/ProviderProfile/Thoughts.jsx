@@ -4,7 +4,7 @@ import styled from "styled-components";
 import "react-multi-carousel/lib/styles.css";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H3, H4 } from "@common/ui/Headings";
+import { H3, Body2 } from "@common/ui/Headings";
 import { ACCENT_500 } from "@common/ui/colors";
 
 const Thought = styled(FlexBox)`
@@ -36,7 +36,7 @@ const Thoughts = ({ providerData }) => {
         {providerData?.user_phrases?.map(thought => (
           <Thought key={thought}>
             <img alt="Quote" draggable={false} src="/assets/images/comma.svg" />
-            <H4 bold>{thought?.replaceAll('"', "")}</H4>
+            <Body2 bold>{thought?.replaceAll('"', "")}</Body2>
           </Thought>
         ))}
       </FlexBox>

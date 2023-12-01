@@ -7,8 +7,8 @@ import { faqCategories, faqs } from "@metadata/About/faqs";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import {
   ACCENT_800,
-  DARK_MOSS_GREEN_100,
-  DARK_MOSS_GREEN_800,
+  PRIMARY_100,
+  PRIMARY_800,
   ACCENT_300,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
@@ -52,7 +52,7 @@ const Option = styled(FlexBox)`
   font-weight: 700;
   justify-content: space-between;
   align-items: center;
-  background-color: ${props => props.isSelected && DARK_MOSS_GREEN_100};
+  background-color: ${props => props.isSelected && PRIMARY_100};
   cursor: pointer;
 `;
 
@@ -90,7 +90,7 @@ const FaqsDesktop = () => {
                 {isSelected && (
                   <BsPlayFill
                     size={"1.4rem"}
-                    color={isSelected ? DARK_MOSS_GREEN_800 : ACCENT_800}
+                    color={isSelected ? PRIMARY_800 : ACCENT_800}
                   />
                 )}
               </Option>
