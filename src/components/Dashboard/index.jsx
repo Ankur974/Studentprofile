@@ -11,6 +11,8 @@ import { Support } from "@common/ui/Headings";
 import AllSessions from "./AllSessions";
 import UpcomingSessions from "./UpcomingSessions";
 import { device } from "@common/ui/Resposive";
+// import MyCalendar from "../MyCalendar";
+import Calendar from "../common/Calendar";
 
 const Container = styled(FlexBox)`
   width: 100%;
@@ -143,14 +145,11 @@ const Dashboard = () => {
         )}
       </Card>
       <SectionRight column width="100%">
-        <Card title="Your Updates" redirectTo="" padding="0 1.5rem">
-          {/* <YourUpdatesWrapper>
-              <FlexBox column rowGap="1rem" margin="1.5rem 0">
-                <AlertCard />
-                <AlertCard />
-                <AlertCard />
-              </FlexBox>
-            </YourUpdatesWrapper> */}
+        <Card title="My Calendar" redirectTo="" padding="0 1.5rem">
+          <FlexBox>
+            <Calendar open />
+          </FlexBox>
+          {/* <MyCalendar /> */}
         </Card>
         <Card title="Session Credits" redirectTo="" padding="0 1.5rem">
           {showCreditsNullState ? (
