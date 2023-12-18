@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+
 import FlexBox from "@common/ui/FlexBox";
-import HolidayList from "./HolidayList";
-import CalendarForm from "./CalendarForm";
 import { device } from "@common/ui/Resposive";
 import { SECONDARY_0 } from "@common/ui/colors";
+import HolidayList from "./HolidayList";
+import CalendarForm from "./CalendarForm";
 
 const EventListAndFormWrapper = styled(FlexBox)`
   flex-direction: column;

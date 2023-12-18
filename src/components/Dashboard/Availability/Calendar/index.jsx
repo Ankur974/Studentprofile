@@ -84,7 +84,6 @@ const Calendar = ({ onChange, schedules, selectedDate, popperClassName }) => {
   return (
     <DatePickerBox>
       <StatusIndicators />
-
       <DatePicker
         open
         onChange={onChange}

@@ -1,4 +1,11 @@
 import styled from "styled-components";
+import { Body2 } from "../ui/Headings";
+import {
+  ACCENT_400,
+  PRIMARY_800,
+  SECONDARY_400,
+  SECONDARY_500,
+} from "../ui/colors";
 
 const Dot = styled.div`
   display: flex;
@@ -23,20 +30,25 @@ const StatusIndicator = styled.div`
   border: none;
 `;
 
+export const availabileDatesStatus = [
+  { color: ACCENT_400, text: "unavailable" },
+  { color: SECONDARY_500, text: "available" },
+  { color: PRIMARY_800, text: "few left" },
+];
+
 const StatusIndicators = ({ margin }) => {
   return (
     <Dot margin={margin}>
-      {/* {availabileDatesStatus.map(status => ( */}
-      {[].map(status => (
+      {availabileDatesStatus.map(status => (
         <DotContainer key={status.text}>
           <StatusIndicator color={status.color} />
-          {/* <Text
+          <Body2
             fontSize="0.8rem"
-            color={LIGHT_BLUE_GREY}
+            color={SECONDARY_400}
             textTransform="capitalize"
           >
             {status.text}
-          </Text> */}
+          </Body2>
         </DotContainer>
       ))}
     </Dot>
