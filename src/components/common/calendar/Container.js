@@ -9,7 +9,7 @@ import {
 } from "@common/ui/colors";
 
 const CalendarContainer = styled.div`
-  height: 19rem;
+  height: 15rem;
   width: 19rem;
   font-size: 0.8rem;
   font-weight: 600;
@@ -27,14 +27,17 @@ const CalendarContainer = styled.div`
 
   .react-datepicker__day-names {
     color: ${SECONDARY_500};
+    border-bottom: none !important;
   }
   .react-datepicker__day-name {
     color: blue !important;
     opacity: 0.2;
     font-size: 0.8rem;
+    border-bottom: none !important;
   }
   .react-datepicker__day {
     color: ${SECONDARY_500};
+    border-bottom: none;
   }
   .react-datepicker__header {
     border-bottom: none;

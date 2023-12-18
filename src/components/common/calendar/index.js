@@ -4,11 +4,48 @@ import "react-calendar/dist/Calendar.css";
 
 import CustomHeader from "./Header";
 import CustomContainer from "./Container";
+import {
+  ACCENT_0,
+  PRIMARY_800,
+  PRIMARY_700,
+} from "@common/ui/colors";
 
 const DatePickerBox = styled.div`
+  margin: 0.2rem 0 0 0;
+  height: 100vh;
+  width: 100%;
+  
+
   @media screen and (max-width: 768px) {
     margin: 2rem 0rem 3rem 0;
+    height:auto;
   }
+
+  .react-calendar {
+    width: 100%;
+    border: none;
+    margin: auto;
+  }
+
+  .react-calendar__tile--now {
+    background-color: ${PRIMARY_800};
+    padding:1rem 0rem;
+    border-radius: 50%;
+    color: ${ACCENT_0} !important;
+  }
+
+  .react-calendar__tile--now:hover {
+    background-color: ${PRIMARY_700};
+  }
+
+  .react-calendar__month-view__weekdays {
+    border-bottom: none !important;
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    border-bottom: none !important;
+  }
+
   .popper-className {
     position: relative !important;
     transform: none !important;
