@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useRef } from "react";
 import { FiChevronRight, FiX } from "react-icons/fi";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { BooleanParam, useQueryParams } from "use-query-params";
 
@@ -80,7 +80,7 @@ const OptionItem = styled(FlexBox)`
 `;
 
 const MobileMenu = ({ toggleMobileMenu }) => {
-  const user = useSelector(state => state.auth?.user);
+  // const user = useSelector(state => state.auth?.user);
   const containerRef = useRef(null);
   const router = useRouter();
 
@@ -113,7 +113,7 @@ const MobileMenu = ({ toggleMobileMenu }) => {
           <ProviderImage
             alt="User Image"
             draggable="false"
-            src={"https:" + user?.image}
+            src="/assets/images/coin.svg"
             onClick={toggleMobileMenu}
           />
           <H3 bold>Hello, Usera</H3>
