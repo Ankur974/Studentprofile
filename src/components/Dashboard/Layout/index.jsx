@@ -1,10 +1,8 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { FiBell, FiMenu, FiMoreHorizontal } from "react-icons/fi";
-import { useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 import { BooleanParam, useQueryParams } from "use-query-params";
-
 import { H3 } from "@common/ui/Headings";
 import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import FlexBox from "@common/ui/FlexBox";
@@ -192,7 +190,7 @@ const DashboardLayout = ({
   hideHeader,
   hideFooter,
 }) => {
-  const user = useSelector(state => state.auth?.user);
+  // const user = useSelector(state => state.auth?.user);
 
   const [showNavigation, setShowNavigation] = useState(true);
   const [showNotificationsPopup, setShowNotificationsPopup] = useState(false);
@@ -252,7 +250,7 @@ const DashboardLayout = ({
                 <ProviderImage
                   alt="User Image"
                   draggable="false"
-                  src={"https:" + user?.image}
+                  src="/assets/images/coin.svg"
                   onClick={toggleMobileMenu}
                 />
                 <H3 bold>Hello, User</H3>

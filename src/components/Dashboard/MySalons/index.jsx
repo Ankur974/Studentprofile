@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { NumberParam, StringParam, useQueryParams } from "use-query-params";
+import { IoIosArrowBack } from "react-icons/io";
+import { useRouter } from "next/router";
+
 
 import FlexBox from "@common/ui/FlexBox";
-import { Body2 } from "@common/ui/Headings";
 import { device } from "@common/ui/Resposive";
 import { ACCENT_300, WHITE } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
@@ -67,17 +69,26 @@ const Right = styled(Card)`
 
 const RightWrapper = styled(FlexBox)`
   width: 100%;
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
   overflow-y: scroll;
 `;
 
-const AboutBox = styled(FlexBox)`
-  width: 100%;
-  align-items: center;
+const BackButtonBox = styled(FlexBox)`
+  margin:0.5rem 0 0.5rem 0.5rem;
+
+  @media ${device.laptop} {
+    display:none;
+  }
 `;
 
 const MySalons = () => {
   const isMobile = useMobileView();
+
+  const router = useRouter();
+
+  const goBack = () => {
+    router.back();
+  };
 
   const [queryParams, setQueryParams] = useQueryParams({
     selected: StringParam,
@@ -117,12 +128,12 @@ const MySalons = () => {
         />
       </Left>
       <Right>
+      <BackButtonBox onClick={goBack}>
+      <IoIosArrowBack/>
+      </BackButtonBox>
         <RightWrapper>
           {selected === "profile" ? (
-            <AboutBox column>
-              <Body2 bold>About </Body2>
               <About />
-            </AboutBox>
           ) : selected === "sessions" ? (
             <div>Show </div>
           ) : selected === "services" ? (
