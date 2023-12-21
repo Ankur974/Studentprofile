@@ -29,6 +29,12 @@
       "@utils/*": ["./src/utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/index.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/index.jsx",
+    "src/components/common/Calendar/index.jsx"
+  ],
   "exclude": ["node_modules"]
 }
