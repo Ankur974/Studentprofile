@@ -37,7 +37,6 @@ const Wrapper = styled.div`
 `;
 
 const CheckBox = ({ check, disabled, onClick }) => (
-  //Container adds extra padding around it to ensure the minimum interactive target space is 32x32 pixels
   <Container disabled={disabled} onClick={onClick}>
     <Wrapper check={check} disabled={disabled}>
       <FiCheck color={WHITE} strokeWidth={3} />
