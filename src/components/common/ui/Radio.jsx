@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { MOSS_GREEN_800 } from "./colors";
+import { PRIMARY_800 } from "./colors";
 
 const Container = styled.div`
   padding: ${({ padding }) => padding || "0.25rem"};
@@ -21,14 +21,14 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-shrink: 0;
   border-radius: 4rem;
-  border: 1px solid ${MOSS_GREEN_800};
+  border: 1px solid ${PRIMARY_800};
 `;
 
 const InnerCircle = styled.div`
   width: 1rem;
   height: 1rem;
   border-radius: 4rem;
-  background-color: ${MOSS_GREEN_800};
+  background-color: ${PRIMARY_800};
 `;
 
 const Radio = ({ active, disabled, onClick }) => (

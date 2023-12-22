@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
-import { ACCENT_400, ACCENT_500, ACCENT_0 } from "./colors";
 import { FiCheck } from "react-icons/fi";
+
+import { ACCENT_400, ACCENT_500, PRIMARY_800, WHITE } from "./colors";
 
 const Container = styled.div`
   padding: ${({ padding }) => padding || "0.25rem"};
@@ -22,8 +23,8 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-shrink: 0;
   border-radius: 0.25rem;
-  border: 1px solid ${ACCENT_400};
-  background-color: ${props => (props.check ? ACCENT_400 : "none")};
+  border: 1px solid ${PRIMARY_800};
+  background-color: ${props => (props.check ? PRIMARY_800 : "none")};
 
   ${({ disabled }) =>
     disabled &&
@@ -38,7 +39,7 @@ const Wrapper = styled.div`
 const CheckBox = ({ check, disabled, onClick }) => (
   <Container disabled={disabled} onClick={onClick}>
     <Wrapper check={check} disabled={disabled}>
-      <FiCheck color={ACCENT_0} strokeWidth={3} />
+      <FiCheck color={WHITE} strokeWidth={3} />
     </Wrapper>
   </Container>
 );
