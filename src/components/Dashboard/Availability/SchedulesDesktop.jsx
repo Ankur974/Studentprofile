@@ -11,7 +11,7 @@ import {
   ACCENT_400,
   ACCENT_600,
   ACCENT_800,
-  MOSS_GREEN_800,
+  PRIMARY_800,
   WHITE,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
@@ -50,7 +50,7 @@ const CarouselNav = styled(FlexBox)`
   margin-top: 1.25rem;
 
   svg {
-    color: ${MOSS_GREEN_800};
+    color: ${PRIMARY_800};
   }
 
   ${({ disabled }) =>
