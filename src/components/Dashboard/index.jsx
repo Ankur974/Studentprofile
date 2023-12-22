@@ -11,8 +11,8 @@ import { Support } from "@common/ui/Headings";
 import AllSessions from "./AllSessions";
 import UpcomingSessions from "./UpcomingSessions";
 import { device } from "@common/ui/Resposive";
+import Calendar from "../common/Calendar";
 // import MyCalendar from "../MyCalendar";
-import Calendar from "@common/Calendar";
 
 const Container = styled(FlexBox)`
   width: 100%;
