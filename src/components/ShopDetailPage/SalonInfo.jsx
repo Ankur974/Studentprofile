@@ -3,12 +3,15 @@ import styled from "styled-components";
 import { SlSymbleFemale } from "react-icons/sl";
 import { AiFillStar } from "react-icons/ai";
 import { FaRegShareSquare } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 import { Body2, H1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_800 } from "@common/ui/colors";
 import { device } from "@common/ui/Resposive";
 import Favourite from "@common/ui/Favourite";
+import Modal from "../common/ui/Modal";
+import ShareModal from "./ShareModal";
 
 const BannerContent = styled(FlexBox)`
   width: 100%;
@@ -36,12 +39,28 @@ const Icons = styled(FlexBox)`
 
 const SalonInfo = () => {
   const [Clicked, setClicked] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const router = useRouter();
+
   return (
     <BannerContent column rowGap="0.25rem">
       <FlexBox align="center" justify="space-between">
         <H1 bold>Gigis Salon</H1>
         <Icons>
-          <FaRegShareSquare color={ACCENT_800} size="20px" />
+          <FaRegShareSquare
+            color={ACCENT_800}
+            size="20px"
+            onClick={() => setOpenModal(!openModal)}
+          />
+          {openModal && (
+            <Modal
+              M1
+              height="30%"
+              width="40%"
+              togglePopup={openModal}
+              children={<ShareModal />}
+            />
+          )}
           <Favourite clicked={Clicked} setclicked={setClicked} />
         </Icons>
       </FlexBox>

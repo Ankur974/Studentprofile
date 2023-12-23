@@ -17,7 +17,7 @@ const Wrapper = styled(FlexBox)`
   padding: 1rem;
   position: relative;
   @media ${device.laptop} {
-    height: 35.25rem;
+    height: 30.25rem;
     padding: 1.3rem;
     position: relative;
   }
@@ -28,6 +28,7 @@ const Heading = styled(FlexBox)`
   top: 10%;
   z-index: 5;
   width: 50%;
+  row-gap: 1rem;
 `;
 
 const BodyContent = styled(FlexBox)`
@@ -95,7 +96,7 @@ const Img = styled.img`
     width: 40%;
     height: 55%;
     position: absolute;
-    top: -7%;
+    top: -15%;
     right: 2%;
   }
 `;
@@ -105,14 +106,16 @@ const SliderComponent = ({ data, heading, subHeadings }) => {
     <Wrapper>
       <TopContent>
         <Heading>
-          <H2 bold>{heading}</H2>
-          <Body1>Our picks to recreate this makeup look</Body1>{" "}
+          <H2 bold style={{ fontSize: "50px" }}>
+            {heading}
+          </H2>
+          <Body1>Our picks to recreate this makeup look</Body1>
         </Heading>
-        <Img src="assets/images/girls-image.jpg  " />
+        <Img src="assets/images/girls-image.jpg"/>
       </TopContent>
       <BodyContent>
         <SubHeading>
-          <Body2>{subHeadings} </Body2>
+          <Body2 style={{ size: "40px" }}>{subHeadings} </Body2>
           <ViewButton>
             <Body1>View All</Body1>
             <FiChevronRight />
