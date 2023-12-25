@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { NumberParam, StringParam, useQueryParams } from "use-query-params";
-import { IoIosArrowBack } from "react-icons/io";
 import { useRouter } from "next/router";
-
+import { FiX } from "react-icons/fi";
 
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
@@ -11,6 +10,7 @@ import useMobileView from "@hooks/useMobileView";
 import SalonCard from "./SalonCard";
 import About from "@components/ShopDetailPage/About";
 import Services from "@components/ShopDetailPage/Services";
+import { H2 } from "@common/Dashboard/Headings";
 
 const Container = styled(FlexBox)`
   width: 100vw;
@@ -73,17 +73,16 @@ const RightWrapper = styled(FlexBox)`
   overflow-y: scroll;
 `;
 
-const BackButtonBox = styled(FlexBox)`
-  margin:0.5rem 0 0.5rem 0.5rem;
-
-  @media ${device.laptop} {
-    display:none;
+const Title = styled(FlexBox)`
+  @media screen and (min-width: 768px) {
+    border-bottom: 1px solid ${ACCENT_300};
+    padding: 1.5rem;
   }
+  padding: 0 1.5rem;
 `;
 
 const MySalons = () => {
   const isMobile = useMobileView();
-
   const router = useRouter();
 
   const goBack = () => {
@@ -92,55 +91,61 @@ const MySalons = () => {
 
   const [queryParams, setQueryParams] = useQueryParams({
     selected: StringParam,
-    saloonId: NumberParam,
+    salonId: NumberParam,
   });
 
   const { selected } = queryParams || {};
 
-  const openProfile = saloonId =>
+  const openProfile = salonId =>
     setQueryParams({
       selected: "profile",
-      saloonId: saloonId,
+      salonId: salonId,
     });
 
-  const openServices = saloonId =>
+  const openServices = salonId =>
     setQueryParams({
       selected: "services",
-      saloonId: saloonId || 20772,
+      salonId: salonId || 20772,
     });
 
-  const openSessions = saloonId =>
+  const openSessions = salonId =>
     setQueryParams({
       selected: "sessions",
-      saloonId,
+      salonId,
     });
 
-  const showLeftSection = !selected;
-
   return (
-    <Container showLeftSection={showLeftSection}>
+    <Container showLeftSection={!selected}>
       <Left>
         <SalonCard
-          saloonId={1234}
+          salonId={1234}
           openProfile={openProfile}
           openSessions={openSessions}
           openServices={openServices}
         />
       </Left>
       <Right>
-      <BackButtonBox onClick={goBack}>
-      <IoIosArrowBack/>
-      </BackButtonBox>
+        <Title justify="space-between" align="center" width="100%">
+          <H2 bold>{"Gigi's Salon"}</H2>
+          <FlexBox onClick={goBack}>
+            <FiX />
+          </FlexBox>
+        </Title>
         <RightWrapper>
-          {selected === "profile" ? (
-              <About />
-          ) : selected === "sessions" ? (
-            <div>Show </div>
-          ) : selected === "services" ? (
-            <Services />
-          ) : !isMobile ? (
-            <About />
-          ) : null}
+          {(() => {
+            switch (selected) {
+              case "profile":
+                return <About />;
+              case "sessions":
+                return <div>Show</div>;
+              case "services":
+                return <Services />;
+              case !isMobile && !selected:
+                return <About />;
+              default:
+                return null;
+            }
+          })()}
         </RightWrapper>
       </Right>
     </Container>
