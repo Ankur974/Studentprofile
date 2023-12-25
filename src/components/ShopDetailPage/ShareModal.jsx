@@ -1,122 +1,113 @@
 import React from "react";
 import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
-import { Body2 } from "../common/ui/Headings";
-import { CiMail } from "react-icons/ci";
-import { FaRegCopy, FaRegMessage, FaWhatsapp } from "react-icons/fa6";
+
+import { FaCopy, FaWhatsappSquare } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+import { IoCloseSharp } from "react-icons/io5";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
   height: 100%;
-  flex-wrap: wrap;
   flex-direction: row;
   column-gap: 4rem;
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  position: relative;
 `;
 const CopyLink = styled(FlexBox)`
-  width: 40%;
+  width: 20%;
+  border-radius: 8px;
   border: 1px dashed black;
   column-gap: 1rem;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  padding: 0.6rem;
 `;
-const ShareModal = () => {
+const Close = styled(IoCloseSharp)`
+  position: absolute;
+  right: 10px;
+  top: 5px;
+`;
+const ShareModal = ({ setOpenModal }) => {
   const copyLinkToClipboard = () => {
-    // Example: Copying the link to the clipboard
     const dummyElement = document.createElement("textarea");
-    dummyElement.value = "https://your-website.com/link-to-share";
+    dummyElement.value = window.location.href;
     document.body.appendChild(dummyElement);
     dummyElement.select();
     document.execCommand("copy");
     document.body.removeChild(dummyElement);
     alert("Link copied to clipboard!");
   };
-  // const shareOnWhatsApp = () => {
-  //   // Replace '1234567890' with the actual phone number or ID you want to start a chat with
-  //   const phoneNumber = "9330309476";
 
-  //   window.open(`https://web.whatsapp.com/send?phone=${phoneNumber}`);
-  // };
   const shareOnWhatsApp = () => {
     const url = encodeURIComponent("https://your-website.com/link-to-share");
     window.open(`https://web.whatsapp.com/?text=Check out this link: ${url}`);
   };
 
   const shareViaMessage = () => {
-    const phoneNumber = "1234567890"; // Replace with the recipient's phone number
+    const phoneNumber = "1234567890";
     const message = encodeURIComponent("Your message here");
 
     window.location.href = `sms:${phoneNumber}?body=${message}`;
   };
-
   const shareViaEmail = () => {
     const subject = encodeURIComponent("Subject of the email");
-    const body = encodeURIComponent("Body of the email");
+    const body = encodeURIComponent(
+      "First line of the email body.%0D%0ASecond line of the email body."
+    );
 
     const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
-
-    // Create an HTML anchor element to navigate to the mailto link
-    const mailtoElement = document.createElement("a");
-    mailtoElement.href = mailtoLink;
-
-    // Simulate a click on the anchor element to open the default email client
-    mailtoElement.click();
+    window.location.href = mailtoLink;
   };
 
   const data = [
     {
       id: 1,
       title: "Copy Link",
-      icon: FaRegCopy, // Assign icon component directly without extra braces
+      icon: FaCopy,
+      size: "25px",
+      color: "",
       onClick: copyLinkToClipboard,
     },
     {
       id: 2,
       title: "Whatsapp",
-      icon: FaWhatsapp,
+      icon: FaWhatsappSquare,
+      color: "green",
+      size: "25px",
       onClick: shareOnWhatsApp,
     },
     {
       id: 3,
       title: "Message",
-      icon: FaRegMessage,
-      onClick: shareViaMessage, // Implement message onClick handler
+      icon: FaMessage,
+      size: "25px",
+      color: "gold",
+      onClick: shareViaMessage,
     },
     {
       id: 4,
       title: "Email",
-      icon: CiMail,
-      onClick: shareViaEmail, // Implement email onClick handler
+      icon: MdEmail,
+      size: "25px",
+      color: "red",
+      onClick: shareViaEmail,
     },
   ];
 
   return (
     <Wrapper>
+      <Close size="20px" onClick={() => setOpenModal(false)} />
       {data.map(item => {
         return (
           <CopyLink key={item.id} onClick={item.onClick}>
-            <item.icon size="1.2rem" />
-
-            <Body2>{item.title}</Body2>
+            <item.icon size={item.size} fill={item.color} />
           </CopyLink>
         );
       })}
-
-      {/* <CopyLink>
-        <FaWhatsapp />
-        <Body2 onClick={shareOnWhatsApp}>Whatsapp</Body2>
-      </CopyLink>
-      <CopyLink>
-        <FaRegMessage />
-        <Body2>Message</Body2>
-      </CopyLink>
-      <CopyLink>
-        <CiMail />
-        <Body2>Email</Body2>
-      </CopyLink> */}
     </Wrapper>
   );
 };

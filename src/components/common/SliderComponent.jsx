@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -47,11 +47,15 @@ const SubHeading = styled(FlexBox)`
 `;
 
 const MobileScrollableList = styled.div`
-  display: block;
+  display: flex;
   width: 95%;
   position: relative;
+  // left: 10%;
+  // margin: auto;
+  justify-content: center;
+  align-items: center;
   @media ${device.laptop} {
-    display: none;
+    width: 100%;
   }
 `;
 
@@ -65,7 +69,7 @@ const DeviceScrollableList = styled.div`
 `;
 
 const CardWrapper = styled.div`
-  width: 20rem;
+  width: 100%;
   @media ${device.laptop} {
     width: 23rem;
   }
@@ -102,6 +106,21 @@ const Img = styled.img`
 `;
 
 const SliderComponent = ({ data, heading, subHeadings }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      const mobileWidthThreshold = 800;
+      setIsMobile(window.innerWidth < mobileWidthThreshold);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+    handleWindowResize();
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   return (
     <Wrapper>
       <TopContent>
@@ -111,7 +130,7 @@ const SliderComponent = ({ data, heading, subHeadings }) => {
           </H2>
           <Body1>Our picks to recreate this makeup look</Body1>
         </Heading>
-        <Img src="assets/images/girls-image.jpg"/>
+        <Img src="assets/images/girls-image.jpg" />
       </TopContent>
       <BodyContent>
         <SubHeading>
@@ -125,7 +144,7 @@ const SliderComponent = ({ data, heading, subHeadings }) => {
           <Swiper
             modules={[Navigation]}
             spaceBetween={8}
-            slidesPerView={1}
+            slidesPerView={isMobile ? 1 : 3}
             navigation
           >
             {data?.map(data => (
@@ -137,22 +156,6 @@ const SliderComponent = ({ data, heading, subHeadings }) => {
             ))}
           </Swiper>
         </MobileScrollableList>
-        <DeviceScrollableList>
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={8}
-            slidesPerView={3}
-            navigation
-          >
-            {data?.map(data => (
-              <SwiperSlide key={data?.id}>
-                <CardWrapper>
-                  <OfferCard2 data={data} />
-                </CardWrapper>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </DeviceScrollableList>
       </BodyContent>
     </Wrapper>
   );
