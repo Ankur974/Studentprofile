@@ -50,21 +50,11 @@ const MobileScrollableList = styled.div`
   display: flex;
   width: 95%;
   position: relative;
-  // left: 10%;
-  // margin: auto;
   justify-content: center;
   align-items: center;
-  @media ${device.laptop} {
-    width: 100%;
-  }
-`;
 
-const DeviceScrollableList = styled.div`
-  display: none;
   @media ${device.laptop} {
-    display: block;
     width: 100%;
-    position: relative;
   }
 `;
 
@@ -160,4 +150,5 @@ const SliderComponent = ({ data, heading, subHeadings }) => {
     </Wrapper>
   );
 };
+
 export default SliderComponent;

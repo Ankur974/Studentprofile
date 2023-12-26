@@ -102,13 +102,9 @@ const SalonInfo = () => {
             }}
           />
           {openModal && (
-            <Modal
-              M1
-              height="20%"
-              width="40%"
-              togglePopup={openModal}
-              children={<ShareModal setOpenModal={setOpenModal} />}
-            />
+            <Modal M1 height="20%" width="40%" togglePopup={openModal}>
+              <ShareModal setOpenModal={setOpenModal} />
+            </Modal>
           )}
           <Favourite clicked={Clicked} setclicked={setClicked} />
         </Icons>
