@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import { NumberParam, StringParam, useQueryParams } from "use-query-params";
+import { useRouter } from "next/router";
+import { FiX } from "react-icons/fi";
 
 import FlexBox from "@common/ui/FlexBox";
-import { Body2 } from "@common/ui/Headings";
 import { device } from "@common/ui/Resposive";
 import { ACCENT_300, WHITE } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import SalonCard from "./SalonCard";
 import About from "@components/ShopDetailPage/About";
 import Services from "@components/ShopDetailPage/Services";
+import { H2 } from "@common/Dashboard/Headings";
 
 const Container = styled(FlexBox)`
   width: 100vw;
@@ -67,69 +69,83 @@ const Right = styled(Card)`
 
 const RightWrapper = styled(FlexBox)`
   width: 100%;
-  padding: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
   overflow-y: scroll;
 `;
 
-const AboutBox = styled(FlexBox)`
-  width: 100%;
-  align-items: center;
+const Title = styled(FlexBox)`
+  @media screen and (min-width: 768px) {
+    border-bottom: 1px solid ${ACCENT_300};
+    padding: 1.5rem;
+  }
+  padding: 0 1.5rem;
 `;
 
 const MySalons = () => {
   const isMobile = useMobileView();
+  const router = useRouter();
+
+  const goBack = () => {
+    router.back();
+  };
 
   const [queryParams, setQueryParams] = useQueryParams({
     selected: StringParam,
-    saloonId: NumberParam,
+    salonId: NumberParam,
   });
 
   const { selected } = queryParams || {};
 
-  const openProfile = saloonId =>
+  const openProfile = salonId =>
     setQueryParams({
       selected: "profile",
-      saloonId: saloonId,
+      salonId: salonId,
     });
 
-  const openServices = saloonId =>
+  const openServices = salonId =>
     setQueryParams({
       selected: "services",
-      saloonId: saloonId || 20772,
+      salonId: salonId || 20772,
     });
 
-  const openSessions = saloonId =>
+  const openSessions = salonId =>
     setQueryParams({
       selected: "sessions",
-      saloonId,
+      salonId,
     });
 
-  const showLeftSection = !selected;
-
   return (
-    <Container showLeftSection={showLeftSection}>
+    <Container showLeftSection={!selected}>
       <Left>
         <SalonCard
-          saloonId={1234}
+          salonId={1234}
           openProfile={openProfile}
           openSessions={openSessions}
           openServices={openServices}
         />
       </Left>
       <Right>
+        <Title justify="space-between" align="center" width="100%">
+          <H2 bold>{"Gigi's Salon"}</H2>
+          <FlexBox onClick={goBack}>
+            <FiX />
+          </FlexBox>
+        </Title>
         <RightWrapper>
-          {selected === "profile" ? (
-            <AboutBox column>
-              <Body2 bold>About </Body2>
-              <About />
-            </AboutBox>
-          ) : selected === "sessions" ? (
-            <div>Show </div>
-          ) : selected === "services" ? (
-            <Services />
-          ) : !isMobile ? (
-            <About />
-          ) : null}
+          {(() => {
+            switch (selected) {
+              case "profile":
+                return <About />;
+              case "sessions":
+                return <div>Show</div>;
+              case "services":
+                return <Services />;
+              case !isMobile && !selected:
+                return <About />;
+              default:
+                return null;
+            }
+          })()}
         </RightWrapper>
       </Right>
     </Container>

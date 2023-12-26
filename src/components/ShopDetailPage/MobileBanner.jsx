@@ -2,9 +2,7 @@ import React from "react";
 import FlexBox from "@common/ui/FlexBox";
 import styled from "styled-components";
 import SalonInfo from "./SalonInfo";
-import { Button } from "@common/ui/Buttons";
-import { ACCENT_0 } from "@common/ui/colors";
-
+import { ACCENT_0, ACCENT_200 } from "@common/ui/colors";
 import { useRouter } from "next/router";
 import { Body1 } from "@common/ui/Headings";
 
@@ -19,14 +17,18 @@ const Img = styled.img`
   width: 100%;
 `;
 
-const NewButton = styled(Button)`
+const ViewMoreButton = styled.div`
   position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
   background-color: ${ACCENT_0};
-  bottom: 2%;
-  padding: 0.2rem;
-  border-radius: 6px;
-  right: 5%;
-  color: ${ACCENT_0};
+  cursor: pointer;
+
+  :hover {
+    background-color: ${ACCENT_200};
+  }
 `;
 
 const MobileBanner = () => {
@@ -35,9 +37,9 @@ const MobileBanner = () => {
     <Banner>
       <FlexBox position="relative">
         <Img src="/assets/images/banner-new.svg" />
-        <NewButton onClick={() => router.push("/shop-details/carousel")}>
-          <Body1>show more</Body1>
-        </NewButton>
+        <ViewMoreButton onClick={() => router.push("/shop-details/carousel")}>
+          <Body1 bold>Show more</Body1>
+        </ViewMoreButton>
       </FlexBox>
 
       <SalonInfo />

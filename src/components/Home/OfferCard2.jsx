@@ -7,6 +7,7 @@ import { ACCENT_0 } from "../common/ui/colors";
 const Wrapper = styled(FlexBox)`
   border-radius: 1rem;
   min-width: 13rem;
+  max-height:13rem;
   justify-content: space-between;
   background: ${props => props.color};
 `;
@@ -40,7 +41,7 @@ const ImgBox = styled(FlexBox)`
 
 const ContentBox = styled(FlexBox)`
   margin: 1.5rem 0 1.5rem 1.5rem;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   position: relative;
 `;
 
