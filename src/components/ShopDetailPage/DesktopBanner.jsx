@@ -1,78 +1,76 @@
 import React from "react";
 import styled from "styled-components";
-import { useRouter } from "next/router";
-import { Body1 } from "@common/ui/Headings";
-import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_0, ACCENT_200 } from "@common/ui/colors";
+import FlexBox from "../common/ui/FlexBox";
+import { device } from "../common/ui/Resposive";
 import SalonInfo from "./SalonInfo";
+import { useRouter } from "next/router";
 
-const Wrapper = styled(FlexBox)`
-  width: calc(100% - 0.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
-const GroupImage = styled(FlexBox)`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  position: relative;
-`;
-
-const GrpImg = styled.img`
-  width: ${({ numOfImages, index }) =>
-    numOfImages % 2 === 1 && index === numOfImages - 1
-      ? "100%"
-      : numOfImages === 1
-      ? "100%"
-      : "calc(50% - 0.5rem)"};
-  margin-bottom: ${({ numOfImages, index }) =>
-    numOfImages === 1 || (numOfImages % 2 === 1 && index === numOfImages - 1)
-      ? "0.5rem"
-      : "unset"};
-`;
-
-const ViewMoreButton = styled.div`
-  position: absolute;
-  bottom: 10px;
-  right: 8%;
-  transform: translateX(-50%);
-  padding: 0.25rem 1rem;
-  border-radius: 0.25rem;
-  background-color: ${ACCENT_0};
-  cursor: pointer;
-
-  :hover {
-    background-color: ${ACCENT_200};
+const Container = styled(FlexBox)`
+  display: none;
+  @media ${device.laptop} {
+    display: flex;
+    column-gap: 30px;
+    flex-direction: row;
+    position: relative;
   }
 `;
-
-const images = [
-  "/assets/salon-image1.jpg",
-  "/assets/salon-image2.jpg",
-  "/assets/salon-image3.jpg",
-  "/assets/images/banner-new.svg",
-  "/assets/images/banner-new.svg",
-];
-
+const Wrapper = styled(FlexBox)`
+  display: none;
+  @media ${device.laptop} {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+`;
+const GroupImage = styled(FlexBox)`
+  width: 60%;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+`;
+const Img = styled.img`
+  width: 100%;
+`;
+const GrpImg = styled.img`
+  width: 47%;
+`;
+const ImageContainer = styled(FlexBox)`
+  width: 60%;
+`;
+const Button = styled.div`
+  background-color: black;
+  color: white;
+  width: 10%;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+`;
 const DesktopBanner = () => {
   const router = useRouter();
-  const numOfImages = images.length;
-
   return (
     <Wrapper>
       <SalonInfo />
-      <GroupImage>
-        {images.map((item, index) => (
-          <GrpImg key={index} src={item} alt="" numOfImages={numOfImages} />
-        ))}
-        <ViewMoreButton onClick={() => router.push("/shop-details/carousel")}>
-          <Body1 bold>Show more</Body1>
-        </ViewMoreButton>
-      </GroupImage>
+      <Container>
+        <ImageContainer>
+          <Img src="/assets/images/banner-new.svg" />
+        </ImageContainer>
+        <GroupImage>
+          <GrpImg src="/assets/salon-image1.jpg" alt="" />
+          <GrpImg src="/assets/salon-image2.jpg" alt="" />
+          <GrpImg src="/assets/salon-image2.jpg" alt="" />
+          <GrpImg src="/assets/salon-image2.jpg" alt="" />
+        </GroupImage>
+        <Button onClick={() => router.push("/shop-details/carousel")}>
+          Show More
+        </Button>
+      </Container>
     </Wrapper>
   );
 };
-
 export default DesktopBanner;
