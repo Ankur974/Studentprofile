@@ -58,13 +58,13 @@ const DesktopBanner = () => {
       <SalonInfo />
       <Container>
         <ImageContainer>
-          <Img src="/assets/images/banner-new.svg" />
+          <Img src="/assets/salon-image3.jpg" />
         </ImageContainer>
         <GroupImage>
-          <GrpImg src="/assets/salon-image1.jpg" alt="" />
+          <GrpImg src="/assets/salon-image11.jpg" alt="" />
           <GrpImg src="/assets/salon-image2.jpg" alt="" />
-          <GrpImg src="/assets/salon-image2.jpg" alt="" />
-          <GrpImg src="/assets/salon-image2.jpg" alt="" />
+          <GrpImg src="/assets/salon-image3.jpg" alt="" />
+          <GrpImg src="/assets/salon-image4.jpg" alt="" />
         </GroupImage>
         <Button onClick={() => router.push("/shop-details/carousel")}>
           Show More

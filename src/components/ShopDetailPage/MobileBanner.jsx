@@ -36,7 +36,7 @@ const MobileBanner = () => {
   return (
     <Banner>
       <FlexBox position="relative">
-        <Img src="/assets/images/banner-new.svg" />
+        <Img src="/assets/salon-image3.jpg" />
         <ViewMoreButton onClick={() => router.push("/shop-details/carousel")}>
           <Body1 bold>Show more</Body1>
         </ViewMoreButton>
