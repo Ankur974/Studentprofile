@@ -43,8 +43,17 @@ const Body = styled(FlexBox)`
 
 const CardWrapper = styled.div`
   width: 100%;
-  @media ${device.laptop} {
-    width: 23rem;
+  // @media ${device.laptop} {
+  //   width: 23rem;
+  // }
+  @media screen and (min-width: 950px and max-width: 1007px) {
+    width: 6rem;
+  }
+  @media screen and (min-width: 1008px and max-width: 1066px) {
+    width: 19rem;
+  }
+  @media screen and (min-width: 1066px and max-width: 1165px) {
+    width: 21rem;
   }
 `;
 
@@ -55,6 +64,9 @@ const ViewButton = styled(FlexBox)`
   @media ${device.laptop} {
     column-gap: 5px;
     align-items: center;
+  }
+  &:hover {
+    transform: scale(1.3);
   }
 `;
 
@@ -79,6 +91,16 @@ const StyledSwiper = styled(Swiper)`
     width: 100%;
     height: 100%;
   }
+  @media screen and (min-width: 850px ) {
+    .mySwiper{
+      width: 576px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .mySwiper {
+      width: 768px;
+    }
 `;
 
 const SliderButton = styled.div`
@@ -108,6 +130,21 @@ const SliderButton = styled.div`
   .swiper-button-disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+`;
+const ForwardButton = styled(IoIosArrowForward)`
+  &:hover {
+    // border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+    transform: scale(2.01);
+  }
+`;
+const BackButton = styled(IoIosArrowBack)`
+  &:hover {
+    border-radius: 20px;
+    background-color: white;
+    transform: scale(2.01);
   }
 `;
 
@@ -149,15 +186,27 @@ const SliderComponent = ({ data, heading, subHeadings }) => {
         </FlexBox>
         <SliderButton>
           <div className="swiper-button image-swiper-button-next">
-            <IoIosArrowForward />
+            <ForwardButton />
           </div>
           <div className="swiper-button image-swiper-button-prev">
-            <IoIosArrowBack />
+            <BackButton />
           </div>
           <StyledSwiper
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+
+              474: {
+                slidesPerView: 2,
+              },
+              800: {
+                slidesPerView: 3,
+              },
+            }}
             modules={[Navigation]}
             spaceBetween={8}
-            slidesPerView={isMobile ? 1 : 3}
+            slidesPerView={2}
             navigation={{
               nextEl: ".image-swiper-button-next",
               prevEl: ".image-swiper-button-prev",
