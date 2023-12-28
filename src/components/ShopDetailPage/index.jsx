@@ -66,4 +66,5 @@ const ShopDetailPage = () => {
     </Container>
   );
 };
+
 export default ShopDetailPage;

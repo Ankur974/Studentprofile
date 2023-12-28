@@ -5,6 +5,7 @@ import { PRIMARY_800 } from "@common/ui/colors";
 // import NavLinks from "@components/NavBar/NavLinks";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
+import { useRouter } from "next/router";
 
 const FallBack = styled.div`
   display: none;
@@ -68,17 +69,12 @@ const Logo = styled.img`
 
 const NavBar = ({ navContainerStyles }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router=useRouter();
 
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   }
-  //   return () => (document.body.style.overflow = "auto");
-  // }, [isMenuOpen]);
 
   return (
     <>
@@ -89,7 +85,7 @@ const NavBar = ({ navContainerStyles }) => {
       >
         <FallBack navState={isMenuOpen} onClick={closeMenu} />
         <NavMain justify="space-between" align="center" width="90%">
-          <LogoContainer>
+          <LogoContainer onClick={()=>router.push("/")}>
             <Logo
               isStatic
               height={36}

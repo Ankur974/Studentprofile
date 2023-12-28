@@ -1,76 +1,86 @@
 import React from "react";
 import styled from "styled-components";
-import { useRouter } from "next/router";
-import { Body1 } from "@common/ui/Headings";
-import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_0, ACCENT_200 } from "@common/ui/colors";
+import FlexBox from "../common/ui/FlexBox";
 import SalonInfo from "./SalonInfo";
+import { device } from "../common/ui/Resposive";
+import { useRouter } from "next/router";
+import { ACCENT_300, ACCENT_800 } from "../common/ui/colors";
 
-const Wrapper = styled(FlexBox)`
-  width: calc(100% - 0.5rem);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
+const Container = styled(FlexBox)`
+  display: none;
 
-const GroupImage = styled(FlexBox)`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  position: relative;
-`;
-
-const GrpImg = styled.img`
-  width: ${({ numOfImages, index }) =>
-    numOfImages % 2 === 1 && index === numOfImages - 1
-      ? "100%"
-      : numOfImages === 1
-      ? "100%"
-      : "calc(50% - 0.5rem)"};
-  margin-bottom: ${({ numOfImages, index }) =>
-    numOfImages === 1 || (numOfImages % 2 === 1 && index === numOfImages - 1)
-      ? "0.5rem"
-      : "unset"};
-`;
-
-const ViewMoreButton = styled.div`
-  position: absolute;
-  bottom: 10px;
-  right: 8%;
-  transform: translateX(-50%);
-  padding: 0.25rem 1rem;
-  border-radius: 0.25rem;
-  background-color: ${ACCENT_0};
-  cursor: pointer;
-
-  :hover {
-    background-color: ${ACCENT_200};
+  @media ${device.laptop} {
+    display: flex;
+    column-gap: 0.5rem;
+    flex-direction: row;
+    position: relative;
   }
 `;
 
-const images = [
-  "/assets/salon-image1.jpg",
-  "/assets/salon-image2.jpg",
-  "/assets/salon-image3.jpg",
-  "/assets/images/banner-new.svg",
-  "/assets/images/banner-new.svg",
-];
+const Wrapper = styled(FlexBox)`
+  display: none;
+
+  @media ${device.laptop} {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+`;
+
+const GroupImage = styled(FlexBox)`
+  width: 60%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`;
+
+const Img = styled.img`
+  width: 100%;
+`;
+
+const GrpImg = styled.img`
+  width: 47%;
+`;
+
+const ImageContainer = styled(FlexBox)`
+  width: 65%;
+`;
+
+const ShowMoreCta = styled.div`
+  background-color: ${ACCENT_300};
+  color: ${ACCENT_800};
+  width: fit-content;
+  position: absolute;
+  bottom: 2%;
+  right: 3%;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+`;
 
 const DesktopBanner = () => {
   const router = useRouter();
-  const numOfImages = images.length;
 
   return (
     <Wrapper>
       <SalonInfo />
-      <GroupImage>
-        {images.map((item, index) => (
-          <GrpImg key={index} src={item} alt="" numOfImages={numOfImages} />
-        ))}
-        <ViewMoreButton onClick={() => router.push("/shop-details/carousel")}>
-          <Body1 bold>Show more</Body1>
-        </ViewMoreButton>
-      </GroupImage>
+      <Container>
+        <ImageContainer>
+          <Img src="/assets/salon-image3.jpg" />
+        </ImageContainer>
+        <GroupImage>
+          <GrpImg src="/assets/salon-image11.jpg" alt="" />
+          <GrpImg src="/assets/salon-image2.jpg" alt="" />
+          <GrpImg src="/assets/salon-image3.jpg" alt="" />
+          <GrpImg src="/assets/salon-image4.jpg" alt="" />
+        </GroupImage>
+        <ShowMoreCta onClick={() => router.push("/shop-details/carousel")}>
+          Show More
+        </ShowMoreCta>
+      </Container>
     </Wrapper>
   );
 };

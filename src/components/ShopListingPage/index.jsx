@@ -116,7 +116,480 @@ const ShopListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
 
   const toggleModal = () => setShowFilter(!showFilter);
-  const Arr = new Array(10).fill(1);
+  const Arr = [
+    {
+      name: "Gigis Salon",
+      image: "/assets/salon-image1.jpg",
+      popularity: "Popular",
+      rating: 4.5,
+      discount: 15,
+      category: "Salon for Men",
+      distance: 2,
+      startingPrice: 350,
+      amenities: [
+        {
+          id: 1,
+          label: "Air conditioning",
+        },
+        {
+          id: 12,
+          label: "Parking",
+        },
+        {
+          id: 2,
+          label: "Kids Friendly",
+        },
+      ],
+    },
+    {
+      name: "Chic Spa",
+      image: "/assets/salon-image2.jpg",
+      popularity: "New",
+      rating: 4.0,
+      discount: 20,
+      category: "Spa",
+      distance: 5,
+      startingPrice: 500,
+      amenities: [
+        {
+          id: 3,
+          label: "Free Wi-Fi",
+        },
+        {
+          id: 8,
+          label: "Wheelchair Accessible",
+        },
+        {
+          id: 6,
+          label: "Refreshments",
+        },
+      ],
+    },
+    {
+      name: "Elegance Beauty",
+      image: "/assets/salon-image3.jpg",
+      popularity: "Top Rated",
+      rating: 4.8,
+      category: "Beauty Salon",
+      distance: 1,
+      startingPrice: 250,
+      amenities: [
+        {
+          id: 5,
+          label: "Free Parking",
+        },
+        {
+          id: 9,
+          label: "Facial Treatments",
+        },
+        {
+          id: 4,
+          label: "Hair Styling",
+        },
+      ],
+    },
+    {
+      name: "Relax Haven",
+      image: "/assets/salon-image4.jpg",
+      popularity: "New",
+      rating: 4.2,
+      discount: 10,
+      category: "Relaxation Spa",
+      distance: 3,
+      startingPrice: 450,
+      amenities: [
+        {
+          id: 7,
+          label: "Sauna",
+        },
+        {
+          id: 10,
+          label: "Massage Therapy",
+        },
+        {
+          id: 11,
+          label: "Couples Packages",
+        },
+      ],
+    },
+    {
+      name: "Trendy Cuts",
+      image: "/assets/salon-image5.jpg",
+      popularity: "Popular",
+      rating: 4.7,
+      category: "Hair Salon",
+      distance: 4,
+      startingPrice: 300,
+      amenities: [
+        {
+          id: 13,
+          label: "Coloring Services",
+        },
+        {
+          id: 14,
+          label: "Barber Services",
+        },
+        {
+          id: 15,
+          label: "Styling Consultation",
+        },
+      ],
+    },
+    {
+      name: "Gigis Salon",
+      image: "/assets/salon-image1.jpg",
+      popularity: "Popular",
+      rating: 4.5,
+      discount: 15,
+      category: "Salon for Men",
+      distance: 2,
+      startingPrice: 350,
+      amenities: [
+        {
+          id: 1,
+          label: "Air conditioning",
+        },
+        {
+          id: 12,
+          label: "Parking",
+        },
+        {
+          id: 2,
+          label: "Kids Friendly",
+        },
+      ],
+    },
+    {
+      name: "Chic Spa",
+      image: "/assets/salon-image2.jpg",
+      popularity: "New",
+      rating: 4.0,
+      discount: 20,
+      category: "Spa",
+      distance: 5,
+      startingPrice: 500,
+      amenities: [
+        {
+          id: 3,
+          label: "Free Wi-Fi",
+        },
+        {
+          id: 8,
+          label: "Wheelchair Accessible",
+        },
+        {
+          id: 6,
+          label: "Refreshments",
+        },
+      ],
+    },
+    {
+      name: "Elegance Beauty",
+      image: "/assets/salon-image3.jpg",
+      popularity: "Top Rated",
+      rating: 4.8,
+      category: "Beauty Salon",
+      distance: 1,
+      startingPrice: 250,
+      amenities: [
+        {
+          id: 5,
+          label: "Free Parking",
+        },
+        {
+          id: 9,
+          label: "Facial Treatments",
+        },
+        {
+          id: 4,
+          label: "Hair Styling",
+        },
+      ],
+    },
+    {
+      name: "Relax Haven",
+      image: "/assets/salon-image4.jpg",
+      popularity: "New",
+      rating: 4.2,
+      discount: 10,
+      category: "Relaxation Spa",
+      distance: 3,
+      startingPrice: 450,
+      amenities: [
+        {
+          id: 7,
+          label: "Sauna",
+        },
+        {
+          id: 10,
+          label: "Massage Therapy",
+        },
+        {
+          id: 11,
+          label: "Couples Packages",
+        },
+      ],
+    },
+    {
+      name: "Trendy Cuts",
+      image: "/assets/salon-image5.jpg",
+      popularity: "Popular",
+      rating: 4.7,
+      category: "Hair Salon",
+      distance: 4,
+      startingPrice: 300,
+      amenities: [
+        {
+          id: 13,
+          label: "Coloring Services",
+        },
+        {
+          id: 14,
+          label: "Barber Services",
+        },
+        {
+          id: 15,
+          label: "Styling Consultation",
+        },
+      ],
+    },
+    {
+      name: "Gigis Salon",
+      image: "/assets/salon-image1.jpg",
+      popularity: "Popular",
+      rating: 4.5,
+      discount: 15,
+      category: "Salon for Men",
+      distance: 2,
+      startingPrice: 350,
+      amenities: [
+        {
+          id: 1,
+          label: "Air conditioning",
+        },
+        {
+          id: 12,
+          label: "Parking",
+        },
+        {
+          id: 2,
+          label: "Kids Friendly",
+        },
+      ],
+    },
+    {
+      name: "Chic Spa",
+      image: "/assets/salon-image2.jpg",
+      popularity: "New",
+      rating: 4.0,
+      discount: 20,
+      category: "Spa",
+      distance: 5,
+      startingPrice: 500,
+      amenities: [
+        {
+          id: 3,
+          label: "Free Wi-Fi",
+        },
+        {
+          id: 8,
+          label: "Wheelchair Accessible",
+        },
+        {
+          id: 6,
+          label: "Refreshments",
+        },
+      ],
+    },
+    {
+      name: "Elegance Beauty",
+      image: "/assets/salon-image3.jpg",
+      popularity: "Top Rated",
+      rating: 4.8,
+      category: "Beauty Salon",
+      distance: 1,
+      startingPrice: 250,
+      amenities: [
+        {
+          id: 5,
+          label: "Free Parking",
+        },
+        {
+          id: 9,
+          label: "Facial Treatments",
+        },
+        {
+          id: 4,
+          label: "Hair Styling",
+        },
+      ],
+    },
+    {
+      name: "Relax Haven",
+      image: "/assets/salon-image4.jpg",
+      popularity: "New",
+      rating: 4.2,
+      discount: 10,
+      category: "Relaxation Spa",
+      distance: 3,
+      startingPrice: 450,
+      amenities: [
+        {
+          id: 7,
+          label: "Sauna",
+        },
+        {
+          id: 10,
+          label: "Massage Therapy",
+        },
+        {
+          id: 11,
+          label: "Couples Packages",
+        },
+      ],
+    },
+    {
+      name: "Trendy Cuts",
+      image: "/assets/salon-image5.jpg",
+      popularity: "Popular",
+      rating: 4.7,
+      category: "Hair Salon",
+      distance: 4,
+      startingPrice: 300,
+      amenities: [
+        {
+          id: 13,
+          label: "Coloring Services",
+        },
+        {
+          id: 14,
+          label: "Barber Services",
+        },
+        {
+          id: 15,
+          label: "Styling Consultation",
+        },
+      ],
+    },
+    {
+      name: "Gigis Salon",
+      image: "/assets/salon-image1.jpg",
+      popularity: "Popular",
+      rating: 4.5,
+      discount: 15,
+      category: "Salon for Men",
+      distance: 2,
+      startingPrice: 350,
+      amenities: [
+        {
+          id: 1,
+          label: "Air conditioning",
+        },
+        {
+          id: 12,
+          label: "Parking",
+        },
+        {
+          id: 2,
+          label: "Kids Friendly",
+        },
+      ],
+    },
+    {
+      name: "Chic Spa",
+      image: "/assets/salon-image2.jpg",
+      popularity: "New",
+      rating: 4.0,
+      discount: 20,
+      category: "Spa",
+      distance: 5,
+      startingPrice: 500,
+      amenities: [
+        {
+          id: 3,
+          label: "Free Wi-Fi",
+        },
+        {
+          id: 8,
+          label: "Wheelchair Accessible",
+        },
+        {
+          id: 6,
+          label: "Refreshments",
+        },
+      ],
+    },
+    {
+      name: "Elegance Beauty",
+      image: "/assets/salon-image3.jpg",
+      popularity: "Top Rated",
+      rating: 4.8,
+      category: "Beauty Salon",
+      distance: 1,
+      startingPrice: 250,
+      amenities: [
+        {
+          id: 5,
+          label: "Free Parking",
+        },
+        {
+          id: 9,
+          label: "Facial Treatments",
+        },
+        {
+          id: 4,
+          label: "Hair Styling",
+        },
+      ],
+    },
+    {
+      name: "Relax Haven",
+      image: "/assets/salon-image4.jpg",
+      popularity: "New",
+      rating: 4.2,
+      discount: 10,
+      category: "Relaxation Spa",
+      distance: 3,
+      startingPrice: 450,
+      amenities: [
+        {
+          id: 7,
+          label: "Sauna",
+        },
+        {
+          id: 10,
+          label: "Massage Therapy",
+        },
+        {
+          id: 11,
+          label: "Couples Packages",
+        },
+      ],
+    },
+    {
+      name: "Trendy Cuts",
+      image: "/assets/salon-image5.jpg",
+      popularity: "Popular",
+      rating: 4.7,
+      category: "Hair Salon",
+      distance: 4,
+      startingPrice: 300,
+      amenities: [
+        {
+          id: 13,
+          label: "Coloring Services",
+        },
+        {
+          id: 14,
+          label: "Barber Services",
+        },
+        {
+          id: 15,
+          label: "Styling Consultation",
+        },
+      ],
+    },
+  ];
   return (
     <div>
       {showFilter && <FilterModal toggleModal={toggleModal} />}
@@ -138,8 +611,8 @@ const ShopListingPage = () => {
           </Showappliedfilter>
         </Filtercontainer>
         <ListWrapper>
-          {Arr.map(index => (
-            <Card key={index} />
+          {Arr.map((data, index) => (
+            <Card key={index} data={data} />
           ))}
         </ListWrapper>
         <H1 textAlign="center">Frequently Asked Questions</H1>
