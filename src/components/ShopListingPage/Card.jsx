@@ -114,7 +114,6 @@ const Card = ({ data }) => {
             backgroundColor={RATEBACKGROUND}
             padding="0 0.20rem"
             columnGap="0.4rem"
-            margin="0 1rem"
           >
             <img src="/assets/images/star.svg" alt="star" />
             <Body2 color={ACCENT_0}>{data.rating}</Body2>
