@@ -74,14 +74,14 @@ const salonPref = [
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
-  padding: 1rem 1rem;
+  padding: 1rem;
   gap: 1rem;
   height: 100%;
   overflow-y: auto;
   border-radius: 1rem;
 
-  @media ${device.laptop}{
-    padding:1rem 2rem;
+  @media ${device.laptop} {
+    padding: 1rem 2rem;
   }
 `;
 
@@ -94,8 +94,7 @@ const Img = styled.img`
 
 const ChipsBox = styled(FlexBox)`
   width: 100%;
-  ${"" /* overflow-x:scroll; */}
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 `;
 
 const FilterChip = ({ name, selected, onClick }) => (
