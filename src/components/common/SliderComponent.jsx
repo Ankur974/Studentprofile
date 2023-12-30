@@ -43,8 +43,17 @@ const Body = styled(FlexBox)`
 
 const CardWrapper = styled.div`
   width: 100%;
-  @media ${device.laptop} {
-    width: 23rem;
+  @media screen and (max-width: 300px) {
+    width: 4rem;
+  }
+  @media screen and (min-width: 950px and max-width: 1007px) {
+    width: 6rem;
+  }
+  @media screen and (min-width: 1008px and max-width: 1066px) {
+    width: 19rem;
+  }
+  @media screen and (min-width: 1066px and max-width: 1165px) {
+    width: 21rem;
   }
 `;
 
@@ -55,6 +64,9 @@ const ViewButton = styled(FlexBox)`
   @media ${device.laptop} {
     column-gap: 5px;
     align-items: center;
+  }
+  &:hover {
+    transform: scale(1.3);
   }
 `;
 
@@ -79,6 +91,16 @@ const StyledSwiper = styled(Swiper)`
     width: 100%;
     height: 100%;
   }
+  @media screen and (min-width: 850px ) {
+    .mySwiper{
+      width: 576px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .mySwiper {
+      width: 768px;
+    }
 `;
 
 const SliderButton = styled.div`
@@ -110,14 +132,49 @@ const SliderButton = styled.div`
     pointer-events: none;
   }
 `;
+const ForwardButton = styled(IoIosArrowForward)`
+  &:hover {
+    // border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+    transform: scale(2.01);
+  }
+`;
+const BackButton = styled(IoIosArrowBack)`
+  &:hover {
+    border-radius: 20px;
+    background-color: white;
+    transform: scale(2.01);
+  }
+`;
 
-const SliderComponent = ({ data, heading, subHeadings }) => {
-  const [isMobile, setIsMobile] = useState(false);
+const SliderComponent = ({ data, newData }) => {
+  const [slideViewCount, setSlideViewCount] = useState(null);
+  const [swiperInstance, setSwiperInstance] = useState(null);
+  const [isLastSlide, setIsLastSlide] = useState(false);
+
+  const handleSwiper = swiper => {
+    setSwiperInstance(swiper, "swiper");
+  };
+
+  const handleSlideChange = () => {
+    if (swiperInstance !== null) {
+      setIsLastSlide(swiperInstance.isEnd);
+    }
+  };
 
   useEffect(() => {
     const handleWindowResize = () => {
-      const mobileWidthThreshold = 800;
-      setIsMobile(window.innerWidth < mobileWidthThreshold);
+      const mobileWidthThreshold = 519;
+      const windowWidth = window.innerWidth;
+
+      if (windowWidth < mobileWidthThreshold) {
+        setSlideViewCount(1);
+      } else if (windowWidth >= mobileWidthThreshold && windowWidth < 800) {
+        setSlideViewCount(2);
+      } else {
+        setSlideViewCount(3);
+      }
     };
 
     window.addEventListener("resize", handleWindowResize);
@@ -127,37 +184,43 @@ const SliderComponent = ({ data, heading, subHeadings }) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-
+  console.log(data.length, slideViewCount);
   return (
     <Wrapper>
-      <TopContent>
-        <Header>
-          <H1 bold>{heading}</H1>
-          <Body1>Our picks to recreate this makeup look</Body1>
-        </Header>
-        <FlexBox>
-          <BannerImage src="assets/images/girls-image.jpg" />
-        </FlexBox>
-      </TopContent>
+      {Array.isArray(newData) && (
+        <TopContent>
+          <Header>
+            <H1 bold>{newData[0]?.heading}</H1>
+            <Body1>Our picks to recreate this makeup look</Body1>
+          </Header>
+          <FlexBox>
+            <BannerImage src="assets/images/girls-image.jpg" />
+          </FlexBox>
+        </TopContent>
+      )}
       <Body>
         <FlexBox justify="space-between">
-          <Body1 bold>{subHeadings}</Body1>
-          <ViewButton>
-            <Body1>View All</Body1>
-            <FiChevronRight />
-          </ViewButton>
+          <Body1 bold>{newData?.subHeadings}</Body1>
+          {slideViewCount < data.length && !isLastSlide && (
+            <ViewButton>
+              <Body1>View All</Body1>
+              <FiChevronRight />
+            </ViewButton>
+          )}
         </FlexBox>
         <SliderButton>
           <div className="swiper-button image-swiper-button-next">
-            <IoIosArrowForward />
+            <ForwardButton />
           </div>
           <div className="swiper-button image-swiper-button-prev">
-            <IoIosArrowBack />
+            <BackButton />
           </div>
           <StyledSwiper
+            slidesPerView={slideViewCount}
             modules={[Navigation]}
             spaceBetween={8}
-            slidesPerView={isMobile ? 1 : 3}
+            onSwiper={handleSwiper}
+            onSlideChange={handleSlideChange}
             navigation={{
               nextEl: ".image-swiper-button-next",
               prevEl: ".image-swiper-button-prev",

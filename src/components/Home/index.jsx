@@ -23,6 +23,14 @@ const Wrapper = styled(FlexBox)`
   }
 `;
 
+const data = [
+  {
+    id: 1,
+    heading: "Get my salon",
+    subHeadings: "choose your offers",
+  },
+];
+
 const CardContainer = styled(FlexBox)`
   overflow-x: scroll;
   width: 100%;
@@ -52,11 +60,7 @@ const Home = () => {
           redirectUrl="/shop-listing"
         />
       </CardContainer>
-      <SliderComponent
-        data={offerCard2data}
-        heading="Get my salon"
-        subHeadings="Choose your offers"
-      />
+      <SliderComponent data={offerCard2data} newData={data} />
     </Wrapper>
   );
 };
