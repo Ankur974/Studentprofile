@@ -31,23 +31,35 @@ const data = [
   },
 ];
 
+const CardContainer = styled(FlexBox)`
+  overflow-x: scroll;
+  width: 100%;
+  margin-bottom: 4.5rem;
+
+  @media ${device.laptop} {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    margin-bottom: 0;
+  }
+`;
+
 const Home = () => {
   return (
     <Wrapper>
-      <FlexBox>
+      <CardContainer>
         <Card
           title="Hot Selling Salon 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          imageUrl="/assets/images/banner-new.svg"
+          imageUrl="/assets/salon-image3.jpg"
           redirectUrl="/shop-listing"
         />
         <Card
           title="Hot Selling Salon 2"
           description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
-          imageUrl="/assets/images/banner-new.svg"
+          imageUrl="/assets/salon-image3.jpg"
           redirectUrl="/shop-listing"
         />
-      </FlexBox>
+      </CardContainer>
       <SliderComponent data={offerCard2data} newData={data} />
     </Wrapper>
   );

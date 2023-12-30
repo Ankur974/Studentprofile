@@ -65,7 +65,7 @@ const About = () => {
         repellendus quae corrupti dolores pariatur, consequatur facilis rem quos
         deserunt commodi. A ratione necessitatibus ea excepturi porro.
       </Body2>
-      <FlexBox columnGap="1.5rem">
+      <FlexBox wrap="wrap" rowGap="1rem" columnGap="1rem">
         {aminities.map(item => (
           <Chip key={item.id} width="fit-content">
             <Body2>{item.name}</Body2>

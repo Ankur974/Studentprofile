@@ -1,23 +1,22 @@
 import React, { useState } from "react";
-import FlexBox from "../common/ui/FlexBox";
+import FlexBox from "@common/ui/FlexBox";
 import styled from "styled-components";
 import { BsFillHeartFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
 import { CiDiscount1 } from "react-icons/ci";
 
-import { H5 } from "../common/ui/Headings";
-import { Body2 } from "../common/ui/Headings";
+import { H5, Body2 } from "@common/ui/Headings";
 import {
   ACCENT_0,
   ACCENT_700,
   PRIMARY_800,
   RATEBACKGROUND,
   listingChip,
-} from "../common/ui/colors";
-import Chip from "../common/ui/Chips";
-import { Button } from "../common/ui/Buttons";
-import { device } from "../common/ui/Resposive";
+} from "@common/ui/colors";
+import Chip from "@common/ui/Chips";
+import { Button } from "@common/ui/Buttons";
+import { device } from "@common/ui/Resposive";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -32,21 +31,6 @@ const Wrapper = styled(FlexBox)`
     margin: 0;
   }
 `;
-
-const aminities = [
-  {
-    id: 1,
-    label: "Air conditioning",
-  },
-  {
-    id: 12,
-    label: "Parking",
-  },
-  {
-    id: 2,
-    label: "Kids Friendly",
-  },
-];
 
 const Banner = styled(FlexBox)`
   position: relative;
@@ -90,22 +74,19 @@ const OfferBanner = styled(FlexBox)`
   justify-content: center;
 `;
 
-const Card = () => {
+const Card = ({ data }) => {
   const [selected, setSelected] = useState(false);
-
   const router = useRouter();
 
   const handleClick = () => setSelected(!selected);
 
-  const dummydata = 10;
-
-  const OfferRendering = ({ data }) => {
-    if (data) {
+  const OfferRendering = ({ discount }) => {
+    if (discount) {
       return (
         <OfferBanner>
           <CiDiscount1 color={ACCENT_0} />
           <Body2 color={ACCENT_0} padding="0.2rem 0">
-            {data}% off on first visit
+            {`${discount}% off on first visit`}
           </Body2>
         </OfferBanner>
       );
@@ -115,7 +96,7 @@ const Card = () => {
   return (
     <Wrapper column>
       <Banner column>
-        <Img src="/assets/images/banner-new.svg" alt="Card1" />
+        <Img src={data.image} alt={data.name} />
         <ActionWrapper justify="space-between" align="center">
           <FlexBox
             borderRadius="0.25rem"
@@ -124,7 +105,7 @@ const Card = () => {
             justify="center"
             backgroundColor="#FFFFFF80"
           >
-            <H5 color="white">Popular</H5>
+            <H5 color="white">{data.popularity}</H5>
           </FlexBox>
           <FlexBox
             align="center"
@@ -133,23 +114,22 @@ const Card = () => {
             backgroundColor={RATEBACKGROUND}
             padding="0 0.20rem"
             columnGap="0.4rem"
-            margin="0 1rem"
           >
             <img src="/assets/images/star.svg" alt="star" />
-            <Body2 color={ACCENT_0}>4.2</Body2>
+            <Body2 color={ACCENT_0}>{data.rating}</Body2>
           </FlexBox>
         </ActionWrapper>
         <FlexBox justify="center">
-          {<OfferRendering data={dummydata} />}
+          {<OfferRendering discount={data.discount} />}
         </FlexBox>
       </Banner>
 
       <FlexBox column rowGap="0.25rem" padding="0 1rem">
         <FlexBox
           justify="space-between"
-          padding={dummydata ? "1rem 0 0 0" : "0"}
+          padding={data.discount ? "1rem 0 0 0" : "0"}
         >
-          <H5 bold>Gigis Salon</H5>
+          <H5 bold>{data.name}</H5>
           <FlexBox onClick={handleClick} cursor="pointer">
             {selected ? (
               <BsFillHeartFill size="1.25rem" color={PRIMARY_800} />
@@ -162,20 +142,20 @@ const Card = () => {
         <FlexBox columnGap="0.9rem">
           <FlexBox columnGap="0.40rem" align="center">
             <SlSymbolMale color={ACCENT_700} />
-            <Body2>Salon for Men</Body2>
+            <Body2>{data.category}</Body2>
           </FlexBox>
           <FlexBox columnGap="0.40rem" align="center">
             <SlMap />
-            <Body2>3 kms</Body2>
+            <Body2>{`${data.distance} kms`}</Body2>
           </FlexBox>
         </FlexBox>
 
-        <H5 bold>Price starting at 300/-</H5>
+        <H5 bold>{`Price starting at ${data.startingPrice}/-`}</H5>
 
         <AminitiesWrapper>
-          {aminities.map(item => (
-            <Chip border="none" key={item?.id} width="fit-content">
-              <Body2>{item?.label}</Body2>
+          {data.amenities.map(item => (
+            <Chip border="none" key={item.id} width="fit-content">
+              <Body2>{item.label}</Body2>
             </Chip>
           ))}
         </AminitiesWrapper>
