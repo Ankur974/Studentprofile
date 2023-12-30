@@ -1,10 +1,11 @@
 import React from "react";
-import FlexBox from "@common/ui/FlexBox";
 import styled from "styled-components";
-import SalonInfo from "./SalonInfo";
-import { ACCENT_0, ACCENT_200 } from "@common/ui/colors";
 import { useRouter } from "next/router";
+
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_0, ACCENT_200 } from "@common/ui/colors";
 import { Body1 } from "@common/ui/Headings";
+import SalonInfo from "./SalonInfo";
 
 const Banner = styled(FlexBox)`
   width: 100%;
@@ -41,7 +42,6 @@ const MobileBanner = () => {
           <Body1 bold>Show more</Body1>
         </ViewMoreButton>
       </FlexBox>
-
       <SalonInfo />
     </Banner>
   );
