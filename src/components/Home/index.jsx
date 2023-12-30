@@ -23,10 +23,22 @@ const Wrapper = styled(FlexBox)`
   }
 `;
 
+const CardContainer = styled(FlexBox)`
+  overflow-x: scroll;
+  width: 100%;
+  margin-bottom: 4.5rem;
+
+  @media ${device.laptop} {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    margin-bottom: 0;
+  }
+`;
+
 const Home = () => {
   return (
     <Wrapper>
-      <FlexBox>
+      <CardContainer>
         <Card
           title="Hot Selling Salon 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -39,7 +51,7 @@ const Home = () => {
           imageUrl="/assets/salon-image3.jpg"
           redirectUrl="/shop-listing"
         />
-      </FlexBox>
+      </CardContainer>
       <SliderComponent
         data={offerCard2data}
         heading="Get my salon"

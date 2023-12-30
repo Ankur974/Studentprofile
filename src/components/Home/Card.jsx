@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { Body1, Body2 } from "../common/ui/Headings";
-import { Button } from "../common/ui/Buttons";
+import { Body1, Body2 } from "@common/ui/Headings";
+import { Button } from "@common/ui/Buttons";
 import { useRouter } from "next/router";
-import { WHITE } from "../common/ui/colors";
+import { WHITE } from "@common/ui/colors";
+import { device } from "@components/common/ui/Resposive";
 
 const CardContainer = styled.div`
-  width: 300px;
+  width: 100%;
+  min-width:90%;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -15,6 +17,11 @@ const CardContainer = styled.div`
   transition: transform 0.2s ease-in-out;
   position: relative;
   cursor: pointer;
+
+  @media ${device.laptop}{
+    max-width:20rem;
+    min-width:18.75rem;
+  }
 
   &:hover {
     transform: scale(1.05);

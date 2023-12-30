@@ -9,6 +9,7 @@ import { ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
 import Rating from "@common/ui/Ratings";
 import Chip from "@common/ui/Chips";
 import Modal from "@common/ui/Modal";
+import { device } from "@components/common/ui/Resposive";
 
 const services = [
   {
@@ -78,6 +79,10 @@ const Wrapper = styled(FlexBox)`
   height: 100%;
   overflow-y: auto;
   border-radius: 1rem;
+
+  @media ${device.laptop} {
+    padding: 1rem 2rem;
+  }
 `;
 
 const Img = styled.img`
@@ -85,6 +90,11 @@ const Img = styled.img`
   width: 100%;
   max-width: 1.5rem;
   aspect-ratio: 1;
+`;
+
+const ChipsBox = styled(FlexBox)`
+  width: 100%;
+  flex-wrap: wrap;
 `;
 
 const FilterChip = ({ name, selected, onClick }) => (
@@ -132,7 +142,7 @@ const FilterModal = ({ toggleModal }) => {
     ));
 
   return (
-    <Modal M1>
+    <Modal borderRadius="0.5rem" M1>
       <Wrapper column>
         <FlexBox alignItems="center" justify="space-between">
           <Img src="/assets/images/filter1.svg" />
@@ -143,19 +153,21 @@ const FilterModal = ({ toggleModal }) => {
         <H2 bold>Ratings</H2>
         <Rating />
         <H2 bold>Services</H2>
-        <FlexBox columnGap="0.3rem">
+        <ChipsBox columnGap="0.3rem">
           {renderFilterChips("services", services)}
-        </FlexBox>
+        </ChipsBox>
         <H2 bold>Availability</H2>
-        <FlexBox columnGap="0.3rem">
+        <ChipsBox columnGap="0.3rem">
           {renderFilterChips("availability", availability)}
-        </FlexBox>
+        </ChipsBox>
         <H2 bold>Type</H2>
-        <FlexBox columnGap="0.3rem">{renderFilterChips("type", type)}</FlexBox>
+        <ChipsBox columnGap="0.3rem">
+          {renderFilterChips("type", type)}
+        </ChipsBox>
         <H2 bold>Salon Preference</H2>
-        <FlexBox columnGap="0.3rem">
+        <ChipsBox columnGap="0.3rem">
           {renderFilterChips("pref", salonPref)}
-        </FlexBox>
+        </ChipsBox>
       </Wrapper>
     </Modal>
   );
