@@ -68,5 +68,5 @@ const SalonInfo = () => {
     </BannerContent>
   );
 };
-
 export default SalonInfo;
+//this is just a test
