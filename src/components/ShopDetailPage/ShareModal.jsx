@@ -6,16 +6,33 @@ import { FaCopy, FaWhatsappSquare } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { IoCloseSharp } from "react-icons/io5";
+import { H3 } from "../common/ui/Headings";
+import { PRIMARY_900, SECONDARY_100 } from "../common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
+  flex-direction: column;
+  row-gap: 3rem;
+  justify-contnet: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 1rem 2rem 2rem 2rem;
+`;
+
+const Container = styled(FlexBox)`
   width: 100%;
   height: 100%;
   flex-direction: row;
-  column-gap: 4rem;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1rem;
-  position: relative;
+`;
+
+const HeadBox=styled(FlexBox)`
+flex-direction:row;
+justify-content:space-between;
+align-items:center;
 `;
 const CopyLink = styled(FlexBox)`
   width: 20%;
@@ -26,10 +43,10 @@ const CopyLink = styled(FlexBox)`
   align-items: center;
   padding: 0.6rem;
 `;
-const Close = styled(IoCloseSharp)`
-  position: absolute;
-  right: 10px;
-  top: 5px;
+const Close = styled(FlexBox)`
+  padding: 0.5rem;
+  background-color: ${SECONDARY_100};
+  border-radius: 50%;
 `;
 const ShareModal = ({ setOpenModal }) => {
   const copyLinkToClipboard = () => {
@@ -100,14 +117,24 @@ const ShareModal = ({ setOpenModal }) => {
 
   return (
     <Wrapper>
-      <Close size="20px" onClick={() => setOpenModal(false)} />
-      {data.map(item => {
-        return (
-          <CopyLink key={item.id} onClick={item.onClick}>
-            <item.icon size={item.size} fill={item.color} />
-          </CopyLink>
-        );
-      })}
+      <HeadBox>
+        <H3 bold color={PRIMARY_900}>
+          Share
+        </H3>
+        <Close  onClick={() => setOpenModal(false)} >
+          <IoCloseSharp size="1rem"/>
+        </Close>
+      </HeadBox>
+
+      <Container>
+        {data.map(item => {
+          return (
+            <CopyLink key={item.id} onClick={item.onClick}>
+              <item.icon size={item.size} fill={item.color} />
+            </CopyLink>
+          );
+        })}
+      </Container>
     </Wrapper>
   );
 };

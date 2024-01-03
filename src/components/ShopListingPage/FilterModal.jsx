@@ -78,11 +78,14 @@ const Wrapper = styled(FlexBox)`
   gap: 1rem;
   height: 100%;
   overflow-y: auto;
-  border-radius: 1rem;
 
   @media ${device.laptop} {
     padding: 1rem 2rem;
   }
+`;
+
+const HeaderBox = styled(FlexBox)`
+  padding: 1rem;
 `;
 
 const Img = styled.img`
@@ -143,12 +146,12 @@ const FilterModal = ({ toggleModal }) => {
 
   return (
     <Modal borderRadius="0.5rem" M1>
+      <HeaderBox alignItems="center" justify="space-between" position="sticky">
+        <Img src="/assets/images/filter1.svg" />
+        <H2 bold>Filters</H2>
+        <FiX onClick={toggleModal} style={{ cursor: "pointer" }} />
+      </HeaderBox>
       <Wrapper column>
-        <FlexBox alignItems="center" justify="space-between">
-          <Img src="/assets/images/filter1.svg" />
-          <H2 bold>Filters</H2>
-          <FiX onClick={toggleModal} />
-        </FlexBox>
         <H2 bold>Popular Filters</H2>
         <H2 bold>Ratings</H2>
         <Rating />

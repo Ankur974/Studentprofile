@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import FlexBox from "./ui/FlexBox";
 import styled from "styled-components";
 import { ACCENT_0, ACCENT_800 } from "./ui/colors";
-import { FaRegShareSquare } from "react-icons/fa";
 import Favourite from "./ui/Favourite";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -12,6 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Pagination, Navigation } from "swiper/modules";
+import { ShareComponent } from "../ShopDetailPage/ShareComponent";
 
 const Carousel = ({ images }) => {
   const [clicked, setClicked] = useState(false);
@@ -35,12 +35,12 @@ const Carousel = ({ images }) => {
     height: 100%;
   `;
 
-  const StyledSwiper = styled(Swiper)`
-    .swiper-container {
-      width: 100%;
-      height: 100%;
-    }
-  `;
+  // const StyledSwiper = styled(Swiper)`
+  //   .swiper-container {
+  //     width: 100%;
+  //     height: 100%;
+  //   }
+  // `;
 
   const ScrollableList = styled(FlexBox)`
     width: 100%;
@@ -64,6 +64,7 @@ const Carousel = ({ images }) => {
   const Icon = styled(FlexBox)`
     gap: 1rem;
     justify-content: flex-end;
+    cursor:pointer;
   `;
   const ForwardButton = styled(IoIosArrowForward)`
     background-color: red;
@@ -132,7 +133,7 @@ const Carousel = ({ images }) => {
   return (
     <Wrapper column>
       <Icon>
-        <FaRegShareSquare color={ACCENT_0} />
+        <ShareComponent color={ACCENT_0}/>
         <Favourite clicked={clicked} setclicked={setClicked} color={ACCENT_0} />
       </Icon>
       <SliderButton>

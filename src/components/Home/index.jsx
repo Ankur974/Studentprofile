@@ -39,7 +39,6 @@ const CardContainer = styled(FlexBox)`
   @media ${device.laptop} {
     flex-wrap: wrap;
     overflow-x: hidden;
-    margin-bottom: 0;
   }
 `;
 

@@ -29,7 +29,6 @@ const NavItem = styled(Body1)`
   transition: all 0.25s ease-in-out;
 
   &:hover {
-    font-weight: 700;
     color: ${PRIMARY_800};
   }
 `;

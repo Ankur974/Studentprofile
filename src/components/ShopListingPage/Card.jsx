@@ -74,6 +74,16 @@ const OfferBanner = styled(FlexBox)`
   justify-content: center;
 `;
 
+const PopularityBox = styled(FlexBox)`
+  border-radius: 0.25rem;
+  width: fit-content;
+  padding: 0 0.5rem;
+  align: center;
+  justify: center;
+  background-color: ${RATEBACKGROUND};
+  opacity: 0.9;
+`;
+
 const Card = ({ data }) => {
   const [selected, setSelected] = useState(false);
   const router = useRouter();
@@ -96,28 +106,26 @@ const Card = ({ data }) => {
   return (
     <Wrapper column>
       <Banner column>
-        <Img src={data.image} alt={data.name} />
+        {data.image && <Img src={data.image} alt={data.name} />}
         <ActionWrapper justify="space-between" align="center">
-          <FlexBox
-            borderRadius="0.25rem"
-            width="4rem"
-            align="center"
-            justify="center"
-            backgroundColor="#FFFFFF80"
-          >
-            <H5 color="white">{data.popularity}</H5>
-          </FlexBox>
-          <FlexBox
-            align="center"
-            justify="center"
-            borderRadius="0.25rem"
-            backgroundColor={RATEBACKGROUND}
-            padding="0 0.20rem"
-            columnGap="0.4rem"
-          >
-            <img src="/assets/images/star.svg" alt="star" />
-            <Body2 color={ACCENT_0}>{data.rating}</Body2>
-          </FlexBox>
+          {data.popularity && (
+            <PopularityBox>
+              <H5 color={ACCENT_0}>{data.popularity}</H5>
+            </PopularityBox>
+          )}
+          {data.rating && (
+            <FlexBox
+              align="center"
+              justify="center"
+              borderRadius="0.25rem"
+              backgroundColor={RATEBACKGROUND}
+              padding="0 0.20rem"
+              columnGap="0.4rem"
+            >
+              <img src="/assets/images/star.svg" alt="star" />
+              <Body2 color={ACCENT_0}>{data.rating}</Body2>
+            </FlexBox>
+          )}
         </ActionWrapper>
         <FlexBox justify="center">
           {<OfferRendering discount={data.discount} />}
