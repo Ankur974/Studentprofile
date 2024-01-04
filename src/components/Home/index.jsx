@@ -14,7 +14,7 @@ const Wrapper = styled(FlexBox)`
   width: 100%;
   max-width: 75rem;
   margin: auto;
-  gap: 1.5rem;
+  gap: 2.5rem;
   padding-block: 2rem;
   padding-inline: 1rem;
 
