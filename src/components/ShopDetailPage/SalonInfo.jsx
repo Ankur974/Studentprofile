@@ -69,4 +69,4 @@ const SalonInfo = () => {
   );
 };
 export default SalonInfo;
-//w
+//why
