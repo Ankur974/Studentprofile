@@ -37,19 +37,12 @@ const Carousel = ({ images }) => {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    min-height:23vh;
+    min-height: 23vh;
 
     @media ${device.laptop} {
       min-height: 75vh;
     }
   `;
-
-  // const StyledSwiper = styled(Swiper)`
-  //   .swiper-container {
-  //     width: 100%;
-  //     height: 100%;
-  //   }
-  // `;
 
   const ScrollableList = styled(FlexBox)`
     width: 100%;
@@ -69,13 +62,6 @@ const Carousel = ({ images }) => {
       color: ${ACCENT_0};
       position: relative;
       bottom: -0.1rem;
-      
-    }
-
-    .swiper-pagination-current {
-    }
-
-    .swiper-pagination-total {
     }
   `;
 
@@ -98,12 +84,12 @@ const Carousel = ({ images }) => {
     background-color: red;
     border-radius: 10px;
     &:hover {
-      // border: 1px solid black;
       border-radius: 20px;
       background-color: white;
       transform: scale(2.01);
     }
   `;
+
   const BackButton = styled(IoIosArrowBack)`
     background-color: red;
     border-radius: 10px;
@@ -134,20 +120,20 @@ const Carousel = ({ images }) => {
 
     .swiper-backward {
       left: 5%;
-      @media screen and (min-width: 850px and max-width:1071px) {
+      @media screen and (min-width: 850px) {
         left: 10%;
       }
-      @media screen and (min-width: 1072px and max-width:1550px) {
+      @media screen and (min-width: 1072px) {
         left: 15%;
       }
     }
 
     .swiper-forward {
       right: 5%;
-      @media screen and (min-width: 850px and max-width:1071px) {
+      @media screen and (min-width: 850px) {
         right: 10%;
       }
-      @media screen and (min-width: 1072px and max-width:1550px) {
+      @media screen and (min-width: 1072px) {
         right: 12%;
       }
     }
@@ -199,7 +185,6 @@ const Carousel = ({ images }) => {
               prevEl: ".swiper-backward",
               disabledClass: "swiper-button-disabled",
             }}
-            // navigation
           >
             {images?.map(data => (
               <SwiperSlide key={data.id}>

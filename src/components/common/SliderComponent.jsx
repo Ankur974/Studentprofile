@@ -48,13 +48,13 @@ const CardWrapper = styled.div`
   @media screen and (max-width: 300px) {
     width: 4rem;
   }
-  @media screen and (min-width: 950px and max-width: 1007px) {
+  @media screen and (max-width: 1007px) {
     width: 6rem;
   }
-  @media screen and (min-width: 1008px and max-width: 1066px) {
+  @media screen and (max-width: 1066px) {
     width: 19rem;
   }
-  @media screen and (min-width: 1066px and max-width: 1165px) {
+  @media screen and (max-width: 1165px) {
     width: 21rem;
   }
 `;
@@ -67,6 +67,7 @@ const ViewButton = styled(FlexBox)`
     column-gap: 5px;
     align-items: center;
   }
+
   &:hover {
     transform: scale(1.3);
   }
@@ -93,16 +94,17 @@ const StyledSwiper = styled(Swiper)`
     width: 100%;
     height: 100%;
   }
-  @media screen and (min-width: 850px ) {
-    .mySwiper{
+  @media screen and (min-width: 850px) {
+    .mySwiper {
       width: 576px;
     }
   }
-  
+
   @media screen and (min-width: 768px) {
     .mySwiper {
       width: 768px;
     }
+  }
 `;
 
 const SliderButton = styled.div`
@@ -134,19 +136,22 @@ const SliderButton = styled.div`
     pointer-events: none;
   }
 `;
+
 const ForwardButton = styled(IoIosArrowForward)`
+  transition: all 0.3s ease-in-out;
   &:hover {
-    // border: 1px solid black;
     border-radius: 20px;
     background-color: white;
-    transform: scale(2.01);
+    transform: scale(1.5);
   }
 `;
+
 const BackButton = styled(IoIosArrowBack)`
+  transition: all 0.3s ease-in-out;
   &:hover {
     border-radius: 20px;
     background-color: white;
-    transform: scale(2.01);
+    transform: scale(1.5);
   }
 `;
 
@@ -186,7 +191,7 @@ const SliderComponent = ({ data, newData }) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-  console.log(data.length, slideViewCount);
+
   return (
     <Wrapper>
       {Array.isArray(newData) && (

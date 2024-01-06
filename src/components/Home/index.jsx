@@ -6,8 +6,8 @@ import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
 import SliderComponent from "@common/SliderComponent";
-import Card from "./Card";
 import { offerCard2data } from "@metadata/CarouselData";
+import Card from "./Card";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
