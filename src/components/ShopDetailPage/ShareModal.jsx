@@ -2,35 +2,51 @@ import React from "react";
 import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 
-import { FaCopy, FaWhatsappSquare } from "react-icons/fa";
-import { FaMessage } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
-import { IoCloseSharp } from "react-icons/io5";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { BiLogoGmail } from "react-icons/bi";
+import { BiLink } from "react-icons/bi";
+import { AiFillMessage } from "react-icons/ai";
+import { IoIosClose } from "react-icons/io";
+import { Body2, H3 } from "../common/ui/Headings";
+import {
+  ACCENT_100,
+  PRIMARY_900,
+  SECONDARY_100,
+} from "../common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
+  flex-direction: column;
+  justify-contnet: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 1rem 2rem 2rem 2rem;
+`;
+
+const Container = styled(FlexBox)`
   width: 100%;
   height: 100%;
   flex-direction: row;
-  column-gap: 4rem;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1rem;
-  position: relative;
+`;
+
+const HeadBox = styled(FlexBox)`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 const CopyLink = styled(FlexBox)`
-  width: 20%;
-  border-radius: 8px;
-  border: 1px dashed black;
-  column-gap: 1rem;
+  width: 5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 1px solid ${SECONDARY_100};
   justify-content: center;
-  align-items: center;
-  padding: 0.6rem;
+  background-color: ${ACCENT_100};
 `;
-const Close = styled(IoCloseSharp)`
-  position: absolute;
-  right: 10px;
-  top: 5px;
-`;
+
 const ShareModal = ({ setOpenModal }) => {
   const copyLinkToClipboard = () => {
     const dummyElement = document.createElement("textarea");
@@ -67,32 +83,28 @@ const ShareModal = ({ setOpenModal }) => {
     {
       id: 1,
       title: "Copy Link",
-      icon: FaCopy,
-      size: "25px",
-      color: "",
+      icon: BiLink,
+      color: "DodgerBlue",
       onClick: copyLinkToClipboard,
     },
     {
       id: 2,
       title: "Whatsapp",
-      icon: FaWhatsappSquare,
+      icon: IoLogoWhatsapp,
       color: "green",
-      size: "25px",
       onClick: shareOnWhatsApp,
     },
     {
       id: 3,
       title: "Message",
-      icon: FaMessage,
-      size: "25px",
+      icon: AiFillMessage,
       color: "gold",
       onClick: shareViaMessage,
     },
     {
       id: 4,
       title: "Email",
-      icon: MdEmail,
-      size: "25px",
+      icon: BiLogoGmail,
       color: "red",
       onClick: shareViaEmail,
     },
@@ -100,14 +112,22 @@ const ShareModal = ({ setOpenModal }) => {
 
   return (
     <Wrapper>
-      <Close size="20px" onClick={() => setOpenModal(false)} />
-      {data.map(item => {
-        return (
-          <CopyLink key={item.id} onClick={item.onClick}>
-            <item.icon size={item.size} fill={item.color} />
-          </CopyLink>
-        );
-      })}
+      <HeadBox>
+        <H3 bold color={PRIMARY_900}>
+          Share
+        </H3>
+        <IoIosClose size="1.5rem" onClick={() => setOpenModal(false)} />
+      </HeadBox>
+      <Body2>Share this Saloon with your friend and family</Body2>
+      <Container>
+        {data.map(item => {
+          return (
+            <CopyLink key={item.id} onClick={item.onClick}>
+              <item.icon size="2.5rem" fill={item.color} />
+            </CopyLink>
+          );
+        })}
+      </Container>
     </Wrapper>
   );
 };

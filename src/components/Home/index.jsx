@@ -14,7 +14,7 @@ const Wrapper = styled(FlexBox)`
   width: 100%;
   max-width: 75rem;
   margin: auto;
-  gap: 1.5rem;
+  gap: 2.5rem;
   padding-block: 2rem;
   padding-inline: 1rem;
 
@@ -34,12 +34,10 @@ const data = [
 const CardContainer = styled(FlexBox)`
   overflow-x: scroll;
   width: 100%;
-  margin-bottom: 4.5rem;
 
   @media ${device.laptop} {
     flex-wrap: wrap;
     overflow-x: hidden;
-    margin-bottom: 0;
   }
 `;
 
@@ -47,6 +45,30 @@ const Home = () => {
   return (
     <Wrapper>
       <CardContainer>
+        <Card
+          title="Hot Selling Salon 1"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 2"
+          description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 1"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 2"
+          description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
         <Card
           title="Hot Selling Salon 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
