@@ -52,7 +52,7 @@ const OfferCard2 = ({ data }) => {
       <ContentBox column>
         {data?.title && (
           <H2 bold color={ACCENT_0}>
-            {data?.title.substring(0, 15)}...
+            {data?.title.substring(0, 15)}
           </H2>
         )}
         {data?.desc && <Body2 color={ACCENT_0}>{data?.desc}</Body2>}

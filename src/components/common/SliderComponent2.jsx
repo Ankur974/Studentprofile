@@ -8,35 +8,21 @@ import { FiChevronRight } from "react-icons/fi";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import FlexBox from "@common/ui/FlexBox";
-import { Body1, H1 } from "@common/ui/Headings";
+import { Body1, Body2, H3 } from "@common/ui/Headings";
 import { device } from "@common/ui/Resposive";
-import OfferCard2 from "@components/Home/OfferCard2";
+// import OfferCard2 from "@components/Home/OfferCard2";
+import Card from "@components/Home/Card";
 
 const Wrapper = styled(FlexBox)`
   height: max-content;
-  width: 100vw;
   padding: 1.5rem;
   row-gap: 1rem;
   flex-direction: column;
-  border-radius: 0.5rem;
-  margin-top: ${({ isBannerP }) => (isBannerP ? "7rem" : "0")};
-
-  @media ${device.laptop} {
-    height: ${({ isBannerP }) => (isBannerP ? "28rem" : "max-content")};
-  }
 `;
 
-const Body = styled(FlexBox)`
-  height: 100%;
-  justify-content: flex-end;
-  flex-direction: column;
-  row-gap: 0.25rem;
-  bottom: 1.5rem;
-`;
-
-const CardWrapper = styled.div`
+const CardWrapper = styled(FlexBox)`
   width: 100%;
-  gap: 1rem;
+  flex-direction: column;
   @media screen and (max-width: 300px) {
     width: 4rem;
   }
@@ -66,39 +52,7 @@ const ViewButton = styled(FlexBox)`
   }
 `;
 
-const TopContent = styled(FlexBox)`
-  height: 100%;
-  position: relative;
-
-  @media ${device.laptop} {
-  }
-`;
-
-const Header = styled(FlexBox)`
-  width: 100%;
-  flex-direction: column;
-  margin-top: ${({ isBannerP }) => (isBannerP ? "5rem" : "0")};
-  justify-content: center;
-  align-items: ${({ isBannerP }) => (isBannerP ? "center" : "flex-start")};
-
-  @media ${device.tablet} {
-    margin-top: 0;
-    align-items: ${({ isBannerP }) => (isBannerP ? "flex-start" : "center")};
-  }
-`;
-
-const BannerImage = styled.img`
-  width: 100%;
-  max-width: 27rem;
-  object-fit: cover;
-  position: absolute;
-  top: -10rem;
-  right: 0;
-  border-radius: 0.5rem;
-`;
-
 const StyledSwiper = styled(Swiper)`
-  width: 75vw;
   .swiper-container {
     width: 100%;
     height: 100%;
@@ -122,8 +76,8 @@ const SliderButton = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: 45%;
-    z-index: 10;
+    bottom: 50%;
+    z-index: 5;
     cursor: pointer;
 
     svg {
@@ -141,7 +95,7 @@ const SliderButton = styled.div`
   }
 
   .swiper-button-disabled {
-    opacity: 0.5;
+    opacity: 0;
     pointer-events: none;
   }
 `;
@@ -162,11 +116,10 @@ const BackButton = styled(IoIosArrowBack)`
   }
 `;
 
-const SliderComponent = ({ data, newData }) => {
+const SliderComponent2 = ({ data, newData }) => {
   const [slideViewCount, setSlideViewCount] = useState(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
-  console.log(newData.viewall);
 
   const handleSwiper = swiper => {
     setSwiperInstance(swiper, "swiper");
@@ -201,60 +154,50 @@ const SliderComponent = ({ data, newData }) => {
   }, []);
 
   return (
-    <Wrapper isBannerP={newData.isBannerP} backgroundColor={newData.color}>
-      <TopContent isBannerP={newData.isBannerP}>
-        <Header isBannerP={newData.isBannerP}>
-          <H1 bold>{newData?.heading} </H1>
-          <Body1>Our picks to recreate this makeup look</Body1>
-        </Header>
-        <FlexBox>
-          <BannerImage src={newData?.isBannerP} />
-        </FlexBox>
-      </TopContent>
-      <Body>
-        {newData.viewall && (
-          <FlexBox justify="space-between">
-            <Body1 bold>{newData?.subHeadings}</Body1>
-            {slideViewCount < data.length && !isLastSlide && (
-              <ViewButton>
-                <Body1>View All</Body1>
-                <FiChevronRight />
-              </ViewButton>
-            )}
-          </FlexBox>
+    <Wrapper>
+      <FlexBox justify="space-between">
+        <H3 textTransform="capitalize">{newData[0]?.subHeadings}</H3>
+        {slideViewCount < data.length && !isLastSlide && (
+          <ViewButton>
+            <Body1>View All</Body1>
+            <FiChevronRight />
+          </ViewButton>
         )}
-        <SliderButton>
-          <div className="swiper-button image-swiper-button-next">
-            <ForwardButton />
-          </div>
-          <div className="swiper-button image-swiper-button-prev">
-            <BackButton />
-          </div>
-          <StyledSwiper
-            slidesPerView={slideViewCount}
-            modules={[Navigation]}
-            spaceBetween={8}
-            onSwiper={handleSwiper}
-            onSlideChange={handleSlideChange}
-            navigation={{
-              nextEl: ".image-swiper-button-next",
-              prevEl: ".image-swiper-button-prev",
-              disabledClass: "swiper-button-disabled",
-            }}
-            className="mySwiper"
-          >
-            {data?.map(item => (
-              <SwiperSlide key={item?.id}>
-                <CardWrapper>
-                  <OfferCard2 data={item} />
-                </CardWrapper>
-              </SwiperSlide>
-            ))}
-          </StyledSwiper>
-        </SliderButton>
-      </Body>
+      </FlexBox>
+      <SliderButton>
+        <div className="swiper-button image-swiper-button-next">
+          <ForwardButton />
+        </div>
+        <div className="swiper-button image-swiper-button-prev">
+          <BackButton />
+        </div>
+        <StyledSwiper
+          slidesPerView={slideViewCount}
+          modules={[Navigation]}
+          spaceBetween={15}
+          onSwiper={handleSwiper}
+          onSlideChange={handleSlideChange}
+          navigation={{
+            nextEl: ".image-swiper-button-next",
+            prevEl: ".image-swiper-button-prev",
+            disabledClass: "swiper-button-disabled",
+          }}
+          className="mySwiper"
+        >
+          {data?.map(item => (
+            <SwiperSlide key={item?.id}>
+              <CardWrapper>
+              <Card data={item}/>
+                <Body2 textTransform="capitalize" margin="0.75rem 0 0 0">
+                  {item.title}
+                </Body2>
+              </CardWrapper>
+            </SwiperSlide>
+          ))}
+        </StyledSwiper>
+      </SliderButton>
     </Wrapper>
   );
 };
 
-export default SliderComponent;
+export default SliderComponent2;
