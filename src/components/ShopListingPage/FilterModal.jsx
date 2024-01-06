@@ -4,12 +4,13 @@ import { FiX } from "react-icons/fi";
 import { RxCheck } from "react-icons/rx";
 
 import FlexBox from "@common/ui/FlexBox";
-import { H2, Body2 } from "@common/ui/Headings";
+import { Body2 } from "@common/ui/Headings";
 import { ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
 import Rating from "@common/ui/Ratings";
 import Chip from "@common/ui/Chips";
 import Modal from "@common/ui/Modal";
 import { device } from "@components/common/ui/Resposive";
+import { H2 } from "../common/ui/Headings";
 
 const services = [
   {
@@ -148,26 +149,26 @@ const FilterModal = ({ toggleModal }) => {
     <Modal borderRadius="0.5rem" M1>
       <HeaderBox alignItems="center" justify="space-between" position="sticky">
         <Img src="/assets/images/filter1.svg" />
-        <H2 bold>Filters</H2>
+        <H2 bold color={PRIMARY_800}>Filter</H2>
         <FiX onClick={toggleModal} style={{ cursor: "pointer" }} />
       </HeaderBox>
       <Wrapper column>
-        <H2 bold>Popular Filters</H2>
-        <H2 bold>Ratings</H2>
+        <Body2 bold color={PRIMARY_800}>Popular Filters</Body2>
+        <Body2 bold color={PRIMARY_800}>Ratings</Body2>
         <Rating />
-        <H2 bold>Services</H2>
+        <Body2 bold color={PRIMARY_800}>Services</Body2>
         <ChipsBox columnGap="0.3rem">
           {renderFilterChips("services", services)}
         </ChipsBox>
-        <H2 bold>Availability</H2>
+        <Body2 bold color={PRIMARY_800}>Availability</Body2>
         <ChipsBox columnGap="0.3rem">
           {renderFilterChips("availability", availability)}
         </ChipsBox>
-        <H2 bold>Type</H2>
+        <Body2 bold color={PRIMARY_800}>Type</Body2>
         <ChipsBox columnGap="0.3rem">
           {renderFilterChips("type", type)}
         </ChipsBox>
-        <H2 bold>Salon Preference</H2>
+        <Body2 bold color={PRIMARY_800}>Salon Preference</Body2>
         <ChipsBox columnGap="0.3rem">
           {renderFilterChips("pref", salonPref)}
         </ChipsBox>

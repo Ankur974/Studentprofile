@@ -73,7 +73,7 @@ const MobileBanner = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <ViewMoreButton onClick={() => router.push("/shop-details/carousel")}>
+        <ViewMoreButton onClick={() => router.push("/shop-details/image")}>
           <Body1 bold>Show more</Body1>
         </ViewMoreButton>
       </FlexBox>

@@ -34,7 +34,6 @@ const data = [
 const CardContainer = styled(FlexBox)`
   overflow-x: scroll;
   width: 100%;
-  margin-bottom: 4.5rem;
 
   @media ${device.laptop} {
     flex-wrap: wrap;
@@ -46,6 +45,30 @@ const Home = () => {
   return (
     <Wrapper>
       <CardContainer>
+        <Card
+          title="Hot Selling Salon 1"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 2"
+          description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 1"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 2"
+          description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
         <Card
           title="Hot Selling Salon 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."

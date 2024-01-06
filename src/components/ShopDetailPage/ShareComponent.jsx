@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { FaRegShareSquare } from "react-icons/fa";
+import { SlShareAlt } from "react-icons/sl";
 import Modal from "../common/ui/Modal";
 import ShareModal from "./ShareModal";
 
-export const ShareComponent = (props) => {
+export const ShareComponent = props => {
   const [isMobile, setIsMobile] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
@@ -53,7 +53,7 @@ export const ShareComponent = (props) => {
 
   return (
     <>
-      <FaRegShareSquare
+      <SlShareAlt
         color={props.color}
         size="20px"
         onClick={() => {
