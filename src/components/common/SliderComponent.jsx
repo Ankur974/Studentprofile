@@ -20,8 +20,10 @@ const Wrapper = styled(FlexBox)`
   position: relative;
   flex-direction: column;
   border-radius: 0.5rem;
+  margin-top: 7rem;
 
   @media ${device.laptop} {
+    margin-top: 5rem;
     height: 30.25rem;
     position: relative;
   }

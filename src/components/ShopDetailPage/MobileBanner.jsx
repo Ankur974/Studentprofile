@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_0, ACCENT_200 } from "@common/ui/colors";
+import {  ACCENT_200 } from "@common/ui/colors";
 import { Body1 } from "@common/ui/Headings";
 import SalonInfo from "./SalonInfo";
 
@@ -12,6 +12,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
+import { device } from "../common/ui/Resposive";
+import { ACCENT_600 } from "../common/ui/colors";
 
 const imgdata = [
   { id: 1, imgsrc: "/assets/images/salon/1.jpeg", salon_name: "GiGi's Salon" },
@@ -35,11 +37,16 @@ const ViewMoreButton = styled.div`
   right: 1rem;
   padding: 0.25rem 1rem;
   border-radius: 0.25rem;
-  background-color: ${ACCENT_0};
+  background-color: ${ACCENT_600};
   cursor: pointer;
+  z-index: 1;
 
   :hover {
     background-color: ${ACCENT_200};
+  }
+
+  @media ${device.laptop} {
+    z-index: 0;
   }
 `;
 
@@ -66,7 +73,7 @@ const MobileBanner = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <ViewMoreButton onClick={() => router.push("/shop-details/carousel")}>
+        <ViewMoreButton onClick={() => router.push("/shop-details/image")}>
           <Body1 bold>Show more</Body1>
         </ViewMoreButton>
       </FlexBox>

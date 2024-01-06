@@ -214,7 +214,7 @@ const ShopListingPage = () => {
     },
     {
       name: "Trendy Cuts",
-      image: "/assets/salon-image5.jpg",
+      image: "/assets/salon-image4.jpg",
       popularity: "Popular",
       rating: 4.7,
       category: "Hair Salon",
@@ -332,7 +332,7 @@ const ShopListingPage = () => {
     },
     {
       name: "Trendy Cuts",
-      image: "/assets/salon-image5.jpg",
+      image: "/assets/salon-image4.jpg",
       popularity: "Popular",
       rating: 4.7,
       category: "Hair Salon",
@@ -450,7 +450,7 @@ const ShopListingPage = () => {
     },
     {
       name: "Trendy Cuts",
-      image: "/assets/salon-image5.jpg",
+      image: "/assets/salon-image4.jpg",
       popularity: "Popular",
       rating: 4.7,
       category: "Hair Salon",
@@ -568,7 +568,7 @@ const ShopListingPage = () => {
     },
     {
       name: "Trendy Cuts",
-      image: "/assets/salon-image5.jpg",
+      image: "/assets/salon-image4.jpg",
       popularity: "Popular",
       rating: 4.7,
       category: "Hair Salon",

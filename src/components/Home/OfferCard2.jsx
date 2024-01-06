@@ -10,6 +10,7 @@ const Wrapper = styled(FlexBox)`
   max-height:13rem;
   justify-content: space-between;
   background: ${props => props.color};
+  cursor:pointer;
 `;
 
 const ButtonFlex = styled(FlexBox)`

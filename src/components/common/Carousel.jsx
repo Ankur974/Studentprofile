@@ -2,26 +2,29 @@ import React, { useState } from "react";
 import FlexBox from "./ui/FlexBox";
 import styled from "styled-components";
 import { ACCENT_0, ACCENT_800 } from "./ui/colors";
-import { FaRegShareSquare } from "react-icons/fa";
 import Favourite from "./ui/Favourite";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward, IoIosClose } from "react-icons/io";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Pagination, Navigation } from "swiper/modules";
+import { ShareComponent } from "../ShopDetailPage/ShareComponent";
+import { useRouter } from "next/router";
+import { device } from "./ui/Resposive";
 
 const Carousel = ({ images }) => {
   const [clicked, setClicked] = useState(false);
+  const router = useRouter();
 
   const Wrapper = styled(FlexBox)`
     width: 100vw;
     height: 100vh;
     background-color: ${ACCENT_800};
     overflow: hidden;
-    padding: 2.5rem;
+    padding: 2rem 2.5rem;
   `;
 
   const Container = styled(FlexBox)`
@@ -33,6 +36,12 @@ const Carousel = ({ images }) => {
   const Img = styled.img`
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    min-height: 23vh;
+
+    @media ${device.laptop} {
+      min-height: 75vh;
+    }
   `;
 
   const ScrollableList = styled(FlexBox)`
@@ -49,13 +58,26 @@ const Carousel = ({ images }) => {
       left: 69px;
     }
 
-    .swiper-pagination-fraction {
+    .swiper-pagination {
+      color: ${ACCENT_0};
+      position: relative;
+      bottom: -0.1rem;
     }
   `;
 
-  const Icon = styled(FlexBox)`
+  const ShareAndFavIcon = styled(FlexBox)`
     gap: 1rem;
-    justify-content: flex-end;
+    cursor: pointer;
+  `;
+
+  const IconBox = styled(FlexBox)`
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  `;
+
+  const CloseButton = styled(IoIosClose)`
+    cursor: pointer;
   `;
 
   const ForwardButton = styled(IoIosArrowForward)`
@@ -124,10 +146,21 @@ const Carousel = ({ images }) => {
 
   return (
     <Wrapper column>
-      <Icon>
-        <FaRegShareSquare color={ACCENT_0} />
-        <Favourite clicked={clicked} setclicked={setClicked} color={ACCENT_0} />
-      </Icon>
+      <IconBox>
+        <ShareAndFavIcon>
+          <ShareComponent color={ACCENT_0} />
+          <Favourite
+            clicked={clicked}
+            setclicked={setClicked}
+            color={ACCENT_0}
+          />
+        </ShareAndFavIcon>
+        <CloseButton
+          color={ACCENT_0}
+          size="2.5rem"
+          onClick={() => router.back()}
+        />
+      </IconBox>
       <SliderButton>
         <div className="swiper-button swiper-forward">
           <ForwardButton />
@@ -143,13 +176,15 @@ const Carousel = ({ images }) => {
             slidesPerView={1}
             pagination={{
               type: "fraction",
+              renderFraction: function (currentClass, totalClass) {
+                return `<span class="${currentClass}"></span> / <span class="${totalClass}"></span>`;
+              },
             }}
             navigation={{
               nextEl: ".swiper-forward",
               prevEl: ".swiper-backward",
               disabledClass: "swiper-button-disabled",
             }}
-            // navigation
           >
             {images?.map(data => (
               <SwiperSlide key={data.id}>

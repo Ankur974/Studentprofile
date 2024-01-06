@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // import { SlSymbolFemale } from "react-icons/sl";
 import { AiFillStar } from "react-icons/ai";
-import { FaRegShareSquare } from "react-icons/fa";
 // import { useRouter } from "next/router";
 import { Body2, H1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_800 } from "@common/ui/colors";
 import Favourite from "@common/ui/Favourite";
-import Modal from "../common/ui/Modal";
-import ShareModal from "./ShareModal";
 import { device } from "../common/ui/Resposive";
+import { ShareComponent } from "./ShareComponent";
 
 const BannerContent = styled(FlexBox)`
   width: 100%;
@@ -34,78 +31,18 @@ const ContentWrapper = styled(FlexBox)`
 
 const Icons = styled(FlexBox)`
   column-gap: 0.5rem;
+  cursor: pointer;
 `;
 
 const SalonInfo = () => {
-  const [isMobile, setIsMobile] = useState(false);
   const [Clicked, setClicked] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      const mobileWidthThreshold = 1024;
-      setIsMobile(window.innerWidth < mobileWidthThreshold);
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-    handleWindowResize();
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
-
-  const handleShareFallback = () => {
-    navigator.clipboard
-      .writeText(window.location.href)
-      .then(() => {
-        alert("URL copied to clipboard");
-      })
-      .catch(error => {
-        console.error("Failed to copy URL to clipboard:", error);
-      });
-  };
-  const handleShare = async () => {
-    console.log(navigator.share);
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: "Gigis Salon",
-          text: "Check out Gigis Salon!",
-          // url: window.location.href,
-          url: "this is ",
-        });
-      } catch (error) {
-        console.error("Error sharing:", error);
-        handleShareFallback();
-      }
-    } else {
-      console.log("Native sharing not supported.");
-      handleShareFallback();
-    }
-  };
 
   return (
     <BannerContent column rowGap="0.25rem">
       <FlexBox align="center" justify="space-between">
         <H1 bold>Gigis Salon</H1>
         <Icons>
-          <FaRegShareSquare
-            color={ACCENT_800}
-            size="20px"
-            onClick={() => {
-              if (!isMobile) {
-                setOpenModal(!openModal);
-              } else {
-                handleShare();
-              }
-            }}
-          />
-          {openModal && (
-            <Modal M1 height="20%" width="40%" togglePopup={openModal}>
-              <ShareModal setOpenModal={setOpenModal} />
-            </Modal>
-          )}
+          <ShareComponent />
           <Favourite clicked={Clicked} setclicked={setClicked} />
         </Icons>
       </FlexBox>
@@ -131,5 +68,5 @@ const SalonInfo = () => {
     </BannerContent>
   );
 };
-
 export default SalonInfo;
+//why
