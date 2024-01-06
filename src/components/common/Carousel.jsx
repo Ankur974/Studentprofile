@@ -44,13 +44,6 @@ const Carousel = ({ images }) => {
     }
   `;
 
-  // const StyledSwiper = styled(Swiper)`
-  //   .swiper-container {
-  //     width: 100%;
-  //     height: 100%;
-  //   }
-  // `;
-
   const ScrollableList = styled(FlexBox)`
     width: 100%;
     height: 100%;
@@ -71,12 +64,6 @@ const Carousel = ({ images }) => {
       bottom: -0.1rem;
       
     }
-
-    .swiper-pagination-current {
-    }
-
-    .swiper-pagination-total {
-    }
   `;
 
   const ShareAndFavIcon = styled(FlexBox)`
@@ -95,21 +82,20 @@ const Carousel = ({ images }) => {
   `;
 
   const ForwardButton = styled(IoIosArrowForward)`
-    background-color: red;
+    background-color: ${ACCENT_0};
     border-radius: 10px;
+    transition: all 0.3s ease 0.2s;
     &:hover {
-      // border: 1px solid black;
       border-radius: 20px;
-      background-color: white;
       transform: scale(2.01);
     }
   `;
   const BackButton = styled(IoIosArrowBack)`
-    background-color: red;
+    background-color: ${ACCENT_0};
     border-radius: 10px;
+    transition: all 0.3s ease 0.2s;
     &:hover {
       border-radius: 20px;
-      background-color: white;
       transform: scale(2.01);
     }
   `;

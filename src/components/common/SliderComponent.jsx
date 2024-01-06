@@ -16,23 +16,14 @@ const Wrapper = styled(FlexBox)`
   background-color: #f4d0c4;
   height: max-content;
   padding: 1.5rem;
-  row-gap: 1.5rem;
-  position: relative;
+  row-gap: 1rem;
   flex-direction: column;
   border-radius: 0.5rem;
-  margin-top: 7rem;
+  margin-top: ${({isBannerP})=>(isBannerP?"7rem":"0")};
 
   @media ${device.laptop} {
-    margin-top: 5rem;
-    height: 30.25rem;
-    position: relative;
+    height: ${({ isBannerP }) => (isBannerP ? "28rem" : "max-content")};
   }
-`;
-
-const Header = styled(FlexBox)`
-  flex-direction: column;
-  width: 50%;
-  justify-content: center;
 `;
 
 const Body = styled(FlexBox)`
@@ -62,20 +53,37 @@ const CardWrapper = styled.div`
 const ViewButton = styled(FlexBox)`
   column-gap: 0.25rem;
   align-items: center;
+  transition: all 0.3s ease 0.1s;
+  cursor:pointer;
 
   @media ${device.laptop} {
     column-gap: 5px;
     align-items: center;
   }
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
   }
 `;
 
 const TopContent = styled(FlexBox)`
   height: 100%;
-  justify-content: space-between;
   position: relative;
+
+  @media ${device.laptop} {
+  }
+`;
+
+const Header = styled(FlexBox)`
+  width: 100%;
+  flex-direction: column;
+  margin-top: ${({ isBannerP }) => (isBannerP ? "5rem" : "0")};
+  justify-content: center;
+  align-items: ${({ isBannerP }) => (isBannerP ? "center" : "flex-start")};
+
+  @media ${device.tablet} {
+    margin-top: 0;
+    align-items: ${({ isBannerP }) => (isBannerP ? "flex-start" : "center")};
+  }
 `;
 
 const BannerImage = styled.img`
@@ -83,7 +91,7 @@ const BannerImage = styled.img`
   max-width: 27rem;
   object-fit: cover;
   position: absolute;
-  bottom: 0;
+  top: -10rem;
   right: 0;
   border-radius: 0.5rem;
 `;
@@ -93,16 +101,17 @@ const StyledSwiper = styled(Swiper)`
     width: 100%;
     height: 100%;
   }
-  @media screen and (min-width: 850px ) {
-    .mySwiper{
+  @media screen and (min-width: 850px) {
+    .mySwiper {
       width: 576px;
     }
   }
-  
+
   @media screen and (min-width: 768px) {
     .mySwiper {
       width: 768px;
     }
+  }
 `;
 
 const SliderButton = styled.div`
@@ -135,6 +144,7 @@ const SliderButton = styled.div`
   }
 `;
 const ForwardButton = styled(IoIosArrowForward)`
+  transition: all 0.3s ease 0.2s;
   &:hover {
     // border: 1px solid black;
     border-radius: 20px;
@@ -143,6 +153,7 @@ const ForwardButton = styled(IoIosArrowForward)`
   }
 `;
 const BackButton = styled(IoIosArrowBack)`
+  transition: all 0.3s ease 0.2s;
   &:hover {
     border-radius: 20px;
     background-color: white;
@@ -186,30 +197,30 @@ const SliderComponent = ({ data, newData }) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-  console.log(data.length, slideViewCount);
+
   return (
-    <Wrapper>
-      {Array.isArray(newData) && (
-        <TopContent>
-          <Header>
-            <H1 bold>{newData[0]?.heading}</H1>
-            <Body1>Our picks to recreate this makeup look</Body1>
-          </Header>
-          <FlexBox>
-            <BannerImage src="assets/images/girls-image.jpg" />
-          </FlexBox>
-        </TopContent>
-      )}
-      <Body>
-        <FlexBox justify="space-between">
-          <Body1 bold>{newData?.subHeadings}</Body1>
-          {slideViewCount < data.length && !isLastSlide && (
-            <ViewButton>
-              <Body1>View All</Body1>
-              <FiChevronRight />
-            </ViewButton>
-          )}
+    <Wrapper isBannerP={newData[0].isBannerP}>
+      <TopContent isBannerP={newData[0].isBannerP}>
+        <Header isBannerP={newData[0].isBannerP}>
+          <H1 bold>{newData[0]?.heading} </H1>
+          <Body1>Our picks to recreate this makeup look</Body1>
+        </Header>
+        <FlexBox>
+          <BannerImage src={newData[0].isBannerP} />
         </FlexBox>
+      </TopContent>
+      <Body>
+        {newData[0].isBannerP && (
+          <FlexBox justify="space-between">
+            <Body1 bold>{newData[0]?.subHeadings}</Body1>
+            {slideViewCount < data.length && !isLastSlide && (
+              <ViewButton>
+                <Body1>View All</Body1>
+                <FiChevronRight />
+              </ViewButton>
+            )}
+          </FlexBox>
+        )}
         <SliderButton>
           <div className="swiper-button image-swiper-button-next">
             <ForwardButton />

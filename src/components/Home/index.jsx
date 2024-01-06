@@ -28,6 +28,7 @@ const data = [
     id: 1,
     heading: "Get my salon",
     subHeadings: "choose your offers",
+    isBannerP: "assets/images/girls-image.jpg",
   },
 ];
 
