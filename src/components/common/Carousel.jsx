@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Pagination, Navigation } from "swiper/modules";
-import { ShareComponent } from "../ShopDetailPage/ShareComponent";
+import { ShareModal } from "../ShopDetailPage/ShareModal";
 import { useRouter } from "next/router";
 import { device } from "./ui/Resposive";
 
@@ -37,7 +37,7 @@ const Carousel = ({ images }) => {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    min-height:23vh;
+    min-height: 23vh;
 
     @media ${device.laptop} {
       min-height: 75vh;
@@ -62,7 +62,6 @@ const Carousel = ({ images }) => {
       color: ${ACCENT_0};
       position: relative;
       bottom: -0.1rem;
-      
     }
   `;
 
@@ -148,7 +147,7 @@ const Carousel = ({ images }) => {
     <Wrapper column>
       <IconBox>
         <ShareAndFavIcon>
-          <ShareComponent color={ACCENT_0} />
+          <ShareModal color={ACCENT_0} />
           <Favourite
             clicked={clicked}
             setclicked={setClicked}
