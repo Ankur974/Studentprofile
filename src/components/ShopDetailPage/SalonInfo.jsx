@@ -7,7 +7,7 @@ import { Body2, H1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import Favourite from "@common/ui/Favourite";
 import { device } from "../common/ui/Resposive";
-import { ShareComponent } from "./ShareComponent";
+import { ShareModal } from "./ShareModal";
 
 const BannerContent = styled(FlexBox)`
   width: 100%;
@@ -42,7 +42,7 @@ const SalonInfo = () => {
       <FlexBox align="center" justify="space-between">
         <H1 bold>Gigis Salon</H1>
         <Icons>
-          <ShareComponent />
+          <ShareModal />
           <Favourite clicked={Clicked} setclicked={setClicked} />
         </Icons>
       </FlexBox>

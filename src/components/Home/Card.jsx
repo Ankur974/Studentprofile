@@ -8,19 +8,19 @@ import { device } from "@components/common/ui/Resposive";
 
 const CardContainer = styled.div`
   width: 100%;
-  min-width:90%;
+  min-width: 90%;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  margin: 20px;
+  margin: 1rem;
   transition: transform 0.2s ease-in-out;
   position: relative;
   cursor: pointer;
 
-  @media ${device.laptop}{
-    max-width:20rem;
-    min-width:18.75rem;
+  @media ${device.laptop} {
+    max-width: 20rem;
+    min-width: 18.75rem;
   }
 
   &:hover {

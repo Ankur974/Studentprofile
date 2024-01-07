@@ -1,30 +1,28 @@
 import React, { useState } from "react";
-import FlexBox from "./ui/FlexBox";
 import styled from "styled-components";
-import { ACCENT_0, ACCENT_800 } from "./ui/colors";
-import Favourite from "./ui/Favourite";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { IoIosArrowBack, IoIosArrowForward, IoIosClose } from "react-icons/io";
-
+import { useRouter } from "next/router";
+import { Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Pagination, Navigation } from "swiper/modules";
-import { ShareComponent } from "../ShopDetailPage/ShareComponent";
-import { useRouter } from "next/router";
-import { device } from "./ui/Resposive";
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_0, ACCENT_800 } from "@common/ui/colors";
+import Favourite from "@common/ui/Favourite";
+import { ShareModal } from "@components/ShopDetailPage/ShareModal";
+import { device } from "@common/ui/Resposive";
 
 const Carousel = ({ images }) => {
   const [clicked, setClicked] = useState(false);
   const router = useRouter();
 
   const Wrapper = styled(FlexBox)`
-    width: 100vw;
     height: 100vh;
     background-color: ${ACCENT_800};
     overflow: hidden;
-    padding: 2rem 2.5rem;
+    padding: 2rem;
   `;
 
   const Container = styled(FlexBox)`
@@ -76,27 +74,15 @@ const Carousel = ({ images }) => {
     align-items: center;
   `;
 
-  const CloseButton = styled(IoIosClose)`
-    cursor: pointer;
-  `;
+  const ChevronWrapper = styled(FlexBox)`
+    background-color: ${ACCENT_0};
+    border-radius: 1rem;
+    transition: all 0.3s ease 0.2s;
+    width: 1.5rem;
+    aspect-ratio: 1;
 
-  const ForwardButton = styled(IoIosArrowForward)`
-    background-color: red;
-    border-radius: 10px;
     &:hover {
-      border-radius: 20px;
-      background-color: white;
-      transform: scale(2.01);
-    }
-  `;
-
-  const BackButton = styled(IoIosArrowBack)`
-    background-color: red;
-    border-radius: 10px;
-    &:hover {
-      border-radius: 20px;
-      background-color: white;
-      transform: scale(2.01);
+      transform: scale(2);
     }
   `;
 
@@ -148,26 +134,27 @@ const Carousel = ({ images }) => {
     <Wrapper column>
       <IconBox>
         <ShareAndFavIcon>
-          <ShareComponent color={ACCENT_0} />
+          <ShareModal color={ACCENT_0} />
           <Favourite
             clicked={clicked}
             setclicked={setClicked}
             color={ACCENT_0}
           />
         </ShareAndFavIcon>
-        <CloseButton
+        <IoIosClose
           color={ACCENT_0}
           size="2.5rem"
           onClick={() => router.back()}
+          cursor="pointer"
         />
       </IconBox>
       <SliderButton>
-        <div className="swiper-button swiper-forward">
-          <ForwardButton />
-        </div>
-        <div className="swiper-button swiper-backward">
-          <BackButton />
-        </div>
+        <ChevronWrapper className="swiper-button swiper-forward">
+          <IoIosArrowForward />
+        </ChevronWrapper>
+        <ChevronWrapper className="swiper-button swiper-backward">
+          <IoIosArrowBack />
+        </ChevronWrapper>
 
         <ScrollableList>
           <Swiper

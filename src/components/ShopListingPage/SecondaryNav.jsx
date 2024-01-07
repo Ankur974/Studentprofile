@@ -1,7 +1,7 @@
 import React from "react";
 import FlexBox from "../common/ui/FlexBox";
 import { Body1 } from "../common/ui/Headings";
-import { ACCENT_800, PRIMARY_400, PRIMARY_800 } from "../common/ui/colors";
+import { ACCENT_800, PRIMARY_400 } from "../common/ui/colors";
 import styled from "styled-components";
 import { device } from "../common/ui/Resposive";
 
@@ -13,7 +13,8 @@ const NavContainer = styled(FlexBox)`
 
 const ButtonsWrapper = styled(FlexBox)`
   width: 100%;
-  max-width: 75rem;
+  max-width: 73rem;
+  padding:0 2rem;
   margin: auto;
   overflow-x: auto;
   align-items: center;
@@ -26,10 +27,11 @@ const ButtonsWrapper = styled(FlexBox)`
 
 const NavItem = styled(Body1)`
   color: ${ACCENT_800};
-  transition: all 0.25s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
 
   &:hover {
-    color: ${PRIMARY_800};
+    transform: scale(1.1);
   }
 `;
 
@@ -43,7 +45,7 @@ const Navbar = ({ navitem }) => {
               whiteSpace="nowrap"
               cursor="pointer"
               onClick={() => {
-                alert("subnavbar clicked");
+                null;
               }}
             >
               {item.title}
