@@ -14,7 +14,7 @@ import OfferCard2 from "@components/Home/OfferCard2";
 
 const Wrapper = styled(FlexBox)`
   height: max-content;
-  width: 100vw;
+  width: 100%;
   padding: 1.5rem;
   row-gap: 1rem;
   flex-direction: column;
@@ -71,8 +71,6 @@ const TopContent = styled(FlexBox)`
   height: 100%;
   position: relative;
 
-  @media ${device.laptop} {
-  }
 `;
 
 const Header = styled(FlexBox)`
