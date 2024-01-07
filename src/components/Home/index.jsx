@@ -5,10 +5,9 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
-import SliderComponent from "@common/SliderComponent";
-// import SliderComponent2 from "@common/SliderComponent2";
-import Card from "./Card";
 import { offerCard2data } from "@metadata/CarouselData";
+import SliderComponent from "@common/SliderComponent";
+import Card from "./Card";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -47,46 +46,6 @@ const data = [
     viewall: true,
   },
 ];
-
-// const data2 = [
-//   {
-//     id: 1,
-//     title: "Hot Selling Salon 1",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     imageUrl: "/assets/salon-image3.jpg",
-//     redirectUrl: "/shop-listing",
-//   },
-//   {
-//     id: 2,
-//     title: "Hot Selling Salon 2",
-//     description:
-//       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
-//     imageUrl: "/assets/salon-image3.jpg",
-//     redirectUrl: "/shop-listing",
-//   },
-//   {
-//     id: 3,
-//     title: "Hot Selling Salon 1",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     imageUrl: "/assets/salon-image3.jpg",
-//     redirectUrl: "/shop-listing",
-//   },
-//   {
-//     id: 4,
-//     title: "Hot Selling Salon 1",
-//     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//     imageUrl: "/assets/salon-image3.jpg",
-//     redirectUrl: "/shop-listing",
-//   },
-//   {
-//     id: 5,
-//     title: "Hot Selling Salon 2",
-//     description:
-//       "Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
-//     imageUrl: "/assets/salon-image3.jpg",
-//     redirectUrl: "/shop-listing",
-//   },
-// ];
 
 const CardContainer = styled(FlexBox)`
   overflow-x: scroll;

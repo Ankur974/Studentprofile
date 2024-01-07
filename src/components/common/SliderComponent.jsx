@@ -40,13 +40,13 @@ const CardWrapper = styled.div`
   @media screen and (max-width: 300px) {
     width: 4rem;
   }
-  @media screen and (min-width: 950px and max-width: 1007px) {
+  @media screen and (max-width: 1007px) {
     width: 6rem;
   }
-  @media screen and (min-width: 1008px and max-width: 1066px) {
+  @media screen and (max-width: 1066px) {
     width: 19rem;
   }
-  @media screen and (min-width: 1066px and max-width: 1165px) {
+  @media screen and (max-width: 1165px) {
     width: 21rem;
   }
 `;
@@ -61,6 +61,7 @@ const ViewButton = styled(FlexBox)`
     column-gap: 5px;
     align-items: center;
   }
+
   &:hover {
     transform: scale(1.1);
   }
@@ -145,20 +146,22 @@ const SliderButton = styled.div`
     pointer-events: none;
   }
 `;
+
 const ForwardButton = styled(IoIosArrowForward)`
-  transition: all 0.3s ease 0.2s;
+  transition: all 0.3s ease-in-out;
   &:hover {
     border-radius: 20px;
     background-color: white;
-    transform: scale(2.01);
+    transform: scale(1.5);
   }
 `;
+
 const BackButton = styled(IoIosArrowBack)`
-  transition: all 0.3s ease 0.2s;
+  transition: all 0.3s ease-in-out;
   &:hover {
     border-radius: 20px;
     background-color: white;
-    transform: scale(2.01);
+    transform: scale(1.5);
   }
 `;
 

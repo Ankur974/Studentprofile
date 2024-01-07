@@ -89,6 +89,7 @@ const Carousel = ({ images }) => {
       transform: scale(2.01);
     }
   `;
+
   const BackButton = styled(IoIosArrowBack)`
     background-color: ${ACCENT_0};
     border-radius: 10px;
@@ -119,20 +120,20 @@ const Carousel = ({ images }) => {
 
     .swiper-backward {
       left: 5%;
-      @media screen and (min-width: 850px and max-width:1071px) {
+      @media screen and (min-width: 850px) {
         left: 10%;
       }
-      @media screen and (min-width: 1072px and max-width:1550px) {
+      @media screen and (min-width: 1072px) {
         left: 15%;
       }
     }
 
     .swiper-forward {
       right: 5%;
-      @media screen and (min-width: 850px and max-width:1071px) {
+      @media screen and (min-width: 850px) {
         right: 10%;
       }
-      @media screen and (min-width: 1072px and max-width:1550px) {
+      @media screen and (min-width: 1072px) {
         right: 12%;
       }
     }
@@ -184,7 +185,6 @@ const Carousel = ({ images }) => {
               prevEl: ".swiper-backward",
               disabledClass: "swiper-button-disabled",
             }}
-            // navigation
           >
             {images?.map(data => (
               <SwiperSlide key={data.id}>
