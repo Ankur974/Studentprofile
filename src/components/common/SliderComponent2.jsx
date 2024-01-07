@@ -10,7 +10,6 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import FlexBox from "@common/ui/FlexBox";
 import { Body1, Body2, H3 } from "@common/ui/Headings";
 import { device } from "@common/ui/Resposive";
-// import OfferCard2 from "@components/Home/OfferCard2";
 import Card from "@components/Home/Card";
 
 const Wrapper = styled(FlexBox)`

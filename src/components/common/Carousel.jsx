@@ -20,7 +20,7 @@ const Carousel = ({ images }) => {
   const router = useRouter();
 
   const Wrapper = styled(FlexBox)`
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: ${ACCENT_800};
     overflow: hidden;
