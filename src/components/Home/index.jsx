@@ -23,40 +23,10 @@ const Wrapper = styled(FlexBox)`
   }
 `;
 
-const data = [
-  {
-    id: 1,
-    heading: "Get my salon",
-    subHeadings: "choose your offers",
-    isBannerP: "assets/images/girls-image.jpg",
-    color: "#f4d0c4",
-    viewall: true,
-  },
-  {
-    id: 2,
-    heading: "Top salons of week",
-    color: "#958e87",
-    viewall: false,
-  },
-  {
-    id: 2,
-    heading: "Most Visited salons",
-    subHeadings: "300 visit last month",
-    color: "#edc09c",
-    viewall: true,
-  },
-];
-
 const CardContainer = styled(FlexBox)`
   overflow-x: scroll;
   width: 100%;
-`;
-
-const SliderContainer = styled(FlexBox)`
-  flex-direction: column;
-  width: 100vw;
-  row-gap: 2rem;
-  max-width: 30rem;
+  gap: 0rem;
 `;
 
 const Home = () => {
@@ -100,15 +70,81 @@ const Home = () => {
           redirectUrl="/shop-listing"
         />
       </CardContainer>
-      <SliderContainer column>
-        {data.map(item => (
-          <FlexBox key={item.id} width="5rem">
-            <SliderComponent data={offerCard2data} newData={item} />
-          </FlexBox>
-        ))}
-      </SliderContainer>
 
-      {/* <SliderComponent2 data={data2} newData={data} /> */}
+      <FlexBox>
+        <SliderComponent
+          data={offerCard2data}
+          newData={{
+            id: 1,
+            heading: "Get my salon",
+            subHeadings: "choose your offers",
+            isBannerP: "assets/images/girls-image.jpg",
+            color: "#f4d0c4",
+            viewall: true,
+          }}
+        />
+      </FlexBox>
+      <FlexBox>
+        <SliderComponent
+          data={offerCard2data}
+          newData={{
+            id: 2,
+            heading: "Top salons of week",
+            color: "#958e87",
+            viewall: false,
+          }}
+        />
+      </FlexBox>
+      <CardContainer>
+        <Card
+          title="Hot Selling Salon 1"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 2"
+          description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 1"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 2"
+          description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 1"
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+        <Card
+          title="Hot Selling Salon 2"
+          description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
+          imageUrl="/assets/salon-image3.jpg"
+          redirectUrl="/shop-listing"
+        />
+      </CardContainer>
+      <FlexBox>
+        <SliderComponent
+          data={offerCard2data}
+          newData={{
+            id: 2,
+            heading: "Most Visited salons",
+            subHeadings: "300 visit last month",
+            color: "#edc09c",
+            viewall: true,
+          }}
+        />
+      </FlexBox>
     </Wrapper>
   );
 };
