@@ -10,6 +10,7 @@ const Wrapper = styled(FlexBox)`
   background: ${WHITE};
   border-radius: 1rem;
   width: 100%;
+  height: 100%;
   @media screen and (min-width: 768px) {
     border-bottom: 1px solid ${ACCENT_300};
     overflow: hidden;

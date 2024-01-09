@@ -44,9 +44,10 @@ const NullStateWrapper = styled.div`
   margin-top: 5rem;
 `;
 
-const CreditsNullStateWrapper = styled.div`
-  overflow: auto;
-  max-height: 14rem;
+const SubSectionWrapper = styled(FlexBox)`
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Dashboard = () => {
@@ -146,19 +147,23 @@ const Dashboard = () => {
       </Card>
       <SectionRight column width="100%">
         <Card title="My Calendar" redirectTo="" padding="0 1.5rem">
-          <FlexBox>{/* <Calendar open /> */}</FlexBox>
-          {/* <MyCalendar /> */}
+          <FlexBox>
+            <NullState
+              text="My calendar"
+              subtext="You can use this calendar to plan your appointments in advance."
+            />
+          </FlexBox>
         </Card>
-        <Card title="Session Credits" redirectTo="" padding="0 1.5rem">
+        <Card title="Your Care Coins" redirectTo="" padding="0 1.5rem">
           {showCreditsNullState ? (
-            <CreditsNullStateWrapper>
+            <SubSectionWrapper>
               <NullState
-                imgSrc="/assets/images/dashboard/sessions-credits-null-state.png"
-                text="No Credits!"
-                subtext="You can use session credits to book a session.<br />Check out our packages to get more credits."
+                // imgSrc="/assets/images/dashboard/sessions-credits-null-state.png"
+                text="No Care Coins!"
+                subtext="You can use care coins to book an appointment.<br />Check out our FAQs to get more care coins."
                 Button={<Button>EXPLORE PACKAGES</Button>}
               />
-            </CreditsNullStateWrapper>
+            </SubSectionWrapper>
           ) : (
             <SessionCreditsWrapper>
               <FlexBox column rowGap="1rem" margin="1.5rem 0 0">

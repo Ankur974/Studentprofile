@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 import FlexBox from "@common/ui/FlexBox";
-import {  ACCENT_200 } from "@common/ui/colors";
+import { ACCENT_200 } from "@common/ui/colors";
 import { Body1 } from "@common/ui/Headings";
 import SalonInfo from "./SalonInfo";
 
@@ -73,7 +73,7 @@ const MobileBanner = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <ViewMoreButton onClick={() => router.push("/shop-details/image")}>
+        <ViewMoreButton onClick={() => router.push("/shop-details/images")}>
           <Body1 bold>Show more</Body1>
         </ViewMoreButton>
       </FlexBox>

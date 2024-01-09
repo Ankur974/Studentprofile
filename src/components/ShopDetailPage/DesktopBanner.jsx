@@ -77,7 +77,7 @@ const DesktopBanner = () => {
           <GrpImg src="/assets/salon-image3.jpg" alt="" />
           <GrpImg src="/assets/salon-image4.jpg" alt="" />
         </GroupImage>
-        <ShowMoreCta onClick={() => router.push("/shop-details/image")}>
+        <ShowMoreCta onClick={() => router.push("/shop-details/images")}>
           Show More
         </ShowMoreCta>
       </Container>
