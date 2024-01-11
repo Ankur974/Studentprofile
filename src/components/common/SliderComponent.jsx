@@ -167,7 +167,6 @@ const SliderComponent = ({ data, newData }) => {
   const [slideViewCount, setSlideViewCount] = useState(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
-  console.log(newData.viewall);
 
   const handleSwiper = swiper => {
     setSwiperInstance(swiper, "swiper");

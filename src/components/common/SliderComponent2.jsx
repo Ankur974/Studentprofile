@@ -10,13 +10,16 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import FlexBox from "@common/ui/FlexBox";
 import { Body1, Body2, H3 } from "@common/ui/Headings";
 import { device } from "@common/ui/Resposive";
-import Card from "@components/Home/Card";
+// import Card from "@components/Home/Card";
+import OfferCard2 from "@components/Home/OfferCard2";
 
 const Wrapper = styled(FlexBox)`
   height: max-content;
+  width: 100%;
   padding: 1.5rem;
   row-gap: 1rem;
   flex-direction: column;
+  border-radius: 0.5rem;
 `;
 
 const CardWrapper = styled(FlexBox)`
@@ -115,7 +118,7 @@ const BackButton = styled(IoIosArrowBack)`
   }
 `;
 
-const SliderComponent2 = ({ data, newData }) => {
+const SliderComponent2 = ({ data, heading }) => {
   const [slideViewCount, setSlideViewCount] = useState(null);
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [isLastSlide, setIsLastSlide] = useState(false);
@@ -155,7 +158,7 @@ const SliderComponent2 = ({ data, newData }) => {
   return (
     <Wrapper>
       <FlexBox justify="space-between">
-        <H3 textTransform="capitalize">{newData[0]?.subHeadings}</H3>
+        <H3 textTransform="capitalize">{heading}</H3>
         {slideViewCount < data.length && !isLastSlide && (
           <ViewButton>
             <Body1>View All</Body1>
@@ -186,7 +189,8 @@ const SliderComponent2 = ({ data, newData }) => {
           {data?.map(item => (
             <SwiperSlide key={item?.id}>
               <CardWrapper>
-              <Card data={item}/>
+                {/* <Card data={item}/> */}
+                <OfferCard2 data={item} />
                 <Body2 textTransform="capitalize" margin="0.75rem 0 0 0">
                   {item.title}
                 </Body2>

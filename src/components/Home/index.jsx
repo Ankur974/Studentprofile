@@ -7,6 +7,7 @@ import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
 import { offerCard2data, offerCard2data2 } from "@metadata/CarouselData";
 import SliderComponent from "@common/SliderComponent";
+import SliderComponent2 from "@common/SliderComponent2";
 import Card from "./Card";
 import { Body1, H3 } from "@components/common/ui/Headings";
 
@@ -95,6 +96,10 @@ const Home = () => {
             redirectUrl="/shop-listing"
           />
         </CardContainer>
+      </FlexBox>
+
+      <FlexBox>
+      <SliderComponent2 data={offerCard2data} heading="Testing of Slider2"/>
       </FlexBox>
 
       <FlexBox>
