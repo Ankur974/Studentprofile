@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -35,20 +35,9 @@ const Body = styled(FlexBox)`
 `;
 
 const CardWrapper = styled.div`
+  display: flex;
   width: 100%;
   gap: 1rem;
-  @media screen and (max-width: 300px) {
-    width: 4rem;
-  }
-  @media screen and (max-width: 1007px) {
-    width: 6rem;
-  }
-  @media screen and (max-width: 1066px) {
-    width: 19rem;
-  }
-  @media screen and (max-width: 1165px) {
-    width: 21rem;
-  }
 `;
 
 const ViewButton = styled(FlexBox)`
@@ -70,7 +59,6 @@ const ViewButton = styled(FlexBox)`
 const TopContent = styled(FlexBox)`
   height: 100%;
   position: relative;
-
 `;
 
 const Header = styled(FlexBox)`
@@ -88,30 +76,15 @@ const Header = styled(FlexBox)`
 
 const BannerImage = styled.img`
   width: 100%;
-  max-width: 27rem;
+  max-width: 22rem;
   object-fit: cover;
   position: absolute;
   top: -10rem;
   right: 0;
   border-radius: 0.5rem;
-`;
 
-const StyledSwiper = styled(Swiper)`
-  width: 75vw;
-  .swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-  @media screen and (min-width: 850px) {
-    .mySwiper {
-      width: 576px;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    .mySwiper {
-      width: 768px;
-    }
+  @media ${device.laptop} {
+    max-width: 27rem;
   }
 `;
 
@@ -163,44 +136,7 @@ const BackButton = styled(IoIosArrowBack)`
   }
 `;
 
-const SliderComponent = ({ data, newData }) => {
-  const [slideViewCount, setSlideViewCount] = useState(null);
-  const [swiperInstance, setSwiperInstance] = useState(null);
-  const [isLastSlide, setIsLastSlide] = useState(false);
-  console.log(newData.viewall);
-
-  const handleSwiper = swiper => {
-    setSwiperInstance(swiper, "swiper");
-  };
-
-  const handleSlideChange = () => {
-    if (swiperInstance !== null) {
-      setIsLastSlide(swiperInstance.isEnd);
-    }
-  };
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      const mobileWidthThreshold = 519;
-      const windowWidth = window.innerWidth;
-
-      if (windowWidth < mobileWidthThreshold) {
-        setSlideViewCount(1);
-      } else if (windowWidth >= mobileWidthThreshold && windowWidth < 800) {
-        setSlideViewCount(2);
-      } else {
-        setSlideViewCount(3);
-      }
-    };
-
-    window.addEventListener("resize", handleWindowResize);
-    handleWindowResize();
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
-
+const SliderComponent = ({ data, newData, showViewAll }) => {
   return (
     <Wrapper isBannerP={newData.isBannerP} backgroundColor={newData.color}>
       <TopContent isBannerP={newData.isBannerP}>
@@ -216,7 +152,7 @@ const SliderComponent = ({ data, newData }) => {
         {newData.viewall && (
           <FlexBox justify="space-between">
             <Body1 bold>{newData?.subHeadings}</Body1>
-            {slideViewCount < data.length && !isLastSlide && (
+            {showViewAll && (
               <ViewButton>
                 <Body1>View All</Body1>
                 <FiChevronRight />
@@ -231,12 +167,18 @@ const SliderComponent = ({ data, newData }) => {
           <div className="swiper-button image-swiper-button-prev">
             <BackButton />
           </div>
-          <StyledSwiper
-            slidesPerView={slideViewCount}
+          <Swiper
             modules={[Navigation]}
             spaceBetween={8}
-            onSwiper={handleSwiper}
-            onSlideChange={handleSlideChange}
+            slides-per-view={1}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              1200: {
+                slidesPerView: 3,
+              },
+            }}
             navigation={{
               nextEl: ".image-swiper-button-next",
               prevEl: ".image-swiper-button-prev",
@@ -251,7 +193,7 @@ const SliderComponent = ({ data, newData }) => {
                 </CardWrapper>
               </SwiperSlide>
             ))}
-          </StyledSwiper>
+          </Swiper>
         </SliderButton>
       </Body>
     </Wrapper>
