@@ -5,12 +5,13 @@ import axios from "axios";
 
 import FlexBox from "@common/ui/FlexBox";
 import Tabs from "@common/ui/Tabs";
+import { device } from "@common/ui/Resposive";
+import Loader from "@common/Dashboard/Loader";
+import { URL } from "@constants/urls";
 import Services from "./Services";
 import About from "./About";
 import MobileBanner from "./MobileBanner";
 import DesktopBanner from "./DesktopBanner";
-import { device } from "@common/ui/Resposive";
-import Loader from "@common/Dashboard/Loader";
 
 const Container = styled(FlexBox)`
   flex-direction: column;
@@ -58,7 +59,7 @@ const ShopDetailPage = () => {
   const fetchShopData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3005/store/");
+      const res = await axios.get(URL.getStore);
       setShopData(res?.data);
     } catch (e) {
       console.log(e);
