@@ -14,8 +14,8 @@ export const shopDetailsSlice=createSlice({
             state.favStatusState=true;
          }
       },
-      // setShopDetailsData:(state,actoin)=>{
-
+      // setShopDetailsData:(state,action)=>{
+         
       // },
    },
 });

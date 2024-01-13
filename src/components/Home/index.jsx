@@ -27,9 +27,23 @@ const Wrapper = styled(FlexBox)`
 
 const CardContainer = styled(FlexBox)`
   overflow-x: scroll;
-  width: 100%;
-  gap: 0rem;
+  /* position: relative; */
 `;
+
+// const Gradient = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   background: rgb(200, 200, 200);
+//   background: linear-gradient(
+//     90deg,
+//     rgba(200, 200, 200, 1) 0%,
+//     rgba(200, 200, 200, 0) 4%,
+//     rgba(200, 200, 200, 0) 96%,
+//     rgba(200, 200, 200, 1) 100%
+//   );
+//   z-index: 2;
+// `;
 
 const ViewButton = styled(FlexBox)`
   column-gap: 0.25rem;
@@ -59,6 +73,7 @@ const Home = () => {
           </ViewButton>
         </FlexBox>
         <CardContainer>
+          {/* <Gradient /> */}
           <Card
             title="Hot Selling Salon 1"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
