@@ -99,7 +99,7 @@ const Home = () => {
       </FlexBox>
 
       <FlexBox>
-      <SliderComponent2 data={offerCard2data} heading="Testing of Slider2"/>
+        <SliderComponent2 data={offerCard2data} heading="Testing of Slider2" />
       </FlexBox>
 
       <FlexBox>
@@ -109,7 +109,7 @@ const Home = () => {
             id: 1,
             heading: "Get my salon",
             subHeadings: "choose your offers",
-            isBannerP: "assets/images/girls-image.jpg",
+            isBannerP: "/assets/images/girls-image.jpg",
             color: "#f4d0c4",
             viewall: true,
           }}

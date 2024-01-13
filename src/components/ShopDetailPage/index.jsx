@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 import FlexBox from "@common/ui/FlexBox";
 import Tabs from "@common/ui/Tabs";
@@ -8,6 +10,7 @@ import About from "./About";
 import MobileBanner from "./MobileBanner";
 import DesktopBanner from "./DesktopBanner";
 import { device } from "@common/ui/Resposive";
+import Loader from "@common/Dashboard/Loader";
 
 const Container = styled(FlexBox)`
   flex-direction: column;
@@ -45,6 +48,29 @@ const Wrapper = styled(FlexBox)`
 const Tab = styled(FlexBox)``;
 
 const ShopDetailPage = () => {
+  const [loading, setLoading] = useState(false);
+  const [shopData, setShopData] = useState({});
+
+  useEffect(() => {
+    fetchShopData();
+  }, []);
+
+  const fetchShopData = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.get("http://localhost:3005/store/");
+      setShopData(res?.data);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <Container>
       <HideMobile>
@@ -56,10 +82,10 @@ const ShopDetailPage = () => {
       <Wrapper>
         <Tabs>
           <Tab title="Services">
-            <Services />
+            <Services shopData={shopData} />
           </Tab>
           <Tab title="About">
-            <About />
+            <About shopData={shopData} />
           </Tab>
         </Tabs>
       </Wrapper>
