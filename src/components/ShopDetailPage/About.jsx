@@ -74,7 +74,7 @@ const About = () => {
       </FlexBox>
 
       <Body1 bold>Timimgs</Body1>
-      <FlexBox align="center" columnGap="0.4rem">
+      <FlexBox align="center" columnGap="0.5rem">
         <GiCircle color="green" background-color="green" />
         <H6>Open today at 9am - 7pm</H6>
         <RiArrowDownSLine width="2rem" height="2rem" />
@@ -86,7 +86,7 @@ const About = () => {
         justify="center"
         align="center"
         column
-        height="9.375rem"
+        height="9.5rem"
       >
         <Body1>4.2</Body1>
         <Ratings />

@@ -1,19 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-
-import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_200 } from "@common/ui/colors";
-import { Body1 } from "@common/ui/Headings";
-import SalonInfo from "./SalonInfo";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
+
+import FlexBox from "@common/ui/FlexBox";
+import { ACCENT_200, ACCENT_300 } from "@common/ui/colors";
+import { Body1 } from "@common/ui/Headings";
+import SalonInfo from "./SalonInfo";
 import { device } from "../common/ui/Resposive";
-import { ACCENT_600 } from "../common/ui/colors";
 
 const imgdata = [
   { id: 1, imgsrc: "/assets/images/salon/1.jpeg", salon_name: "GiGi's Salon" },
@@ -37,7 +35,7 @@ const ViewMoreButton = styled.div`
   right: 1rem;
   padding: 0.25rem 1rem;
   border-radius: 0.25rem;
-  background-color: ${ACCENT_600};
+  background-color: ${ACCENT_300};
   cursor: pointer;
   z-index: 1;
 
@@ -48,6 +46,12 @@ const ViewMoreButton = styled.div`
   @media ${device.laptop} {
     z-index: 0;
   }
+`;
+
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const MobileBanner = () => {
@@ -69,7 +73,7 @@ const MobileBanner = () => {
         >
           {imgdata?.map(data => (
             <SwiperSlide key={data?.id}>
-              <img src={data.imgsrc} alt="salon-pictures" />
+              <Img src={data.imgsrc} alt="salon-pictures" />
             </SwiperSlide>
           ))}
         </Swiper>
