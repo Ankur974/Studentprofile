@@ -1,8 +1,15 @@
 import React from "react";
-import OrderCart from "@components/Cart/OrderCartModal";
+// import OrderCart from "@components/Cart/OrderCartModal";
+import PromotionalOfferContainer from "../../components/Cart/PromotionalOfferContainer";
+import PromiseContainer from "../../components/Cart/PromiseContainer";
 
 const Cart = () => {
-  return <OrderCart />;
+  return(
+  <> 
+  <PromotionalOfferContainer />
+  <PromiseContainer/>
+</>
+);
 };
 
 export default Cart;
