@@ -3,6 +3,7 @@ import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox"; 
 import {SECONDARY_500, SECONDARY_800} from "@common/ui/colors";
 import { H3} from "@common/ui/Headings";
+import { FaCheck } from "react-icons/fa6";
 
 const PromiseWrapper = styled(FlexBox)`
   border: 1px solid ${SECONDARY_500};
@@ -20,13 +21,6 @@ const UCPromiseList = styled(FlexBox)`
 const UCPromiseItem = styled(FlexBox)`
   color: ${SECONDARY_800};
   font-size: 1rem;
-
-
-  &:before {
-    content: '✔';
-    color: black;
-    margin-right: 8px;
-  }
 `;
 
 const DummyData = [
@@ -43,7 +37,8 @@ const PromiseContainer = () =>{
         <H3 bold>Pamprazzi Promise</H3>
         <UCPromiseList column>
         {DummyData.map((item)=>(
-            <FlexBox key={item.id}>
+            <FlexBox key={item.id} columnGap="1rem">
+            <FaCheck />
             <UCPromiseItem>{item.title}</UCPromiseItem>
             </FlexBox>
     ))  }
