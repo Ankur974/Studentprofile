@@ -60,6 +60,7 @@ const ShopDetailPage = () => {
     try {
       setLoading(true);
       const res = await axios.get(URL.getStore);
+      console.log(res);
       setShopData(res?.data);
     } catch (e) {
       console.log(e);
@@ -86,7 +87,7 @@ const ShopDetailPage = () => {
             <Services shopData={shopData} />
           </Tab>
           <Tab title="About">
-            <About shopData={shopData} />
+            <About shopData={shopData[0]} />
           </Tab>
         </Tabs>
       </Wrapper>

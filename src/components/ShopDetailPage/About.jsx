@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { GiCircle } from "react-icons/gi";
-import { RiArrowDownSLine } from "react-icons/ri";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 
 import { Body2, Body1, H6 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import Chip from "@common/ui/Chips";
 import Ratings from "@common/ui/Ratings";
+import { useState } from "react";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -15,21 +16,7 @@ const Wrapper = styled(FlexBox)`
   gap: 0.3rem;
 `;
 
-const About = () => {
-  const aminities = [
-    {
-      id: 1,
-      name: "Pet Friendly",
-    },
-    {
-      id: 2,
-      name: "Air Conditioner",
-    },
-    {
-      id: 3,
-      name: "Hyegine Assurance",
-    },
-  ];
+const About = ({ shopData }) => {
 
   const reviews = [
     {
@@ -57,16 +44,16 @@ const About = () => {
     },
   ];
 
+  const [showDays, setShowDays] = useState(false);
+  const showDaysFun = () => {
+    setShowDays(!showDays);
+  };
+
   return (
     <Wrapper column>
-      <Body2>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa iste
-        dignissimos voluptates at corporis, aut doloremque vel perferendis,
-        repellendus quae corrupti dolores pariatur, consequatur facilis rem quos
-        deserunt commodi. A ratione necessitatibus ea excepturi porro.
-      </Body2>
+      <Body2>{shopData.storeDescription}</Body2>
       <FlexBox wrap="wrap" rowGap="1rem" columnGap="1rem">
-        {aminities.map(item => (
+        {shopData.storeTags.map(item => (
           <Chip key={item.id} width="fit-content">
             <Body2>{item.name}</Body2>
           </Chip>
@@ -74,10 +61,49 @@ const About = () => {
       </FlexBox>
 
       <Body1 bold>Timimgs</Body1>
-      <FlexBox align="center" columnGap="0.5rem">
-        <GiCircle color="green" background-color="green" />
-        <H6>Open today at 9am - 7pm</H6>
-        <RiArrowDownSLine width="2rem" height="2rem" />
+      <FlexBox column>
+        <FlexBox align="center" columnGap="0.5rem">
+          <GiCircle color="green" background-color="green" />
+          <H6>Sunday : {shopData.storeTimingsSunday}</H6>
+          {!showDays && (
+            <RiArrowDownSLine
+              width="2rem"
+              height="2rem"
+              cursor="pointer"
+              onClick={showDaysFun}
+            />
+          )}
+          {showDays && (
+            <RiArrowUpSLine
+              width="2rem"
+              height="2rem"
+              cursor="pointer"
+              onClick={showDaysFun}
+            />
+          )}
+        </FlexBox>
+        {showDays && (
+          <FlexBox column margin="0 0 0 1.4rem">
+            {shopData?.storeTimingsMonday && (
+              <H6>Monday : {shopData?.storeTimingsMonday}</H6>
+            )}
+            {shopData?.storeTimingsTuesday && (
+              <H6>Tuesday : {shopData.storeTimingsTuesday}</H6>
+            )}
+            {shopData?.storeTimingsWednesday && (
+              <H6>Wednesday : {shopData.storeTimingsWednesday}</H6>
+            )}
+            {shopData?.storeTimingsThrusday && (
+              <H6>Thrusday : {shopData.storeTimingsThrusday}</H6>
+            )}
+            {shopData?.storeTimingsFriday && (
+              <H6>Friday : {shopData.storeTimingsFriday}</H6>
+            )}
+            {shopData?.storeTimingsSaturday && (
+              <H6>Saturday : {shopData.storeTimingsSaturday}</H6>
+            )}
+          </FlexBox>
+        )}
       </FlexBox>
       <Body1 bold>Ratings</Body1>
       <FlexBox
@@ -88,7 +114,7 @@ const About = () => {
         column
         height="9.5rem"
       >
-        <Body1>4.2</Body1>
+        <Body1>{shopData.storeRating}</Body1>
         <Ratings />
         <H6>20 visitor Ratings</H6>
       </FlexBox>
