@@ -1,9 +1,10 @@
 import React from "react";
+import { FaCheck } from "react-icons/fa6";
+
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox"; 
 import {SECONDARY_500, SECONDARY_800} from "@common/ui/colors";
 import { H3} from "@common/ui/Headings";
-import { FaCheck } from "react-icons/fa6";
 
 const PromiseWrapper = styled(FlexBox)`
   border: 1px solid ${SECONDARY_500};
