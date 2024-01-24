@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { TiTick } from "react-icons/ti";
+
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { SECONDARY_500, RATEBACKGROUND, ACCENT_0,PRIMARY_900 } from "@common/ui/colors";
 import { Body2, H2, H5 } from "@common/ui/Headings";
-import { TiTick } from "react-icons/ti";
+
 
 const SelectStylistWrapper = styled(FlexBox)`
   border: 1px solid ${SECONDARY_500};
@@ -55,7 +57,7 @@ const ImageFlex = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.6); // Adjust the alpha value as needed
+    background: rgba(255, 255, 255, 0.6); 
     z-index: 2;
     pointer-events: none;
   }
@@ -66,9 +68,9 @@ const TickIcon = styled(TiTick)`
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20px; // Adjust the size as needed
-  height: 20px; // Adjust the size as needed
-  color: ${PRIMARY_900}; // Adjust the color as needed
+  width: 20px;
+  height: 20px;
+  color: ${PRIMARY_900}; 
 `;
 
 const PopularityBox = styled(FlexBox)`
