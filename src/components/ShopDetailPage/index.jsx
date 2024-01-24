@@ -15,24 +15,24 @@ import DesktopBanner from "./DesktopBanner";
 import Cart from "./Cart";
 
 const Container = styled(FlexBox)`
+  width: 86.67%;
+  max-width: 75rem;
+  margin: auto;
   flex-direction: column;
-  width: 100%;
   justify-content: center;
   row-gap: 1.5rem;
-  align-items:center;
+  align-items: center;
 `;
 
 const HideMobile = styled.div`
   display: none;
   @media ${device.laptop} {
     display: block;
-    width: 86.67%;
-    max-width: 75rem;
     margin: auto;
   }
 `;
 
-const HideDesktop = styled(FlexBox)`
+const HideDesktop = styled.div`
   width: 100%;
   @media ${device.laptop} {
     display: none;
@@ -41,21 +41,23 @@ const HideDesktop = styled(FlexBox)`
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
-  max-width: 50rem;
-  padding-inline: 1rem;
   padding-bottom: 2.5rem;
 `;
 
-const CartAndABoutBox = styled(FlexBox)`
+const CartAndAboutBox = styled(FlexBox)`
   width: 100%;
-  margin: auto;
   justify-content: center;
-  column-gap: 0.5rem;
+  column-gap: 4rem;
 `;
 
 const CartAndOfferContainer = styled(FlexBox)`
-  min-width: 20rem;
+  display: none;
+  @media ${device.laptop} {
+    display: flex;
+    min-width: 20rem;
+  }
 `;
+
 const Tab = styled(FlexBox)``;
 
 const ShopDetailPage = () => {
@@ -91,7 +93,7 @@ const ShopDetailPage = () => {
       <HideDesktop>
         <MobileBanner />
       </HideDesktop>
-      <CartAndABoutBox>
+      <CartAndAboutBox>
         <Wrapper>
           <Tabs>
             <Tab title="Services">
@@ -105,7 +107,7 @@ const ShopDetailPage = () => {
         <CartAndOfferContainer column>
           <Cart />
         </CartAndOfferContainer>
-      </CartAndABoutBox>
+      </CartAndAboutBox>
     </Container>
   );
 };

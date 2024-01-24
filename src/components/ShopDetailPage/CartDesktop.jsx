@@ -15,7 +15,7 @@ import { Button } from "@common/ui/Buttons";
 import NullStateCart from "./NullStateCart";
 
 const Wrapper = styled(FlexBox)`
-  padding: 2rem;
+  padding: 1.5rem;
   row-gap: 1rem;
   border: 1px solid ${SECONDARY_200};
   transition: opacity 0.3s ease-in-out;
@@ -23,7 +23,6 @@ const Wrapper = styled(FlexBox)`
   border-radius: 0.5rem;
   min-height: 5rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-  
 `;
 
 const ItemsContainer = styled(FlexBox)`
@@ -50,9 +49,7 @@ const HelperBox = styled(FlexBox)`
   inline-size: 80%;
 `;
 
-
-const AnimationBoxXart = styled(FlexBox)`
-`;
+const AnimationBoxXart = styled(FlexBox)``;
 
 const NullContainer = styled(FlexBox)`
   transition: opacity 0.3s ease-in-out;
