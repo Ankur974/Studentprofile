@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { TbDiscount } from "react-icons/tb";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+
+import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { Body2 } from "@common/ui/Headings";
 import { PRIMARY_800, ACCENT_200, SECONDARY_500 } from "@common/ui/colors";
