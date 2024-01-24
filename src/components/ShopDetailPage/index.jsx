@@ -12,13 +12,14 @@ import Services from "./Services";
 import About from "./About";
 import MobileBanner from "./MobileBanner";
 import DesktopBanner from "./DesktopBanner";
+import Cart from "./Cart";
 
 const Container = styled(FlexBox)`
   flex-direction: column;
   width: 100%;
   justify-content: center;
   row-gap: 1.5rem;
-  margin: auto;
+  align-items:center;
 `;
 
 const HideMobile = styled.div`
@@ -41,11 +42,20 @@ const HideDesktop = styled(FlexBox)`
 const Wrapper = styled(FlexBox)`
   width: 100%;
   max-width: 50rem;
-  margin: auto;
   padding-inline: 1rem;
   padding-bottom: 2.5rem;
 `;
 
+const CartAndABoutBox = styled(FlexBox)`
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  column-gap: 0.5rem;
+`;
+
+const CartAndOfferContainer = styled(FlexBox)`
+  min-width: 20rem;
+`;
 const Tab = styled(FlexBox)``;
 
 const ShopDetailPage = () => {
@@ -81,16 +91,21 @@ const ShopDetailPage = () => {
       <HideDesktop>
         <MobileBanner />
       </HideDesktop>
-      <Wrapper>
-        <Tabs>
-          <Tab title="Services">
-            <Services shopData={shopData} />
-          </Tab>
-          <Tab title="About">
-            <About shopData={shopData[0]} />
-          </Tab>
-        </Tabs>
-      </Wrapper>
+      <CartAndABoutBox>
+        <Wrapper>
+          <Tabs>
+            <Tab title="Services">
+              <Services shopData={shopData} />
+            </Tab>
+            <Tab title="About">
+              <About shopData={shopData[0]} />
+            </Tab>
+          </Tabs>
+        </Wrapper>
+        <CartAndOfferContainer column>
+          <Cart />
+        </CartAndOfferContainer>
+      </CartAndABoutBox>
     </Container>
   );
 };

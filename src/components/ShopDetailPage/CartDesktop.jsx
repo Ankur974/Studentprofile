@@ -2,24 +2,34 @@ import React, { useState, useEffect } from "react";
 import { MdDeleteForever } from "react-icons/md";
 
 import styled from "styled-components";
-import { H2, Body2, Body1 } from "../common/ui/Headings";
+import { H2, Body2, Body1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import {
   ACCENT_300,
   ACCENT_600,
   PRIMARY_800,
   PRIMARY_900,
-  SECONDARY_300,
-} from "../common/ui/colors";
-import { Button } from "../common/ui/Buttons";
+  SECONDARY_200,
+} from "@common/ui/colors";
+import { Button } from "@common/ui/Buttons";
 import NullStateCart from "./NullStateCart";
 
 const Wrapper = styled(FlexBox)`
   padding: 2rem;
   row-gap: 1rem;
-  border: 1px solid ${SECONDARY_300};
-  transition: opacity 0.5s ease-in-out;
+  border: 1px solid ${SECONDARY_200};
+  transition: opacity 0.3s ease-in-out;
   opacity: ${({ showContent }) => (showContent ? 1 : 0)};
+  border-radius: 0.5rem;
+  min-height: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  overflow-x: scroll;
+  width: 100%;
+  margin: auto;
+  position: sticky;
+  top: 4rem;
+  background-color: white;
+  z-index: 1;
 `;
 
 const ItemsContainer = styled(FlexBox)`
@@ -44,6 +54,14 @@ const PriceIndicator = styled(FlexBox)`
 
 const HelperBox = styled(FlexBox)`
   inline-size: 80%;
+`;
+
+
+const AnimationBoxXart = styled(FlexBox)`
+`;
+
+const NullContainer = styled(FlexBox)`
+  transition: opacity 0.3s ease-in-out;
 `;
 
 const CartDesktop = () => {
@@ -88,7 +106,7 @@ const CartDesktop = () => {
   return (
     <Wrapper column showContent={showContent}>
       {totalItem ? (
-        <>
+        <AnimationBoxXart column>
           <FlexBox column>
             <H2 color={PRIMARY_800} bold>
               My Cart
@@ -134,9 +152,11 @@ const CartDesktop = () => {
               Book Appointment
             </Button>
           </FlexBox>
-        </>
+        </AnimationBoxXart>
       ) : (
-        <NullStateCart />
+        <NullContainer>
+          <NullStateCart totalItem={totalItem} />
+        </NullContainer>
       )}
     </Wrapper>
   );
