@@ -3,27 +3,28 @@ import { FaCheck } from "react-icons/fa6";
 
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox"; 
-import {SECONDARY_500, SECONDARY_800} from "@common/ui/colors";
+import {SECONDARY_200, SECONDARY_800} from "@common/ui/colors";
 import { H3} from "@common/ui/Headings";
 
 const PromiseWrapper = styled(FlexBox)`
-  border: 1px solid ${SECONDARY_500};
   flex-direction: column;
-  flex-direction: column;
-  padding: 1rem 0.5rem;
-  justify-content:center;
-  align-items:center;
-  width:20rem;
-  margin:auto;
+  width: 100%;
+  padding: 1rem 2rem;
+  row-gap: 0.5rem;
+  border: 1px solid ${SECONDARY_200};
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 0.5rem;
+  min-height: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 `;
 
-const UCPromiseList = styled(FlexBox)`
+const PromiseList = styled(FlexBox)`
   list-style: none;
   padding: 0.5rem;
   row-gap:0.5rem;
 `;
 
-const UCPromiseItem = styled(FlexBox)`
+const PromiseItem = styled(FlexBox)`
   color: ${SECONDARY_800};
   font-size: 1rem;
 `;
@@ -40,14 +41,14 @@ const PromiseContainer = () =>{
     return (
         <PromiseWrapper column>
         <H3 bold>Pamprazzi Promise</H3>
-        <UCPromiseList column>
+        <PromiseList column>
         {DummyData.map((item)=>(
             <FlexBox key={item.id} columnGap="1rem">
             <FaCheck />
-            <UCPromiseItem>{item.title}</UCPromiseItem>
+            <PromiseItem>{item.title}</PromiseItem>
             </FlexBox>
     ))  }
-        </UCPromiseList>
+        </PromiseList>
       </PromiseWrapper>
     );
 };

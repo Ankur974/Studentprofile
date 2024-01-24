@@ -5,27 +5,27 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { Body2 } from "@common/ui/Headings";
-import { PRIMARY_800, ACCENT_200, SECONDARY_500 } from "@common/ui/colors";
+import { PRIMARY_800, ACCENT_200, SECONDARY_200 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
-  border: 1px solid ${SECONDARY_500};
+  width: 100%;
   flex-direction: column;
-  padding: 0.5rem 0.2rem;
-  justify-content: center;
-  align-items: center;
-  width: 20rem;
-  margin: auto;
+  padding: 1rem 2rem;
+  border: 1px solid ${SECONDARY_200};
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 0.5rem;
+  min-height: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 `;
 
 const SingleOfferBox = styled(FlexBox)`
-  column-gap: 1rem;
-  justify-content: center;
-  align-self: center;
+  column-gap: 0.5rem;
 `;
 
 const DiscountIcon = styled(TbDiscount)`
   color: ${PRIMARY_800};
   background-color: ${ACCENT_200};
+border-radius:0.5rem;
 `;
 
 const ViewMore = styled(FlexBox)`

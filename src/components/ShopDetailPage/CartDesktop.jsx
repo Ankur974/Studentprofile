@@ -23,13 +23,7 @@ const Wrapper = styled(FlexBox)`
   border-radius: 0.5rem;
   min-height: 5rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-  overflow-x: scroll;
-  width: 100%;
-  margin: auto;
-  position: sticky;
-  top: 4rem;
-  background-color: white;
-  z-index: 1;
+  
 `;
 
 const ItemsContainer = styled(FlexBox)`
