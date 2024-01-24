@@ -8,13 +8,17 @@ import { FaCheck } from "react-icons/fa6";
 const PromiseWrapper = styled(FlexBox)`
   border: 1px solid ${SECONDARY_500};
   flex-direction: column;
-  padding: 1rem;
-  row-gap:1rem
+  flex-direction: column;
+  padding: 1rem 0.5rem;
+  justify-content:center;
+  align-items:center;
+  width:20rem;
+  margin:auto;
 `;
 
 const UCPromiseList = styled(FlexBox)`
   list-style: none;
-  padding: 0;
+  padding: 0.5rem;
   row-gap:0.5rem;
 `;
 
