@@ -9,7 +9,6 @@ const Cart = () => {
       <OrderCart />
     </HomePageLayout>
   );
- 
 };
 
 export default Cart;
