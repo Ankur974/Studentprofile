@@ -20,10 +20,6 @@ const SelectStylistWrapper = styled(FlexBox)`
   padding: 0.5rem;
 `;
 
-const StylistCardsWrapper = styled(FlexBox)`
-  flex-direction: row;
-`;
-
 const IndividualStylistCard = styled(FlexBox)`
   position: relative;
   cursor: pointer;
@@ -142,7 +138,7 @@ const SelectStylist = () => {
     <SelectStylistWrapper>
       <H2>Select Stylist</H2>
 
-      <StylistCardsWrapper>
+      <FlexBox row>
         {dummyData?.map(stylist => (
           <IndividualStylistCard
             key={stylist?.id}
@@ -173,7 +169,7 @@ const SelectStylist = () => {
             </StylistCardContainer>
           </IndividualStylistCard>
         ))}
-      </StylistCardsWrapper>
+      </FlexBox>
     </SelectStylistWrapper>
   );
 };

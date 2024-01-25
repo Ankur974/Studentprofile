@@ -29,7 +29,7 @@ const PromiseItem = styled(FlexBox)`
   font-size: 1rem;
 `;
 
-const DummyData = [
+const PromiseData = [
     {id:1,title:"Luxary Salon Experience"},
     {id:2,title:"Premium Brand Products"},
     {id:3,title:"4.5+ Rated Beauticians"}
@@ -42,7 +42,7 @@ const PromiseContainer = () =>{
         <PromiseWrapper column>
         <H3 bold>Pamprazzi Promise</H3>
         <PromiseList column>
-        {DummyData.map((item)=>(
+        {PromiseData.map((item)=>(
             <FlexBox key={item.id} columnGap="1rem">
             <FaCheck />
             <PromiseItem>{item.title}</PromiseItem>
