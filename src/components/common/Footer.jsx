@@ -61,7 +61,7 @@ const Item = styled(Body2)`
 
 const Footer = () => {
   const buttonsData = [
-    { name: "Home", onClick: () => console.log("Home clicked") },
+    { name: "Home", onClick: () => console.log("Home 2clicked") },
     { name: "Services", onClick: () => console.log("Services clicked") },
     { name: "About Us", onClick: () => console.log("About Us clicked") },
     { name: "Contact", onClick: () => console.log("Contact clicked") },
