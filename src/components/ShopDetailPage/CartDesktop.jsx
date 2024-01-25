@@ -39,12 +39,6 @@ const SingleItemContainer = styled(FlexBox)`
   transition: opacity 0.5s ease-in-out;
 `;
 
-const PriceIndicator = styled(FlexBox)`
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const HelperBox = styled(FlexBox)`
   inline-size: 80%;
 `;
@@ -94,61 +88,63 @@ const CartDesktop = () => {
 
   const totalItem = cartdata.reduce((total, item) => total + item.quantity, 0);
 
+  if (!totalItem) {
+    return (
+      <NullContainer>
+        <NullStateCart totalItem={totalItem} />
+      </NullContainer>
+    );
+  }
+
   return (
     <Wrapper column showContent={showContent}>
-      {totalItem ? (
-        <AnimationBoxXart column>
-          <FlexBox column>
-            <H2 color={PRIMARY_800} bold>
-              My Cart
-            </H2>
-            <Body2 bold>Total Time: 1 hours 15 min</Body2>
-            <Body2 color={ACCENT_600}>Gigis</Body2>
-          </FlexBox>
+      <AnimationBoxXart column>
+        <FlexBox column>
+          <H2 color={PRIMARY_800} bold>
+            My Cart
+          </H2>
+          <Body2 bold>Total Time: 1 hours 15 min</Body2>
+          <Body2 color={ACCENT_600}>Gigis</Body2>
+        </FlexBox>
 
-          <ItemsContainer column>
-            {cartdata.map(item =>
-              item.quantity > 0 ? (
-                <SingleItemContainer
-                  key={item.id}
-                  removed={removedItemIds.includes(item.id)}
-                >
-                  <FlexBox column>
-                    <Body2>{item.title}</Body2>
-                    <Body2 bold>{item.quantity * item.price}</Body2>
-                  </FlexBox>
-                  <MdDeleteForever
-                    color="red"
-                    size="1.5rem"
-                    cursor="pointer"
-                    onClick={() => handleDecrease(item.id)}
-                  />
-                </SingleItemContainer>
-              ) : null
-            )}
-          </ItemsContainer>
-          <FlexBox column rowGap="0.5rem">
-            <PriceIndicator row>
-              <Body1 bold>Total Amount</Body1>
-              <Body1 bold>₹ {totalAmount}</Body1>
-            </PriceIndicator>
-            <HelperBox>
-              <Body2 color={ACCENT_600} lineHeight="1">
-                Please pay the amount to the Salon to book your appointment.
-              </Body2>
-            </HelperBox>
+        <ItemsContainer column>
+          {cartdata.map(item =>
+            item.quantity > 0 ? (
+              <SingleItemContainer
+                key={item.id}
+                removed={removedItemIds.includes(item.id)}
+              >
+                <FlexBox column>
+                  <Body2>{item.title}</Body2>
+                  <Body2 bold>{item.quantity * item.price}</Body2>
+                </FlexBox>
+                <MdDeleteForever
+                  color="red"
+                  size="1.5rem"
+                  cursor="pointer"
+                  onClick={() => handleDecrease(item.id)}
+                />
+              </SingleItemContainer>
+            ) : null
+          )}
+        </ItemsContainer>
+        <FlexBox column rowGap="0.5rem">
+          <FlexBox row>
+            <Body1 bold>Total Amount</Body1>
+            <Body1 bold>₹ {totalAmount}</Body1>
           </FlexBox>
-          <FlexBox justify="center">
-            <Button rowGap="1rem" color={PRIMARY_900}>
-              Book Appointment
-            </Button>
-          </FlexBox>
-        </AnimationBoxXart>
-      ) : (
-        <NullContainer>
-          <NullStateCart totalItem={totalItem} />
-        </NullContainer>
-      )}
+          <HelperBox>
+            <Body2 color={ACCENT_600} lineHeight="1">
+              Please pay the amount to the Salon to book your appointment.
+            </Body2>
+          </HelperBox>
+        </FlexBox>
+        <FlexBox justify="center">
+          <Button rowGap="1rem" color={PRIMARY_900}>
+            Book Appointment
+          </Button>
+        </FlexBox>
+      </AnimationBoxXart>
     </Wrapper>
   );
 };

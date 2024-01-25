@@ -3,9 +3,13 @@ import { TiTick } from "react-icons/ti";
 
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { SECONDARY_500, RATEBACKGROUND, ACCENT_0,PRIMARY_900 } from "@common/ui/colors";
+import {
+  SECONDARY_500,
+  RATE_BACKGROUND,
+  ACCENT_0,
+  PRIMARY_900,
+} from "@common/ui/colors";
 import { Body2, H2, H5 } from "@common/ui/Headings";
-
 
 const SelectStylistWrapper = styled(FlexBox)`
   border: 1px solid ${SECONDARY_500};
@@ -13,7 +17,7 @@ const SelectStylistWrapper = styled(FlexBox)`
   justify-content: center;
   margin: auto;
   width: 30rem;
-  padding:0.5rem;
+  padding: 0.5rem;
 `;
 
 const StylistCardsWrapper = styled(FlexBox)`
@@ -27,13 +31,16 @@ const IndividualStylistCard = styled(FlexBox)`
 `;
 
 const StylistCardContainer = styled(FlexBox)`
-  border: 1px solid ${SECONDARY_500};
+  border: 2px solid ${({isSelected}) => isSelected ? PRIMARY_900 : SECONDARY_500};
   flex-direction: column;
   align-items: center;
   padding: 1.5rem 1rem;
   border-radius: 0.5rem;
   transition: border-color 0.3s;
-  border: ${(props) => (props.isSelected ? `2px solid ${PRIMARY_900}` : `2px solid ${SECONDARY_500}`)};
+  border: ${props =>
+    props.isSelected
+      ? `2px solid ${PRIMARY_900}`
+      : `2px solid ${SECONDARY_500}`};
 `;
 
 const ImageFlex = styled.div`
@@ -51,13 +58,13 @@ const ImageFlex = styled.div`
   }
 
   &:after {
-    content: ${(props) => (props.isSelected ? "''" : "none")};
+    content: ${props => (props.isSelected ? "''" : "none")};
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.6); 
+    background: rgba(255, 255, 255, 0.6);
     z-index: 2;
     pointer-events: none;
   }
@@ -70,7 +77,7 @@ const TickIcon = styled(TiTick)`
   transform: translate(-50%, -50%);
   width: 20px;
   height: 20px;
-  color: ${PRIMARY_900}; 
+  color: ${PRIMARY_900};
 `;
 
 const PopularityBox = styled(FlexBox)`
@@ -79,14 +86,14 @@ const PopularityBox = styled(FlexBox)`
   padding: 0 0.5rem;
   align-items: center;
   justify-content: center;
-  background-color: ${RATEBACKGROUND};
+  background-color: ${RATE_BACKGROUND};
   opacity: 0.9;
 `;
 
 const ActionWrapper = styled(FlexBox)`
   position: relative;
   top: 0.8rem;
-  padding:0.5rem;
+  padding: 0.5rem;
   width: 100%;
   justify-content: center;
 `;
@@ -95,7 +102,7 @@ const StyledStarRating = styled(FlexBox)`
   align-items: center;
   justify-content: center;
   border-radius: 0.25rem;
-  background-color: ${RATEBACKGROUND};
+  background-color: ${RATE_BACKGROUND};
   padding: 0 0.5rem;
   column-gap: 0.4rem;
 `;
@@ -127,7 +134,7 @@ const dummyData = [
 const SelectStylist = () => {
   const [selectedStylistId, setSelectedStylistId] = useState(null);
 
-  const handleStylistClick = (stylistId) => {
+  const handleStylistClick = stylistId => {
     setSelectedStylistId(stylistId);
   };
 
@@ -136,27 +143,27 @@ const SelectStylist = () => {
       <H2>Select Stylist</H2>
 
       <StylistCardsWrapper>
-        {dummyData.map((stylist) => (
+        {dummyData?.map(stylist => (
           <IndividualStylistCard
-            key={stylist.id}
+            key={stylist?.id}
             column
             onClick={() => handleStylistClick(stylist.id)}
           >
             <StylistCardContainer isSelected={selectedStylistId === stylist.id}>
               <ImageFlex>
-                <img src={stylist.imageSrc} alt="stylist-image" />
+                <img src={stylist?.imageSrc} alt="stylist-image" />
                 {selectedStylistId === stylist.id && <TickIcon />}
               </ImageFlex>
-              <Body2 bold>{stylist.name}</Body2>
+              <Body2 bold>{stylist?.name}</Body2>
               <Body2>{stylist.title}</Body2>
 
               <ActionWrapper>
-                {stylist.popularity && (
+                {stylist?.popularity && (
                   <PopularityBox>
                     <H5 color={ACCENT_0}>{stylist.popularity}</H5>
                   </PopularityBox>
                 )}
-                {stylist.rating && (
+                {stylist?.rating && (
                   <StyledStarRating>
                     <img src="/assets/images/star.svg" alt="star" />
                     <Body2 color={ACCENT_0}>{stylist.rating}</Body2>

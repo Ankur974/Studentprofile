@@ -53,7 +53,7 @@ const About = ({ shopData }) => {
     <Wrapper column>
       <Body2>{shopData.storeDescription}</Body2>
       <FlexBox wrap="wrap" rowGap="1rem" columnGap="1rem">
-        {shopData.storeTags.map(item => (
+        {shopData?.storeTags?.map(item => (
           <Chip key={item.id} width="fit-content">
             <Body2>{item.name}</Body2>
           </Chip>
@@ -64,7 +64,7 @@ const About = ({ shopData }) => {
       <FlexBox column>
         <FlexBox align="center" columnGap="0.5rem">
           <GiCircle color="green" background-color="green" />
-          <H6>Sunday : {shopData.storeTimingsSunday}</H6>
+          <H6>Sunday : {shopData?.storeTimingsSunday}</H6>
           {!showDays && (
             <RiArrowDownSLine
               width="2rem"
