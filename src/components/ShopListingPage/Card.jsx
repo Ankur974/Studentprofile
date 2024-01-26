@@ -11,7 +11,7 @@ import {
   ACCENT_0,
   ACCENT_700,
   PRIMARY_800,
-  RATEBACKGROUND,
+  RATE_BACKGROUND,
   listingChip,
 } from "@common/ui/colors";
 import Chip from "@common/ui/Chips";
@@ -80,7 +80,7 @@ const PopularityBox = styled(FlexBox)`
   padding: 0 0.5rem;
   align: center;
   justify: center;
-  background-color: ${RATEBACKGROUND};
+  background-color: ${RATE_BACKGROUND};
   opacity: 0.9;
 `;
 
@@ -118,7 +118,7 @@ const Card = ({ data }) => {
               align="center"
               justify="center"
               borderRadius="0.25rem"
-              backgroundColor={RATEBACKGROUND}
+              backgroundColor={RATE_BACKGROUND}
               padding="0 0.20rem"
               columnGap="0.4rem"
             >

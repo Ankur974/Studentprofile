@@ -45,7 +45,7 @@ export const overlayBackdrop = "rgba(0; 0; 0; .6)";
 export const listingChip = "#D7D7D7";
 export const chipSelectedbg = "rgba(83; 58; 113; 0.1)";
 
-export const RATEBACKGROUND = "#00000066";
+export const RATE_BACKGROUND = "#00000066";
 export const STARCOLOR = "#FFC107";
 export const Tabcolor = "#F2F2F2";
 

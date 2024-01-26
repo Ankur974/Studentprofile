@@ -17,7 +17,7 @@ const LoaderImg = styled.img`
 const Loader = ({ width, height, showPreviewText = false }) => {
   return (
     <Wrapper width={width} height={height}>
-      <LoaderImg src="/assets/images/dashboard/loading.gif" alt="loader" />
+      <LoaderImg src="/assets/images/dashboard/loader.gif" alt="loader" />
       {showPreviewText && <H3 bold>Loading preview...</H3>}
     </Wrapper>
   );
