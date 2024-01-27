@@ -15,9 +15,26 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@*": ["./src/*"],
+      "@public/*": ["./public/*"],
+      "@images/*": ["./public/assets/images/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@layout/*": ["./src/layout/*"],
+      "@components/*": ["./src/components/*"],
+      "@common/*": ["./src/components/common/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@metadata/*": ["./src/metadata/*"],
+      "@HOC/*": ["./src/HOC/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/pages/index.jsx",
+    "src/components/common/Calendar/index.jsx"
+  ],
   "exclude": ["node_modules"]
 }
