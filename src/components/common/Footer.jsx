@@ -1,6 +1,8 @@
 import React from "react";
+// import { useRouter } from "next/router";
+
 import FlexBox from "./ui/FlexBox";
-import { H6, Body1, Body2 } from "./ui/Headings";
+import { H6, Body1, Body2, H1 } from "./ui/Headings";
 import styled from "styled-components";
 import { ACCENT_0, PRIMARY_800, SECONDARY_800 } from "./ui/colors";
 import { device } from "./ui/Resposive";
@@ -9,8 +11,8 @@ const Container = styled(FlexBox)`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding: 1rem 0;
+  background-color: ${SECONDARY_800};
 `;
 
 const ContentContainer = styled(FlexBox)`
@@ -22,17 +24,17 @@ const ContentContainer = styled(FlexBox)`
   height: 35rem;
   width: 100%;
   @media ${device.laptop} {
-    align-items: center;
+        align-items: baseline;
     flex-direction: row;
-    height: 20rem;
+    height: 14rem;
   }
 `;
 
 const Content = styled(FlexBox)`
   align-items: center;
   flex-direction: column;
+  align-items: baseline;
   width: 100%;
-  padding-left: 0.6rem;
   @media ${device.laptop} {
     width: 27%;
     row-gap: 0.625rem;
@@ -59,18 +61,66 @@ const Item = styled(Body2)`
   font-weight: bold;
 `;
 
+const Icon = styled(FlexBox)``;
+
+// const router = useRouter();
+
 const Footer = () => {
-  const buttonsData = [
-    { name: "Home", onClick: () => console.log("Home 2clicked") },
-    { name: "Services", onClick: () => console.log("Services clicked") },
-    { name: "About Us", onClick: () => console.log("About Us clicked") },
-    { name: "Contact", onClick: () => console.log("Contact clicked") },
+  const servicesnavlinkData = [
+    { name: "For Merchants", onClick: () =>("") },
+    {
+      name: "For Our Customers",
+      onClick: () => console.log("Services clicked"),
+    },
+  ];
+  const aboutnavlinkData = [
+    { name: "Privacy Policy", onClick: () => console.log("Home clicked") },
+    {
+      name: "Terms and Conditions",
+      onClick: () => console.log("Services clicked"),
+    },
+    { name: "FAQs", onClick: () => console.log("About Us clicked") },
+    { name: "Contact Us", onClick: () => console.log("Contact clicked") },
+  ];
+  const getintouchnavlinkData = [
+    {
+      name: "Kolkata, West Bengal",
+      onClick: () => console.log("Home clicked"),
+    },
+    { name: "+91 85019-87307", onClick: () => console.log("Services clicked") },
+    {
+      name: "pamprazzi@protonmail.com",
+      onClick: () => console.log("About Us clicked"),
+    },
   ];
 
   return (
     <Container>
+      <FlexBox column rowGap="1rem">
+      <FlexBox justify="center">
+        <H1 color={ACCENT_0}>Don’t forget to पेम्पेर yourself!</H1>
+      </FlexBox>
+      <FlexBox justify="center" columnGap="0.57rem">
+        <img src="./assets/footer-img/heartlogo.svg" />
+        <H1 color={ACCENT_0}>Proudly built in Kolkata</H1>
+      </FlexBox>
+      <FlexBox justify="center" columnGap="1.31rem">
+        <Icon>
+          <img src="./assets/footer-img/maillogo.svg" />
+        </Icon>
+        <Icon>
+          <img src="./assets/footer-img/maillogo.svg" />
+        </Icon>
+        <Icon>
+          <img src="./assets/footer-img/maillogo.svg" />
+        </Icon>
+        <Icon>
+          <img src="./assets/footer-img/maillogo.svg" />
+        </Icon>
+      </FlexBox>
+      </FlexBox>
       <ContentContainer>
-        <Content>
+        <Content align="baseline" >
           <Heading>Header</Heading>
           <Body1 color={ACCENT_0} textAlign="center">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -80,8 +130,8 @@ const Footer = () => {
           </Body1>
         </Content>
         <Content>
-          <Heading>Navigation</Heading>
-          {buttonsData.map((button, index) => (
+          <Heading>Services</Heading>
+          {servicesnavlinkData.map((button, index) => (
             <Item
               key={index}
               cursor="pointer"
@@ -94,8 +144,16 @@ const Footer = () => {
           ))}
         </Content>
         <Content>
-          <Heading>Additional Links</Heading>
-          {buttonsData.map((button, index) => (
+          <Heading>About</Heading>
+          {aboutnavlinkData.map((button, index) => (
+            <Item key={index} onClick={button.onClick}>
+              {button.name}
+            </Item>
+          ))}
+        </Content>
+        <Content>
+          <Heading>Get in touch</Heading>
+          {getintouchnavlinkData.map((button, index) => (
             <Item key={index} onClick={button.onClick}>
               {button.name}
             </Item>
@@ -103,7 +161,7 @@ const Footer = () => {
         </Content>
       </ContentContainer>
       <CopyRightContainer>
-        <H6 color={ACCENT_0}>© 2023, Pamprazzi. All rights reserved.</H6>
+        <H6 color={ACCENT_0}>Copyright © 2024 Self Care Simplified-Pamprazzi. All rights reserved.</H6>
       </CopyRightContainer>
     </Container>
   );
