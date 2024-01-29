@@ -1,5 +1,5 @@
 import React from "react";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 import FlexBox from "./ui/FlexBox";
 import { H6, Body1, Body2, H1 } from "./ui/Headings";
@@ -11,7 +11,6 @@ const Container = styled(FlexBox)`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  padding: 1rem 0;
   background-color: ${SECONDARY_800};
 `;
 
@@ -63,34 +62,37 @@ const Item = styled(Body2)`
 
 const Icon = styled(FlexBox)``;
 
-// const router = useRouter();
+
 
 const Footer = () => {
+
+  const router = useRouter();
+
   const servicesnavlinkData = [
-    { name: "For Merchants", onClick: () =>("") },
+    { name: "For Merchants", onClick: () => router.push("/marchants")   },
     {
       name: "For Our Customers",
-      onClick: () => console.log("Services clicked"),
+      onClick: () => router.push("/forcustomer") ,
     },
   ];
   const aboutnavlinkData = [
-    { name: "Privacy Policy", onClick: () => console.log("Home clicked") },
+    { name: "Privacy Policy", onClick: () =>router.push("/privacyPolicy") },
     {
       name: "Terms and Conditions",
-      onClick: () => console.log("Services clicked"),
+      onClick: () => router.push("/termsandconditions"),
     },
-    { name: "FAQs", onClick: () => console.log("About Us clicked") },
-    { name: "Contact Us", onClick: () => console.log("Contact clicked") },
+    { name: "FAQs", onClick: () => router.push("/faqs") },
+    { name: "Contact Us", onClick: () => router.push("/contactus") },
   ];
   const getintouchnavlinkData = [
     {
       name: "Kolkata, West Bengal",
-      onClick: () => console.log("Home clicked"),
+      onClick: () => router.push("/forcustomer"),
     },
-    { name: "+91 85019-87307", onClick: () => console.log("Services clicked") },
+    { name: "+91 85019-87307", onClick: () => router.push("/forcustomer") },
     {
       name: "pamprazzi@protonmail.com",
-      onClick: () => console.log("About Us clicked"),
+      onClick: () => router.push("/forcustomer"),
     },
   ];
 
