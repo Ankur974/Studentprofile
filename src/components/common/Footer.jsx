@@ -1,17 +1,29 @@
 import React from "react";
-// import { useRouter } from "next/router";
-
-import FlexBox from "./ui/FlexBox";
-import { H6, Body1, Body2, H1 } from "./ui/Headings";
+import {
+  SlSocialFacebook,
+  SlSocialLinkedin,
+  SlSocialInstagram,
+  SlSpeech,
+} from "react-icons/sl";
 import styled from "styled-components";
-import { ACCENT_0, PRIMARY_800, SECONDARY_800 } from "./ui/colors";
-import { device } from "./ui/Resposive";
 
-const Container = styled(FlexBox)`
+import FlexBox from "@common/ui/FlexBox";
+import { H6, Body1, Body2, H1, Display, H3 } from "@common/ui/Headings";
+import {
+  ACCENT_0,
+  ACCENT_400,
+  PRIMARY_800,
+  SECONDARY_800,
+} from "@common/ui/colors";
+import { device } from "@common/ui/Resposive";
+import { useRouter } from "next/router";
+
+const FooterContainer = styled(FlexBox)`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  padding: 1rem 0;
+  padding: 2.5rem;
+  gap: 2.5rem;
   background-color: ${SECONDARY_800};
 `;
 
@@ -22,26 +34,28 @@ const ContentContainer = styled(FlexBox)`
   background-color: ${SECONDARY_800};
   flex-direction: column;
   height: 35rem;
-  width: 100%;
+  gap: 2.5rem;
+
   @media ${device.laptop} {
-        align-items: baseline;
+    align-items: baseline;
     flex-direction: row;
     height: 14rem;
   }
 `;
 
-const Content = styled(FlexBox)`
+const ContentBox = styled(FlexBox)`
   align-items: center;
   flex-direction: column;
   align-items: baseline;
   width: 100%;
+
   @media ${device.laptop} {
-    width: 27%;
+    width: ${({ isLarge }) => (isLarge ? "40%" : "20%")};
     row-gap: 0.625rem;
   }
 `;
 
-const CopyRightContainer = styled(FlexBox)`
+const CopyRightBox = styled(FlexBox)`
   background-color: ${PRIMARY_800};
   width: 100%;
   height: 3rem;
@@ -49,121 +63,144 @@ const CopyRightContainer = styled(FlexBox)`
   align-items: center;
 `;
 
-const Heading = styled(Body1)`
+const HeadingText = styled(H3)`
   font-weight: bold;
   color: ${ACCENT_0};
 `;
 
-const Item = styled(Body2)`
+const NavLink = styled(Body2)`
   cursor: pointer;
   width: fit-content;
   color: ${ACCENT_0};
   font-weight: bold;
 `;
 
-const Icon = styled(FlexBox)``;
+const IconContainer = styled(FlexBox)`
+  box-sizing: border-box;
+  padding: 0.625rem;
+  align-items: center;
 
-// const router = useRouter();
+  border-radius: 0.5rem;
+  border: 2px solid ${ACCENT_400};
+
+  &:hover {
+    border: 2px solid ${ACCENT_0};
+  }
+`;
+
+const socialIconsData = [
+  { icon: SlSocialFacebook, link: "" },
+  { icon: SlSocialLinkedin, link: "" },
+  { icon: SlSocialInstagram, link: "https://www.instagram.com/pamprazzi/" },
+  { icon: SlSpeech, link: "" },
+];
+
+const servicesNavLinkData = [
+  { name: "For Merchants", onClick: () => "" },
+  {
+    name: "For Our Customers",
+    onClick: () => console.log("Services clicked"),
+  },
+];
+
+const aboutNavLinkData = [
+  { name: "Privacy Policy", onClick: () => console.log("Home clicked") },
+  {
+    name: "Terms and Conditions",
+    onClick: () => console.log("Services clicked"),
+  },
+  { name: "FAQs", onClick: () => console.log("About Us clicked") },
+  { name: "Contact Us", onClick: () => console.log("Contact clicked") },
+];
+
+const getInTouchNavLinkData = [
+  {
+    name: "Kolkata, West Bengal",
+    onClick: () => console.log("Home clicked"),
+  },
+  {
+    name: "hello@pamprazzi.com",
+    onClick: () => console.log("About Us clicked"),
+  },
+];
 
 const Footer = () => {
-  const servicesnavlinkData = [
-    { name: "For Merchants", onClick: () =>("") },
-    {
-      name: "For Our Customers",
-      onClick: () => console.log("Services clicked"),
-    },
-  ];
-  const aboutnavlinkData = [
-    { name: "Privacy Policy", onClick: () => console.log("Home clicked") },
-    {
-      name: "Terms and Conditions",
-      onClick: () => console.log("Services clicked"),
-    },
-    { name: "FAQs", onClick: () => console.log("About Us clicked") },
-    { name: "Contact Us", onClick: () => console.log("Contact clicked") },
-  ];
-  const getintouchnavlinkData = [
-    {
-      name: "Kolkata, West Bengal",
-      onClick: () => console.log("Home clicked"),
-    },
-    { name: "+91 85019-87307", onClick: () => console.log("Services clicked") },
-    {
-      name: "pamprazzi@protonmail.com",
-      onClick: () => console.log("About Us clicked"),
-    },
-  ];
+  const router = useRouter();
 
   return (
-    <Container>
-      <FlexBox column rowGap="1rem">
-      <FlexBox justify="center">
-        <H1 color={ACCENT_0}>Don’t forget to पेम्पेर yourself!</H1>
-      </FlexBox>
-      <FlexBox justify="center" columnGap="0.57rem">
-        <img src="./assets/footer-img/heartlogo.svg" />
-        <H1 color={ACCENT_0}>Proudly built in Kolkata</H1>
-      </FlexBox>
-      <FlexBox justify="center" columnGap="1.31rem">
-        <Icon>
-          <img src="./assets/footer-img/maillogo.svg" />
-        </Icon>
-        <Icon>
-          <img src="./assets/footer-img/maillogo.svg" />
-        </Icon>
-        <Icon>
-          <img src="./assets/footer-img/maillogo.svg" />
-        </Icon>
-        <Icon>
-          <img src="./assets/footer-img/maillogo.svg" />
-        </Icon>
-      </FlexBox>
-      </FlexBox>
-      <ContentContainer>
-        <Content align="baseline" >
-          <Heading>Header</Heading>
-          <Body1 color={ACCENT_0} textAlign="center">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Consequatur aliquid quod velit ut ab itaque aperiam voluptatem amet
-            temporibus asperiores alias pariatur magnam voluptate qui fugit
-            accusantium quaerat facilis illo eligendi, mollitia nulla! Facere.
-          </Body1>
-        </Content>
-        <Content>
-          <Heading>Services</Heading>
-          {servicesnavlinkData.map((button, index) => (
-            <Item
-              key={index}
-              cursor="pointer"
-              bold
-              onClick={button.onClick}
-              color={ACCENT_0}
-            >
-              {button.name}
-            </Item>
-          ))}
-        </Content>
-        <Content>
-          <Heading>About</Heading>
-          {aboutnavlinkData.map((button, index) => (
-            <Item key={index} onClick={button.onClick}>
-              {button.name}
-            </Item>
-          ))}
-        </Content>
-        <Content>
-          <Heading>Get in touch</Heading>
-          {getintouchnavlinkData.map((button, index) => (
-            <Item key={index} onClick={button.onClick}>
-              {button.name}
-            </Item>
-          ))}
-        </Content>
-      </ContentContainer>
-      <CopyRightContainer>
-        <H6 color={ACCENT_0}>Copyright © 2024 Self Care Simplified-Pamprazzi. All rights reserved.</H6>
-      </CopyRightContainer>
-    </Container>
+    <>
+      <FooterContainer>
+        <FlexBox column rowGap="0.25rem">
+          <FlexBox justify="center">
+            <Display color={ACCENT_0}>
+              Don’t forget to पेम्पेर yourself!
+            </Display>
+          </FlexBox>
+          <FlexBox justify="center" columnGap="0.57rem">
+            <img src="/assets/footer-img/heartlogo.svg" />
+            <H1 color={ACCENT_0}>Proudly built in Kolkata</H1>
+          </FlexBox>
+        </FlexBox>
+        <FlexBox justify="center" columnGap="1.31rem">
+          {socialIconsData &&
+            socialIconsData.map((icon, index) => {
+              const Icon = icon.icon;
+              return (
+                <IconContainer
+                  key={index}
+                  onClick={() => router.push(icon?.link)}
+                >
+                  <Icon color={ACCENT_0} size={24} />
+                </IconContainer>
+              );
+            })}
+        </FlexBox>
+        <ContentContainer>
+          <ContentBox isLarge>
+            <HeadingText>Header</HeadingText>
+            <Body1 color={ACCENT_0}>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit...
+            </Body1>
+          </ContentBox>
+          <ContentBox>
+            <HeadingText>Services</HeadingText>
+            {servicesNavLinkData.map((button, index) => (
+              <NavLink
+                key={index}
+                cursor="pointer"
+                bold
+                onClick={() => router.push(button?.link)}
+                color={ACCENT_0}
+              >
+                {button.name}
+              </NavLink>
+            ))}
+          </ContentBox>
+          <ContentBox>
+            <HeadingText>About</HeadingText>
+            {aboutNavLinkData.map((button, index) => (
+              <NavLink key={index} onClick={button.onClick}>
+                {button.name}
+              </NavLink>
+            ))}
+          </ContentBox>
+          <ContentBox>
+            <HeadingText>Get in touch</HeadingText>
+            {getInTouchNavLinkData.map((button, index) => (
+              <NavLink key={index} onClick={button.onClick}>
+                {button.name}
+              </NavLink>
+            ))}
+          </ContentBox>
+        </ContentContainer>
+      </FooterContainer>
+      <CopyRightBox>
+        <H6 color={ACCENT_0}>
+          Copyright © 2024 Self Care Simplified-Pamprazzi. All rights reserved.
+        </H6>
+      </CopyRightBox>
+    </>
   );
 };
+
 export default Footer;
