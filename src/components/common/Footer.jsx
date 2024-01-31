@@ -29,29 +29,28 @@ const FooterContainer = styled(FlexBox)`
 
 const ContentContainer = styled(FlexBox)`
   width: 100%;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: flex-start;
+  justify-content: center;
   background-color: ${SECONDARY_800};
   flex-direction: column;
   height: 35rem;
   gap: 2.5rem;
 
   @media ${device.laptop} {
-    align-items: baseline;
+    justify-content: space-evenly;
     flex-direction: row;
-    height: 14rem;
+    height: 11rem;
   }
 `;
 
 const ContentBox = styled(FlexBox)`
-  align-items: center;
   flex-direction: column;
-  align-items: baseline;
   width: 100%;
-
+  align-items: center;
   @media ${device.laptop} {
     width: ${({ isLarge }) => (isLarge ? "40%" : "20%")};
     row-gap: 0.625rem;
+    align-items: baseline;
   }
 `;
 
@@ -89,8 +88,11 @@ const IconContainer = styled(FlexBox)`
 `;
 
 const socialIconsData = [
-  { icon: SlSocialFacebook, link: "" },
-  { icon: SlSocialLinkedin, link: "" },
+  { icon: SlSocialFacebook, link: "https://www.facebook.com/pamprazzi/" },
+  {
+    icon: SlSocialLinkedin,
+    link: "https://www.linkedin.com/home?originalSubdomain=in",
+  },
   { icon: SlSocialInstagram, link: "https://www.instagram.com/pamprazzi/" },
   { icon: SlSpeech, link: "" },
 ];
@@ -146,21 +148,18 @@ const Footer = () => {
             socialIconsData.map((icon, index) => {
               const Icon = icon.icon;
               return (
-                <IconContainer
-                  key={index}
-                  onClick={() => router.push(icon?.link)}
-                >
-                  <Icon color={ACCENT_0} size={24} />
+                <IconContainer key={index}>
+                  <a href={icon.link} target="_blank" rel="noopener noreferrer">
+                    <Icon color={ACCENT_0} size={24} />
+                  </a>
                 </IconContainer>
               );
             })}
         </FlexBox>
         <ContentContainer>
-          <ContentBox isLarge>
-            <HeadingText>Header</HeadingText>
-            <Body1 color={ACCENT_0}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit...
-            </Body1>
+          <ContentBox isLarge align="center">
+            <img src="/assets/images/pamprazzi-logo-white.svg"></img>
+            <Body1 color={ACCENT_0}>Simplifying Self-Care</Body1>
           </ContentBox>
           <ContentBox>
             <HeadingText>Services</HeadingText>
