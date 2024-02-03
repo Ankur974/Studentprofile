@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { GiCircle } from "react-icons/gi";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
@@ -7,7 +7,6 @@ import { Body2, Body1, H6 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import Chip from "@common/ui/Chips";
 import Ratings from "@common/ui/Ratings";
-import { useState } from "react";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -17,7 +16,6 @@ const Wrapper = styled(FlexBox)`
 `;
 
 const About = ({ shopData }) => {
-
   const reviews = [
     {
       id: 1,
@@ -51,7 +49,7 @@ const About = ({ shopData }) => {
 
   return (
     <Wrapper column>
-      <Body2>{shopData.storeDescription}</Body2>
+      <Body2>{shopData?.storeDescription}</Body2>
       <FlexBox wrap="wrap" rowGap="1rem" columnGap="1rem">
         {shopData?.storeTags?.map(item => (
           <Chip key={item.id} width="fit-content">
@@ -88,19 +86,19 @@ const About = ({ shopData }) => {
               <H6>Monday : {shopData?.storeTimingsMonday}</H6>
             )}
             {shopData?.storeTimingsTuesday && (
-              <H6>Tuesday : {shopData.storeTimingsTuesday}</H6>
+              <H6>Tuesday : {shopData?.storeTimingsTuesday}</H6>
             )}
             {shopData?.storeTimingsWednesday && (
-              <H6>Wednesday : {shopData.storeTimingsWednesday}</H6>
+              <H6>Wednesday : {shopData?.storeTimingsWednesday}</H6>
             )}
             {shopData?.storeTimingsThrusday && (
-              <H6>Thrusday : {shopData.storeTimingsThrusday}</H6>
+              <H6>Thrusday : {shopData?.storeTimingsThrusday}</H6>
             )}
             {shopData?.storeTimingsFriday && (
-              <H6>Friday : {shopData.storeTimingsFriday}</H6>
+              <H6>Friday : {shopData?.storeTimingsFriday}</H6>
             )}
             {shopData?.storeTimingsSaturday && (
-              <H6>Saturday : {shopData.storeTimingsSaturday}</H6>
+              <H6>Saturday : {shopData?.storeTimingsSaturday}</H6>
             )}
           </FlexBox>
         )}
@@ -114,7 +112,7 @@ const About = ({ shopData }) => {
         column
         height="9.5rem"
       >
-        <Body1>{shopData.storeRating}</Body1>
+        <Body1>{shopData?.storeRating}</Body1>
         <Ratings />
         <H6>20 visitor Ratings</H6>
       </FlexBox>
