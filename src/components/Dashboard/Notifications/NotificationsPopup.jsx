@@ -5,7 +5,7 @@ import { FiX } from "react-icons/fi";
 import FlexBox from "@common/ui/FlexBox";
 import useOutsideAlert from "@hooks/useOutsideAlert";
 import { Body1 } from "@common/ui/Headings";
-import { Button } from "@common/Dashboard/Buttons";
+import { Button } from "@common/ui/Buttons";
 import { ACCENT_100, ACCENT_400, ACCENT_800 } from "@common/ui/colors";
 import { boxShadowDs1 } from "@common/ui/styles";
 import NotificationItem from "./NotificationItem";

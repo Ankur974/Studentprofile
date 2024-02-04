@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { IconButton } from "@common/Dashboard/Buttons";
+import { IconButton } from "@common/ui/Buttons";
 
 const CarouselNav = styled.div`
   width: 100%;

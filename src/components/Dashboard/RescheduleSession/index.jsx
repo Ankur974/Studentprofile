@@ -8,11 +8,11 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { FiX } from "react-icons/fi";
 
-import { Modal } from "@common/Dashboard/Modal";
+import { Modal } from "@common/ui/Modal";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_400, WHITE } from "@common/ui/colors";
 import { formatSlotTime } from "@utils/helpers";
-import { Button } from "@common/Dashboard/Buttons";
+import { Button } from "@common/ui/Buttons";
 import { Body2, H3 } from "@common/ui/Headings";
 import Loader from "@common/ui/Loader";
 

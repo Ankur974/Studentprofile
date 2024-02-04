@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_200, ACCENT_800 } from "@common/ui/colors";
 import useOutsideAlert from "@hooks/useOutsideAlert";
-import DropdownWrapper from "@common/Dashboard/DropdownWrapper";
+import DropdownWrapper from "@common/DropdownWrapper";
 import { Body2, H5, Support } from "@common/ui/Headings";
-import { IconButton } from "@common/Dashboard/Buttons";
+import { IconButton } from "@common/ui/Buttons";
 import { profileOptions } from "./allOptions";
 
 const DropdownContainer = styled(FlexBox)`

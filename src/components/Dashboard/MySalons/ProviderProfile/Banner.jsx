@@ -12,7 +12,7 @@ import {
   ACCENT_100,
 } from "@common/ui/colors";
 import { H2, H3, H6 } from "@common/ui/Headings";
-import VideoPlayerModal from "@common/Dashboard/VideoPlayerModal";
+import VideoPlayerModal from "@common/ui/VideoPlayerModal";
 
 const BannerContainer = styled(FlexBox)`
   width: 100%;

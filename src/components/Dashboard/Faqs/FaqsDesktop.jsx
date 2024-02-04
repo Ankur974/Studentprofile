@@ -11,7 +11,7 @@ import {
   ACCENT_300,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
-import { Accordion } from "@common/Dashboard/Accordion";
+import { Accordion } from "@common/ui/Accordion";
 import { boxShadowDs1 } from "@common/ui/styles";
 
 const Desktop = styled.div`

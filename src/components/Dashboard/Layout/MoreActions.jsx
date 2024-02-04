@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 
-import DropdownWrapper from "@common/Dashboard/DropdownWrapper";
+import DropdownWrapper from "@common/DropdownWrapper";
 import { Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import {

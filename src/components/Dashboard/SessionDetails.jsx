@@ -2,9 +2,9 @@ import { FiDownload, FiX } from "react-icons/fi";
 import styled from "styled-components";
 import { BooleanParam, StringParam, useQueryParams } from "use-query-params";
 
-import { IconButton } from "@common/Dashboard/Buttons";
+import { IconButton } from "@common/ui/Buttons";
 import { Body2, H3 } from "@common/ui/Headings";
-import { Modal } from "@common/Dashboard/Modal";
+import { Modal } from "@common/ui/Modal";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_400, PRIMARY_500, ERROR, SUCCESS } from "@common/ui/colors";
 
