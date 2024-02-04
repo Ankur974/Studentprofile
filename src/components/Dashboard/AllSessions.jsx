@@ -13,6 +13,7 @@ const Container = styled(FlexBox)`
   flex-direction: row;
   column-gap: 1.5rem;
   row-gap: 0;
+  
   @media {device.laptop} {
     padding: 0;
     flex-direction: column;
