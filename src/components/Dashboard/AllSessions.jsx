@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import SessionCard from "@common/SessionCard";
+import { device } from "@common/ui/Resposive";
 import FlexBox from "@common/ui/FlexBox";
 import { WHITE } from "@common/ui/colors";
 import { Body2 } from "@common/ui/Headings";
@@ -13,8 +14,8 @@ const Container = styled(FlexBox)`
   flex-direction: row;
   column-gap: 1.5rem;
   row-gap: 0;
-  
-  @media {device.laptop} {
+
+  @media ${device.laptop} {
     padding: 0;
     flex-direction: column;
     row-gap: 2rem;
@@ -23,7 +24,7 @@ const Container = styled(FlexBox)`
 `;
 
 const Wrapper = styled.div`
-  @media {device.tablet} {
+  @media ${device.tablet} {
     max-height: 68vh;
     overflow: auto;
   }
