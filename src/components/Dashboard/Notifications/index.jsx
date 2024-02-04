@@ -2,7 +2,7 @@ import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_100, ACCENT_300 } from "@common/ui/colors";
 import NotificationItem from "./NotificationItem";
-import { boxShadowDs2 } from "@common/Dashboard/boxShadowStyles";
+import { boxShadowDs2 } from "@common/ui/styles";
 
 const Main = styled(FlexBox)`
   width: 100%;
