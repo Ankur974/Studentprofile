@@ -6,7 +6,7 @@ import axios from "axios";
 import FlexBox from "@common/ui/FlexBox";
 import Tabs from "@common/ui/Tabs";
 import { device } from "@common/ui/Resposive";
-import Loader from "@common/Dashboard/Loader";
+import Loader from "@common/ui/Loader";
 import { URL } from "@constants/urls";
 import Services from "./Services";
 import About from "./About";
