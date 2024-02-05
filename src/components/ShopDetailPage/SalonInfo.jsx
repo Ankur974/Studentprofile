@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 // import { SlSymbolFemale } from "react-icons/sl";
-import { AiFillStar } from "react-icons/ai";
+import { IoStar } from "react-icons/io5";
 // import { useRouter } from "next/router";
 import { Body2, H1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import Favourite from "@common/ui/Favourite";
 import { device } from "../common/ui/Resposive";
 import { ShareModal } from "./ShareModal";
+import { STARCOLOR } from "../common/ui/colors";
 
 const BannerContent = styled(FlexBox)`
   width: 100%;
@@ -53,14 +54,14 @@ const SalonInfo = () => {
         </FlexBox>
         <FlexBox columnGap="0.5rem">
           <FlexBox columnGap="0.25rem" align="center">
-            <AiFillStar color="black" />
-            <Body2 bold>4.2</Body2>
+            <IoStar color={STARCOLOR} />
+            <Body2 >4.2</Body2>
           </FlexBox>
-          <Body2 bold>|</Body2>
-          <Body2 bold textDecoration="underline">
+          <Body2 >|</Body2>
+          <Body2>
             23 Reviews
           </Body2>
-          <Body2 bold textDecoration="underline">
+          <Body2>
             Kolkata, West Bengal India
           </Body2>
         </FlexBox>
