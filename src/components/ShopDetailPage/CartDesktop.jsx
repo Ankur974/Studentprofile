@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -14,14 +14,13 @@ import {
 } from "@common/ui/colors";
 import { Button } from "@common/ui/Buttons";
 import NullStateCart from "./NullStateCart";
-import { deleteItemFromCart } from "../../redux/slices/cartSlice";
+import { deleteItemFromCart } from "@redux/slices/cartSlice";
 
 const Wrapper = styled(FlexBox)`
   padding: 1.5rem;
   row-gap: 1rem;
   border: 1px solid ${SECONDARY_200};
   transition: opacity 0.3s ease-in-out;
-  opacity: ${({ showContent }) => (showContent ? 1 : 0)};
   border-radius: 0.5rem;
   min-height: 5rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
@@ -52,16 +51,8 @@ const NullContainer = styled(FlexBox)`
 `;
 
 const CartDesktop = () => {
-  const [showContent, setShowContent] = useState(false);
   const cartdata = useSelector(state => state.cart.cartItems);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      setShowContent(true);
-    }, 300);
-    return () => clearTimeout(delay);
-  }, []);
 
   const handleDelete = productId => {
     dispatch(deleteItemFromCart(productId));
@@ -80,7 +71,7 @@ const CartDesktop = () => {
   }
 
   return (
-    <Wrapper column showContent={showContent}>
+    <Wrapper column>
         <FlexBox column>
           <H2 color={PRIMARY_800} bold>
             My Cart

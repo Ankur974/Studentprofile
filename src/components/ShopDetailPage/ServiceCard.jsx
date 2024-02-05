@@ -10,7 +10,7 @@ import { device } from "@common/ui/Resposive";
 import {
   addItemToCart,
   deleteItemFromCart,
-} from "../../redux/slices/cartSlice";
+} from "@redux/slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const CardContainer = styled.div`
