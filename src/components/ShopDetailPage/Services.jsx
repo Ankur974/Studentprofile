@@ -38,12 +38,14 @@ const CategoryTile = styled(FlexBox)`
     aspect-ratio: 1;
     border-radius: 3rem;
     transition: all 300ms ease-in-out;
+    opacity:0.8;
 
     ${({ active }) =>
       active &&
       css`
         max-width: 7rem;
         border: 1px solid ${PRIMARY_800};
+        opacity:1;
       `}
   }
 `;

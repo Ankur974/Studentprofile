@@ -1,15 +1,15 @@
 import React from "react";
 import FlexBox from "./FlexBox";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { ACCENT_800, PRIMARY_900 } from "./colors";
 
 const Favourite = ({ clicked, setclicked, color }) => {
   return (
     <FlexBox onClick={() => setclicked(!clicked)} style={{ cursor: "pointer" }}>
       {clicked ? (
-        <FaHeart color={PRIMARY_900} size="20px" />
+        <IoIosHeart color={PRIMARY_900} size="22px" />
       ) : (
-        <FaRegHeart color={color ? color : { ACCENT_800 }} size="20px" />
+        <IoIosHeartEmpty color={color ? color : { ACCENT_800 }} size="22px" />
       )}
     </FlexBox>
   );
