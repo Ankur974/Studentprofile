@@ -46,7 +46,7 @@ const Close = styled(FlexBox)`
   z-index: 1;
 `;
 const FloatingCart = () => {
-  const totalItems = useSelector(state => state.cart.totalItemsInCart);
+  const totalItems = useSelector(state => state.cart.cartItems.length);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCartIconClick = () => {

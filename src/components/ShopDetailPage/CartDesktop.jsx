@@ -60,7 +60,7 @@ const NullContainer = styled(FlexBox)`
 
 const CartDesktop = () => {
   const cartdata = useSelector(state => state.cart.cartItems);
-  const totalItem = useSelector(state => state.cart.totalItemsInCart);
+  const totalItem = useSelector(state => state.cart.cartItems.length);
   const dispatch = useDispatch();
 
   const handleDelete = productId => {
