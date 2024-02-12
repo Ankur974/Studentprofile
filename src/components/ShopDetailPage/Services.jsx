@@ -23,7 +23,6 @@ const Categories = styled(FlexBox)`
   position: sticky;
   top: 3rem;
   background-color: white;
-  z-index: 1;
 `;
 
 const CategoryTile = styled(FlexBox)`

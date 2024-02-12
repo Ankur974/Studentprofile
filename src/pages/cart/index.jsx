@@ -1,12 +1,12 @@
 import React from "react";
-import OrderCart from "@components/Cart/OrderCartModal";
+import CartIcons from "@components/Cart/CartIcons";
 import HomePageLayout from "../../layout/client/HomePageLayout";
 
 
 const Cart = () => {
   return (
     <HomePageLayout>
-      <OrderCart />
+      <CartIcons />
     </HomePageLayout>
   );
 };

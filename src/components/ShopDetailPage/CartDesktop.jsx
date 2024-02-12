@@ -15,24 +15,32 @@ import {
 import { Button } from "@common/ui/Buttons";
 import NullStateCart from "./NullStateCart";
 import { deleteItemFromCart } from "@redux/slices/cartSlice";
+import { device } from "@components/common/ui/Resposive";
 
 const Wrapper = styled(FlexBox)`
-  padding: 1.5rem;
-  row-gap: 1rem;
+  padding: 0.75rem 1rem;
+  row-gap: 0.5rem;
   border: 1px solid ${SECONDARY_200};
   transition: opacity 0.3s ease-in-out;
   border-radius: 0.5rem;
   min-height: 5rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+
+  @media ${device.laptop} {
+    padding: 1.5rem;
+    row-gap: 1rem;
+  }
 `;
 
 const ItemsContainer = styled(FlexBox)`
-  row-gap: 0.2rem;
   border-top: 1px solid ${ACCENT_300};
   border-bottom: 1px dashed ${ACCENT_300};
-  padding: 1rem 0 0.5rem 0;
-  max-height:15rem;
-  overflow:auto;
+  max-height: 15rem;
+  overflow: auto;
+  @media ${device.laptop} {
+    row-gap: 0.2rem;
+    padding: 1rem 0 0.5rem 0;
+  }
 `;
 
 const SingleItemContainer = styled(FlexBox)`
@@ -52,6 +60,7 @@ const NullContainer = styled(FlexBox)`
 
 const CartDesktop = () => {
   const cartdata = useSelector(state => state.cart.cartItems);
+  const totalItem = useSelector(state => state.cart.totalItemsInCart);
   const dispatch = useDispatch();
 
   const handleDelete = productId => {
@@ -59,8 +68,6 @@ const CartDesktop = () => {
   };
 
   const totalAmount = cartdata.reduce((total, item) => total + item.price, 0);
-
-  const totalItem = cartdata.length;
 
   if (!totalItem) {
     return (
@@ -107,8 +114,8 @@ const CartDesktop = () => {
             </Body2>
           </HelperBox>
         </FlexBox>
-        <FlexBox justify="center" margin="1rem 0 0 ">
-          <Button rowGap="1rem" color={PRIMARY_900}>
+        <FlexBox justify="center" margin="0.25rem 0 0 ">
+          <Button  color={PRIMARY_900}>
             Book Appointment
           </Button>
         </FlexBox>

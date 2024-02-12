@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import Loader from "@common/ui/Loader";
 import NavBar from "@common/NavBar";
 import Footer from "@common/Footer";
+import useMobileView from "@hooks/useMobileView";
+import FloatingCart from "@components/Cart/FloatingCart";
 
 const HomePageLayout = ({
   children,
@@ -15,6 +17,7 @@ const HomePageLayout = ({
   const [hideFooter, setHideFooter] = useState(false);
   const [loading, setLoading] = useState(true);
   const partnerMetaInfo = useSelector(state => state?.auth?.partnerMetaInfo);
+  const isMobile = useMobileView();
 
   useEffect(() => {
     const isMobileApp =
@@ -36,6 +39,7 @@ const HomePageLayout = ({
         />
       )}
       {children}
+      {isMobile && <FloatingCart/>}
       {!hideFooter && <Footer />}
     </>
   );
