@@ -1,10 +1,8 @@
-import { useEffect, useRef,useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { ACCENT_100 } from "@common/ui/colors";
-import {boxShadowDs2} from "@common/ui/styles";
+import { boxShadowDs2 } from "@common/ui/styles";
 import { device } from "@common/ui/Resposive";
-import CartIcons from "./CartIcons";
-import FlexBox from "@common/ui/FlexBox";
 
 const Container = styled.div`
   position: fixed;
@@ -28,9 +26,9 @@ const Content = styled.div`
   flex-direction: column;
   overflow: hidden;
   animation: fade-in 0.3s ease-in-out;
-  position:absolute;
-  bottom:7rem;
-  right:2.5rem;
+  position: absolute;
+  bottom: 7rem;
+  right: 2.5rem;
 
   @keyframes fade-in {
     from {
@@ -55,11 +53,6 @@ const Content = styled.div`
   }
 `;
 
-const IconBox=styled(FlexBox)`
-justify-content:flex-end;
-padding-top:1rem;
-`;
-
 const CartModal = ({
   isMobile,
   width,
@@ -72,25 +65,10 @@ const CartModal = ({
   boxShadow,
   border,
 }) => {
-  const containerRef = useRef(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleCartIconClick = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
-  // this prevents background scrolling
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => (document.body.style.overflow = "unset");
-  }, []);
-
   return (
-    <Container whiteOverlay={whiteOverlay} >
-    <FlexBox column>
-      {isModalOpen && <Content
+    <Container whiteOverlay={whiteOverlay}>
+      <Content
         isMobile={isMobile}
-        ref={containerRef}
         noPadding={noPadding}
         width={width}
         height={height}
@@ -100,11 +78,7 @@ const CartModal = ({
         border={border}
       >
         {children}
-      </Content>}
-      <IconBox onClick={handleCartIconClick} >
-      <CartIcons/>
-      </IconBox>
-      </FlexBox>
+      </Content>
     </Container>
   );
 };

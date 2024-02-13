@@ -53,7 +53,7 @@ export const categories = [
     offerTextColor: "#fff",
     services: [
       {
-        id: 1,
+        id: 4,
         label: "Basic Facial",
         desc: "A relaxing facial treatment to cleanse and hydrate your skin.",
         time: 60,
@@ -62,7 +62,7 @@ export const categories = [
         prize: 50,
       },
       {
-        id: 2,
+        id: 5,
         label: "Anti-Aging Facial",
         desc: "Reduce the signs of aging and rejuvenate your skin.",
         time: 75,
@@ -85,7 +85,7 @@ export const categories = [
     offerTextColor: "#fff",
     services: [
       {
-        id: 1,
+        id: 28,
         label: "Manicure",
         desc: "Treat your hands with a relaxing manicure session.",
         time: 30,
@@ -94,7 +94,7 @@ export const categories = [
         prize: 25,
       },
       {
-        id: 2,
+        id: 12,
         label: "Pedicure",
         desc: "Give your feet the care they deserve with a pedicure.",
         time: 40,
