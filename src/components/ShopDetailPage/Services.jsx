@@ -7,7 +7,9 @@ import FlexBox from "@common/ui/FlexBox";
 import { PRIMARY_800 } from "@common/ui/colors";
 import CategoryBanner from "./CategoryBanner";
 import ServiceCard from "./ServiceCard";
-import { categories } from "../../metadata/Categories";
+import { useState } from "react";
+import axios from "axios";
+import { URL } from "../../constants/urls";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -37,14 +39,14 @@ const CategoryTile = styled(FlexBox)`
     aspect-ratio: 1;
     border-radius: 3rem;
     transition: all 300ms ease-in-out;
-    opacity:0.8;
+    opacity: 0.8;
 
     ${({ active }) =>
       active &&
       css`
         max-width: 7rem;
         border: 1px solid ${PRIMARY_800};
-        opacity:1;
+        opacity: 1;
       `}
   }
 `;
@@ -61,6 +63,22 @@ const Services = () => {
     "active",
     StringParam
   );
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(URL.getServices);
+        setCategories(response?.data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log(categories,"data");
 
   useEffect(() => {
     if (activeCategory) {
@@ -79,22 +97,22 @@ const Services = () => {
       <Categories>
         {categories.map(item => (
           <CategoryTile
-            key={item.id}
-            active={item.slug === activeCategory}
-            onClick={() => setActiveCategory(item.slug)}
+            key={item._id}
+            active={item._id === activeCategory}
+            onClick={() => setActiveCategory(item._id)}
           >
-            <img src={item.pathdark} alt={item.label} />
-            <Body2>{item.label}</Body2>
+            <img src={item.imageUrl} alt={item.categoryId} />
+            <Body2>{item.categoryId }</Body2>
           </CategoryTile>
         ))}
       </Categories>
       <ServicesWrapper column>
         {categories?.map(category => (
-          <div key={category?.slug} id={category?.slug}>
+          <div key={category?._id} id={category?._id}>
             <CategoryBanner categoryConfig={category} />
             {category?.services?.map((item, index) => (
               <ServiceCard
-                key={item?.id}
+                key={item?._id}
                 item={item}
                 lastItem={category?.services?.length === index + 1}
               />
