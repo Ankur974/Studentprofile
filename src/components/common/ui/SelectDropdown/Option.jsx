@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FiCheck } from "react-icons/fi";
 import FlexBox from "../../FlexBox";
 import { Body2 } from "../Headings";
-import { MOSS_GREEN_900 } from "../../colors";
+import { SECONDARY_900 } from "../../colors";
 
 const Container = styled(FlexBox)`
   padding: 0.75rem;
@@ -17,7 +17,7 @@ const Option = props => {
     <components.Option {...props}>
       <Container>
         <Body2>{props.label}</Body2>
-        {props.isSelected && <FiCheck size="1.25rem" color={MOSS_GREEN_900} />}
+        {props.isSelected && <FiCheck size="1.25rem" color={SECONDARY_900} />}
       </Container>
     </components.Option>
   );
