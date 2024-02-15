@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
+import { isEqual } from "lodash";
 
 import FlexBox from "@common/ui/FlexBox";
 import Filter from "@common/ui/Filter";
 import { Display, H1, H3 } from "@common/ui/Headings";
-import { ACCENT_500, PRIMARY_200 } from "@common/ui/colors";
+import { ACCENT_500, PRIMARY_200, PRIMARY_800 } from "@common/ui/colors";
 import Chip from "@common/ui/Chips";
 import { device } from "@common/ui/Resposive";
 import Approach from "@common/ApproachFaq";
@@ -115,6 +116,16 @@ const Toptitle = styled(FlexBox)`
   padding: 0 2rem;
   align-items: center;
   justify-content: center;
+`;
+
+const ActiveDot = styled.div`
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: ${PRIMARY_800};
+  border-radius: 2rem;
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
 `;
 
 const ShopListingPage = () => {
@@ -648,7 +659,13 @@ const ShopListingPage = () => {
               })}
             </FilterWrapper>
             <VR />
-            <Filter onClick={toggleModal} />
+            <FlexBox position="relative">
+              {!isEqual(
+                advancedFilterSelection,
+                getInitialState(filterMeta)
+              ) && <ActiveDot />}
+              <Filter onClick={toggleModal} />
+            </FlexBox>
           </FlexBox>
         </Filtercontainer>
         <ListWrapper>
