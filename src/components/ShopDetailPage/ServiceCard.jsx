@@ -49,14 +49,14 @@ const ServiceCard = ({ item, lastItem }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.cartItems);
 
-  const isItemInCart = cartItems.some(cartItem => cartItem.id === item.id);
+  const isItemInCart = cartItems.some(cartItem => cartItem.id === item._id);
 
   const addService = () => {
     dispatch(
       addItemToCart({
-        id: item.id,
-        name: item.label,
-        price: item.prize,
+        id: item._id,
+        name: item.serviceName,
+        price: item.servicePrice,
       })
     );
   };
@@ -77,12 +77,12 @@ const ServiceCard = ({ item, lastItem }) => {
           align="center"
         >
           <ServiceDetails column>
-            <Body1 bold>{item.label}</Body1>
-            <Body2>{item.desc}</Body2>
+            <Body1 bold>{item?.serviceName}</Body1>
+            <Body2>{item?.desc}</Body2>
             <FlexBox columnGap="1rem" align="center">
               <FlexBox columnGap="0.4rem" align="center">
                 <SlClock />
-                <Body2>{item.time} mins</Body2>
+                <Body2>{item?.timeTaken/60} mins</Body2>
               </FlexBox>
               <FlexBox columnGap="0.4rem" align="center">
                 <SlStar />
@@ -90,7 +90,7 @@ const ServiceCard = ({ item, lastItem }) => {
                 <Body2>{item.reviews}</Body2>
               </FlexBox>
             </FlexBox>
-            <Body2 bold>₹ {item.prize}</Body2>
+            <Body2 bold>₹ {item.servicePrice}</Body2>
           </ServiceDetails>
           {!isItemInCart ? (
             <FlexBox
