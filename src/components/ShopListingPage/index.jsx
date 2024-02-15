@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import dynamic from "next/dynamic";
 
-import FlexBox from "../common/ui/FlexBox";
-import Filter from "../common/ui/Filter";
+import FlexBox from "@common/ui/FlexBox";
+import Filter from "@common/ui/Filter";
+import { Display, H1, H3 } from "@common/ui/Headings";
+import { ACCENT_500, PRIMARY_200 } from "@common/ui/colors";
+import Chip from "@common/ui/Chips";
+import { device } from "@common/ui/Resposive";
+import Approach from "@common/ApproachFaq";
+import { filterMeta } from "@metadata/ListingPage";
 import Card from "./Card";
-import { Display, H1, H3 } from "../common/ui/Headings";
-import { ACCENT_500, PRIMARY_200 } from "../common/ui/colors";
-import Approach from "../common/ApproachFaq";
-import Chip from "../common/ui/Chips";
-import FilterModal from "./FilterModal";
 import SecondaryNav from "./SecondaryNav";
-import { device } from "../common/ui/Resposive";
+
+const AdvancedFilter = dynamic(() => import("./AdvancedFilter"), {
+  ssr: false,
+});
 
 const metadata = [
   {
@@ -81,14 +86,14 @@ const VR = styled.div`
   background-color: ${ACCENT_500};
 `;
 
-const Showappliedfilter = styled(FlexBox)`
-  flex-direction: row;
-  column-gap: 0.2rem;
+const FilterWrapper = styled(FlexBox)`
+  column-gap: 0.25rem;
   width: fit-content;
   align-self: end;
 
   @media ${device.laptop} {
-    flex-direction: row;
+    max-width: 30rem;
+    overflow-x: auto;
     column-gap: 1rem;
   }
 `;
@@ -114,6 +119,19 @@ const Toptitle = styled(FlexBox)`
 
 const ShopListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
+
+  const getInitialState = filterMeta => {
+    const initialState = {};
+
+    filterMeta?.forEach(filter => {
+      initialState[filter.slug] = filter?.type === "checkbox" ? [] : "";
+    });
+
+    return initialState;
+  };
+  const [advancedFilterSelection, setAdvancedFilterSelection] = useState(() =>
+    getInitialState(filterMeta)
+  );
 
   const toggleModal = () => setShowFilter(!showFilter);
   const Arr = [
@@ -590,9 +608,17 @@ const ShopListingPage = () => {
       ],
     },
   ];
+
   return (
     <div>
-      {showFilter && <FilterModal toggleModal={toggleModal} />}
+      {showFilter && (
+        <AdvancedFilter
+          advancedFilterSelection={advancedFilterSelection}
+          setAdvancedFilterSelection={setAdvancedFilterSelection}
+          initialState={getInitialState(filterMeta)}
+          togglePopup={toggleModal}
+        />
+      )}
       <SecondaryNav navitem={metadata} />
       <Banner>
         <Toptitle>
@@ -602,13 +628,28 @@ const ShopListingPage = () => {
       <Wrapper>
         <Filtercontainer>
           <H3 bold>4 Haircut Results in your location</H3>
-          <Showappliedfilter>
-            <Chip>Haircut</Chip>
-            <Chip>Haircut</Chip>
-            <Chip>Haircut</Chip>
+          <FlexBox columnGap="0.5rem">
+            <FilterWrapper>
+              {filterMeta?.map(({ options }) => {
+                return options?.map(({ label, slug, isPopular }) => {
+                  if (!isPopular) return;
+                  return (
+                    <Chip
+                      key={slug}
+                      selected={advancedFilterSelection?.services_offered?.includes(
+                        slug
+                      )}
+                      onClick={() => {}}
+                    >
+                      {label}
+                    </Chip>
+                  );
+                });
+              })}
+            </FilterWrapper>
             <VR />
             <Filter onClick={toggleModal} />
-          </Showappliedfilter>
+          </FlexBox>
         </Filtercontainer>
         <ListWrapper>
           {Arr.map((data, index) => (
