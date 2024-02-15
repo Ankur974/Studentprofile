@@ -3,8 +3,8 @@ import {
   ACCENT_200,
   ACCENT_400,
   ACCENT_500,
-  MOSS_GREEN_100,
-  MOSS_GREEN_900,
+  SECONDARY_100,
+  SECONDARY_900,
 } from "../../colors";
 
 const dropdownStyles = {
@@ -38,7 +38,7 @@ const dropdownStyles = {
     fontSize: "0.875rem",
     lineHeight: "1.5rem",
     fontWeight: "bold",
-    color: MOSS_GREEN_900,
+    color: SECONDARY_900,
   }),
   menu: baseStyles => ({
     ...baseStyles,
@@ -60,9 +60,9 @@ const dropdownStyles = {
   option: (baseStyles, state) => ({
     padding: 0,
     cursor: "pointer",
-    backgroundColor: state.isSelected ? MOSS_GREEN_100 : ACCENT_100,
+    backgroundColor: state.isSelected ? SECONDARY_100 : ACCENT_100,
     "&:hover": {
-      backgroundColor: state.isSelected ? MOSS_GREEN_100 : ACCENT_200,
+      backgroundColor: state.isSelected ? SECONDARY_100 : ACCENT_200,
     },
   }),
 };

@@ -1,6 +1,14 @@
 import styled, { css } from "styled-components";
-import { ACCENT_200, ACCENT_400, ACCENT_300, PRIMARY_200 } from "./colors";
+import {
+  ACCENT_200,
+  ACCENT_400,
+  ACCENT_300,
+  PRIMARY_800,
+  ACCENT_0,
+  ACCENT_800,
+} from "./colors";
 import FlexBox from "./FlexBox";
+import { Body2 } from "./Headings";
 
 const Wrapper = styled(FlexBox)`
   flex: 1;
@@ -23,12 +31,12 @@ const Wrapper = styled(FlexBox)`
   ${({ selected }) =>
     selected &&
     css`
-      border-color: ${PRIMARY_200};
-      background-color: ${PRIMARY_200};
+      border-color: ${PRIMARY_800};
+      background-color: ${PRIMARY_800};
 
       &:hover {
-        border-color: ${PRIMARY_200};
-        background-color: ${PRIMARY_200};
+        border-color: ${PRIMARY_800};
+        background-color: ${PRIMARY_800};
       }
     `}
 
@@ -58,7 +66,7 @@ const Chip = ({
     margin={margin}
     padding={padding}
   >
-    {children}
+    <Body2 color={selected ? ACCENT_0 : ACCENT_800}>{children}</Body2>
   </Wrapper>
 );
 
