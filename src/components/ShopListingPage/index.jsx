@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 import { isEqual } from "lodash";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 
 import FlexBox from "@common/ui/FlexBox";
 import Filter from "@common/ui/Filter";
@@ -89,10 +91,11 @@ const VR = styled.div`
 
 const FilterWrapper = styled(FlexBox)`
   column-gap: 0.25rem;
-  width: fit-content;
   align-self: end;
+  width: 20rem;
 
   @media ${device.laptop} {
+    width: fit-content;
     max-width: 30rem;
     overflow-x: auto;
     column-gap: 1rem;
@@ -130,6 +133,7 @@ const ActiveDot = styled.div`
 
 const ShopListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
+
 
   const getInitialState = filterMeta => {
     const initialState = {};
@@ -641,22 +645,25 @@ const ShopListingPage = () => {
           <H3 bold>4 Haircut Results in your location</H3>
           <FlexBox columnGap="0.5rem">
             <FilterWrapper>
-              {filterMeta?.map(({ options }) => {
-                return options?.map(({ label, slug, isPopular }) => {
-                  if (!isPopular) return;
-                  return (
-                    <Chip
-                      key={slug}
-                      selected={advancedFilterSelection?.services_offered?.includes(
-                        slug
-                      )}
-                      onClick={() => {}}
-                    >
-                      {label}
-                    </Chip>
-                  );
-                });
-              })}
+              <Swiper slidesPerView={4.5} >
+                {filterMeta?.map(({ options }) => {
+                  return options?.map(({ label, slug, isPopular }) => {
+                    if (!isPopular) return null;
+                    return (
+                      <SwiperSlide key={slug}>
+                        <Chip
+                          selected={advancedFilterSelection?.services_offered?.includes(
+                            slug
+                          )}
+                          onClick={() => {}}
+                        >
+                          {label}
+                        </Chip>
+                      </SwiperSlide>
+                    );
+                  });
+                })}
+              </Swiper>
             </FilterWrapper>
             <VR />
             <FlexBox position="relative">
