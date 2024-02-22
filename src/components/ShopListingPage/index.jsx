@@ -95,8 +95,8 @@ const VR = styled.div`
 const FilterWrapper = styled(FlexBox)`
   align-self: end;
   width: 20rem;
-  align-items:center;
-  padding:0 0.5rem;
+  align-items: center;
+  padding: 0 0.5rem;
 
   @media ${device.laptop} {
     width: fit-content;
@@ -152,7 +152,7 @@ const SliderButton = styled.div`
 
 const ForwardButton = styled(IoIosArrowForward)`
   transition: all 0.3s ease-in-out;
-  cursor:pointer;
+  cursor: pointer;
   &:hover {
     transform: scale(1.25);
   }
@@ -184,7 +184,6 @@ const ActiveDot = styled.div`
 
 const ShopListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
-
 
   const getInitialState = filterMeta => {
     const initialState = {};
@@ -704,19 +703,18 @@ const ShopListingPage = () => {
                   <BackButton />
                 </div>
                 <Swiper
+                  watchSlidesProgress={true}
+                  slidesPerView={3}
+                  // slidesPerView="auto"
+                  spaceBetween={20}
+                  // freeMode={true}
                   modules={[Navigation]}
-                  breakpoints={{
-                    640: { slidesPerView: 3, spaceBetween: 10 },
-                    1200: { slidesPerView: 3.8, spaceBetween: 100 },
-                  }}
-                  slidesPerColumn={1}
-                  slidesPerGroup={1}
+                  className="mySwiper"
                   navigation={{
                     nextEl: ".image-swiper-button-next",
                     prevEl: ".image-swiper-button-prev",
                     disabledClass: "swiper-button-disabled",
                   }}
-                  className="mySwiper"
                 >
                   {filterMeta?.map(({ options }) => {
                     return options?.map(({ label, slug, isPopular }) => {
