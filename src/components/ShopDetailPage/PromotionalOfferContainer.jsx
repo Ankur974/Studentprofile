@@ -22,7 +22,7 @@ const DiscountIcon = styled(TbDiscount)`
 `;
 
 const ViewMore = styled(FlexBox)`
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   column-gap: 0.5rem;
   align-items: center;
   cursor: pointer;
@@ -33,7 +33,7 @@ const ExpandContainer = styled(FlexBox)`
   height: 100%;
   overflow: hidden;
   transition: all 600ms ease-in-out;
-  max-height: ${({ isExpanded, singleCardHeight, numberOfCards }) =>
+  max-height: ${({ isExpanded, singleCardHeight = 60, numberOfCards }) =>
     isExpanded
       ? `${singleCardHeight * numberOfCards}px`
       : `${singleCardHeight}px`};
@@ -51,17 +51,17 @@ const offerData = [
     description: "20% off up to INR 350",
   },
   {
-    id: 2,
+    id: 3,
     title: "20% off on Kotak Silk cards",
     description: "20% off up to INR 350",
   },
   {
-    id: 2,
+    id: 4,
     title: "20% off on Kotak Silk cards",
     description: "20% off up to INR 350",
   },
   {
-    id: 2,
+    id: 5,
     title: "20% off on Kotak Silk cards",
     description: "20% off up to INR 350",
   },
@@ -80,7 +80,7 @@ const PromotionalOfferContainer = () => {
       >
         {offerData.map(offer => (
           <FlexBox
-            padding="0.5rem 1rem"
+            padding="1rem 1rem 0"
             align="center"
             key={offer.id}
             ref={offerCardRef}
