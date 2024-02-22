@@ -15,13 +15,16 @@ import DesktopBanner from "./DesktopBanner";
 import Cart from "./Cart";
 
 const Container = styled(FlexBox)`
-  width: 86.67%;
-  max-width: 75rem;
-  margin: auto;
   flex-direction: column;
   justify-content: center;
   row-gap: 1.5rem;
   align-items: center;
+
+  @media ${device.laptop} {
+    width: 86.67%;
+    max-width: 75rem;
+    margin: auto;
+  }
 `;
 
 const HideMobile = styled.div`
@@ -48,6 +51,11 @@ const CartAndAboutBox = styled(FlexBox)`
   width: 100%;
   justify-content: center;
   column-gap: 4rem;
+  padding: 1.5rem;
+
+  @media ${device.laptop} {
+    padding: 0;
+  }
 `;
 
 const CartAndOfferContainer = styled(FlexBox)`
