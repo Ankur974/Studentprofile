@@ -40,6 +40,7 @@ const ItemsCounterBox = styled(FlexBox)`
   height: 1.5rem;
   align-items: center;
   justify-content: center;
+  
 `;
 
 const Close = styled(FlexBox)`
