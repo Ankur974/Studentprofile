@@ -78,16 +78,16 @@ const ServiceCard = ({ item, lastItem }) => {
         >
           <ServiceDetails column>
             <Body1 bold>{item?.serviceName}</Body1>
-            <Body2>{item?.desc}</Body2>
+            <Body2>{item?.description}</Body2>
             <FlexBox columnGap="1rem" align="center">
               <FlexBox columnGap="0.4rem" align="center">
                 <SlClock />
-                <Body2>{item?.timeTaken/60} mins</Body2>
+                <Body2>{item?.timeTaken / 60} mins</Body2>
               </FlexBox>
               <FlexBox columnGap="0.4rem" align="center">
                 <SlStar />
-                <Body2>({item.ratings})</Body2>
-                <Body2>{item.reviews}</Body2>
+                <Body2>({item.avgRating})</Body2>
+                <Body2>({item.reviews.length})</Body2>
               </FlexBox>
             </FlexBox>
             <Body2 bold>₹ {item.servicePrice}</Body2>
@@ -101,6 +101,7 @@ const ServiceCard = ({ item, lastItem }) => {
               backgroundColor={PRIMARY_800}
               onClick={addService}
             >
+            {/* || todo : fix ui here of add  */}
               <IoMdAdd color={ACCENT_0} />
             </FlexBox>
           ) : (
@@ -110,7 +111,7 @@ const ServiceCard = ({ item, lastItem }) => {
               cursor="pointer"
               borderRadius="0.5rem"
               backgroundColor={PRIMARY_800}
-              onClick={() => removeService(item.id)}
+              onClick={() => removeService(item._id)}
             >
               <IoMdRemove color={ACCENT_0} />
             </FlexBox>

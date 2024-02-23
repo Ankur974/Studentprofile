@@ -101,8 +101,8 @@ const Services = () => {
             active={item._id === activeCategory}
             onClick={() => setActiveCategory(item._id)}
           >
-            <img src={item.imageUrl} alt={item.categoryId} />
-            <Body2>{item.categoryId }</Body2>
+            <img src={item?.imageUrl} alt={item?.categoryName} />
+            <Body2>{item.categoryName}</Body2>
           </CategoryTile>
         ))}
       </Categories>
