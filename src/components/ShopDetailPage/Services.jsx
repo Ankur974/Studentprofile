@@ -69,6 +69,7 @@ const Services = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        //TODO: add storeid to get data
         const response = await axios.get(URL.getServices);
         setCategories(response?.data.data);
       } catch (e) {
@@ -77,8 +78,6 @@ const Services = () => {
     };
     fetchData();
   }, []);
-
-  console.log(categories,"data");
 
   useEffect(() => {
     if (activeCategory) {
