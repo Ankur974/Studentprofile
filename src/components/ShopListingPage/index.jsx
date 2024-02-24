@@ -617,7 +617,7 @@ const ShopListingPage = () => {
       </Banner>
       <Wrapper>
         <H3 bold>4 Haircut Results in your location</H3>
-        <FlexBox align="center">
+        <FlexBox align="center" columnGap="0.5rem">
           <FlexBox position="relative">
             {!isEqual(advancedFilterSelection, getInitialState(filterMeta)) && (
               <ActiveDot />
