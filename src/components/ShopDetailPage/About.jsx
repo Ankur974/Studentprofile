@@ -26,11 +26,6 @@ const LineSeparator = styled.div`
   border-right: 1px solid ${SECONDARY_200};
 `;
 
-const Image = styled(FlexBox)`
-  width: 2rem;
-  height: 2rem;
-`;
-
 const Rating = styled(FlexBox)`
   background-image: url("/assets/images/star.svg");
   background-size: contain;
@@ -176,7 +171,7 @@ const About = ({ shopData }) => {
               src="/assets/images/amenities/parking.webp"
               width="32px"
               height="32px"
-            ></img>
+            />
             <H6>Parking</H6>
           </FlexBox>
           <FlexBox columnGap="1rem">
@@ -184,7 +179,7 @@ const About = ({ shopData }) => {
               src="/assets/images/amenities/hygiene.webp"
               width="32px"
               height="32px"
-            ></img>
+            />
             <H6>Hygiene</H6>
           </FlexBox>
         </FlexBox>
@@ -211,14 +206,14 @@ const About = ({ shopData }) => {
         </FlexBox>
         <LineSeparator />
         <FlexBox column rowGap="0.5rem">
-          <Image>
+          <FlexBox>
             <img
               src="/assets/images/about/seat.webp"
               alt="star"
               width="32px"
               height="32px"
             />
-          </Image>
+          </FlexBox>
           <H6>Cleanliness</H6>
           <H5>3.8</H5>
         </FlexBox>
