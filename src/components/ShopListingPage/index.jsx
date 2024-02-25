@@ -2,16 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 import { isEqual } from "lodash";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
-import "swiper/css/navigation";
 
 import FlexBox from "@common/ui/FlexBox";
 import Filter from "@common/ui/Filter";
 import { Display, H1, H3 } from "@common/ui/Headings";
-import { ACCENT_500, PRIMARY_200, PRIMARY_800 } from "@common/ui/colors";
+import {  PRIMARY_200, PRIMARY_800 } from "@common/ui/colors";
 import Chip from "@common/ui/Chips";
 import { device } from "@common/ui/Resposive";
 import Approach from "@common/ApproachFaq";
@@ -86,85 +81,15 @@ const Banner = styled(FlexBox)`
   background-color: ${PRIMARY_200};
 `;
 
-const VR = styled.div`
-  height: 100%;
-  width: 1px;
-  background-color: ${ACCENT_500};
-`;
-
 const FilterWrapper = styled(FlexBox)`
-  align-self: end;
-  width: 20rem;
+  column-gap: 0.25rem;
   align-items: center;
-  padding: 0 0.5rem;
-
+  overflow-x: auto;
   @media ${device.laptop} {
-    width: fit-content;
-    max-width: 30rem;
+    column-gap: 1rem;
   }
 `;
 
-const Filtercontainer = styled(FlexBox)`
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-
-  @media ${device.laptop} {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`;
-const SliderButton = styled.div`
-  position: relative;
-  max-width: 20rem;
-  .swiper-button {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 20%;
-    z-index: 2;
-    cursor: pointer;
-
-    @media ${device.laptop} {
-      max-width: 23rem;
-    }
-
-    svg {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
-  }
-
-  .image-swiper-button-prev {
-    left: -0.75rem;
-  }
-
-  .image-swiper-button-next {
-    right: -1rem;
-  }
-
-  .swiper-button-disabled {
-    opacity: 0.5;
-    pointer-events: none;
-  }
-`;
-
-const ForwardButton = styled(IoIosArrowForward)`
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.25);
-  }
-`;
-
-const BackButton = styled(IoIosArrowBack)`
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.25);
-  }
-`;
 const Toptitle = styled(FlexBox)`
   max-width: 75rem;
   padding: 0 2rem;
@@ -691,62 +616,33 @@ const ShopListingPage = () => {
         </Toptitle>
       </Banner>
       <Wrapper>
-        <Filtercontainer>
-          <H3 bold>4 Haircut Results in your location</H3>
-          <FlexBox columnGap="0.5rem">
-            <FilterWrapper>
-              <SliderButton>
-                <div className="swiper-button image-swiper-button-next">
-                  <ForwardButton />
-                </div>
-                <div className="swiper-button image-swiper-button-prev">
-                  <BackButton />
-                </div>
-                <Swiper
-                  watchSlidesProgress={true}
-                  slidesPerView={3}
-                  // slidesPerView="auto"
-                  spaceBetween={20}
-                  // freeMode={true}
-                  modules={[Navigation]}
-                  className="mySwiper"
-                  navigation={{
-                    nextEl: ".image-swiper-button-next",
-                    prevEl: ".image-swiper-button-prev",
-                    disabledClass: "swiper-button-disabled",
-                  }}
-                >
-                  {filterMeta?.map(({ options }) => {
-                    return options?.map(({ label, slug, isPopular }) => {
-                      if (!isPopular) return null;
-                      return (
-                        <SwiperSlide key={slug}>
-                          <Chip
-                            selected={advancedFilterSelection?.services_offered?.includes(
-                              slug
-                            )}
-                            onClick={() => {}}
-                            width="fit-content"
-                          >
-                            {label}
-                          </Chip>
-                        </SwiperSlide>
-                      );
-                    });
-                  })}
-                </Swiper>
-              </SliderButton>
-            </FilterWrapper>
-            <VR />
-            <FlexBox position="relative">
-              {!isEqual(
-                advancedFilterSelection,
-                getInitialState(filterMeta)
-              ) && <ActiveDot />}
-              <Filter onClick={toggleModal} />
-            </FlexBox>
+        <H3 bold>4 Haircut Results in your location</H3>
+        <FlexBox align="center" columnGap="0.5rem">
+          <FlexBox position="relative">
+            {!isEqual(advancedFilterSelection, getInitialState(filterMeta)) && (
+              <ActiveDot />
+            )}
+            <Filter onClick={toggleModal} />
           </FlexBox>
-        </Filtercontainer>
+          <FilterWrapper>
+            {filterMeta?.map(({ options }) => {
+              return options?.map(({ label, slug, isPopular }) => {
+                if (!isPopular) return;
+                return (
+                  <Chip
+                    key={slug}
+                    selected={advancedFilterSelection?.services_offered?.includes(
+                      slug
+                    )}
+                    onClick={() => {}}
+                  >
+                    {label}
+                  </Chip>
+                );
+              });
+            })}
+          </FilterWrapper>
+        </FlexBox>
         <ListWrapper>
           {Arr.map((data, index) => (
             <Card key={index} data={data} />
