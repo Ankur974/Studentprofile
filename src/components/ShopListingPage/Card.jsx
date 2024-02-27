@@ -17,6 +17,7 @@ import {
 import Chip from "@common/ui/Chips";
 import { Button } from "@common/ui/Buttons";
 import { device } from "@common/ui/Resposive";
+import { ACCENT_100, ACCENT_300, ACCENT_500, ACCENT_800, PRIMARY_0, PRIMARY_100, PRIMARY_400, WHITE } from "../common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -68,7 +69,7 @@ const OfferBanner = styled(FlexBox)`
   bottom: -0.9rem;
   align-items: center;
   width: 90%;
-  column-gap: 0.5rem;
+  column-gap: 0.4rem;
   background-color: ${PRIMARY_800};
   border-radius: 0.25rem;
   justify-content: center;
@@ -77,7 +78,7 @@ const OfferBanner = styled(FlexBox)`
 const PopularityBox = styled(FlexBox)`
   border-radius: 0.25rem;
   width: fit-content;
-  padding: 0 0.5rem;
+  padding: 0 0.8rem;
   align: center;
   justify: center;
   background-color: ${RATE_BACKGROUND};
@@ -94,7 +95,7 @@ const Card = ({ data }) => {
     if (discount) {
       return (
         <OfferBanner>
-          <CiDiscount1 color={ACCENT_0} />
+          <CiDiscount1 color={ACCENT_0} stroke={3} />
           <Body2 color={ACCENT_0} padding="0.2rem 0">
             {`${discount}% off on first visit`}
           </Body2>
@@ -119,7 +120,7 @@ const Card = ({ data }) => {
               justify="center"
               borderRadius="0.25rem"
               backgroundColor={RATE_BACKGROUND}
-              padding="0 0.20rem"
+              padding="0 0.8rem"
               columnGap="0.4rem"
             >
               <img src="/assets/images/star.svg" alt="star" />

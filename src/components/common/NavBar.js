@@ -5,10 +5,8 @@ import { useRouter } from "next/router";
 import { FiMoreHorizontal } from "react-icons/fi";
 
 import { ACCENT_0, ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
-// import NavLinks from "@components/NavBar/NavLinks";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
-import { H3 } from "./ui/Headings";
 
 const commonIconProps = {
   size: "1.5rem",
@@ -103,22 +101,14 @@ const ProviderImage = styled.img`
   border: 1px solid ${ACCENT_800};
 `;
 
-const AvatarWithName = styled(FlexBox)`
-  @media screen and (min-width: 769px) {
-    display: none;
-  }
-`;
-
 const NavBar = ({ navContainerStyles }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showMoreActions, setShowMoreActions] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const toggleProfileDropdown = () => setShowProfileDropdown(prev => !prev);
   const toggleMoreActions = () => setShowMoreActions(prev => !prev);
-  const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu);
   const router = useRouter();
 
   const closeMenu = () => {
@@ -142,25 +132,6 @@ const NavBar = ({ navContainerStyles }) => {
             alt="pamprazzi Logo"
           />
         </LogoContainer>
-        {/* <NavLinks navState={isMenuOpen} closeMenu={closeMenu} /> */}
-        <AvatarWithName position="relative" align="center" justify="center">
-          <FlexBox
-            align="center"
-            justify="center"
-            className="bell-icon"
-            cursor="pointer"
-            columnGap="0.5rem"
-            id="mobile-menu"
-          >
-            <ProviderImage
-              alt="User Image"
-              draggable="false"
-              src="/assets/images/coin.svg"
-              onClick={toggleMobileMenu}
-            />
-            <H3 bold>Hello, User</H3>
-          </FlexBox>
-        </AvatarWithName>
         <FlexBox align="center" columnGap="1.5rem">
           <Avatar position="relative" align="center" justify="center">
             <ProviderImage

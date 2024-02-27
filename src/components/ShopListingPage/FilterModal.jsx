@@ -105,7 +105,7 @@ const FilterChip = ({ name, selected, onClick }) => (
   <Chip width="fit-content" selected={selected} onClick={onClick}>
     <FlexBox align="center" columnGap="0.2rem">
       {selected && <RxCheck color={PRIMARY_800} />}
-      <Body2 bold color={selected ? PRIMARY_800 : ACCENT_800}>
+      <Body2  color={selected ? PRIMARY_800 : ACCENT_800} >
         {name}
       </Body2>
     </FlexBox>

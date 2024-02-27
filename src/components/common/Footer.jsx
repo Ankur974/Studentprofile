@@ -71,14 +71,15 @@ const NavLink = styled(Body2)`
   cursor: pointer;
   width: fit-content;
   color: ${ACCENT_0};
-  font-weight: bold;
 `;
 
 const IconContainer = styled(FlexBox)`
   box-sizing: border-box;
   padding: 0.625rem;
   align-items: center;
-
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
   border-radius: 0.5rem;
   border: 2px solid ${ACCENT_400};
 
@@ -148,11 +149,16 @@ const Footer = () => {
             socialIconsData.map((icon, index) => {
               const Icon = icon.icon;
               return (
-                <IconContainer key={index}>
-                  <a href={icon.link} target="_blank" rel="noopener noreferrer">
+                <a
+                  key={index}
+                  href={icon.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <IconContainer>
                     <Icon color={ACCENT_0} size={24} />
-                  </a>
-                </IconContainer>
+                  </IconContainer>
+                </a>
               );
             })}
         </FlexBox>
@@ -167,7 +173,6 @@ const Footer = () => {
               <NavLink
                 key={index}
                 cursor="pointer"
-                bold
                 onClick={() => router.push(button?.link)}
                 color={ACCENT_0}
               >

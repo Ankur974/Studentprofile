@@ -6,7 +6,7 @@ const CustomRatingBarStyle = styled.div`
 `;
 
 const StarImageStyle = styled.img`
-  width: 20px;
+  width: 25px;
   height: 20px;
   object-fit: cover;
   padding-right: 0.4rem;

@@ -27,7 +27,7 @@ const ButtonsWrapper = styled(FlexBox)`
 
 const NavItem = styled(Body1)`
   color: ${ACCENT_800};
-  transition: all 0.3s ease-in-out;
+  // transition: all 0.3s ease-in-out;
 
 
   &:hover {

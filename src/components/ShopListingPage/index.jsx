@@ -137,11 +137,11 @@ const ShopListingPage = () => {
       amenities: [
         {
           id: 1,
-          label: "Air conditioning",
+          label: "Air Conditioning",
         },
         {
           id: 12,
-          label: "Parking",
+          label: "Parking Space",
         },
         {
           id: 2,
@@ -259,7 +259,7 @@ const ShopListingPage = () => {
         },
         {
           id: 12,
-          label: "Parking",
+          label: "Parking Space",
         },
         {
           id: 2,
@@ -377,7 +377,7 @@ const ShopListingPage = () => {
         },
         {
           id: 12,
-          label: "Parking",
+          label: "Parking Space",
         },
         {
           id: 2,
@@ -495,7 +495,7 @@ const ShopListingPage = () => {
         },
         {
           id: 12,
-          label: "Parking",
+          label: "Parking Space",
         },
         {
           id: 2,
