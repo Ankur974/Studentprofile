@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import useRouter from "next/router";
 import styled from "styled-components";
 import { IoStar } from "react-icons/io5";
@@ -41,11 +41,11 @@ const SalonInfo = ({ shopData }) => {
   const router = useRouter;
 
   const ScrollToElement = () => {
-      const storeId = shopData?._id;
-      router.push(`/shop-details/${storeId}#mapId`);
-      }
-      
-      return (
+    const storeId = shopData?._id;
+    router.push(`/shop-details/${storeId}#mapId`);
+  };
+
+  return (
     <BannerContent column rowGap="0.25rem">
       <FlexBox align="center" justify="space-between">
         <H1 bold>{shopData?.storeName}</H1>
