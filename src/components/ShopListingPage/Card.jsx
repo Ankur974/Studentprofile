@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import FlexBox from "@common/ui/FlexBox";
 import styled from "styled-components";
 import { BsFillHeartFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
 import { CiDiscount1 } from "react-icons/ci";
 
+import FlexBox from "@common/ui/FlexBox";
 import { H5, Body2 } from "@common/ui/Headings";
 import {
   ACCENT_0,
@@ -17,7 +17,6 @@ import {
 import Chip from "@common/ui/Chips";
 import { Button } from "@common/ui/Buttons";
 import { device } from "@common/ui/Resposive";
-import { ACCENT_100, ACCENT_300, ACCENT_500, ACCENT_800, PRIMARY_0, PRIMARY_100, PRIMARY_400, WHITE } from "../common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
