@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styled, { css } from "styled-components";
 import { useQueryParam, StringParam } from "use-query-params";
 
 import { Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { PRIMARY_800 } from "@common/ui/colors";
+import { URL } from "@constants/urls";
 import CategoryBanner from "./CategoryBanner";
 import ServiceCard from "./ServiceCard";
-import { useState } from "react";
-import axios from "axios";
-import { URL } from "../../constants/urls";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -58,26 +57,26 @@ const ServicesWrapper = styled(FlexBox)`
   gap: 1rem;
 `;
 
-const Services = () => {
+const Services = ({ storeId }) => {
   const [activeCategory, setActiveCategory] = useQueryParam(
     "active",
     StringParam
   );
-
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        //TODO: add storeid to get data
-        const response = await axios.get(URL.getServices);
-        setCategories(response?.data.data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
+    if (!storeId) return;
     fetchData();
-  }, []);
+  }, [storeId]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${URL.getServices}/${storeId}`);
+      setCategories(response?.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
     if (activeCategory) {

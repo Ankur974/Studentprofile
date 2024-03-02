@@ -13,7 +13,7 @@ const StarImageStyle = styled.img`
 `;
 
 const Rating = () => {
-  const [defaultRating, setDefaultRating] = useState(2);
+  const [defaultRating, setDefaultRating] = useState(5);
 
   const maxRating = [1, 2, 3, 4, 5];
 

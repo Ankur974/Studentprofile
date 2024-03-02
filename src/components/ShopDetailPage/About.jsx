@@ -1,37 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { GiCircle } from "react-icons/gi";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
+import { GoDotFill } from "react-icons/go";
+import dayjs from "dayjs";
+import Image from "next/image";
 
-import { Body2, Body1, H6, H1, H5, H3 } from "@common/ui/Headings";
+import { Body1, Body2, H6, H5, H3 } from "@common/ui/Headings";
 import { SECONDARY_200, PRIMARY_800 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
-import Chip from "@common/ui/Chips";
-import Ratings from "@common/ui/Ratings";
+import AboutRatingsSection from "./AboutRatingsSection";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
   max-width: 75rem;
   margin: auto;
-`;
-
-const Hr = styled(FlexBox)`
-  margin: 1rem 0;
-  border-top: 1px solid ${SECONDARY_200};
-`;
-
-const LineSeparator = styled.div`
-  width: 1px;
-  height: 100px;
-  border-right: 1px solid ${SECONDARY_200};
-`;
-
-const Rating = styled(FlexBox)`
-  background-image: url("/assets/images/star.svg");
-  background-size: contain;
-  background-repeat: repeat-x;
-  width: 10rem;
-  height: 2rem;
 `;
 
 const SeeMoreText = styled(Body2)`
@@ -41,6 +23,11 @@ const SeeMoreText = styled(Body2)`
   text-decoration: underline;
 `;
 
+const Hr = styled(FlexBox)`
+  margin: 2rem 0;
+  border-top: 1px solid ${SECONDARY_200};
+`;
+
 const InsideMap = styled.iframe`
   display: block;
   width: 100%;
@@ -48,235 +35,185 @@ const InsideMap = styled.iframe`
   border-radius: 0.25rem;
 `;
 
-const reviews = [
-  {
-    id: 1,
-    date: "18-june-22",
-    name: "John Doe",
-    review:
-      "I had a great experience with the pet-friendly amenities. My dog loved it!",
-    path: "/assets/images/Avatar.svg",
+const ProfileDP = styled(Image)`
+  max-width: 5rem;
+  max-height: 5rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+`;
+
+const B1 = styled(Body1)`
+  max-height: ${({ expanded }) => (expanded ? "45px" : "100px")};
+  overflow: hidden;
+  transition: max-height 600ms ease-in-out;
+`;
+
+const DayWrapper = styled.div`
+  height: ${({ active }) => (active ? "20rem" : "1.5rem")};
+  max-height: 20rem;
+  transition: all 600ms ease-in-out;
+  overflow: hidden;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  row-gap: 1rem;
+`;
+
+const amenitiesList = {
+  "Air Conditioner": {
+    src: "/assets/images/amenities/air-flow-inspection.webp",
+    alt: "Air Conditioner",
+    label: "Air Conditioner",
   },
-  {
-    id: 2,
-    date: "20-Aug-2022",
-    name: "Jane Smith",
-    review: "The air conditioner was a lifesaver during the hot summer days.",
-    path: "/assets/images/Avatar.svg",
+  "Blow Dryer": {
+    src: "/assets/images/amenities/hygiene.webp",
+    alt: "Hygiene",
+    label: "Hygiene",
   },
-  {
-    id: 3,
-    date: "21-Aug-2022",
-    name: "Alice Johnson",
-    review:
-      "I appreciated the hygiene assurance measures in place. It made me feel safe.",
-    path: "/assets/images/Avatar.svg",
+  "Parking Space": {
+    src: "/assets/images/amenities/parking.webp",
+    alt: "Parking",
+    label: "Parking Space",
   },
-];
+  "Pet Friendly": {
+    src: "/assets/images/amenities/heart.webp",
+    alt: "Pet Friendly",
+    label: "Pet Friendly",
+  },
+};
+
+const BusinessStatus = ({ dayObject }) => {
+  const isOpenToday = dayObject?.open;
+
+  return (
+    <FlexBox align="center" columnGap="1rem">
+      <GoDotFill color={isOpenToday ? "green" : "red"} />
+      <H6>
+        {isOpenToday
+          ? `Open today ${dayObject.openTime} - ${dayObject.closeTime}`
+          : "Closed today"}
+      </H6>
+      <RiArrowDownSLine size="1.5rem" cursor="pointer" />
+    </FlexBox>
+  );
+};
+
+const ShopTiming = ({ shopData }) => {
+  return (
+    <FlexBox column rowGap="1rem" justify="center">
+      {shopData?.timing?.map((day, index) => (
+        <FlexBox key={day._id} align="center" columnGap="1rem">
+          <GoDotFill color={day?.open ? "green" : "red"} />
+          <H6>
+            {day?.open
+              ? `${day.day.charAt(0) + day.day.slice(1).toLowerCase()}  ${
+                  day.openTime
+                } - ${day.closeTime}`
+              : `${day.day.charAt(0) + day.day.slice(1).toLowerCase()} Closed`}
+          </H6>
+          {index === 0 && <RiArrowUpSLine size="1.5rem" cursor="pointer" />}
+        </FlexBox>
+      ))}
+    </FlexBox>
+  );
+};
 
 const About = ({ shopData }) => {
-  const [showDays, setShowDays] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [more, setMore] = useState(false);
 
-  const showDaysFun = () => {
-    setShowDays(!showDays);
-  };
+  const currDay = dayjs().format("dddd");
+  const convertedDay = currDay.toUpperCase();
+  const dayObject = shopData?.timing?.find(day => day.day === convertedDay);
+
+  const fetchedAmenities = shopData?.storeAmenities || [];
+  const amenitiesIcon = Object.keys(amenitiesList).map(localAmenityKey => {
+    const fetchedAmenity = fetchedAmenities?.find(
+      amenity => amenity === localAmenityKey
+    );
+
+    return {
+      key: localAmenityKey,
+      ...amenitiesList[localAmenityKey],
+      isPresent: !!fetchedAmenity,
+    };
+  });
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
   };
 
+  const toggleMore = () => {
+    setMore(!more);
+  };
+
   return (
     <Wrapper column>
-      <Body2>{shopData?.storeDescription}</Body2>
-      <FlexBox wrap="wrap" rowGap="1rem" columnGap="1rem">
-        {shopData?.storeTags?.map(item => (
-          <Chip key={item.id} width="fit-content">
-            <Body2>{item.name}</Body2>
-          </Chip>
-        ))}
-      </FlexBox>
-      {expanded ? (
-        <Body1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis,
-          incidunt consectetur modi architecto repudiandae nobis dolorum ea
-          molestiae autem aperiam? Placeat repellat labore perspiciatis, cumque
-          quibusdam distinctio perferendis eaque consectetur.
-          <SeeMoreText onClick={toggleExpanded}> Read less...</SeeMoreText>
-        </Body1>
-      ) : (
-        <Body1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis,
-          incidunt consectetur modi architecto repudiandae nobis dolorum ea
-          molestiae autem aperiam?
-          <SeeMoreText onClick={toggleExpanded}> Read more...</SeeMoreText>
-        </Body1>
-      )}
-      <FlexBox column padding="1rem 0" rowGap="1rem">
-        <H3 bold>Timings</H3>
-        <FlexBox align="center" columnGap="0.5rem">
-          <GiCircle color="green" background-color="green" />
-          <H6>Sunday : {shopData?.storeTimingsSunday}</H6>
-          {!showDays && (
-            <RiArrowDownSLine
-              width="2rem"
-              height="2rem"
-              cursor="pointer"
-              onClick={showDaysFun}
-            />
-          )}
-          {showDays && (
-            <RiArrowUpSLine
-              width="2rem"
-              height="2rem"
-              cursor="pointer"
-              onClick={showDaysFun}
-            />
-          )}
-        </FlexBox>
-        {showDays && (
-          <FlexBox column margin="0 0 0 1.4rem">
-            <H6>Monday : {shopData?.storeTimingsMonday}</H6>
-            <H6>Tuesday : {shopData?.storeTimingsTuesday}</H6>
-            <H6>Wednesday : {shopData?.storeTimingsWednesday}</H6>
-            <H6>Thursday : {shopData?.storeTimingsThursday}</H6>
-            <H6>Friday : {shopData?.storeTimingsFriday}</H6>
-            <H6>Saturday : {shopData?.storeTimingsSaturday}</H6>
-          </FlexBox>
+      <FlexBox column margin="1rem  0 2rem 0">
+        <B1 expanded={!more}>{shopData?.storeDescription}</B1>
+        {shopData?.storeDescription?.length > 45 && (
+          <SeeMoreText onClick={toggleMore}>
+            {more ? " Read less" : " Read more..."}
+          </SeeMoreText>
         )}
       </FlexBox>
-
+      <FlexBox column rowGap="1rem">
+        <H3 bold>Timings</H3>
+        <DayWrapper columnGap="1rem" active={expanded} onClick={toggleExpanded}>
+          {!expanded ? (
+            <BusinessStatus dayObject={dayObject} />
+          ) : (
+            <ShopTiming shopData={shopData} />
+          )}
+        </DayWrapper>
+      </FlexBox>
       <Hr />
-      <FlexBox column padding="1rem 0" rowGap="1rem">
+      <FlexBox column rowGap="1rem">
         <H3 bold>Amenities</H3>
-        <FlexBox column rowGap="1rem">
-          <FlexBox columnGap="1rem">
-            <img
-              src="/assets/images/amenities/heart.webp"
-              width="32px"
-              height="32px"
-            ></img>
-            <H6>Pet Friendly</H6>
-          </FlexBox>
-          <FlexBox columnGap="1rem">
-            <img
-              src="/assets/images/amenities/air-flow-inspection.webp"
-              width="32px"
-              height="32px"
-            ></img>
-            <H6>Air Conditioner</H6>
-          </FlexBox>
-          <FlexBox columnGap="1rem">
-            <img
-              src="/assets/images/amenities/parking.webp"
-              width="32px"
-              height="32px"
-            />
-            <H6>Parking</H6>
-          </FlexBox>
-          <FlexBox columnGap="1rem">
-            <img
-              src="/assets/images/amenities/hygiene.webp"
-              width="32px"
-              height="32px"
-            />
-            <H6>Hygiene</H6>
-          </FlexBox>
-        </FlexBox>
-      </FlexBox>
-      <Hr />
-      {/* <FlexBox
-        border="1px dashed #533A71"
-        borderRadius="0.5rem"
-        justify="center"
-        align="center"
-        column
-        height="9.5rem"
-      >
-        <Body1>{shopData?.storeRating}</Body1>
-        <Ratings />
-        <H6>20 visitor Ratings</H6>
-      </FlexBox> */}
-      <H3 bold>Overall Ratings</H3>
-      <FlexBox justify="space-between">
-        <FlexBox column>
-          <H1>4.2</H1>
-          <H6>(20 ratings)</H6>
-          <Rating class="star-rating"></Rating>
-        </FlexBox>
-        <LineSeparator />
-        <FlexBox column rowGap="0.5rem">
-          <FlexBox>
-            <img
-              src="/assets/images/about/seat.webp"
-              alt="star"
-              width="32px"
-              height="32px"
-            />
-          </FlexBox>
-          <H6>Cleanliness</H6>
-          <H5>3.8</H5>
-        </FlexBox>
-        <LineSeparator />
-        <FlexBox column rowGap="0.5rem">
-          <img
-            src="/assets/images/about/scissors.webp"
-            alt="star"
-            width="32px"
-            height="32px"
-          />
-          <H6>Service</H6>
-          <H5>4.5</H5>
-        </FlexBox>
-        <LineSeparator />
-        <FlexBox column rowGap="0.5rem">
-          <img
-            src="/assets/images/about/speech-bubble.webp"
-            alt="star"
-            width="32px"
-            height="32px"
-          />
-          <H6>Ambience</H6>
-          <H5>4</H5>
-        </FlexBox>
-        <LineSeparator />
-
-        <FlexBox column rowGap="0.5rem">
-          <img
-            src="/assets/images/about/speech-bubble.webp"
-            alt="star"
-            width="32px"
-            height="32px"
-          />
-          <H6>Communication</H6>
-          <H5>4.1</H5>
-        </FlexBox>
-      </FlexBox>
-      <Hr />
-      <FlexBox column rowGap="1rem" padding="1rem 0">
-        <H3 bold>Reviews(20)</H3>
-        {reviews.map(item => (
-          <FlexBox column key={item.id}>
-            <FlexBox row justify="space-between">
-              <FlexBox columnGap="1.5rem">
-                <img src={item.path} alt="user avatar" />
-                <FlexBox column>
-                  <Body1 bold>{item.name}</Body1>
-                  <H6>{item.date}</H6>
-                </FlexBox>
-              </FlexBox>
-              <Ratings />
+        <GridContainer>
+          {amenitiesIcon.map((amenity, index) => (
+            <FlexBox key={index} columnGap="1rem">
+              <img
+                src={amenity?.src}
+                width="32px"
+                height="32px"
+                alt={amenity?.alt}
+              />
+              <H6 textDecoration={amenity?.isPresent ? "none" : "line-through"}>
+                {amenity?.label}
+              </H6>
             </FlexBox>
-            <H6>{item.review}</H6>
-          </FlexBox>
-        ))}
+          ))}
+        </GridContainer>
       </FlexBox>
-      <H5 textDecoration="underline">View all</H5>
-      <InsideMap
-        scrolling="no"
-        frameborder="0"
-        src="https://maps.google.com/maps?q=22.886071,80.4111303&t=&z=15&ie=UTF8&iwloc=&output=embed"
-      />
+      <Hr />
+      <AboutRatingsSection />
+      <Hr />
+      <FlexBox id="mapId" column rowGap="1rem">
+        <H3 bold  >Location</H3>
+        <InsideMap
+          scrolling="no"
+          frameborder="0"
+          src="https://maps.google.com/maps?q=22.886071,80.4111303&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        />
+      </FlexBox>
+      <Hr />
+      <FlexBox columnGap="1rem" align="center">
+        <ProfileDP
+          src="/assets/images/Avatar.svg"
+          alt="dp"
+          width={100}
+          height={100}
+        />
+        <FlexBox column>
+          <H5>Owned by</H5>
+          <H3>{shopData?.ownerDetails?.name}</H3>
+        </FlexBox>
+      </FlexBox>
     </Wrapper>
   );
 };

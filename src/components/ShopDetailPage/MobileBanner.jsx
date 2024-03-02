@@ -54,7 +54,7 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const MobileBanner = () => {
+const MobileBanner = ({shopData}) => {
   const router = useRouter();
 
   return (
@@ -81,7 +81,7 @@ const MobileBanner = () => {
           <Body1 bold>Show more</Body1>
         </ViewMoreButton>
       </FlexBox>
-      <SalonInfo />
+      <SalonInfo shopData={shopData}/>
     </Banner>
   );
 };

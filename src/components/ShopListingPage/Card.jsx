@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { BsFillHeartFill } from "react-icons/bs";
 import { useRouter } from "next/router";
+
+import { BsFillHeartFill } from "react-icons/bs";
+import { IoIosFemale } from "react-icons/io";
+import { IoMaleFemaleOutline } from "react-icons/io5";
 import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
 import { CiDiscount1 } from "react-icons/ci";
-
-import FlexBox from "@common/ui/FlexBox";
 import { H5, Body2 } from "@common/ui/Headings";
 import {
   ACCENT_0,
@@ -14,6 +15,7 @@ import {
   RATE_BACKGROUND,
   listingChip,
 } from "@common/ui/colors";
+import FlexBox from "@common/ui/FlexBox";
 import Chip from "@common/ui/Chips";
 import { Button } from "@common/ui/Buttons";
 import { device } from "@common/ui/Resposive";
@@ -26,7 +28,8 @@ const Wrapper = styled(FlexBox)`
   max-width: 23.75rem;
   row-gap: 0.5rem;
   margin: auto;
-
+  flex-grow: 1;
+  position: relative;
   @media ${device.laptop} {
     margin: 0;
   }
@@ -78,10 +81,14 @@ const PopularityBox = styled(FlexBox)`
   border-radius: 0.25rem;
   width: fit-content;
   padding: 0 0.8rem;
-  align: center;
-  justify: center;
+  align-items: center;
+  justify-content: center;
   background-color: ${RATE_BACKGROUND};
   opacity: 0.9;
+`;
+
+const ViewButtonBox = styled(FlexBox)`
+  margin-top: 0.25rem;
 `;
 
 const Card = ({ data }) => {
@@ -103,17 +110,36 @@ const Card = ({ data }) => {
     }
   };
 
+  const renderGenderIcon = () => {
+    if (!data || !data.gender) return null;
+
+    switch (data.gender.toLowerCase()) {
+      case "male":
+        return <SlSymbolMale color={ACCENT_700} />;
+      case "female":
+        return <IoIosFemale color={ACCENT_700} />;
+      case "unisex":
+        return <IoMaleFemaleOutline color={ACCENT_700} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <Wrapper column>
       <Banner column>
-        {data.image && <Img src={data.image} alt={data.name} />}
+        {data.image ? (
+          <Img src={data.image} alt={data.storeName} />
+        ) : (
+          <Img src="https://picsum.photos/200/300" alt="twinkle" />
+        )}
         <ActionWrapper justify="space-between" align="center">
           {data.popularity && (
             <PopularityBox>
               <H5 color={ACCENT_0}>{data.popularity}</H5>
             </PopularityBox>
           )}
-          {data.rating && (
+          {data?.storeRating && (
             <FlexBox
               align="center"
               justify="center"
@@ -123,21 +149,20 @@ const Card = ({ data }) => {
               columnGap="0.4rem"
             >
               <img src="/assets/images/star.svg" alt="star" />
-              <Body2 color={ACCENT_0}>{data.rating}</Body2>
+              <Body2 color={ACCENT_0}>{data?.storeRating}</Body2>
             </FlexBox>
           )}
         </ActionWrapper>
         <FlexBox justify="center">
-          {<OfferRendering discount={data.discount} />}
+          {<OfferRendering discount={data?.discount} />}
         </FlexBox>
       </Banner>
-
       <FlexBox column rowGap="0.25rem" padding="0 1rem">
         <FlexBox
           justify="space-between"
-          padding={data.discount ? "1rem 0 0 0" : "0"}
+          padding={data?.discount ? "1rem 0 0 0" : "0"}
         >
-          <H5 bold>{data.name}</H5>
+          <H5 bold>{data?.storeName}</H5>
           <FlexBox onClick={handleClick} cursor="pointer">
             {selected ? (
               <BsFillHeartFill size="1.25rem" color={PRIMARY_800} />
@@ -149,34 +174,39 @@ const Card = ({ data }) => {
 
         <FlexBox columnGap="0.9rem">
           <FlexBox columnGap="0.40rem" align="center">
-            <SlSymbolMale color={ACCENT_700} />
-            <Body2>{data.category}</Body2>
+            {renderGenderIcon()}
+            {data?.gender && <Body2>{`Salon for ${data?.gender}`}</Body2>}
           </FlexBox>
           <FlexBox columnGap="0.40rem" align="center">
             <SlMap />
-            <Body2>{`${data.distance} kms`}</Body2>
+            <Body2>{`${data?.distance} kms`}</Body2>
           </FlexBox>
         </FlexBox>
 
-        <H5 bold>{`Price starting at ${data.startingPrice}/-`}</H5>
+        {data?.startingPrice && (
+          <H5 bold>{`Price starting at ${data?.startingPrice}/-`}</H5>
+        )}
 
         <AminitiesWrapper>
-          {data.amenities.map(item => (
-            <Chip border="none" key={item.id} width="fit-content">
-              <Body2>{item.label}</Body2>
+          {data?.storeAmenities.map((item, index) => (
+            <Chip border="none" key={index} width="fit-content">
+              <Body2>{item}</Body2>
             </Chip>
           ))}
         </AminitiesWrapper>
-        <Button
-          secondary
-          rowGap="1rem"
-          onClick={() => {
-            router.push("/shop-details");
-          }}
-        >
-          View Details
-        </Button>
+        <ViewButtonBox>
+          <Button
+            secondary
+            rowGap="1rem"
+            onClick={() => {
+              router.push(`/shop-details/${data._id}`);
+            }}
+          >
+            View Details
+          </Button>
+        </ViewButtonBox>
       </FlexBox>
+      `
     </Wrapper>
   );
 };
