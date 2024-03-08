@@ -66,6 +66,7 @@ const CartAndOfferContainer = styled(FlexBox)`
   display: none;
   @media ${device.laptop} {
     display: flex;
+    flex:1;
     min-width: 20rem;
   }
 `;

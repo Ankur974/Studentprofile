@@ -93,14 +93,15 @@ const Services = ({ storeId }) => {
   return (
     <Wrapper rowGap="0.875rem" column columnGap="3rem">
       <Categories>
-        {categories.map(item => (
+        {categories.map((item,index) => (
           <CategoryTile
             key={item._id}
             active={item._id === activeCategory}
             onClick={() => setActiveCategory(item._id)}
           >
-            <img src={item?.imageUrl} alt={item?.categoryName} />
-            <Body2>{item.categoryName}</Body2>
+          <img src="/assets/images/others.svg" alt="twinkle"/>
+            {/* <img src={item?.imageUrl} alt={item?.categoryName} /> */}
+            <Body2>{item?.categoryName ||`Category ${index+1}`}</Body2>
           </CategoryTile>
         ))}
       </Categories>

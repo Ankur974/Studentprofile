@@ -177,14 +177,14 @@ const Card = ({ data }) => {
             {renderGenderIcon()}
             {data?.gender && <Body2>{`Salon for ${data?.gender}`}</Body2>}
           </FlexBox>
-          <FlexBox columnGap="0.40rem" align="center">
+          {data?.distance && <FlexBox columnGap="0.40rem" align="center">
             <SlMap />
             <Body2>{`${data?.distance} kms`}</Body2>
-          </FlexBox>
+          </FlexBox>}
         </FlexBox>
 
-        {data?.startingPrice && (
-          <H5 bold>{`Price starting at ${data?.startingPrice}/-`}</H5>
+        {data?.serviceStartPrice && (
+          <H5 bold>{`Price starting at ${data?.serviceStartPrice}/-`}</H5>
         )}
 
         <AminitiesWrapper>
@@ -206,7 +206,6 @@ const Card = ({ data }) => {
           </Button>
         </ViewButtonBox>
       </FlexBox>
-      `
     </Wrapper>
   );
 };
