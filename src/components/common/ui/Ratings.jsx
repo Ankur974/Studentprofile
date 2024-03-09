@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const CustomRatingBarStyle = styled.div`
@@ -12,8 +12,23 @@ const StarImageStyle = styled.img`
   padding-right: 0.4rem;
 `;
 
-const Rating = () => {
-  const [defaultRating, setDefaultRating] = useState(5);
+// const Rating = () => {
+//   const [defaultRating, setDefaultRating] = useState(5);
+
+//   const maxRating = [1, 2, 3, 4, 5];
+
+//   const starImageFilled =
+//     "https://raw.githubusercontent.com/AboutReact/sampleresource/master/star_filled.png";
+
+//   const starImageCorner =
+//     "https://raw.githubusercontent.com/AboutReact/sampleresource/master/star_corner.png";
+
+//   const handleRatingClick = item => {
+//     setDefaultRating(item);
+//   };
+
+const Rating = ({ onChange, required, rating }) => {
+  const [defaultRating, setDefaultRating] = useState(rating || 0);
 
   const maxRating = [1, 2, 3, 4, 5];
 
@@ -25,27 +40,29 @@ const Rating = () => {
 
   const handleRatingClick = item => {
     setDefaultRating(item);
+    if (onChange) {
+      onChange(item);
+    }
   };
 
-  const CustomRatingBar = () => {
-    return (
-      <CustomRatingBarStyle>
-        {maxRating.map(item => (
-          <StarContainer
-            key={item}
-            onClick={() => handleRatingClick(item)}
-            selected={item <= defaultRating}
-          >
-            <StarImageStyle
-              src={item <= defaultRating ? starImageFilled : starImageCorner}
-            />
-          </StarContainer>
-        ))}
-      </CustomRatingBarStyle>
-    );
-  };
+  useEffect(() => {
+    setDefaultRating(rating || 0);
+  }, [rating]);
 
-  return <CustomRatingBar />;
+  return (
+    <div style={{ display: "flex" }}>
+      {maxRating.map(item => (
+        <div key={item} onClick={() => handleRatingClick(item)}>
+          <img
+            src={item <= defaultRating ? starImageFilled : starImageCorner}
+            style={{ width: 25, height: 25, margin: 2 }}
+            alt={`star-${item}`}
+          />
+        </div>
+      ))}
+      {required && !defaultRating && <span style={{ color: "red" }}>*</span>}
+    </div>
+  );
 };
 
 const StarContainer = styled.div`

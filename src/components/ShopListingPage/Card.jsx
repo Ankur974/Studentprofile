@@ -206,6 +206,7 @@ const Card = ({ data }) => {
           </Button>
         </ViewButtonBox>
       </FlexBox>
+      `
     </Wrapper>
   );
 };

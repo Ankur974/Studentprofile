@@ -9,6 +9,7 @@ import { Body1, Body2, H6, H5, H3 } from "@common/ui/Headings";
 import { SECONDARY_200, PRIMARY_800 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import AboutRatingsSection from "./AboutRatingsSection";
+import ReviewModal from "./FeedbackModal";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -192,6 +193,7 @@ const About = ({ shopData }) => {
       </FlexBox>
       <Hr />
       <AboutRatingsSection />
+      <ReviewModal shopData={shopData}/>
       <Hr />
       <FlexBox id="mapId" column rowGap="1rem">
         <H3 bold  >Location</H3>

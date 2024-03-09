@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import useRouter from "next/router";
 import styled from "styled-components";
 import { IoStar } from "react-icons/io5";

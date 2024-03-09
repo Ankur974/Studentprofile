@@ -3,21 +3,26 @@ export const reviews = [
     id: 1,
     date: "18-june-22",
     name: "Tony Stark",
+    rating:5,
+    image: ["/assets/salon-image1.jpg","/assets/salon-image1.jpg", "/assets/salon-image1.jpg"],
     review:
-      "I had a great experience with the pet-friendly amenities. My dog loved it!",
+      "Lorem ipsum dolor sit amet consectetur. Dolor eget pharetra sit mauris nulla non donec sollicitudin bibendum. Viverra convallis pharetra tristique at posuere aliquam natoque. Sed aliquam at morbi in facilisis dui.",
     path: "/assets/images/Avatar.svg",
   },
   {
     id: 2,
     date: "20-Aug-2022",
     name: "Steve Rogers",
-    review: "The air conditioner was a lifesaver during the hot summer days.",
+    rating:5,
+    image: ["/assets/salon-image1.jpg","/assets/salon-image1.jpg"],
+    review: "Lorem ipsum dolor sit amet consectetur. Dolor eget pharetra sit mauris nulla non donec sollicitudin bibendum. Viverra convallis pharetra tristique at posuere aliquam natoque.",
     path: "/assets/images/Avatar.svg",
   },
   {
     id: 3,
     date: "21-Aug-2022",
     name: "Thor",
+    rating:5,
     review:
       "I appreciated the hygiene assurance measures in place. It made me feel safe.",
     path: "/assets/images/Avatar.svg",
@@ -26,6 +31,7 @@ export const reviews = [
     id: 4,
     date: "21-Aug-2022",
     name: "Loki",
+    rating:5,
     review:
       "I appreciated the hygiene assurance measures in place. It made me feel safe.",
     path: "/assets/images/Avatar.svg",
@@ -34,6 +40,7 @@ export const reviews = [
     id: 5,
     date: "21-Aug-2022",
     name: "Alice Johnson",
+    rating:5,
     review:
       "I appreciated the hygiene assurance measures in place. It made me feel safe.",
     path: "/assets/images/Avatar.svg",
@@ -42,6 +49,8 @@ export const reviews = [
     id: 6,
     date: "21-Aug-2022",
     name: "Jane Froster",
+    rating:5,
+    image: "/assets/salon-image1.jpg",
     review:
       "I appreciated the hygiene assurance measures in place. It made me feel safe.",
     path: "/assets/images/Avatar.svg",
