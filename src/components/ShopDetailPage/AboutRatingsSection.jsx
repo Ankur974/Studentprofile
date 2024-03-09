@@ -99,6 +99,8 @@ const useModal = () => {
 const AboutRatingsSection = () => {
   const { isOpen, openModal, closeModal } = useModal();
 
+  const handleShowMoreImages = () => {};
+
   return (
     <RatingWrapper>
       <TotalRatingItem justify="space-between" rowGap="2rem">
