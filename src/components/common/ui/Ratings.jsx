@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 
-const CustomRatingBarStyle = styled.div`
-  display: flex;
-`;
+// const CustomRatingBarStyle = styled.div`
+//   display: flex;
+// `;
 
-const StarImageStyle = styled.img`
-  width: 25px;
-  height: 20px;
-  object-fit: cover;
-  padding-right: 0.4rem;
-`;
+// const StarImageStyle = styled.img`
+//   width: 25px;
+//   height: 20px;
+//   object-fit: cover;
+//   padding-right: 0.4rem;
+// `;
+
+// const StarContainer = styled.div`
+//   cursor: pointer;
+//   opacity: ${props => (props.selected ? 1 : 0.5)};
+// `;
 
 // const Rating = () => {
 //   const [defaultRating, setDefaultRating] = useState(5);
@@ -64,10 +69,5 @@ const Rating = ({ onChange, required, rating }) => {
     </div>
   );
 };
-
-const StarContainer = styled.div`
-  cursor: pointer;
-  opacity: ${props => (props.selected ? 1 : 0.5)};
-`;
 
 export default Rating;

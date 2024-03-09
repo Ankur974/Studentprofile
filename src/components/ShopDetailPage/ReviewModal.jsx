@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { IoCloseOutline } from "react-icons/io5";
 import { GoPlusCircle } from "react-icons/go";
+import Image from "next/image";
 
 import Modal from "@common/ui/Modal";
-import { Body1, Body2, H1, H5, H6 } from "@common/ui/Headings";
+import { Body1, H6 } from "@common/ui/Headings";
 import Ratings from "@common/ui/Ratings";
 import FlexBox from "@common/ui/FlexBox";
-import Image from "next/image";
 import { device } from "@common/ui/Resposive";
 
 const ModalContainer = styled.div`
@@ -45,6 +45,7 @@ const ImageContainer = styled.div`
 `;
 
 const ViewReviewsModal = ({ isOpen, onClose, reviews }) => {
+  const handleShowMoreImages = () => {};
   return (
     <>
       {isOpen && (
