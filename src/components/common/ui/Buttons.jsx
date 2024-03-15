@@ -1,0 +1,235 @@
+import styled, { css } from "styled-components";
+import { IoMdArrowRoundForward } from "react-icons/io";
+import {
+  PRIMARY_800,
+  ACCENT_100,
+  PRIMARY_900,
+  ACCENT_500,
+  ERROR,
+  ACCENT_0,
+  ACCENT_400,
+  ACCENT_800,
+} from "./colors";
+import FlexBox from "./FlexBox";
+
+const InnerWrapper = styled(FlexBox)`
+  align-items: center;
+  justify-content: center;
+  flex-direction: ${({ iconPosition }) =>
+    iconPosition === "right" ? "row-reverse" : "row"};
+  gap: ${({ columnGap }) => columnGap || "0.25rem"};
+`;
+
+export const Button = styled.button`
+  box-sizing: border-box;
+  display: ${({ block }) => (block ? "block" : "inline")};
+  background-color: ${({ color }) => color || PRIMARY_800};
+  padding: ${({ padding }) => padding || "0.5rem 1rem"};
+  color: ${ACCENT_100};
+  line-height: 1.25rem;
+  min-width: ${({ width }) => !width && "7rem"};
+  width: ${({ width }) => (width ? width : "fit-content")};
+  font-family: Poppins;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 0.625rem;
+  border: 1px solid ${({ color }) => color || PRIMARY_800};
+  overflow: hidden;
+  letter-spacing: 0.07rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
+    border-color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
+  }
+
+  /* Danger Button */
+  ${({ danger }) =>
+    danger &&
+    css`
+      border: 1px solid ${ERROR};
+      background-color: ${ERROR};
+      color: ${({ color }) => color || ACCENT_0};
+
+      &:hover {
+        background-color: ${ERROR};
+        border-color: ${ERROR};
+        color: ${({ hoverColor }) => hoverColor || ACCENT_0};
+      }
+    `}
+
+  /* Secondary Button */
+  ${({ secondary }) =>
+    secondary &&
+    css`
+      border: 1px solid ${ACCENT_800};
+      background-color: ${ACCENT_800};
+      color: ${({ color }) => color || ACCENT_0};
+
+      &:hover {
+        background-color: ${ACCENT_800};
+        color: ${({ hoverColor }) => hoverColor || ACCENT_0};
+        border-color: ${ACCENT_800};
+      }
+    `}
+
+  /* Outline Button */
+  ${({ outline, secondary }) =>
+    outline &&
+    !secondary &&
+    css`
+      background-color: transparent;
+      color: ${({ color }) => color || PRIMARY_800};
+
+      &:hover {
+        background-color: transparent;
+        color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
+      }
+    `}
+
+  /* Outline Secondary Button */
+  ${({ outline, secondary }) =>
+    outline &&
+    secondary &&
+    css`
+      background-color: ${ACCENT_100};
+
+      &:hover {
+        background-color: ${ACCENT_100};
+      }
+    `}
+
+  /* Outline Tertiary Button */
+  ${({ outline, tertiary }) =>
+    outline &&
+    tertiary &&
+    css`
+      background-color: transparent;
+
+      border: 1px solid ${ACCENT_400};
+
+      &:hover {
+        background-color: transparent;
+
+        border-color: ${ACCENT_500};
+      }
+    `}
+
+      /* Outline Danger Button */
+      ${({ outline, danger }) =>
+    outline &&
+    danger &&
+    css`
+      border: 1px solid ${ACCENT_400};
+      background-color: transparent;
+      color: ${({ color }) => color || ERROR};
+
+      &:hover {
+        background-color: transparent;
+        color: ${({ hoverColor }) => hoverColor || ERROR};
+        border-color: ${ACCENT_400};
+      }
+    `}
+
+  /* Disabled Button */
+  ${({ disabled, outline }) =>
+    disabled &&
+    css`
+      cursor: not-allowed;
+      opacity: 40%;
+      background-color: ${outline ? "transparent" : ACCENT_500};
+      border: 1px solid ${ACCENT_500};
+      color: ${outline ? ACCENT_500 : ACCENT_100};
+
+      &:hover {
+        background-color: ${outline ? "transparent" : ACCENT_500};
+        border-color: ${outline ? ACCENT_500 : "transparent"};
+        color: ${outline ? ACCENT_500 : ACCENT_100};
+      }
+    `}
+
+  /* Text CTA Button */
+  ${({ textCta, secondary }) =>
+    textCta &&
+    !secondary &&
+    css`
+      color: ${({ color }) => color || PRIMARY_800};
+      border: none;
+      padding: 0.5rem 0rem;
+      min-width: unset;
+      background: transparent;
+      text-decoration: ${({ textDecoration }) => textDecoration};
+
+      &:hover {
+        background-color: transparent;
+        color: ${({ color }) => color || PRIMARY_900};
+      }
+    `}
+
+  /* Secondary Text CTA Button */
+  ${({ textCta, secondary }) =>
+    textCta &&
+    secondary &&
+    css`
+      border: none;
+      padding: 0.5rem 0rem;
+      min-width: unset;
+      background: transparent;
+      text-decoration: ${({ textDecoration }) => textDecoration};
+
+      &:hover {
+        background-color: transparent;
+      }
+    `}
+`;
+
+/**
+ * CTA with an icon on the either side of text.
+ * Default icon is `IoMdArrowRoundForward` (Right arrow).
+ * @example
+ * ```
+ * <IconButton color="red" iconPosition = "right" outline Icon={SomeIcon}>CLICK ME</IconButton>
+ * ```
+ */
+export const IconButton = ({
+  children,
+  iconPosition = "left",
+  spacing = 0,
+  Icon = IoMdArrowRoundForward,
+  strokeWidth = 2,
+  ...props
+}) => (
+  <Button {...props}>
+    <InnerWrapper iconPosition={iconPosition} columnGap={spacing}>
+      <Icon size="1rem" strokeWidth={strokeWidth} />
+      {children}
+    </InnerWrapper>
+  </Button>
+);
+
+/**
+ * CTA without background color and border.
+ * An icon on the right side of cta text is shown on hover.
+ * Default icon is `IoMdArrowRoundForward` (Right arrow).
+ *  * @example
+ * ```
+ * <TextButton color="red" iconPosition = "right" Icon={SomeIcon}>CLICK ME</TextButton>
+ * ```
+ */
+export const TextButton = ({
+  children,
+  Icon = IoMdArrowRoundForward,
+  iconPosition = "left",
+  ...props
+}) => {
+  return (
+    <Button textCta {...props}>
+      <InnerWrapper iconPosition={iconPosition}>
+        <Icon size="1rem" strokeWidth={2} />
+        {children}
+      </InnerWrapper>
+    </Button>
+  );
+};

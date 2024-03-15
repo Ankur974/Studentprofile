@@ -6,25 +6,50 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@bugsnag/js": "^7.21.0",
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@types/lodash": "^4.14.191",
+    "@types/mixpanel-browser": "^2.38.1",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
+    "@types/react-datepicker": "^4.10.0",
     "@types/react-dom": "18.0.11",
-    "dayjs": "^1.11.7",
+    "axios": "^1.5.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.9",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
+    "lodash": "^4.17.21",
+    "mixpanel-browser": "^2.46.0",
     "next": "13.2.4",
+    "next-query-params": "^4.2.3",
     "next-seo": "^5.15.0",
     "react": "18.2.0",
+    "react-calendar": "^4.6.1",
+    "react-datepicker": "^4.11.0",
     "react-dom": "18.2.0",
+    "react-html-parser": "^2.0.2",
+    "react-icons": "^4.11.0",
+    "react-multi-carousel": "^2.8.4",
+    "react-redux": "^8.0.5",
+    "react-select": "^5.7.4",
+    "react-tooltip": "^5.21.3",
+    "redux-typescript": "^1.2.1",
     "sass": "^1.59.3",
-    "typescript": "5.0.2"
+    "styled-components": "^6.0.7",
+    "swiper": "^11.0.3",
+    "typescript": "5.0.2",
+    "universal-cookie": "^6.1.1",
+    "use-query-params": "^2.2.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7"
+    "husky": "^8.0.0"
   }
 }
