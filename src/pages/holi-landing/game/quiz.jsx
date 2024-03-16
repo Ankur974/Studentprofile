@@ -1,6 +1,6 @@
 import React from "react";
 import Gamify from "@components/HoliLandingPage/QuizGame";
-import EventPageLayout from "@layout/client/eventPageLayout";
+import EventPageLayout from "@layout/client/EventPageLayout";
 
 const Quizes = () => {
   return (
