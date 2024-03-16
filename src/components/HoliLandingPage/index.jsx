@@ -6,6 +6,7 @@ import Play from "@components/HoliLandingPage/Play";
 import SpinWheel from "@components/HoliLandingPage/SpinWheel";
 // import BeautyQuiz from "@components/HoliLandingPage/BeautyQuiz";
 import FooterWaves from "@components/HoliLandingPage/FooterWaves";
+import Widget from "./Widget";
 import { trackEvent } from "../../utils/helpers";
 
 const HoliLandingPage = () => {
@@ -18,6 +19,7 @@ const HoliLandingPage = () => {
   return (
     <>
       <Play targetElement={targetRef} />
+      <Widget />
       <SpinWheel targetElement={targetRef} />
       {/* <BeautyQuiz /> */}
       <FooterWaves />

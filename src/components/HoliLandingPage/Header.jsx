@@ -3,11 +3,10 @@ import styled, { css } from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Caption } from "@common/ui/Headings";
-import { BABERBACKGROUND, ACCENT_0 } from "@common/ui/colors";
+import { ACCENT_0 } from "@common/ui/colors";
 import { H3 } from "@common/ui/Headings";
 
 const Heading = styled(H3)`
-  color: ${BABERBACKGROUND};
   font-weight: 900;
   font-size: 1.125rem;
   text-transform: capitalize;
