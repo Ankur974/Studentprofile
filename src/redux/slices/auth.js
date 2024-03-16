@@ -15,16 +15,12 @@ export const authInfoslice = createSlice({
     setRefreshedTokens: (state, action) => {
       state.user = { ...state.user, ...action.payload };
     },
-    setStoreId: (state, action) => {
-      state.storeId = action.payload;
-    },
     logout: state => {
       state.user = null;
-      state.storeId = null;
     },
   },
 });
 
-export const { setUser, logout, setRefreshedTokens, setStoreId } =
-  authInfoslice.actions;
+export const { setUser, logout, setRefreshedTokens } = authInfoslice.actions;
+
 export default authInfoslice.reducer;

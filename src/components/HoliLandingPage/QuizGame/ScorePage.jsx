@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 import FlexBox from "@common/ui/FlexBox";
-import { Body1, Body2, H2 } from "@common/ui/Headings";
+import { Body1, Body2, H2, H1 } from "@common/ui/Headings";
 import { ACCENT_0, MID_TONE_PURPLE } from "@common/ui/colors";
 import { device } from "@common/ui/Resposive";
+import { client } from "@axiosClient";
+import { URL } from "@constants/urls";
 
 const Wrapper = styled(FlexBox)`
   width: 100vw;
@@ -15,6 +18,7 @@ const Wrapper = styled(FlexBox)`
 `;
 
 const H_2 = styled(H2)`
+  font-family: Lemon;
   text-align: center;
   color: ${ACCENT_0};
   text-transform: capitalize;
@@ -37,16 +41,6 @@ const ItemContainer = styled(FlexBox)`
   }
 `;
 
-const CouponBox = styled(FlexBox)`
-  padding: 1.5rem 2.5rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  border: 1px solid black;
-  border-radius: 0.75rem;
-  background: rgba(255, 255, 255, 0.12);
-`;
-
 const SalonDetails = styled(FlexBox)`
   flex-direction: column;
   align-items: start;
@@ -65,6 +59,7 @@ const CouponDate = styled(FlexBox)`
 `;
 
 const SocialBox = styled(FlexBox)`
+  width: 100%;
   padding: 0.75rem 2.5rem;
   justify-content: center;
   align-items: center;
@@ -74,14 +69,37 @@ const SocialBox = styled(FlexBox)`
   cursor: pointer;
 `;
 
-const ScorePage = ({ prize }) => {
+const Img = styled.img`
+  width: auto;
+  height: auto;
+  max-width: 15.2rem;
+  max-height: 17.9375rem;
+`;
+
+const ScorePage = () => {
   const [showConfetti, setShowConfetti] = useState(true);
+
+  const user = useSelector(state => state?.auth?.user);
+
+  const voucher = user?.spinAndWheel;
+
+  useEffect(() => {
+    approveVoucher();
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
       setShowConfetti(false);
     }, 3000);
   }, []);
+
+  const approveVoucher = async () => {
+    try {
+      await client.get(`${URL?.approveVoucher}?id=${user?.userId}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleOpenInstagram = () => {
     window.open(
@@ -100,23 +118,38 @@ const ScorePage = ({ prize }) => {
           you WON A VOUCHER
         </H_2>
         <FlexBox column rowGap="2.5rem">
-          <CouponBox>
-            <H_2 bold>{prize}</H_2>
-          </CouponBox>
+          <FlexBox justify="center">
+            <Img src="/assets/images/voucher-bg.webp" />
+            <FlexBox
+              column
+              align="center"
+              position="absolute"
+              rowGap="0.25rem"
+              padding="3.5rem 0"
+            >
+              <Body2 color={ACCENT_0} textTransform="uppercase">
+                {voucher?.service} voucher
+              </Body2>
+              <H1 bold color={ACCENT_0} textTransform="uppercase">
+                {voucher?.coupon_code}
+              </H1>
+            </FlexBox>
+          </FlexBox>
           <SalonDetails>
             <Body_1>Details:</Body_1>
-            <Body_1 bold>SK Hair & Spa</Body_1>
+            {/* <Body_1 bold>SK Hair & Spa</Body_1>
             <Body_1 whiteSpace="wrap">
               21, b/3, L colony, Behind SK farm and sports, Vilas Street, West
               Bengal - 876453
-            </Body_1>
+            </Body_1> */}
             <CouponDate>
-              <Body2 color={MID_TONE_PURPLE}>Valid till 1st April 2024</Body2>
+              <Body2 color={MID_TONE_PURPLE}>{voucher?.description}</Body2>
             </CouponDate>
-            <FlexBox>
+            <FlexBox column>
               <Body2 color={ACCENT_0}>
                 Note: an email will be sent to you to access this voucher.
               </Body2>
+              <Body2 color={ACCENT_0}>{voucher?.terms_condition}</Body2>
             </FlexBox>
           </SalonDetails>
         </FlexBox>

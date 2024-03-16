@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Caption } from "@common/ui/Headings";
-import { BABERBACKGROUND } from "@common/ui/colors";
+import { BABERBACKGROUND, ACCENT_0 } from "@common/ui/colors";
 import { H3 } from "@common/ui/Headings";
 
 const Heading = styled(H3)`
@@ -11,6 +11,12 @@ const Heading = styled(H3)`
   font-weight: 900;
   font-size: 1.125rem;
   text-transform: capitalize;
+
+  ${({ isDark }) =>
+    isDark &&
+    css`
+      color: ${ACCENT_0};
+    `}
 `;
 
 const SubHeading = styled(Caption)`
@@ -18,11 +24,17 @@ const SubHeading = styled(Caption)`
   font-weight: 400;
   text-align: center;
   line-height: normal;
+
+  ${({ isDark }) =>
+    isDark &&
+    css`
+      color: ${ACCENT_0};
+    `}
 `;
 
-export const Header = ({ title, subTitle }) => (
+export const Header = ({ title, subTitle, isDark }) => (
   <FlexBox justify="center" align="center" rowGap="0.25rem" column>
-    <Heading>{title}</Heading>
-    <SubHeading>{subTitle}</SubHeading>
+    <Heading isDark={isDark}>{title}</Heading>
+    <SubHeading isDark={isDark}>{subTitle}</SubHeading>
   </FlexBox>
 );

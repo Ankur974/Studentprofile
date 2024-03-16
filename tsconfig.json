@@ -27,7 +27,7 @@
       "@HOC/*": ["./src/HOC/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@utils/*": ["./src/utils/*"],
-      "@axiosClient": ["./src/services/axiosClient"],
+      "@axiosClient": ["./src/services/axiosClient"]
     }
   },
   "include": [

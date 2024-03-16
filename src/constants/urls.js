@@ -12,8 +12,5 @@ export const URL = {
   createUser: `${baseUrl}client/createUser`,
   refreshToken: `${baseUrl}client/refreshToken`,
 
-  // sendOtp: "/admin/sendOtp",
-  // submitOtp: "/admin/verifyOtp",
-  // createUser: "/admin/createUser",
-  // refreshToken: "/admin/refreshToken",
+  approveVoucher: `${baseUrl}client/approveSpinAndWheelReward`,
 };

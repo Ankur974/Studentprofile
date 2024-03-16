@@ -3,7 +3,7 @@ import {
   SlSocialFacebook,
   SlSocialLinkedin,
   SlSocialInstagram,
-  SlSpeech,
+  // SlSpeech,
 } from "react-icons/sl";
 import styled from "styled-components";
 
@@ -98,7 +98,7 @@ const socialIconsData = [
     link: "https://www.linkedin.com/home?originalSubdomain=in",
   },
   { icon: SlSocialInstagram, link: "https://www.instagram.com/pamprazzi/" },
-  { icon: SlSpeech, link: "" },
+  // { icon: SlSpeech, link: "" },
 ];
 
 const servicesNavLinkData = [
@@ -205,7 +205,7 @@ const Footer = ({ eventMobileView }) => {
       </FooterContainer>
       <CopyRightBox>
         <H6 color={ACCENT_0}>
-          Copyright © 2024 Self Care Simplified-Pamprazzi. All rights reserved.
+          Copyright © 2024 Pamprazzi. All rights reserved.
         </H6>
       </CopyRightBox>
     </>

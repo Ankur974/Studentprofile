@@ -123,16 +123,14 @@ const Login = ({ setModalOpen, page }) => {
 
   const handleOtpSubmit = async () => {
     if (!otp) return;
-    console.log(otp, "printing otp");
     try {
       setValidatingOtp(true);
       const res = await client.post(
         URL?.submitOtp,
-
         { otp, phoneNumber },
         { authorization: false }
       );
-      console.log(res, "Printing", res?.data?.data, "data printing");
+
       if (res?.data?.success) {
         if (res?.data?.data?.found) {
           dispatch(setUser(res?.data?.data?.data));
@@ -152,7 +150,6 @@ const Login = ({ setModalOpen, page }) => {
   };
 
   const handleCreateUser = async () => {
-    console.log(name, "inteh handle craete user");
     if (!name) return;
     try {
       const res = await client.post(
@@ -160,9 +157,8 @@ const Login = ({ setModalOpen, page }) => {
         { name, phoneNumber },
         { authorization: false }
       );
-      console.log(res, "printing response");
+
       if (res?.status === 200) {
-        console.log("printingh resposne");
         dispatch(setUser(res?.data?.data));
         setModalOpen(false);
         router.push(`/holi-landing/game/${page}`);
@@ -302,7 +298,6 @@ const Login = ({ setModalOpen, page }) => {
                 placeholder="Phone Number"
                 value={phoneNumber}
                 onChange={handlePhoneNumberChange}
-                onKeyDown={handleFormSubmit}
               />
             </CountryCodeAndPhoneBox>
             <Body2>

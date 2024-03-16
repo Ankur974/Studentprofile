@@ -57,7 +57,7 @@ dependencies:
     specifier: ^4.17.21
     version: 4.17.21
   mixpanel-browser:
-    specifier: ^2.46.0
+    specifier: ^2.48.1
     version: 2.48.1
   next:
     specifier: 13.2.4
@@ -104,6 +104,9 @@ dependencies:
   react-tooltip:
     specifier: ^5.21.3
     version: 5.24.0(react-dom@18.2.0)(react@18.2.0)
+  redux-persist:
+    specifier: ^6.0.0
+    version: 6.0.0(react@18.2.0)(redux@4.2.1)
   redux-typescript:
     specifier: ^1.2.1
     version: 1.2.1
@@ -3762,6 +3765,19 @@ packages:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
+    dev: false
+
+  /redux-persist@6.0.0(react@18.2.0)(redux@4.2.1):
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==}
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      redux: 4.2.1
     dev: false
 
   /redux-thunk@2.4.2(redux@4.2.1):

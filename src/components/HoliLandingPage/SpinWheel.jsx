@@ -61,6 +61,7 @@ const SpinWheel = ({ targetElement }) => {
       <Header
         title="Spin the wheel!"
         subTitle="Lorem ipsum dolor sit amet consectetur. Semper rhoncus."
+        isDark
       />
       <Card>
         <CardHeading>
