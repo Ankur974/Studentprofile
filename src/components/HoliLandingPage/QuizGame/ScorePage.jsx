@@ -19,6 +19,7 @@ const Wrapper = styled(FlexBox)`
 
 const H_2 = styled(H2)`
   font-family: Lemon;
+  letter-spacing: 2px;
   text-align: center;
   color: ${ACCENT_0};
   text-transform: capitalize;
@@ -112,7 +113,7 @@ const ScorePage = () => {
     <Wrapper>
       {showConfetti && <Fireworks autorun={{ speed: 1 }} />}
       <ItemContainer>
-        <H_2 bold textTransform="uppercase">
+        <H_2 textTransform="uppercase">
           CONGRATULATIONS!
           <br />
           you WON A VOUCHER
