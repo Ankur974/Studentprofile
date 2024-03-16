@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import FlexBox from "@Components/common/ui/FlexBox";
-import { ERROR, SECONDARY_200 } from "@Components/common/ui/colors";
+
+import FlexBox from "@common/ui/FlexBox";
+import { ERROR, SECONDARY_200 } from "@common/ui/colors";
 
 const OtpContainer = styled(FlexBox)`
   margin-top: 10px;

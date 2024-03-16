@@ -4,9 +4,9 @@ import { FiChevronLeft } from "react-icons/fi";
 import { PiPencilSimpleLineLight } from "react-icons/pi";
 import styled from "styled-components";
 import { TfiClose } from "react-icons/tfi";
-
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+
 import { device } from "@common/ui/Resposive";
 import FlexBox from "@common/ui/FlexBox";
 import { Body1, Body2, H1 } from "@common/ui/Headings";
