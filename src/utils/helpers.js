@@ -6,8 +6,8 @@ import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 // import { moengage_events } from "@metadata/events/moengage";
 import { createCipheriv, createDecipheriv, randomBytes } from "crypto";
+import { MixpanelTracker } from "../services/mixpanelInstance";
 // import * as storage from "@utils/storageFactory";
-
 // import { getTokenHeaders } from "../axiosInstance";
 // import { openMap } from "./interfaces";
 // import { MixpanelTracker } from "../mixpanelInstance";
@@ -21,8 +21,8 @@ export const limitString = (string = "", limit = 40) => {
 
 //analytics
 export const trackEvent = async ({ event, payload }) => {
-  const blockAnalytics = localStorage.local.getItem("block_analytics");
-  const skipAnalytics = localStorage.session.getItem("skip_analytics");
+  const blockAnalytics = localStorage.getItem("block_analytics");
+  const skipAnalytics = localStorage.getItem("skip_analytics");
 
   if (blockAnalytics === "true" || skipAnalytics === "true") return;
 
@@ -43,7 +43,7 @@ export const trackEvent = async ({ event, payload }) => {
   // Needed for partner organisations where user is not authenticated, so these details won't be available in tokenHeaders
   let companyDetails;
   try {
-    companyDetails = JSON.parse(localStorage.local.getItem("company_details"));
+    companyDetails = JSON.parse(localStorage.getItem("company_details"));
   } catch (err) {
     /* empty */
   }
@@ -53,12 +53,12 @@ export const trackEvent = async ({ event, payload }) => {
     updatedPayload.company_profile_uuid = companyDetails.uuid;
   }
 
-  const growthbookDeviceId = localStorage.local.getItem("deviceId");
+  const growthbookDeviceId = localStorage.getItem("deviceId");
   if (growthbookDeviceId) {
     updatedPayload.growthbook_device_id = growthbookDeviceId;
   }
 
-  // MixpanelTracker.getInstance().trackEvent({ event, payload: updatedPayload });
+  MixpanelTracker.getInstance().trackEvent({ event, payload: updatedPayload });
   // if (moengage_events.includes(event)) {
   //   try {
   //     await Moengage?.track_event(event, updatedPayload);
@@ -395,7 +395,7 @@ export const windowOpenFn = link => {
   }
   let url = link;
 
-  let ad_user_params = localStorage.local.getItem("ad_user_params");
+  let ad_user_params = localStorage.getItem("ad_user_params");
 
   if (ad_user_params) {
     ad_user_params = JSON.parse(ad_user_params);

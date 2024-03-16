@@ -9,6 +9,8 @@ import {
   ACCENT_0,
   ACCENT_400,
   ACCENT_800,
+  PRIMARY_400,
+  PRIMARY_500,
 } from "./colors";
 import FlexBox from "./FlexBox";
 
@@ -39,6 +41,7 @@ export const Button = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   white-space: nowrap;
+  border-radius: ${({ borderRadius }) => borderRadius || "0.625rem"};
 
   &:hover {
     background-color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
@@ -94,10 +97,14 @@ export const Button = styled.button`
     outline &&
     secondary &&
     css`
+      border: 1px solid ${PRIMARY_400};
       background-color: ${ACCENT_100};
+      color: ${({ color }) => color || PRIMARY_800};
 
       &:hover {
         background-color: ${ACCENT_100};
+        color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
+        border-color: ${PRIMARY_500};
       }
     `}
 
@@ -107,12 +114,12 @@ export const Button = styled.button`
     tertiary &&
     css`
       background-color: transparent;
-
+      color: ${({ color }) => color || PRIMARY_800};
       border: 1px solid ${ACCENT_400};
 
       &:hover {
         background-color: transparent;
-
+        color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
         border-color: ${ACCENT_500};
       }
     `}
@@ -173,6 +180,7 @@ export const Button = styled.button`
     textCta &&
     secondary &&
     css`
+      color: ${({ color }) => color || ACCENT_800};
       border: none;
       padding: 0.5rem 0rem;
       min-width: unset;
@@ -184,7 +192,6 @@ export const Button = styled.button`
       }
     `}
 `;
-
 /**
  * CTA with an icon on the either side of text.
  * Default icon is `IoMdArrowRoundForward` (Right arrow).

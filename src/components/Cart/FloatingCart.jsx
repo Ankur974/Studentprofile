@@ -40,14 +40,13 @@ const ItemsCounterBox = styled(FlexBox)`
   height: 1.5rem;
   align-items: center;
   justify-content: center;
-  
 `;
 
 const Close = styled(FlexBox)`
   z-index: 1;
 `;
 const FloatingCart = () => {
-  const totalItems = useSelector(state => state.cart.cartItems.length);
+  const totalItems = useSelector(state => state?.cart?.cartItems?.length);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCartIconClick = () => {
