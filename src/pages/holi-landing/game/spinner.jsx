@@ -1,6 +1,6 @@
 import React from "react";
 import SpinWin from "@components/HoliLandingPage/Spin";
-import EventPageLayout from "@layout/client/eventPageLayout";
+import EventPageLayout from "@layout/client/EventPageLayout";
 
 const spinner = () => {
   return (
