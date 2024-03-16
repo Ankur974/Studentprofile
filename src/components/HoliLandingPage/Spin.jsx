@@ -2,9 +2,10 @@ import React, { useRef } from "react";
 import { useRouter } from "next/router";
 import SpinAndWin from "react-spin-game";
 import "react-spin-game/dist/index.css";
-import FlexBox from "@common/UI/FlexBox";
-import GamePageHeading from "./QuizGame/GamePageHeading";
 import styled from "styled-components";
+
+import FlexBox from "@common/ui/FlexBox";
+import GamePageHeading from "./QuizGame/GamePageHeading";
 import { Button } from "@common/ui/Buttons";
 
 const freeSpinGifts = [
@@ -33,7 +34,7 @@ const SpinWin = () => {
   const handleSpin = () => {
     ref.current.handleSpin();
     setTimeout(() => {
-       router.push(`/holi-landing/${encodeURIComponent(prize)}`);
+      router.push(`/holi-landing/${encodeURIComponent(prize)}`);
     }, 12000);
   };
 

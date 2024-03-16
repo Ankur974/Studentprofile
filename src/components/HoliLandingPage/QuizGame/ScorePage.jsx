@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
-import FlexBox from "@common/UI/FlexBox";
-import { Body1, Body2, H2 } from "@common/UI/Headings";
-import { ACCENT_0, MID_TONE_PURPLE } from "@common/UI/colors";
-import Image from "next/image";
-import { device } from "@common/UI/Resposive";
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
+import Image from "next/image";
+
+import FlexBox from "@common/ui/FlexBox";
+import { Body1, Body2, H2 } from "@common/ui/Headings";
+import { ACCENT_0, MID_TONE_PURPLE } from "@common/ui/colors";
+import { device } from "@common/ui/Resposive";
 
 const Wrapper = styled(FlexBox)`
   width: 100vw;
@@ -71,21 +71,24 @@ const SocialBox = styled(FlexBox)`
   gap: 0.625rem;
   background: ${ACCENT_0};
   border-radius: 0.75rem;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
-const ScorePage = ({prize}) => {
+const ScorePage = ({ prize }) => {
   const [showConfetti, setShowConfetti] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setShowConfetti(false);
-    }, 3000); 
+    }, 3000);
   }, []);
 
   const handleOpenInstagram = () => {
-  window.open("https://www.instagram.com/pamprazzi?igsh=MTBwazIxY3FmZ2Q1MQ==", "_blank");
-};
+    window.open(
+      "https://www.instagram.com/pamprazzi?igsh=MTBwazIxY3FmZ2Q1MQ==",
+      "_blank"
+    );
+  };
 
   return (
     <Wrapper>
