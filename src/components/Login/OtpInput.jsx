@@ -48,7 +48,7 @@ const OtpInput = ({ length = 4, onOtpSubmit, isInvalid }) => {
   };
 
   const handleClick = index => {
-    inputRefs.current[index].setSelectionRange(1, 1);
+    inputRefs?.current?.[index]?.setSelectionRange(1, 1);
 
     if (index > 0 && !otpValues[index - 1]) {
       inputRefs.current[otpValues.indexOf("")].focus();

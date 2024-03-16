@@ -5,16 +5,19 @@ import "react-spin-game/dist/index.css";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import GamePageHeading from "./QuizGame/GamePageHeading";
 import { Button } from "@common/ui/Buttons";
+import { PRIMARY_800 } from "@common/ui/colors";
+import GamePageHeading from "./QuizGame/GamePageHeading";
 
 const freeSpinGifts = [
-  ["shimul", "#ff0000"],
-  ["ayush", "#e6ac00"],
-  ["anirban", "#ff00bf"],
-  ["sujit", "#00b300"],
-  ["souvik", "#0000ff"],
-  ["bittu", "#cc00ff"],
+  ["90% off on Haircut", "#a87b7b"],
+  ["50% off on Manicure", "#b59178"],
+  ["75% off on Pedicure", "#b5ab7e"],
+  ["60% off on Massage", "#7eab8f"],
+  ["70% off on Facial", "#7e97ab"],
+  ["80% off on Waxing", "#8a7eb5"],
+  ["50 Care Coins", "#b59dab"],
+  ["Better Luck Next Time", "#999999"],
 ];
 
 const Wrapper = styled(FlexBox)`
@@ -24,6 +27,19 @@ const Wrapper = styled(FlexBox)`
   margin: 1rem;
   justify-content: center;
   align-items: center;
+
+  ._28Wol {
+    background-color: ${PRIMARY_800};
+    max-width: 25.9375rem;
+    max-height: 25.9375rem;
+    min-width: 25.9375rem;
+    min-height: 25.9375rem;
+  }
+
+  ._1E7u3 {
+    width: 22.5rem;
+    height: 22.5rem;
+  }
 `;
 
 const SpinWin = () => {

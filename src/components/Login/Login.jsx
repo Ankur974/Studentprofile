@@ -213,6 +213,7 @@ const Login = ({ setModalOpen, page }) => {
     );
     return maskedNumber;
   };
+
   return (
     <Wrapper>
       <Heading>
