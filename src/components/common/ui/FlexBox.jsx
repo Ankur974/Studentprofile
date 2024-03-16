@@ -5,6 +5,7 @@ const FlexBox = styled.div`
   box-sizing: border-box;
   flex-direction: ${({ column }) => (column ? "column" : "row")};
   align-items: ${({ align }) => align};
+  align-self: ${({ alignSelf }) => alignSelf};
   justify-content: ${({ justify }) => justify};
   row-gap: ${({ rowGap }) => rowGap};
   column-gap: ${({ columnGap }) => columnGap};

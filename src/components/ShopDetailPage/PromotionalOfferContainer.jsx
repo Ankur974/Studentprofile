@@ -22,7 +22,7 @@ const DiscountIcon = styled(TbDiscount)`
 `;
 
 const ViewMore = styled(FlexBox)`
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   column-gap: 0.5rem;
   align-items: center;
   cursor: pointer;
@@ -33,41 +33,13 @@ const ExpandContainer = styled(FlexBox)`
   height: 100%;
   overflow: hidden;
   transition: all 600ms ease-in-out;
-  max-height: ${({ isExpanded, singleCardHeight, numberOfCards }) =>
+  max-height: ${({ isExpanded, singleCardHeight = 60, numberOfCards }) =>
     isExpanded
       ? `${singleCardHeight * numberOfCards}px`
       : `${singleCardHeight}px`};
 `;
 
-const offerData = [
-  {
-    id: 1,
-    title: "20% off on Kotak Silk cards",
-    description: "20% off up to INR 350",
-  },
-  {
-    id: 2,
-    title: "20% off on Kotak Silk cards",
-    description: "20% off up to INR 350",
-  },
-  {
-    id: 2,
-    title: "20% off on Kotak Silk cards",
-    description: "20% off up to INR 350",
-  },
-  {
-    id: 2,
-    title: "20% off on Kotak Silk cards",
-    description: "20% off up to INR 350",
-  },
-  {
-    id: 2,
-    title: "20% off on Kotak Silk cards",
-    description: "20% off up to INR 350",
-  },
-];
-
-const PromotionalOfferContainer = () => {
+const PromotionalOfferContainer = ({ shopData }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const offerCardRef = useRef(null);
 
@@ -76,20 +48,20 @@ const PromotionalOfferContainer = () => {
       <ExpandContainer
         isExpanded={isExpanded}
         singleCardHeight={offerCardRef?.current?.offsetHeight}
-        numberOfCards={offerData?.length}
+        numberOfCards={shopData?.storeCoupons?.length}
       >
-        {offerData.map(offer => (
+        {shopData?.storeCoupons?.map(offer => (
           <FlexBox
-            padding="0.5rem 1rem"
+            padding="1rem 1rem 0"
             align="center"
-            key={offer.id}
+            key={offer?.couponId}
             ref={offerCardRef}
             columnGap="1rem"
           >
             <DiscountIcon size="2.5rem" />
             <FlexBox column>
-              <Body2 bold>{offer.title}</Body2>
-              <Body2>{offer.description}</Body2>
+              <Body2 bold>{offer?.couponCode}</Body2>
+              <Body2>{offer?.couponString}</Body2>
             </FlexBox>
           </FlexBox>
         ))}

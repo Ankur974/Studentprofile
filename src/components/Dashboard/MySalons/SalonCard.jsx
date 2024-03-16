@@ -1,7 +1,7 @@
 import { FiChevronRight } from "react-icons/fi";
 import styled from "styled-components";
 
-import { Body2 } from "@common/ui/Headings";
+import { Body2, H2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import {
   ACCENT_0,
@@ -13,7 +13,6 @@ import {
   PRIMARY_800,
 } from "@common/ui/colors";
 import SalonCarousel from "./SalonCarouselFile";
-import { H2 } from "@common/Dashboard/Headings";
 
 const Card = styled(FlexBox)`
   border-radius: 0.5rem;
@@ -66,8 +65,10 @@ const SalonCard = ({
 }) => {
   const isViewProfileSelected =
     selectedOption.type === "profile" && selectedOption.salonId === salonId;
+
   const isViewSessionsSelected =
     selectedOption.type === "sessions" && selectedOption.salonId === salonId;
+
   const isViewServicesSelected =
     selectedOption.type === "services" && selectedOption.salonId === salonId;
 

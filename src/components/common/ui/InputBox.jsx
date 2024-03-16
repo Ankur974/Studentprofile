@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FiX } from "react-icons/fi";
+
 import { ACCENT_800, ACCENT_0, ERROR, ACCENT_600 } from "./colors";
 import { Body2, Support } from "./Headings";
 import FlexBox from "./FlexBox";

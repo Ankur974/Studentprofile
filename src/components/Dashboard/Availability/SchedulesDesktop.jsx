@@ -16,7 +16,7 @@ import {
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { Body2, Caption, H5 } from "@common/ui/Headings";
-import { FilterChip } from "@common/Dashboard/SelectionChip";
+import { FilterChip } from "@common/ui/SelectionChip";
 
 dayjs.extend(advancedFormat);
 

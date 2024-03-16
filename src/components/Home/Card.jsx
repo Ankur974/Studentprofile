@@ -67,7 +67,7 @@ const Card = ({ title, description, imageUrl, redirectUrl }) => {
     >
       <CardImage src={imageUrl} alt="Card Image" />
       <CardContent>
-        <Body1>{title}</Body1>
+        <Body1 bold>{title}</Body1>
         <Body2>{description}</Body2>
         <Button>View Details</Button>
       </CardContent>

@@ -7,7 +7,7 @@ import FlexBox from "@common/ui/FlexBox";
 import { trackEvent } from "@utils/helpers";
 import useMobileView from "@hooks/useMobileView";
 import { WHITE, ACCENT_800 } from "@common/ui/colors";
-import { Button, IconButton } from "@common/Dashboard/Buttons";
+import { Button, IconButton } from "@common/ui/Buttons";
 import { Body2 } from "@common/ui/Headings";
 
 const CopiedAnimation = keyframes`

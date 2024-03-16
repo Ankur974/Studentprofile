@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import styled, { css } from "styled-components";
 import { useQueryParam, StringParam } from "use-query-params";
 
 import { Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { PRIMARY_800 } from "@common/ui/colors";
+import { URL } from "@constants/urls";
 import CategoryBanner from "./CategoryBanner";
 import ServiceCard from "./ServiceCard";
-import { categories } from "../../metadata/Categories";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -23,7 +24,6 @@ const Categories = styled(FlexBox)`
   position: sticky;
   top: 3rem;
   background-color: white;
-  z-index: 1;
 `;
 
 const CategoryTile = styled(FlexBox)`
@@ -38,12 +38,14 @@ const CategoryTile = styled(FlexBox)`
     aspect-ratio: 1;
     border-radius: 3rem;
     transition: all 300ms ease-in-out;
+    opacity: 0.8;
 
     ${({ active }) =>
       active &&
       css`
         max-width: 7rem;
         border: 1px solid ${PRIMARY_800};
+        opacity: 1;
       `}
   }
 `;
@@ -55,11 +57,26 @@ const ServicesWrapper = styled(FlexBox)`
   gap: 1rem;
 `;
 
-const Services = () => {
+const Services = ({ storeId }) => {
   const [activeCategory, setActiveCategory] = useQueryParam(
     "active",
     StringParam
   );
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    if (!storeId) return;
+    fetchData();
+  }, [storeId]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${URL.getServices}/${storeId}`);
+      setCategories(response?.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   useEffect(() => {
     if (activeCategory) {
@@ -76,24 +93,25 @@ const Services = () => {
   return (
     <Wrapper rowGap="0.875rem" column columnGap="3rem">
       <Categories>
-        {categories.map(item => (
+        {categories.map((item,index) => (
           <CategoryTile
-            key={item.id}
-            active={item.slug === activeCategory}
-            onClick={() => setActiveCategory(item.slug)}
+            key={item._id}
+            active={item._id === activeCategory}
+            onClick={() => setActiveCategory(item._id)}
           >
-            <img src={item.pathdark} alt={item.label} />
-            <Body2>{item.label}</Body2>
+          <img src="/assets/images/others.svg" alt="twinkle"/>
+            {/* <img src={item?.imageUrl} alt={item?.categoryName} /> */}
+            <Body2>{item?.categoryName ||`Category ${index+1}`}</Body2>
           </CategoryTile>
         ))}
       </Categories>
       <ServicesWrapper column>
         {categories?.map(category => (
-          <div key={category?.slug} id={category?.slug}>
+          <div key={category?._id} id={category?._id}>
             <CategoryBanner categoryConfig={category} />
             {category?.services?.map((item, index) => (
               <ServiceCard
-                key={item?.id}
+                key={item?._id}
                 item={item}
                 lastItem={category?.services?.length === index + 1}
               />

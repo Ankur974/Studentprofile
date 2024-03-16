@@ -1,10 +1,10 @@
 import dynamic from "next/dynamic";
 import styled from "styled-components";
 
-import ProviderCard from "@common/Dashboard/ProviderCard";
+import ProviderCard from "@common/ui/ProviderCard";
 import useMobileView from "@hooks/useMobileView";
 
-const BottomDrawer = dynamic(() => import("@common/Dashboard/BottomDrawer"), {
+const BottomDrawer = dynamic(() => import("@common/ui/BottomDrawer"), {
   ssr: false,
 });
 

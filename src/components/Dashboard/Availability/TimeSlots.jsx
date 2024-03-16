@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { formatSlotTime } from "@utils/helpers";
 import FlexBox from "@common/ui/FlexBox";
 import { Body2, Support } from "@common/ui/Headings";
-import { FilterChip } from "@common/Dashboard/SelectionChip";
+import { FilterChip } from "@common/ui/SelectionChip";
 import { ACCENT_600, white } from "@common/ui/colors";
 import { SlotsLoader } from "./Loaders";
 

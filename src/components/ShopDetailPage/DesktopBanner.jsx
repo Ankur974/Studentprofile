@@ -61,12 +61,12 @@ const ShowMoreCta = styled.div`
   font-weight: 600;
 `;
 
-const DesktopBanner = () => {
+const DesktopBanner = ({ shopData }) => {
   const router = useRouter();
 
   return (
     <Wrapper>
-      <SalonInfo />
+      <SalonInfo shopData = { shopData }/>
       <Container>
         <ImageContainer>
           <Img src="/assets/salon-image3.jpg" />

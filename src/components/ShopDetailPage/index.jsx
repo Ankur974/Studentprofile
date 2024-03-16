@@ -6,7 +6,7 @@ import axios from "axios";
 import FlexBox from "@common/ui/FlexBox";
 import Tabs from "@common/ui/Tabs";
 import { device } from "@common/ui/Resposive";
-import Loader from "@common/Dashboard/Loader";
+import Loader from "@common/ui/Loader";
 import { URL } from "@constants/urls";
 import Services from "./Services";
 import About from "./About";
@@ -15,13 +15,16 @@ import DesktopBanner from "./DesktopBanner";
 import Cart from "./Cart";
 
 const Container = styled(FlexBox)`
-  width: 86.67%;
-  max-width: 75rem;
-  margin: auto;
   flex-direction: column;
   justify-content: center;
-  row-gap: 1.5rem;
   align-items: center;
+
+  @media ${device.laptop} {
+    width: 86.67%;
+    max-width: 75rem;
+    margin: auto;
+    row-gap: 1.5rem;
+  }
 `;
 
 const HideMobile = styled.div`
@@ -42,37 +45,49 @@ const HideDesktop = styled.div`
 const Wrapper = styled(FlexBox)`
   width: 100%;
   padding-bottom: 2.5rem;
+
+  @media ${device.laptop} {
+    width: 68%;
+  }
 `;
 
 const CartAndAboutBox = styled(FlexBox)`
   width: 100%;
   justify-content: center;
   column-gap: 4rem;
+  padding: 1.5rem;
+
+  @media ${device.laptop} {
+    padding: 0;
+  }
 `;
 
 const CartAndOfferContainer = styled(FlexBox)`
   display: none;
   @media ${device.laptop} {
     display: flex;
+    flex:1;
     min-width: 20rem;
   }
 `;
 
-const Tab = styled(FlexBox)``;
+const Tab = styled(FlexBox)`
+  width: 100%;
+`;
 
-const ShopDetailPage = () => {
+const ShopDetailPage = ({ storeId }) => {
   const [loading, setLoading] = useState(false);
   const [shopData, setShopData] = useState({});
 
   useEffect(() => {
+    if (!storeId) return;
     fetchShopData();
-  }, []);
+  }, [storeId]);
 
   const fetchShopData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get(URL.getStore);
-      console.log(res);
+      const res = await axios.get(`${URL.getStore}/${storeId}`);
       setShopData(res?.data);
     } catch (e) {
       console.log(e);
@@ -88,24 +103,24 @@ const ShopDetailPage = () => {
   return (
     <Container>
       <HideMobile>
-        <DesktopBanner />
+        <DesktopBanner shopData={shopData} />
       </HideMobile>
       <HideDesktop>
-        <MobileBanner />
+        <MobileBanner shopData={shopData} />
       </HideDesktop>
       <CartAndAboutBox>
         <Wrapper>
           <Tabs>
             <Tab title="Services">
-              <Services shopData={shopData} />
+              <Services shopData={shopData} storeId={storeId} />
             </Tab>
             <Tab title="About">
-              <About shopData={shopData[0]} />
+              <About shopData={shopData} />
             </Tab>
           </Tabs>
         </Wrapper>
         <CartAndOfferContainer column>
-          <Cart />
+          <Cart shopData={shopData} />
         </CartAndOfferContainer>
       </CartAndAboutBox>
     </Container>

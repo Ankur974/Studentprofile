@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import Card from "@common/Dashboard/Card";
-import NullState from "@common/Dashboard/NullState";
-// import SessionCreditCard from "@common/Dashboard/SessionCreditCard";
+import Card from "./Card";
+import NullState from "@common/NullState";
+// import SessionCreditCard from "@common/ui/SessionCreditCard";
 import Loader from "@common/ui/Loader";
 import FlexBox from "@common/ui/FlexBox";
 import { Button } from "@common/ui/Buttons";

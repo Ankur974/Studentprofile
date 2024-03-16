@@ -4,7 +4,6 @@ import { BsPlayFill } from "react-icons/bs";
 
 import { ACCENT_100 } from "@common/ui/colors";
 import { faqCategories, faqs } from "@metadata/About/faqs";
-import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import {
   ACCENT_800,
   PRIMARY_100,
@@ -12,7 +11,8 @@ import {
   ACCENT_300,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
-import { Accordion } from "@common/Dashboard/Accordion";
+import { Accordion } from "@common/ui/Accordion";
+import { boxShadowDs1 } from "@common/ui/styles";
 
 const Desktop = styled.div`
   height: 100%;

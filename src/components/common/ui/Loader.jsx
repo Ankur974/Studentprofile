@@ -1,26 +1,20 @@
-import React from "react";
 import styled from "styled-components";
 
-import FlexBox from "./FlexBox";
-
-const Wrapper = styled(FlexBox)`
-  height: 100%;
-  width: 100%;
+const LoaderWrapper = styled.div`
+  height: ${props => (props.fitContent ? "100%" : props.height)};
+  display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const Loader = ({ height }) => {
-  return (
-    <Wrapper>
-      <img
-        src="/assets/images/loading.gif"
-        height={height || "90px"}
-        alt="loader"
-      />
-      Loader
-    </Wrapper>
-  );
-};
+const Loader = ({ fitContent, height = "90vh" }) => (
+  <LoaderWrapper fitContent={fitContent} height={height}>
+    <img
+      src="/assets/images/dashboard/loader.gif"
+      height={height || "90px"}
+      alt="loader"
+    />
+  </LoaderWrapper>
+);
 
 export default Loader;

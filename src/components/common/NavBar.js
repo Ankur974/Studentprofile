@@ -1,11 +1,18 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import styled, { css } from "styled-components";
+import { useRouter } from "next/router";
+import { FiMoreHorizontal } from "react-icons/fi";
 
-import { PRIMARY_800 } from "@common/ui/colors";
-// import NavLinks from "@components/NavBar/NavLinks";
+import { ACCENT_0, ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
-import { useRouter } from "next/router";
+
+const commonIconProps = {
+  size: "1.5rem",
+  cursor: "pointer",
+  color: ACCENT_0,
+};
 
 const FallBack = styled.div`
   display: none;
@@ -67,37 +74,91 @@ const Logo = styled.img`
   cursor: pointer;
 `;
 
+const Avatar = styled(FlexBox)`
+  border: 2px solid ${ACCENT_0};
+  border-radius: 50%;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const MoreActionsWrapper = styled(FlexBox)`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const ProviderImage = styled.img`
+  min-width: 2rem;
+  max-width: 2rem;
+  cursor: pointer;
+  min-height: 2rem;
+  max-height: 2rem;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid ${ACCENT_800};
+`;
+
 const NavBar = ({ navContainerStyles }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router=useRouter();
+
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [showMoreActions, setShowMoreActions] = useState(false);
+
+  const toggleProfileDropdown = () => setShowProfileDropdown(prev => !prev);
+  const toggleMoreActions = () => setShowMoreActions(prev => !prev);
+  const router = useRouter();
 
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
-
   return (
-    <>
-      <NavContainer
-        align="center"
-        justify="center"
-        navContainerStyles={navContainerStyles}
-      >
-        <FallBack navState={isMenuOpen} onClick={closeMenu} />
-        <NavMain justify="space-between" align="center" width="90%">
-          <LogoContainer onClick={()=>router.push("/")}>
-            <Logo
-              isStatic
-              height={36}
-              draggable={false}
-              src="/assets/images/pamprazzi-logo-white.svg"
-              alt="pamprazzi Logo"
+    <NavContainer
+      align="center"
+      justify="center"
+      navContainerStyles={navContainerStyles}
+    >
+      <FallBack navState={isMenuOpen} onClick={closeMenu} />
+      <NavMain justify="space-between" align="center" width="90%">
+        <LogoContainer onClick={() => router.push("/")}>
+          <Logo
+            isStatic
+            height={36}
+            draggable={false}
+            src="/assets/images/pamprazzi-logo-white.svg"
+            alt="pamprazzi Logo"
+          />
+        </LogoContainer>
+        <FlexBox align="center" columnGap="1.5rem">
+          <Avatar position="relative" align="center" justify="center">
+            <ProviderImage
+              alt="User Image"
+              draggable="false"
+              id="header-user-image"
+              src="/assets/images/stylists/men.jpg"
+              onClick={toggleProfileDropdown}
             />
-          </LogoContainer>
-          {/* <NavLinks navState={isMenuOpen} closeMenu={closeMenu} /> */}
-        </NavMain>
-      </NavContainer>
-    </>
+          </Avatar>
+
+          <MoreActionsWrapper
+            position="relative"
+            align="center"
+            justify="center"
+          >
+            <FlexBox
+              cursor="pointer"
+              id="header-actions"
+              onClick={toggleMoreActions}
+            >
+              <FiMoreHorizontal {...commonIconProps} pointerEvents="none" />
+            </FlexBox>
+          </MoreActionsWrapper>
+        </FlexBox>
+      </NavMain>
+    </NavContainer>
   );
 };
 

@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
+import dynamic from "next/dynamic";
+import { isEqual } from "lodash";
+import axios from "axios";
 
-import FlexBox from "../common/ui/FlexBox";
-import Filter from "../common/ui/Filter";
+import Loader from "@common/ui/Loader";
+import FlexBox from "@common/ui/FlexBox";
+import Filter from "@common/ui/Filter";
+import { Display, H1, H3 } from "@common/ui/Headings";
+import { PRIMARY_200, PRIMARY_800 } from "@common/ui/colors";
+import Chip from "@common/ui/Chips";
+import { device } from "@common/ui/Resposive";
+import Approach from "@common/ApproachFaq";
+import { filterMeta } from "@metadata/ListingPage";
 import Card from "./Card";
-import { Display, H1, H3 } from "../common/ui/Headings";
-import { ACCENT_500, PRIMARY_200 } from "../common/ui/colors";
-import Approach from "../common/ApproachFaq";
-import Chip from "../common/ui/Chips";
-import FilterModal from "./FilterModal";
 import SecondaryNav from "./SecondaryNav";
-import { device } from "../common/ui/Resposive";
+import { URL } from "@constants/urls";
+
+const AdvancedFilter = dynamic(() => import("./AdvancedFilter"), {
+  ssr: false,
+});
 
 const metadata = [
   {
@@ -75,33 +84,12 @@ const Banner = styled(FlexBox)`
   background-color: ${PRIMARY_200};
 `;
 
-const VR = styled.div`
-  height: 100%;
-  width: 1px;
-  background-color: ${ACCENT_500};
-`;
-
-const Showappliedfilter = styled(FlexBox)`
-  flex-direction: row;
-  column-gap: 0.2rem;
-  width: fit-content;
-  align-self: end;
-
-  @media ${device.laptop} {
-    flex-direction: row;
-    column-gap: 1rem;
-  }
-`;
-
-const Filtercontainer = styled(FlexBox)`
-  flex-direction: column;
+const FilterWrapper = styled(FlexBox)`
+  column-gap: 0.25rem;
   align-items: center;
-  margin: auto;
-
+  overflow-x: auto;
   @media ${device.laptop} {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
+    column-gap: 1rem;
   }
 `;
 
@@ -112,487 +100,116 @@ const Toptitle = styled(FlexBox)`
   justify-content: center;
 `;
 
+const IntersectionTarget = styled.div`
+  display: ${({ loading }) => (loading ? "none" : "block")};
+  width: 100%;
+  height: 1rem;
+`;
+
+const ActiveDot = styled.div`
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: ${PRIMARY_800};
+  border-radius: 2rem;
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+`;
+
 const ShopListingPage = () => {
   const [showFilter, setShowFilter] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [shopList, setShopList] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
+
+  const targetRef = useRef(null);
+
+  const fetchShopList = useCallback(async () => {
+    try {
+      setLoading(true);
+      const res = await axios.get(
+        `${URL.getAllShops}?page=${pageNumber}&pageLimit=9`
+      );
+      const data = res?.data?.data?.[0];
+
+      if (data) {
+        setShopList(prev => [...prev, ...data.data]);
+        setTotalCount(data?.totalDocs);
+        setTotalPage(Math.ceil(data?.totalDocs / data?.pages));
+      }
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  }, [pageNumber]);
+
+  useEffect(() => {
+    fetchShopList();
+  }, [fetchShopList]);
+
+  const getInitialState = filterMeta => {
+    const initialState = {};
+
+    filterMeta?.forEach(filter => {
+      initialState[filter.slug] = filter?.type === "checkbox" ? [] : "";
+    });
+
+    return initialState;
+  };
+  const [advancedFilterSelection, setAdvancedFilterSelection] = useState(() =>
+    getInitialState(filterMeta)
+  );
 
   const toggleModal = () => setShowFilter(!showFilter);
-  const Arr = [
-    {
-      name: "Gigis Salon",
-      image: "/assets/salon-image1.jpg",
-      popularity: "Popular",
-      rating: 4.5,
-      discount: 15,
-      category: "Salon for Men",
-      distance: 2,
-      startingPrice: 350,
-      amenities: [
-        {
-          id: 1,
-          label: "Air conditioning",
-        },
-        {
-          id: 12,
-          label: "Parking",
-        },
-        {
-          id: 2,
-          label: "Kids Friendly",
-        },
-      ],
-    },
-    {
-      name: "Chic Spa",
-      image: "/assets/salon-image2.jpg",
-      popularity: "New",
-      rating: 4.0,
-      discount: 20,
-      category: "Spa",
-      distance: 5,
-      startingPrice: 500,
-      amenities: [
-        {
-          id: 3,
-          label: "Free Wi-Fi",
-        },
-        {
-          id: 8,
-          label: "Wheelchair Accessible",
-        },
-        {
-          id: 6,
-          label: "Refreshments",
-        },
-      ],
-    },
-    {
-      name: "Elegance Beauty",
-      image: "/assets/salon-image3.jpg",
-      popularity: "Top Rated",
-      rating: 4.8,
-      category: "Beauty Salon",
-      distance: 1,
-      startingPrice: 250,
-      amenities: [
-        {
-          id: 5,
-          label: "Free Parking",
-        },
-        {
-          id: 9,
-          label: "Facial Treatments",
-        },
-        {
-          id: 4,
-          label: "Hair Styling",
-        },
-      ],
-    },
-    {
-      name: "Relax Haven",
-      image: "/assets/salon-image4.jpg",
-      popularity: "New",
-      rating: 4.2,
-      discount: 10,
-      category: "Relaxation Spa",
-      distance: 3,
-      startingPrice: 450,
-      amenities: [
-        {
-          id: 7,
-          label: "Sauna",
-        },
-        {
-          id: 10,
-          label: "Massage Therapy",
-        },
-        {
-          id: 11,
-          label: "Couples Packages",
-        },
-      ],
-    },
-    {
-      name: "Trendy Cuts",
-      image: "/assets/salon-image4.jpg",
-      popularity: "Popular",
-      rating: 4.7,
-      category: "Hair Salon",
-      distance: 4,
-      startingPrice: 300,
-      amenities: [
-        {
-          id: 13,
-          label: "Coloring Services",
-        },
-        {
-          id: 14,
-          label: "Barber Services",
-        },
-        {
-          id: 15,
-          label: "Styling Consultation",
-        },
-      ],
-    },
-    {
-      name: "Gigis Salon",
-      image: "/assets/salon-image1.jpg",
-      popularity: "Popular",
-      rating: 4.5,
-      discount: 15,
-      category: "Salon for Men",
-      distance: 2,
-      startingPrice: 350,
-      amenities: [
-        {
-          id: 1,
-          label: "Air conditioning",
-        },
-        {
-          id: 12,
-          label: "Parking",
-        },
-        {
-          id: 2,
-          label: "Kids Friendly",
-        },
-      ],
-    },
-    {
-      name: "Chic Spa",
-      image: "/assets/salon-image2.jpg",
-      popularity: "New",
-      rating: 4.0,
-      discount: 20,
-      category: "Spa",
-      distance: 5,
-      startingPrice: 500,
-      amenities: [
-        {
-          id: 3,
-          label: "Free Wi-Fi",
-        },
-        {
-          id: 8,
-          label: "Wheelchair Accessible",
-        },
-        {
-          id: 6,
-          label: "Refreshments",
-        },
-      ],
-    },
-    {
-      name: "Elegance Beauty",
-      image: "/assets/salon-image3.jpg",
-      popularity: "Top Rated",
-      rating: 4.8,
-      category: "Beauty Salon",
-      distance: 1,
-      startingPrice: 250,
-      amenities: [
-        {
-          id: 5,
-          label: "Free Parking",
-        },
-        {
-          id: 9,
-          label: "Facial Treatments",
-        },
-        {
-          id: 4,
-          label: "Hair Styling",
-        },
-      ],
-    },
-    {
-      name: "Relax Haven",
-      image: "/assets/salon-image4.jpg",
-      popularity: "New",
-      rating: 4.2,
-      discount: 10,
-      category: "Relaxation Spa",
-      distance: 3,
-      startingPrice: 450,
-      amenities: [
-        {
-          id: 7,
-          label: "Sauna",
-        },
-        {
-          id: 10,
-          label: "Massage Therapy",
-        },
-        {
-          id: 11,
-          label: "Couples Packages",
-        },
-      ],
-    },
-    {
-      name: "Trendy Cuts",
-      image: "/assets/salon-image4.jpg",
-      popularity: "Popular",
-      rating: 4.7,
-      category: "Hair Salon",
-      distance: 4,
-      startingPrice: 300,
-      amenities: [
-        {
-          id: 13,
-          label: "Coloring Services",
-        },
-        {
-          id: 14,
-          label: "Barber Services",
-        },
-        {
-          id: 15,
-          label: "Styling Consultation",
-        },
-      ],
-    },
-    {
-      name: "Gigis Salon",
-      image: "/assets/salon-image1.jpg",
-      popularity: "Popular",
-      rating: 4.5,
-      discount: 15,
-      category: "Salon for Men",
-      distance: 2,
-      startingPrice: 350,
-      amenities: [
-        {
-          id: 1,
-          label: "Air conditioning",
-        },
-        {
-          id: 12,
-          label: "Parking",
-        },
-        {
-          id: 2,
-          label: "Kids Friendly",
-        },
-      ],
-    },
-    {
-      name: "Chic Spa",
-      image: "/assets/salon-image2.jpg",
-      popularity: "New",
-      rating: 4.0,
-      discount: 20,
-      category: "Spa",
-      distance: 5,
-      startingPrice: 500,
-      amenities: [
-        {
-          id: 3,
-          label: "Free Wi-Fi",
-        },
-        {
-          id: 8,
-          label: "Wheelchair Accessible",
-        },
-        {
-          id: 6,
-          label: "Refreshments",
-        },
-      ],
-    },
-    {
-      name: "Elegance Beauty",
-      image: "/assets/salon-image3.jpg",
-      popularity: "Top Rated",
-      rating: 4.8,
-      category: "Beauty Salon",
-      distance: 1,
-      startingPrice: 250,
-      amenities: [
-        {
-          id: 5,
-          label: "Free Parking",
-        },
-        {
-          id: 9,
-          label: "Facial Treatments",
-        },
-        {
-          id: 4,
-          label: "Hair Styling",
-        },
-      ],
-    },
-    {
-      name: "Relax Haven",
-      image: "/assets/salon-image4.jpg",
-      popularity: "New",
-      rating: 4.2,
-      discount: 10,
-      category: "Relaxation Spa",
-      distance: 3,
-      startingPrice: 450,
-      amenities: [
-        {
-          id: 7,
-          label: "Sauna",
-        },
-        {
-          id: 10,
-          label: "Massage Therapy",
-        },
-        {
-          id: 11,
-          label: "Couples Packages",
-        },
-      ],
-    },
-    {
-      name: "Trendy Cuts",
-      image: "/assets/salon-image4.jpg",
-      popularity: "Popular",
-      rating: 4.7,
-      category: "Hair Salon",
-      distance: 4,
-      startingPrice: 300,
-      amenities: [
-        {
-          id: 13,
-          label: "Coloring Services",
-        },
-        {
-          id: 14,
-          label: "Barber Services",
-        },
-        {
-          id: 15,
-          label: "Styling Consultation",
-        },
-      ],
-    },
-    {
-      name: "Gigis Salon",
-      image: "/assets/salon-image1.jpg",
-      popularity: "Popular",
-      rating: 4.5,
-      discount: 15,
-      category: "Salon for Men",
-      distance: 2,
-      startingPrice: 350,
-      amenities: [
-        {
-          id: 1,
-          label: "Air conditioning",
-        },
-        {
-          id: 12,
-          label: "Parking",
-        },
-        {
-          id: 2,
-          label: "Kids Friendly",
-        },
-      ],
-    },
-    {
-      name: "Chic Spa",
-      image: "/assets/salon-image2.jpg",
-      popularity: "New",
-      rating: 4.0,
-      discount: 20,
-      category: "Spa",
-      distance: 5,
-      startingPrice: 500,
-      amenities: [
-        {
-          id: 3,
-          label: "Free Wi-Fi",
-        },
-        {
-          id: 8,
-          label: "Wheelchair Accessible",
-        },
-        {
-          id: 6,
-          label: "Refreshments",
-        },
-      ],
-    },
-    {
-      name: "Elegance Beauty",
-      image: "/assets/salon-image3.jpg",
-      popularity: "Top Rated",
-      rating: 4.8,
-      category: "Beauty Salon",
-      distance: 1,
-      startingPrice: 250,
-      amenities: [
-        {
-          id: 5,
-          label: "Free Parking",
-        },
-        {
-          id: 9,
-          label: "Facial Treatments",
-        },
-        {
-          id: 4,
-          label: "Hair Styling",
-        },
-      ],
-    },
-    {
-      name: "Relax Haven",
-      image: "/assets/salon-image4.jpg",
-      popularity: "New",
-      rating: 4.2,
-      discount: 10,
-      category: "Relaxation Spa",
-      distance: 3,
-      startingPrice: 450,
-      amenities: [
-        {
-          id: 7,
-          label: "Sauna",
-        },
-        {
-          id: 10,
-          label: "Massage Therapy",
-        },
-        {
-          id: 11,
-          label: "Couples Packages",
-        },
-      ],
-    },
-    {
-      name: "Trendy Cuts",
-      image: "/assets/salon-image4.jpg",
-      popularity: "Popular",
-      rating: 4.7,
-      category: "Hair Salon",
-      distance: 4,
-      startingPrice: 300,
-      amenities: [
-        {
-          id: 13,
-          label: "Coloring Services",
-        },
-        {
-          id: 14,
-          label: "Barber Services",
-        },
-        {
-          id: 15,
-          label: "Styling Consultation",
-        },
-      ],
-    },
-  ];
+
+  useEffect(() => {
+    if (!targetRef?.current) return;
+
+    const intersectionCallback = entries => {
+      const target = entries[0];
+      console.log(target.isIntersecting, pageNumber, totalPage);
+      if (target.isIntersecting && pageNumber < totalPage) {
+        setPageNumber(prev => prev + 1);
+      }
+    };
+
+    let options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1,
+    };
+
+    try {
+      const observer = new IntersectionObserver(intersectionCallback, options);
+      if (targetRef?.current) observer?.observe(targetRef?.current);
+      return () => {
+        if (targetRef?.current) observer?.unobserve(targetRef?.current);
+      };
+    } catch (err) {
+      console.log(err);
+    }
+  }, [targetRef, pageNumber, totalPage]);
+
+  const showLoader = loading && shopList?.length === 0;
+  const showListLoader = loading && shopList?.length !== 0;
+
+  if (showLoader) {
+    return <Loader />;
+  }
+
   return (
     <div>
-      {showFilter && <FilterModal toggleModal={toggleModal} />}
+      {showFilter && (
+        <AdvancedFilter
+          advancedFilterSelection={advancedFilterSelection}
+          setAdvancedFilterSelection={setAdvancedFilterSelection}
+          initialState={getInitialState(filterMeta)}
+          togglePopup={toggleModal}
+        />
+      )}
       <SecondaryNav navitem={metadata} />
       <Banner>
         <Toptitle>
@@ -600,21 +217,44 @@ const ShopListingPage = () => {
         </Toptitle>
       </Banner>
       <Wrapper>
-        <Filtercontainer>
-          <H3 bold>4 Haircut Results in your location</H3>
-          <Showappliedfilter>
-            <Chip>Haircut</Chip>
-            <Chip>Haircut</Chip>
-            <Chip>Haircut</Chip>
-            <VR />
+        {totalCount && (
+          <H3 bold>{totalCount} Haircut Results in your location</H3>
+        )}
+        <FlexBox align="center" columnGap="0.5rem">
+          <FlexBox position="relative">
+            {!isEqual(advancedFilterSelection, getInitialState(filterMeta)) && (
+              <ActiveDot />
+            )}
             <Filter onClick={toggleModal} />
-          </Showappliedfilter>
-        </Filtercontainer>
-        <ListWrapper>
-          {Arr.map((data, index) => (
-            <Card key={index} data={data} />
-          ))}
-        </ListWrapper>
+          </FlexBox>
+          <FilterWrapper>
+            {filterMeta?.map(({ options }) => {
+              return options?.map(({ label, slug, isPopular }) => {
+                if (!isPopular) return;
+                return (
+                  <Chip
+                    key={slug}
+                    selected={advancedFilterSelection?.services_offered?.includes(
+                      slug
+                    )}
+                    onClick={() => {}}
+                  >
+                    {label}
+                  </Chip>
+                );
+              });
+            })}
+          </FilterWrapper>
+        </FlexBox>
+        <FlexBox column>
+          <ListWrapper>
+            {shopList?.map((data, index) => (
+              <Card key={index} data={data} />
+            ))}
+          </ListWrapper>
+          {showListLoader && <Loader fitContent />}
+          <IntersectionTarget loading={loading} ref={targetRef} />
+        </FlexBox>
         <H1 textAlign="center">Frequently Asked Questions</H1>
         <Approach />
       </Wrapper>

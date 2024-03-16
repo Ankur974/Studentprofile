@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import SessionCard from "@common/Dashboard/SessionCard";
+import SessionCard from "@common/SessionCard";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Resposive";
 

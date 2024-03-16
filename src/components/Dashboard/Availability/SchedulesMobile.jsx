@@ -7,7 +7,7 @@ import { SchedulesLoader } from "./Loaders";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_600, WHITE, ACCENT_800 } from "@common/ui/colors";
 import { Body2, Caption, H5 } from "@common/ui/Headings";
-import { FilterChip } from "@common/Dashboard/SelectionChip";
+import { FilterChip } from "@common/ui/SelectionChip";
 
 dayjs.extend(advancedFormat);
 

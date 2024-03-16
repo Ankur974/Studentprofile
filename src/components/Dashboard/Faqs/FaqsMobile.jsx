@@ -11,7 +11,7 @@ import {
 import FlexBox from "@common/ui/FlexBox";
 import { Case, Default, Switch } from "@common/ConditionalRendering";
 import { faqCategories, faqs } from "@metadata/About/faqs";
-import { Accordion } from "@common/Dashboard/Accordion";
+import { Accordion } from "@common/ui/Accordion";
 
 const CategoryOptions = styled(FlexBox)`
   flex-direction: column;

@@ -10,7 +10,7 @@ import useMobileView from "@hooks/useMobileView";
 import SalonCard from "./SalonCard";
 import About from "@components/ShopDetailPage/About";
 import Services from "@components/ShopDetailPage/Services";
-import { H2 } from "@common/Dashboard/Headings";
+import { H2 } from "@common/ui/Headings";
 
 const Container = styled(FlexBox)`
   width: 100vw;

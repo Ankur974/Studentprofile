@@ -17,11 +17,11 @@ const Wrapper = styled(FlexBox)`
   margin-bottom: 5rem;
 `;
 
-const Cart = () => {
+const Cart = ({ shopData }) => {
   return (
     <Wrapper>
       <CartDesktop />
-      <PromotionalOfferContainer />
+      <PromotionalOfferContainer shopData = {shopData} />
       <PromiseContainer />
     </Wrapper>
   );

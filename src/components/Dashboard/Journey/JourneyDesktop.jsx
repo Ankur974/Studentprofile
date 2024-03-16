@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 import { Case, Default, Switch } from "@common/ConditionalRendering";
 import { H2 } from "@common/ui/Headings";
-import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
+import { boxShadowDs1 } from "@common/ui/styles";
 import FlexBox from "@common/ui/FlexBox";
 import Loader from "@common/ui/Loader";
 import {

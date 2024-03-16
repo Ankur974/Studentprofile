@@ -1,10 +1,10 @@
-import dynamic from "next/dynamic";
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { FiBell, FiMenu, FiMoreHorizontal } from "react-icons/fi";
 import styled, { css } from "styled-components";
 import { BooleanParam, useQueryParams } from "use-query-params";
+
 import { H3 } from "@common/ui/Headings";
-import { boxShadowDs1 } from "@common/Dashboard/boxShadowStyles";
 import FlexBox from "@common/ui/FlexBox";
 import Loader from "@common/ui/Loader";
 import {
@@ -14,6 +14,7 @@ import {
   ERROR,
   WHITE,
 } from "@common/ui/colors";
+import { boxShadowDs1 } from "@common/ui/styles";
 import Sidebar from "./Sidebar";
 
 const Navigation = dynamic(() => import("./Navigation"), {
@@ -167,9 +168,6 @@ const MoreActionsWrapper = styled(FlexBox)`
 
 const Footer = styled.div`
   width: 100%;
-  @media screen and (min-width: 769px) {
-    display: none;
-  }
   padding: 1rem;
   position: fixed;
   height: 5rem;
@@ -182,6 +180,10 @@ const Footer = styled.div`
     hideFooter ? "translateY(8rem)" : "translateY(0)"};
   pointer-events: ${({ hideFooter }) => (hideFooter ? "none" : "unset")};
   transition: all 0.2s ease-in-out;
+
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
 `;
 
 const DashboardLayout = ({

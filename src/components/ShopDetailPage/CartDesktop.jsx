@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { H2, Body2, Body1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
@@ -13,23 +14,33 @@ import {
 } from "@common/ui/colors";
 import { Button } from "@common/ui/Buttons";
 import NullStateCart from "./NullStateCart";
+import { deleteItemFromCart } from "@redux/slices/cartSlice";
+import { device } from "@components/common/ui/Resposive";
 
 const Wrapper = styled(FlexBox)`
-  padding: 1.5rem;
-  row-gap: 1rem;
+  padding: 0.75rem 1rem;
+  row-gap: 0.5rem;
   border: 1px solid ${SECONDARY_200};
   transition: opacity 0.3s ease-in-out;
-  opacity: ${({ showContent }) => (showContent ? 1 : 0)};
   border-radius: 0.5rem;
   min-height: 5rem;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+
+  @media ${device.laptop} {
+    padding: 1.5rem;
+    row-gap: 1rem;
+  }
 `;
 
 const ItemsContainer = styled(FlexBox)`
-  row-gap: 0.2rem;
   border-top: 1px solid ${ACCENT_300};
   border-bottom: 1px dashed ${ACCENT_300};
-  padding: 1rem 0 0.5rem 0;
+  max-height: 15rem;
+  overflow: auto;
+  @media ${device.laptop} {
+    row-gap: 0.2rem;
+    padding: 1rem 0 0.5rem 0;
+  }
 `;
 
 const SingleItemContainer = styled(FlexBox)`
@@ -43,50 +54,20 @@ const HelperBox = styled(FlexBox)`
   inline-size: 80%;
 `;
 
-const AnimationBoxXart = styled(FlexBox)``;
-
 const NullContainer = styled(FlexBox)`
   transition: opacity 0.3s ease-in-out;
 `;
 
 const CartDesktop = () => {
-  const [showContent, setShowContent] = useState(false);
-  const [removedItemIds, setRemovedItemIds] = useState([]);
-  const [cartdata, setCartData] = useState([
-    { id: 1, title: "Shoulder length haircut", price: 500, quantity: 1 },
-    { id: 2, title: "Shoulder length haircut", price: 600, quantity: 1 },
-    { id: 3, title: "Nail cutting", price: 300, quantity: 1 },
-  ]);
+  const cartdata = useSelector(state => state.cart.cartItems);
+  const totalItem = useSelector(state => state.cart.cartItems.length);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      setShowContent(true);
-    }, 300);
-    return () => clearTimeout(delay);
-  }, []);
-
-  const handleDecrease = productId => {
-    setRemovedItemIds(prevIds => [...prevIds, productId]);
-
-    setTimeout(() => {
-      setCartData(prevCartData =>
-        prevCartData.map(item =>
-          item.id === productId
-            ? { ...item, quantity: Math.max(item.quantity - 1, 0) }
-            : item
-        )
-      );
-
-      setRemovedItemIds(prevIds => prevIds.filter(id => id !== productId));
-    }, 500);
+  const handleDelete = productId => {
+    dispatch(deleteItemFromCart(productId));
   };
 
-  const totalAmount = cartdata.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
-
-  const totalItem = cartdata.reduce((total, item) => total + item.quantity, 0);
+  const totalAmount = cartdata.reduce((total, item) => total + item.price, 0);
 
   if (!totalItem) {
     return (
@@ -97,8 +78,7 @@ const CartDesktop = () => {
   }
 
   return (
-    <Wrapper column showContent={showContent}>
-      <AnimationBoxXart column>
+    <Wrapper column>
         <FlexBox column>
           <H2 color={PRIMARY_800} bold>
             My Cart
@@ -108,25 +88,20 @@ const CartDesktop = () => {
         </FlexBox>
 
         <ItemsContainer column>
-          {cartdata.map(item =>
-            item.quantity > 0 ? (
-              <SingleItemContainer
-                key={item.id}
-                removed={removedItemIds.includes(item.id)}
-              >
-                <FlexBox column>
-                  <Body2>{item.title}</Body2>
-                  <Body2 bold>{item.quantity * item.price}</Body2>
-                </FlexBox>
-                <MdDeleteForever
-                  color="red"
-                  size="1.5rem"
-                  cursor="pointer"
-                  onClick={() => handleDecrease(item.id)}
-                />
-              </SingleItemContainer>
-            ) : null
-          )}
+          {cartdata.map(item => (
+            <SingleItemContainer key={item.id}>
+              <FlexBox column>
+                <Body2>{item.name}</Body2>
+                <Body2 bold>{item.price}</Body2>
+              </FlexBox>
+              <MdDeleteForever
+                color="red"
+                size="1.5rem"
+                cursor="pointer"
+                onClick={() => handleDelete(item.id)}
+              />
+            </SingleItemContainer>
+          ))}
         </ItemsContainer>
         <FlexBox column rowGap="0.5rem">
           <FlexBox row>
@@ -139,12 +114,11 @@ const CartDesktop = () => {
             </Body2>
           </HelperBox>
         </FlexBox>
-        <FlexBox justify="center">
-          <Button rowGap="1rem" color={PRIMARY_900}>
+        <FlexBox justify="center" margin="0.25rem 0 0 ">
+          <Button  color={PRIMARY_900}>
             Book Appointment
           </Button>
         </FlexBox>
-      </AnimationBoxXart>
     </Wrapper>
   );
 };
