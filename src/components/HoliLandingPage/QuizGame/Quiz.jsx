@@ -220,7 +220,7 @@ const Quiz = () => {
   let prize = "anirban";
 
   if (!currentQuestion || currentQuestionIndex === 4) {
-    router.replace(`/holi-landing/${encodeURIComponent(prize)}`);
+    router.replace(`/holi-2024/${encodeURIComponent(prize)}`);
   }
 
   return (

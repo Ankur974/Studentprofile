@@ -175,7 +175,7 @@ const Login = ({ setModalOpen, page }) => {
         if (res?.data?.data?.found) {
           dispatch(setUser(res?.data?.data?.data));
           setModalOpen(false);
-          router.push(`/holi-landing/game/${page}`);
+          router.push(`/holi-2024/game/${page}`);
         } else {
           setCurrentStep(3);
         }
@@ -201,7 +201,7 @@ const Login = ({ setModalOpen, page }) => {
       if (res?.status === 200) {
         dispatch(setUser(res?.data?.data));
         setModalOpen(false);
-        router.push(`/holi-landing/game/${page}`);
+        router.push(`/holi-2024/game/${page}`);
       }
     } catch (err) {
       console.log(err);

@@ -110,7 +110,7 @@ const SpinWin = () => {
   const handleSpin = () => {
     ref.current.handleSpin();
     setTimeout(() => {
-      router.replace("/holi-landing/voucher");
+      router.replace("/holi-2024/voucher");
     }, 12000);
   };
 
