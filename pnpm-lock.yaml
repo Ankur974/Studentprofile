@@ -74,6 +74,9 @@ dependencies:
   react-calendar:
     specifier: ^4.6.1
     version: 4.6.1(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
+  react-canvas-confetti:
+    specifier: ^2.0.7
+    version: 2.0.7(react@18.2.0)
   react-datepicker:
     specifier: ^4.11.0
     version: 4.24.0(react-dom@18.2.0)(react@18.2.0)
@@ -95,6 +98,9 @@ dependencies:
   react-select:
     specifier: ^5.7.4
     version: 5.8.0(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
+  react-spin-game:
+    specifier: ^1.0.7
+    version: 1.0.7(react@18.2.0)
   react-tooltip:
     specifier: ^5.21.3
     version: 5.24.0(react-dom@18.2.0)(react@18.2.0)
@@ -946,6 +952,10 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@types/canvas-confetti@1.6.4:
+    resolution: {integrity: sha512-fNyZ/Fdw/Y92X0vv7B+BD6ysHL4xVU5dJcgzgxLdGbn8O3PezZNIJpml44lKM0nsGur+o/6+NZbZeNTt00U1uA==}
+    dev: false
+
   /@types/cookie@0.5.4:
     resolution: {integrity: sha512-7z/eR6O859gyWIAjuvBWFzNURmf2oPBmJlfVWkwehU5nzIyjwBsTh7WMmEEV4JFnHuQ3ex4oyTvfKzcyJVDBNA==}
     dev: false
@@ -1404,6 +1414,10 @@ packages:
 
   /caniuse-lite@1.0.30001565:
     resolution: {integrity: sha512-xrE//a3O7TP0vaJ8ikzkD2c2NgcVUvsEe2IvFTntV4Yd1Z9FVzh+gW+enX96L0psrbaFMcVcH2l90xNuGDWc8w==}
+    dev: false
+
+  /canvas-confetti@1.9.2:
+    resolution: {integrity: sha512-6Xi7aHHzKwxZsem4mCKoqP6YwUG3HamaHHAlz1hTNQPCqXhARFpSXnkC9TWlahHY5CG6hSL5XexNjxK8irVErg==}
     dev: false
 
   /chalk@2.4.2:
@@ -3516,6 +3530,16 @@ packages:
       tiny-warning: 1.0.3
     dev: false
 
+  /react-canvas-confetti@2.0.7(react@18.2.0):
+    resolution: {integrity: sha512-DIj44O35TPAwJkUSIZqWdVsgAMHtVf8h7YNmnr3jF3bn5mG+d7Rh9gEcRmdJfYgRzh6K+MAGujwUoIqQyLnMJw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      '@types/canvas-confetti': 1.6.4
+      canvas-confetti: 1.9.2
+      react: 18.2.0
+    dev: false
+
   /react-datepicker@4.24.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-2QUC2pP+x4v3Jp06gnFllxKsJR0yoT/K6y86ItxEsveTXUpsx+NBkChWXjU0JsGx/PL8EQnsxN0wHl4zdA1m/g==}
     peerDependencies:
@@ -3653,6 +3677,15 @@ packages:
       use-isomorphic-layout-effect: 1.1.2(@types/react@18.0.28)(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /react-spin-game@1.0.7(react@18.2.0):
+    resolution: {integrity: sha512-g1EKIX5qRd3+td+UK7UagGbRE2b634RKQerV9Z1zbE4Dvgvs0yjMiOpaemsnOQjZdM9naJ7EYXZEP77zAw0WvA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-tooltip@5.24.0(react-dom@18.2.0)(react@18.2.0):

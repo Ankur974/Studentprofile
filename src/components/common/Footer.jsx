@@ -12,6 +12,7 @@ import { H6, Body1, Body2, H1, Display, H3 } from "@common/ui/Headings";
 import {
   ACCENT_0,
   ACCENT_400,
+  ACCENT_800,
   PRIMARY_800,
   SECONDARY_800,
 } from "@common/ui/colors";
@@ -24,7 +25,9 @@ const FooterContainer = styled(FlexBox)`
   flex-direction: column;
   padding: 2.5rem;
   gap: 2.5rem;
-  background-color: ${SECONDARY_800};
+
+  background-color: ${({ customBg }) =>
+    customBg ? ACCENT_800 : SECONDARY_800};
 `;
 
 const ContentContainer = styled(FlexBox)`
@@ -127,12 +130,12 @@ const getInTouchNavLinkData = [
   },
 ];
 
-const Footer = () => {
+const Footer = ({ eventMobileView }) => {
   const router = useRouter();
 
   return (
     <>
-      <FooterContainer>
+      <FooterContainer customBg={eventMobileView}>
         <FlexBox column rowGap="0.25rem">
           <FlexBox justify="center">
             <Display color={ACCENT_0}>
@@ -162,41 +165,43 @@ const Footer = () => {
               );
             })}
         </FlexBox>
-        <ContentContainer>
-          <ContentBox isLarge align="center">
-            <img src="/assets/images/pamprazzi-logo-white.svg"></img>
-            <Body1 color={ACCENT_0}>Simplifying Self-Care</Body1>
-          </ContentBox>
-          <ContentBox>
-            <HeadingText>Services</HeadingText>
-            {servicesNavLinkData.map((button, index) => (
-              <NavLink
-                key={index}
-                cursor="pointer"
-                onClick={() => router.push(button?.link)}
-                color={ACCENT_0}
-              >
-                {button.name}
-              </NavLink>
-            ))}
-          </ContentBox>
-          <ContentBox>
-            <HeadingText>About</HeadingText>
-            {aboutNavLinkData.map((button, index) => (
-              <NavLink key={index} onClick={button.onClick}>
-                {button.name}
-              </NavLink>
-            ))}
-          </ContentBox>
-          <ContentBox>
-            <HeadingText>Get in touch</HeadingText>
-            {getInTouchNavLinkData.map((button, index) => (
-              <NavLink key={index} onClick={button.onClick}>
-                {button.name}
-              </NavLink>
-            ))}
-          </ContentBox>
-        </ContentContainer>
+        {!eventMobileView && (
+          <ContentContainer>
+            <ContentBox isLarge align="center">
+              <img src="/assets/images/pamprazzi-logo-white.svg"></img>
+              <Body1 color={ACCENT_0}>Simplifying Self-Care</Body1>
+            </ContentBox>
+            <ContentBox>
+              <HeadingText>Services</HeadingText>
+              {servicesNavLinkData.map((button, index) => (
+                <NavLink
+                  key={index}
+                  cursor="pointer"
+                  onClick={() => router.push(button?.link)}
+                  color={ACCENT_0}
+                >
+                  {button.name}
+                </NavLink>
+              ))}
+            </ContentBox>
+            <ContentBox>
+              <HeadingText>About</HeadingText>
+              {aboutNavLinkData.map((button, index) => (
+                <NavLink key={index} onClick={button.onClick}>
+                  {button.name}
+                </NavLink>
+              ))}
+            </ContentBox>
+            <ContentBox>
+              <HeadingText>Get in touch</HeadingText>
+              {getInTouchNavLinkData.map((button, index) => (
+                <NavLink key={index} onClick={button.onClick}>
+                  {button.name}
+                </NavLink>
+              ))}
+            </ContentBox>
+          </ContentContainer>
+        )}
       </FooterContainer>
       <CopyRightBox>
         <H6 color={ACCENT_0}>
