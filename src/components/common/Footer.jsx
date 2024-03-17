@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   SlSocialFacebook,
   SlSocialLinkedin,
@@ -9,6 +9,7 @@ import {
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
+import { trackEvent } from "@utils/helpers";
 import { H6, Body1, Body2, H1, Display, H3 } from "@common/ui/Headings";
 import {
   ACCENT_0,
@@ -93,12 +94,21 @@ const IconContainer = styled(FlexBox)`
 `;
 
 const socialIconsData = [
-  { icon: SlSocialFacebook, link: "https://www.facebook.com/pamprazzi/", mediaType:"Facebook"},
+  {
+    icon: SlSocialFacebook,
+    link: "https://www.facebook.com/pamprazzi/",
+    mediaType: "Facebook",
+  },
   {
     icon: SlSocialLinkedin,
-    link: "https://www.linkedin.com/home?originalSubdomain=in", mediaType:"LinkedIn"
+    link: "https://www.linkedin.com/home?originalSubdomain=in",
+    mediaType: "LinkedIn",
   },
-  { icon: SlSocialInstagram, link: "https://www.instagram.com/pamprazzi/",mediaType:"Instagram" },
+  {
+    icon: SlSocialInstagram,
+    link: "https://www.instagram.com/pamprazzi/",
+    mediaType: "Instagram",
+  },
   // { icon: SlSpeech, link: "" },
 ];
 
@@ -133,8 +143,7 @@ const getInTouchNavLinkData = [
 
 const Footer = ({ eventMobileView }) => {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const currentUser = useSelector(state=>state.auth?.user);
+  const currentUser = useSelector(state => state.auth?.user);
 
   return (
     <>
@@ -165,9 +174,11 @@ const Footer = ({ eventMobileView }) => {
                     onClick={() => {
                       trackEvent({
                         event: "footer-social-click",
-                        payload: { source: "holi-lp",
-                      isLoggedIn: currentUser?true:false,
-                      social: socialIconsData.mediaType},
+                        payload: {
+                          source: "holi-lp",
+                          isLoggedIn: currentUser ? true : false,
+                          social: socialIconsData.mediaType,
+                        },
                       });
                     }}
                   >
