@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import FlexBox from "@common/UI/FlexBox";
-import { H1, Body1, Body2 } from "@common/UI/Headings";
+import FlexBox from "@common/ui/FlexBox";
+import { H1, Body1, Body2 } from "@common/ui/Headings";
 import { IoMdAdd } from "react-icons/io";
 import { RiSubtractFill } from "react-icons/ri";
 import { ACCENT_0, ACCENT_200 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   padding: 5rem 1.5rem;
-  align-items:center;
-  justify-content:center;
-  row-gap:2rem;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2rem;
 `;
 
 const Card = styled(FlexBox)`
@@ -36,10 +36,10 @@ const Icon = styled(FlexBox)`
   align-items: center;
 `;
 
-const TitleBox=styled(FlexBox)`
-background-color:${ACCENT_200};
-padding:1rem;
-border-radius:0.5rem;
+const TitleBox = styled(FlexBox)`
+  background-color: ${ACCENT_200};
+  padding: 1rem;
+  border-radius: 0.5rem;
 `;
 const headingData = [
   {
@@ -102,7 +102,7 @@ const FaQ = () => {
             onClick={() => toggleExpanded(index)}
             rowGap="0.75rem"
           >
-            <TitleBox width="100%" justify="space-between" >
+            <TitleBox width="100%" justify="space-between">
               <Body1 bold>{item.Heading}</Body1>
               <Icon>
                 {expandedIndex === index ? <RiSubtractFill /> : <IoMdAdd />}

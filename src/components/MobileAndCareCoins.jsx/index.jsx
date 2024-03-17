@@ -12,9 +12,10 @@ const MobileAndCoinContainer = styled(FlexBox)`
   flex-direction: column;
   padding: 5rem 1.5rem;
   gap: 2.5rem;
-  margin:-0.25rem 0 0;
+  margin: -0.25rem 0 0;
   background-color: ${PRIMARY_900};
-   @media ${device.laptop} {
+
+  @media ${device.laptop} {
     flex-direction: row;
     padding: 3rem;
   }
@@ -25,10 +26,11 @@ const LeftSection = styled(FlexBox)`
 `;
 
 const MobileImg = styled.img`
-  height: 20rem;
+  height: 100%;
+  max-height: 20rem;
 
   @media ${device.laptop} {
-    height: 40.5rem;
+    max-height: 40.5rem;
   }
 `;
 
@@ -57,27 +59,20 @@ const subheadings = [
 ];
 
 export const MobileAndCoinSection = () => (
-  <>
-    <MobileAndCoinContainer>
-      <LeftSection>
-        <MobileImg src="/assets/images/care-coin-banner.webp" />
-      </LeftSection>
-      <RightSection justify="center" rowGap="1rem">
-        <Display bold color={ACCENT_0}>
-          Make appointments using Care Coins
-        </Display>
-        {subheadings.map((subheading, index) => (
-          <FlexBox
-            key={index}
-            columnGap="0.5rem"
-            align="center"
-            justify="center"
-          >
-            <FiCheckCircle color={ACCENT_0} />
-            <Body2 color={ACCENT_0}>{subheading.text}</Body2>
-          </FlexBox>
-        ))}
-      </RightSection>
-    </MobileAndCoinContainer>
-  </>
+  <MobileAndCoinContainer>
+    <LeftSection>
+      <MobileImg src="/assets/images/care-coin-banner.webp" />
+    </LeftSection>
+    <RightSection justify="center" rowGap="1rem">
+      <Display bold color={ACCENT_0}>
+        Make appointments using Care Coins
+      </Display>
+      {subheadings.map((subheading, index) => (
+        <FlexBox key={index} columnGap="0.5rem" align="center" justify="center">
+          <FiCheckCircle color={ACCENT_0} />
+          <Body2 color={ACCENT_0}>{subheading.text}</Body2>
+        </FlexBox>
+      ))}
+    </RightSection>
+  </MobileAndCoinContainer>
 );
