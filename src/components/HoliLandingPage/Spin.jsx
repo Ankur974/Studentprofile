@@ -118,7 +118,7 @@ const SpinWin = () => {
     <Wrapper>
       <GamePageHeading
         heading="Spin The Wheel"
-        subHeading="Lorem ipsum dolor sit amet consectetur. Bibendum dui porta leo sed neque."
+        subHeading="Spin the Wheel for Exclusive Access: Secure Your Early Entry to Our Exciting Launch!"
       />
       <FlexBox
         column

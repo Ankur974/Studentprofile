@@ -60,7 +60,7 @@ const SpinWheel = ({ targetElement }) => {
       {loginModal && <LoginModal setModalOpen={setLoginModal} page="spinner" />}
       <Header
         title="Spin the wheel!"
-        subTitle="Lorem ipsum dolor sit amet consectetur. Semper rhoncus."
+        subTitle="Spin Pamprazzi's wheel for chance to win vouchers redeemable at nearby salons & parlors."
         isDark
       />
       <Card>
