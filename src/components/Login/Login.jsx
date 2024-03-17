@@ -172,7 +172,14 @@ const Login = ({ setModalOpen, page }) => {
         if (res?.data?.data?.found) {
           dispatch(setUser(res?.data?.data?.data));
           setModalOpen(false);
-          router.push(`/holi-2024/game/${page}`);
+
+          const spinData = res?.data?.data?.data;
+
+          if (spinData?.isSpin) {
+            router.push("/holi-2024/voucher");
+          } else {
+            router.push(`/holi-2024/game/${page}`);
+          }
         } else {
           setCurrentStep(3);
         }

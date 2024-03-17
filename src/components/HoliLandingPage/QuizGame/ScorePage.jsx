@@ -118,7 +118,7 @@ const ScorePage = () => {
           <br />
           you WON A VOUCHER
         </H_2>
-        <FlexBox column rowGap="2.5rem">
+        <FlexBox column rowGap="1rem">
           <FlexBox justify="center">
             <Img src="/assets/images/voucher-bg.webp" />
             <FlexBox
@@ -148,16 +148,22 @@ const ScorePage = () => {
             </CouponDate>
             <FlexBox column>
               <Body2 color={ACCENT_0}>
-                Note: an email will be sent to you to access this voucher.
+                Note: Your Pre-Launch Coupon is ready! Redeem it at nearby
+                salons from March 26 to April 15.
               </Body2>
               <Body2 color={ACCENT_0}>{voucher?.terms_condition}</Body2>
             </FlexBox>
           </SalonDetails>
         </FlexBox>
-        <SocialBox onClick={handleOpenInstagram}>
-          <Image src="/assets/instagram.webp" width={20} height={20} />
-          <Body2 color={MID_TONE_PURPLE}>Follow us @pamprazzi</Body2>
-        </SocialBox>
+        <FlexBox column rowGap="0.25rem">
+          <Body2 color={ACCENT_0}>
+            Follow us on Instagram for launch updates on March 26th
+          </Body2>
+          <SocialBox onClick={handleOpenInstagram}>
+            <Image src="/assets/instagram.webp" width={20} height={20} />
+            <Body2 color={MID_TONE_PURPLE}>Follow us @pamprazzi</Body2>
+          </SocialBox>
+        </FlexBox>
       </ItemContainer>
     </Wrapper>
   );
