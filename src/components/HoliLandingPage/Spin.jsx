@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 import FlexBox from "@common/ui/FlexBox";
+import EventPageLayout from "@layout/client/EventPageLayout";
 import { Button } from "@common/ui/Buttons";
 import { PRIMARY_800 } from "@common/ui/colors";
 import GamePageHeading from "./QuizGame/GamePageHeading";
@@ -116,30 +117,32 @@ const SpinWin = () => {
 
   return (
     <Wrapper>
-      <GamePageHeading
-        heading="Spin The Wheel"
-        subHeading="Lorem ipsum dolor sit amet consectetur. Bibendum dui porta leo sed neque."
-      />
-      <FlexBox
-        column
-        align="center"
-        justify="center"
-        rowGap="2rem"
-        width="27rem"
-      >
-        <SpinAndWin
-          ref={ref}
-          data={freeSpinGifts}
-          result={winnerCode}
-          hideButton={true}
-          time={10}
-          removeButtonEffect={true}
-          horizantalText={false}
-          fontFamily="poppins"
-          fontSize="20"
+      <EventPageLayout>
+        <GamePageHeading
+          heading="Spin The Wheel"
+          subHeading="Spin the Wheel for Exclusive Access: Secure Your Early Entry to Our Exciting Launch!"
         />
-        <Button onClick={handleSpin}>Click Here To Spin</Button>
-      </FlexBox>
+        <FlexBox
+          column
+          align="center"
+          justify="center"
+          rowGap="2rem"
+          width="27rem"
+        >
+          <SpinAndWin
+            ref={ref}
+            data={freeSpinGifts}
+            result={winnerCode}
+            hideButton={true}
+            time={10}
+            removeButtonEffect={true}
+            horizantalText={false}
+            fontFamily="poppins"
+            fontSize="20"
+          />
+          <Button onClick={handleSpin}>Click Here To Spin</Button>
+        </FlexBox>
+      </EventPageLayout>
     </Wrapper>
   );
 };

@@ -1,12 +1,16 @@
 import React from "react";
 import SpinWin from "@components/HoliLandingPage/Spin";
 import EventPageLayout from "@layout/client/EventPageLayout";
+import Gamify from "../../../components/HoliLandingPage/QuizGame";
 
 const spinner = () => {
   return (
-    <EventPageLayout>
-      <SpinWin />
-    </EventPageLayout>
+    <>
+      <Gamify />
+      <EventPageLayout>
+        <SpinWin />
+      </EventPageLayout>
+    </>
   );
 };
 
