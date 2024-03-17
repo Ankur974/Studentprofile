@@ -45,16 +45,16 @@ const RightSection = styled(FlexBox)`
 
 const subheadings = [
   {
-    text: "Loyalty rewarded: Care coins for customer loyalty benefits.",
+    text: "Loyalty Incentives: Earn rewards through loyalty points for continued patronage.",
   },
   {
-    text: "Easy redemption: Hassle-free perks with Care coin redemption.",
+    text: "Effortless Redemption: Seamlessly redeem rewards for hassle-free perks and benefits.",
   },
   {
-    text: "Streamlined booking: Convenient booking with seamless Care coin usage.",
+    text: "Simplified Booking Process: Streamlined booking system for convenient appointments.",
   },
   {
-    text: "Personalized savings: Affordable salon visits with earned Care coins.",
+    text: "Personalized Savings: Enjoy tailored discounts and savings for salon visits.",
   },
 ];
 
@@ -65,7 +65,7 @@ export const MobileAndCoinSection = () => (
     </LeftSection>
     <RightSection justify="center" rowGap="1rem">
       <Display bold color={ACCENT_0}>
-        Make appointments using Care Coins
+        Elevate Your Salon Experience With Pamprazzi
       </Display>
       {subheadings.map((subheading, index) => (
         <FlexBox key={index} columnGap="0.5rem" align="center" justify="center">

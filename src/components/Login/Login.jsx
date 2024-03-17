@@ -203,9 +203,16 @@ const Login = ({ setModalOpen, page }) => {
       );
 
       if (res?.status === 200) {
-        dispatch(setUser(res?.data?.data));
+        dispatch(setUser(res?.data));
         setModalOpen(false);
-        router.push(`/holi-2024/game/${page}`);
+
+        const spinData = res?.data;
+
+        if (spinData?.isSpin) {
+          router.push("/holi-2024/voucher");
+        } else {
+          router.push(`/holi-2024/game/${page}`);
+        }
       }
     } catch (err) {
       console.log(err);
@@ -284,11 +291,6 @@ const Login = ({ setModalOpen, page }) => {
               placeholder="enter your full name"
               value={name}
               onChange={e => setName(e.target.value)}
-              onKeyDown={e => {
-                if (e.key === "Enter") {
-                  handleCreateUser();
-                }
-              }}
             />
             <Body1 bold>Gender</Body1>
             <Container>
