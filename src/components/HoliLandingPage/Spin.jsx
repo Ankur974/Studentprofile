@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 import FlexBox from "@common/ui/FlexBox";
+import EventPageLayout from "@layout/client/EventPageLayout";
 import { Button } from "@common/ui/Buttons";
 import { PRIMARY_800 } from "@common/ui/colors";
 import GamePageHeading from "./QuizGame/GamePageHeading";
@@ -116,6 +117,7 @@ const SpinWin = () => {
 
   return (
     <Wrapper>
+      <EventPageLayout>
       <GamePageHeading
         heading="Spin The Wheel"
         subHeading="Lorem ipsum dolor sit amet consectetur. Bibendum dui porta leo sed neque."
@@ -140,6 +142,7 @@ const SpinWin = () => {
         />
         <Button onClick={handleSpin}>Click Here To Spin</Button>
       </FlexBox>
+      </EventPageLayout>
     </Wrapper>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector,useDispatch } from "react-redux";
 import {
   SlSocialFacebook,
   SlSocialLinkedin,
@@ -92,12 +93,12 @@ const IconContainer = styled(FlexBox)`
 `;
 
 const socialIconsData = [
-  { icon: SlSocialFacebook, link: "https://www.facebook.com/pamprazzi/" },
+  { icon: SlSocialFacebook, link: "https://www.facebook.com/pamprazzi/", mediaType:"Facebook"},
   {
     icon: SlSocialLinkedin,
-    link: "https://www.linkedin.com/home?originalSubdomain=in",
+    link: "https://www.linkedin.com/home?originalSubdomain=in", mediaType:"LinkedIn"
   },
-  { icon: SlSocialInstagram, link: "https://www.instagram.com/pamprazzi/" },
+  { icon: SlSocialInstagram, link: "https://www.instagram.com/pamprazzi/",mediaType:"Instagram" },
   // { icon: SlSpeech, link: "" },
 ];
 
@@ -132,6 +133,8 @@ const getInTouchNavLinkData = [
 
 const Footer = ({ eventMobileView }) => {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const currentUser = useSelector(state=>state.auth?.user);
 
   return (
     <>
@@ -158,7 +161,16 @@ const Footer = ({ eventMobileView }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <IconContainer>
+                  <IconContainer
+                    onClick={() => {
+                      trackEvent({
+                        event: "footer-social-click",
+                        payload: { source: "holi-lp",
+                      isLoggedIn: currentUser?true:false,
+                      social: socialIconsData.mediaType},
+                      });
+                    }}
+                  >
                     <Icon color={ACCENT_0} size={24} />
                   </IconContainer>
                 </a>
