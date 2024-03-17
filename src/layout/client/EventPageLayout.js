@@ -6,11 +6,12 @@ import FlexBox from "@common/ui/FlexBox";
 const Logo = styled.img`
   width: 100%;
   cursor: pointer;
+
 `;
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
-  padding: 1rem;
+  flex-direction: column;
 `;
 
 const EventPageLayout = ({ children }) => {
@@ -24,8 +25,8 @@ const EventPageLayout = ({ children }) => {
           src="/assets/images/pamprazzi-logo.svg"
           alt="pamprazzi Logo"
         />
+        {children}
       </Wrapper>
-      {children}
     </>
   );
 };
