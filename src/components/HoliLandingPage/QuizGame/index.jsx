@@ -60,10 +60,10 @@ const Gamify = () => {
         <>
           <GamePageHeading
             heading="Spin Game"
-            subHeading="Lorem ipsum dolor sit amet consectetur. Bibendum dui porta leo sed neque."
+            subHeading="Tick-Tock Spin: Countdown to Winning!"
           />
           <FlexBox column align="center" padding="3rem 0" rowGap="1rem">
-            <H2>Quiz starts in...</H2>
+            <H2>Spin starts in...</H2>
             <Counter key={animationKey} color={ACCENT_500}>
               {counter}
             </Counter>
