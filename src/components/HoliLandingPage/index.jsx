@@ -9,6 +9,7 @@ import FooterWaves from "@components/HoliLandingPage/FooterWaves";
 import Widget from "./Widget";
 import { trackEvent } from "../../utils/helpers";
 import { MobileAndCoinSection } from "../MobileAndCareCoins.jsx";
+import FaQ from "../common/FAQ.jsx";
 
 const HoliLandingPage = () => {
   const targetRef = useRef(null);
@@ -23,8 +24,10 @@ const HoliLandingPage = () => {
       <Widget />
       <SpinWheel targetElement={targetRef} />
       {/* <BeautyQuiz /> */}
-      <MobileAndCoinSection/>
+      <MobileAndCoinSection />
+      <FaQ />
       <FooterWaves />
+
       <Footer eventMobileView />
     </>
   );
