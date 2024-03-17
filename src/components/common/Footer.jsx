@@ -177,7 +177,7 @@ const Footer = ({ eventMobileView }) => {
                         payload: {
                           source: "holi-lp",
                           isLoggedIn: currentUser ? true : false,
-                          social: socialIconsData.mediaType,
+                          social: socialIconsData?.mediaType,
                         },
                       });
                     }}
