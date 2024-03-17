@@ -143,7 +143,6 @@ const getInTouchNavLinkData = [
 
 const Footer = ({ eventMobileView }) => {
   const router = useRouter();
-  const dispatch = useDispatch();
   const currentUser = useSelector(state => state.auth?.user);
 
   return (
