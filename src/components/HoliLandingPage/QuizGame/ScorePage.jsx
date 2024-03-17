@@ -77,6 +77,17 @@ const Img = styled.img`
   max-height: 17.9375rem;
 `;
 
+// const Button = styled(FlexBox)`
+//   display: inline-flex;
+//   padding: 0.5rem 2rem;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 0.625rem;
+
+//   border-radius: 4.25rem;
+//   background: ${ACCENT_200};
+// `;
+
 const ScorePage = () => {
   const [showConfetti, setShowConfetti] = useState(true);
 
@@ -118,9 +129,10 @@ const ScorePage = () => {
           <br />
           you WON A VOUCHER
         </H_2>
-        <FlexBox column rowGap="2.5rem">
+        <FlexBox column rowGap="1rem">
           <FlexBox justify="center">
             <Img src="/assets/images/voucher-bg.webp" />
+            {/* <FlexBox position="absolute" column rowGap="2rem"> */}
             <FlexBox
               column
               align="center"
@@ -134,6 +146,10 @@ const ScorePage = () => {
               <H1 bold color={ACCENT_0} textTransform="uppercase">
                 {voucher?.coupon_code}
               </H1>
+              {/* </FlexBox>
+              <Button>
+                <Body1 bold>Reedem</Body1>
+              </Button> */}
             </FlexBox>
           </FlexBox>
           <SalonDetails>
@@ -148,16 +164,23 @@ const ScorePage = () => {
             </CouponDate>
             <FlexBox column>
               <Body2 color={ACCENT_0}>
-                Note: an email will be sent to you to access this voucher.
+                {voucher?.service !== "Care Coin"
+                  ? "Note: Your Pre-Launch Coupon is ready! Redeem it at nearby salons from March 26 to April 15."
+                  : "Note: Care Coins available in your account from March 26. Use them to book appointments effortlessly!"}
               </Body2>
               <Body2 color={ACCENT_0}>{voucher?.terms_condition}</Body2>
             </FlexBox>
           </SalonDetails>
         </FlexBox>
-        <SocialBox onClick={handleOpenInstagram}>
-          <Image src="/assets/instagram.webp" width={20} height={20} />
-          <Body2 color={MID_TONE_PURPLE}>Follow us @pamprazzi</Body2>
-        </SocialBox>
+        <FlexBox column rowGap="0.25rem">
+          <Body2 color={ACCENT_0}>
+            Follow us on Instagram for launch updates on March 26th
+          </Body2>
+          <SocialBox onClick={handleOpenInstagram}>
+            <Image src="/assets/instagram.webp" width={20} height={20} />
+            <Body2 color={MID_TONE_PURPLE}>Follow us @pamprazzi</Body2>
+          </SocialBox>
+        </FlexBox>
       </ItemContainer>
     </Wrapper>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+
 import CoinHistory from "@components/Reward/CoinHistory";
 import HomePageLayout from "@layout/client/HomePageLayout";
 

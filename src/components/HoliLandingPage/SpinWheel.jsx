@@ -57,10 +57,10 @@ const SpinWheel = ({ targetElement }) => {
 
   return (
     <Wrapper ref={targetElement}>
-      {loginModal && <LoginModal setModalOpen={setLoginModal} page="spinner" />}
+      {loginModal && <LoginModal setModalOpen={setLoginModal} page="gamify" />}
       <Header
         title="Spin the wheel!"
-        subTitle="Lorem ipsum dolor sit amet consectetur. Semper rhoncus."
+        subTitle="Spin Pamprazzi's wheel for chance to win vouchers redeemable at nearby salons & parlors."
         isDark
       />
       <Card>

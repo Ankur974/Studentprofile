@@ -61,7 +61,7 @@ const Widget1 = ({ reverse }) => (
   <WidgetContainer reverse={reverse}>
     <RightSection justify="center" rowGap="1rem">
       <Caption bold>
-        Self Care at your fingertips: Reviews for smarter bookings.
+        Self-care made easy: Smart booking with insightful reviews!
       </Caption>
     </RightSection>
     <LeftSection>

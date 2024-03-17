@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { H1, H5 } from "@common/ui/Headings";
+import { H1, Body2 } from "@common/ui/Headings";
 
 const HeadingWrapper = styled(FlexBox)`
   flex-direction: column;
@@ -14,9 +14,9 @@ const GamePageHeading = ({ heading, subHeading }) => {
   return (
     <HeadingWrapper>
       <H1 bold>{heading}</H1>
-      <H5 textAlign="center" padding="0 0.5rem">
+      <Body2 textAlign="center" padding="0 0.5rem">
         {subHeading}
-      </H5>
+      </Body2>
     </HeadingWrapper>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
   SlSocialFacebook,
   SlSocialLinkedin,
@@ -8,6 +9,7 @@ import {
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
+import { trackEvent } from "@utils/helpers";
 import { H6, Body1, Body2, H1, Display, H3 } from "@common/ui/Headings";
 import {
   ACCENT_0,
@@ -92,12 +94,21 @@ const IconContainer = styled(FlexBox)`
 `;
 
 const socialIconsData = [
-  { icon: SlSocialFacebook, link: "https://www.facebook.com/pamprazzi/" },
+  {
+    icon: SlSocialFacebook,
+    link: "https://www.facebook.com/pamprazzi/",
+    mediaType: "Facebook",
+  },
   {
     icon: SlSocialLinkedin,
     link: "https://www.linkedin.com/home?originalSubdomain=in",
+    mediaType: "LinkedIn",
   },
-  { icon: SlSocialInstagram, link: "https://www.instagram.com/pamprazzi/" },
+  {
+    icon: SlSocialInstagram,
+    link: "https://www.instagram.com/pamprazzi/",
+    mediaType: "Instagram",
+  },
   // { icon: SlSpeech, link: "" },
 ];
 
@@ -132,6 +143,7 @@ const getInTouchNavLinkData = [
 
 const Footer = ({ eventMobileView }) => {
   const router = useRouter();
+  const currentUser = useSelector(state => state.auth?.user);
 
   return (
     <>
@@ -158,7 +170,18 @@ const Footer = ({ eventMobileView }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <IconContainer>
+                  <IconContainer
+                    onClick={() => {
+                      trackEvent({
+                        event: "footer-social-click",
+                        payload: {
+                          source: "holi-lp",
+                          isLoggedIn: currentUser ? true : false,
+                          social: socialIconsData?.mediaType,
+                        },
+                      });
+                    }}
+                  >
                     <Icon color={ACCENT_0} size={24} />
                   </IconContainer>
                 </a>
