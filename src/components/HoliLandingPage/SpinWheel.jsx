@@ -17,6 +17,8 @@ const Wrapper = styled(FlexBox)`
   background-color: ${PRIMARY_900};
   padding: 2.5rem 1.25rem;
   align-items: center;
+  margin:-0.25rem 0;
+  border-radius: 0 0 0.5rem 0.5rem;
 `;
 
 const CardHeading = styled(Caption)`

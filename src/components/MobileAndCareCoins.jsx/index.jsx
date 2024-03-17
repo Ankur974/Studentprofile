@@ -8,16 +8,15 @@ import { device } from "@common/ui/Resposive";
 import { PRIMARY_900, ACCENT_0 } from "@common/ui/colors";
 
 const MobileAndCoinContainer = styled(FlexBox)`
-  max-width: 75rem;
   flex-direction: column;
   padding: 5rem 1.5rem;
   gap: 2.5rem;
-  margin: -0.25rem 0 0;
+  margin: -0.25rem 0 0 0;
   background-color: ${PRIMARY_900};
 
   @media ${device.laptop} {
     flex-direction: row;
-    padding: 3rem;
+    padding: 5rem ;
   }
 `;
 
@@ -27,7 +26,7 @@ const LeftSection = styled(FlexBox)`
 
 const MobileImg = styled.img`
   height: 100%;
-  max-height: 20rem;
+  max-height: 28rem;
 
   @media ${device.laptop} {
     max-height: 40.5rem;
@@ -68,7 +67,7 @@ export const MobileAndCoinSection = () => (
         Elevate Your Salon Experience With Pamprazzi
       </Display>
       {subheadings.map((subheading, index) => (
-        <FlexBox key={index} columnGap="0.5rem" align="center" justify="center">
+        <FlexBox key={index} columnGap="0.5rem" align="center" justify="start">
           <FiCheckCircle color={ACCENT_0} />
           <Body2 color={ACCENT_0}>{subheading.text}</Body2>
         </FlexBox>
