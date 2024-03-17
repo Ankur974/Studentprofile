@@ -76,7 +76,7 @@ const Widget2 = () => (
       <WidgetImg src="/assets/images/holi/widget1.webp" />
     </LeftSection>
     <RightSection justify="center" rowGap="1rem">
-      <Caption bold>No hidden charges: Book with us, no fees!</Caption>
+      <Caption bold>Book with Us - Zero Fees, Zero Surprises!</Caption>
     </RightSection>
   </WidgetContainer>
 );
