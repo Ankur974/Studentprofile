@@ -22,6 +22,7 @@ const Card = styled(FlexBox)`
 
 const CardText = styled(FlexBox)`
   flex-direction: column;
+  padding: 0 1rem;
   color: ${ACCENT_0};
   font-family: Poppins;
   font-size: 1rem;
@@ -31,7 +32,6 @@ const CardText = styled(FlexBox)`
 `;
 
 const Icon = styled(FlexBox)`
-  display: flex;
   justify-content: center;
   align-items: center;
 `;
