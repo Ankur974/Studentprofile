@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
+import { useSelector } from "react-redux";
 import { Caption } from "@common/ui/Headings";
 import { PRIMARY_900, WHITE } from "@common/ui/colors";
 import { Button } from "@common/ui/Buttons";
+import { trackEvent } from "@utils/helpers";
 import LoginModal from "../Login";
 import { Header } from "./Header";
 
@@ -51,8 +53,20 @@ const SpinImg = styled.img`
 const SpinWheel = ({ targetElement }) => {
   const [loginModal, setLoginModal] = useState(false);
 
+  const currentUser = useSelector(state => state.auth?.user);
+
   const toggleModal = () => {
     setLoginModal(!loginModal);
+  };
+
+  const track = () => {
+    trackEvent({
+      event: "spin-now-click",
+      payload: {
+        source: "holi-lp",
+        isLoggedIn: currentUser ? true : false,
+      },
+    });
   };
 
   return (
@@ -67,7 +81,14 @@ const SpinWheel = ({ targetElement }) => {
         <CardHeading>
           Get exciting prices and vouchers on your nearest salon
         </CardHeading>
-        <SpinCTA onClick={toggleModal}>Spin Now!</SpinCTA>
+        <SpinCTA
+          onClick={() => {
+            toggleModal();
+            track();
+          }}
+        >
+          Spin Now!
+        </SpinCTA>
         <SpinImg src="/assets/images/holi/Spin.webp"></SpinImg>
       </Card>
     </Wrapper>

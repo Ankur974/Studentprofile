@@ -177,7 +177,12 @@ const ScorePage = () => {
             Follow us on Instagram for launch updates on March 26th
           </Body2>
           <SocialBox onClick={handleOpenInstagram}>
-            <Image src="/assets/instagram.webp" width={20} height={20} />
+            <Image
+              src="/assets/instagram.webp"
+              alt="ig"
+              width={20}
+              height={20}
+            />
             <Body2 color={MID_TONE_PURPLE}>Follow us @pamprazzi</Body2>
           </SocialBox>
         </FlexBox>

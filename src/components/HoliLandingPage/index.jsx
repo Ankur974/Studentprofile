@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 import Footer from "@common/Footer";
 import Play from "@components/HoliLandingPage/Play";
@@ -9,7 +8,7 @@ import FooterWaves from "@components/HoliLandingPage/FooterWaves";
 import Widget from "./Widget";
 import { trackEvent } from "../../utils/helpers";
 import { MobileAndCoinSection } from "../MobileAndCareCoins.jsx";
-import FaQ from "../common/FAQ.jsx";
+import FaQ from "@common/FAQ.jsx";
 
 const HoliLandingPage = () => {
   const targetRef = useRef(null);
