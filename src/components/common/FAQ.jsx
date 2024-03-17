@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import FlexBox from "@common/UI/FlexBox";
-import { H1, Body1, Body2 } from "@common/UI/Headings";
+import FlexBox from "@common/ui/FlexBox";
+import { H1, Body1, Body2 } from "@common/ui/Headings";
 import { IoMdAdd } from "react-icons/io";
 import { RiSubtractFill } from "react-icons/ri";
 import { ACCENT_0, SECONDARY_100 } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   padding: 5rem 1.5rem;
-  align-items:center;
-  justify-content:center;
-  row-gap:2rem;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2rem;
 `;
 
 const Card = styled(FlexBox)`
