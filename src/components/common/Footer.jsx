@@ -150,7 +150,7 @@ const Footer = ({ eventMobileView }) => {
       <FooterContainer customBg={eventMobileView}>
         <FlexBox column rowGap="0.25rem">
           <FlexBox justify="center">
-            <Display color={ACCENT_0}>
+            <Display color={ACCENT_0} textAlign="center">
               Don’t forget to पेम्पेर yourself!
             </Display>
           </FlexBox>
