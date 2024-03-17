@@ -22,12 +22,11 @@ const HoliLandingPage = () => {
     <>
       <Play targetElement={targetRef} />
       <Widget />
-      <SpinWheel targetElement={targetRef} />
       {/* <BeautyQuiz /> */}
       <MobileAndCoinSection />
+      <SpinWheel targetElement={targetRef} />
       <FaQ />
       <FooterWaves />
-
       <Footer eventMobileView />
     </>
   );
