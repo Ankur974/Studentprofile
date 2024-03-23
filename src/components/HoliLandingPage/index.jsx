@@ -20,10 +20,10 @@ const HoliLandingPage = () => {
   return (
     <>
       <Play targetElement={targetRef} />
-      <Widget />
+      <Widget targetElement={targetRef} />
       {/* <BeautyQuiz /> */}
       <MobileAndCoinSection />
-      <SpinWheel targetElement={targetRef} />
+      <SpinWheel />
       <FaQ />
       <FooterWaves />
       <Footer eventMobileView />

@@ -61,7 +61,8 @@ const Widget1 = ({ reverse }) => (
   <WidgetContainer reverse={reverse}>
     <RightSection justify="center" rowGap="1rem">
       <Caption bold>
-        Self-care made easy: Smart booking with insightful reviews!
+        Self-care made easy: Smart salon appointment booking with insightful
+        reviews!
       </Caption>
     </RightSection>
     <LeftSection>
@@ -81,8 +82,8 @@ const Widget2 = () => (
   </WidgetContainer>
 );
 
-const Widget = () => (
-  <Wrapper>
+const Widget = ({ targetElement }) => (
+  <Wrapper ref={targetElement}>
     <Widget1 />
     <Widget2 />
   </Wrapper>
