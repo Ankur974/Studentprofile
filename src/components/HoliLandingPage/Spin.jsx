@@ -78,23 +78,23 @@ const colorCodes = [
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
-  row-gap: 3.5rem;
+  row-gap: 1rem;
   padding: 1rem;
-  margin: 1rem;
+  margin: 0 1rem;
   justify-content: center;
   align-items: center;
 
   ._28Wol {
     background-color: ${PRIMARY_800};
-    max-width: 25.9375rem;
-    max-height: 25.9375rem;
-    min-width: 25.9375rem;
-    min-height: 25.9375rem;
+    max-width: 25.345rem;
+    max-height: 25.345rem;
+    min-width: 25.345rem;
+    min-height: 25.345rem;
   }
 
   ._1E7u3 {
-    width: 22.5rem;
-    height: 22.5rem;
+    width: 22rem;
+    height: 22rem;
   }
 `;
 
@@ -116,8 +116,8 @@ const SpinWin = () => {
   };
 
   return (
-    <Wrapper>
-      <EventPageLayout>
+    <EventPageLayout>
+      <Wrapper>
         <GamePageHeading
           heading="Spin The Wheel"
           subHeading="Spin the Wheel for Exclusive Access: Secure Your Early Entry to Our Exciting Launch!"
@@ -126,7 +126,7 @@ const SpinWin = () => {
           column
           align="center"
           justify="center"
-          rowGap="2rem"
+          rowGap="1rem"
           width="27rem"
         >
           <SpinAndWin
@@ -142,8 +142,8 @@ const SpinWin = () => {
           />
           <Button onClick={handleSpin}>Click Here To Spin</Button>
         </FlexBox>
-      </EventPageLayout>
-    </Wrapper>
+      </Wrapper>
+    </EventPageLayout>
   );
 };
 

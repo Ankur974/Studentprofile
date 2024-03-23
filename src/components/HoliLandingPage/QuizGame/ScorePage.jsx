@@ -32,10 +32,8 @@ const Body_1 = styled(Body1)`
 const ItemContainer = styled(FlexBox)`
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0 2.5rem;
-  margin: auto;
-  gap: 2.5rem;
+  padding: 4rem 1.5rem;
+  gap: 1.5rem;
 
   @media ${device.laptop} {
     padding: 2.5rem 2.5rem 0;
@@ -73,8 +71,7 @@ const SocialBox = styled(FlexBox)`
 const Img = styled.img`
   width: auto;
   height: auto;
-  max-width: 15.2rem;
-  max-height: 17.9375rem;
+  max-height: 15rem;
 `;
 
 // const Button = styled(FlexBox)`
