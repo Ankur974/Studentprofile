@@ -5,7 +5,8 @@ import { device } from "@common/ui/Resposive";
 import { Display, H2 } from "@common/ui/Headings";
 import { ACCENT_500 } from "@common/ui/colors";
 import GamePageHeading from "./GamePageHeading";
-import Quiz from "./Quiz";
+// import Quiz from "./Quiz";
+import SpinWin from "../Spin";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -37,7 +38,7 @@ const Counter = styled(Display)`
 `;
 
 const Gamify = () => {
-  const [counter, setCounter] = useState(3);
+  const [counter, setCounter] = useState(5);
   const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
@@ -54,15 +55,15 @@ const Gamify = () => {
   return (
     <Wrapper>
       {counter === 0 ? (
-        <Quiz />
+        <SpinWin/>
       ) : (
         <>
           <GamePageHeading
-            heading="Beauty Quiz"
-            subHeading="Lorem ipsum dolor sit amet consectetur. Bibendum dui porta leo sed neque."
+            heading="Spin Game"
+            subHeading="Tick-Tock Spin: Countdown to Winning!"
           />
           <FlexBox column align="center" padding="3rem 0" rowGap="1rem">
-            <H2>Quiz starts in...</H2>
+            <H2>Spin starts in...</H2>
             <Counter key={animationKey} color={ACCENT_500}>
               {counter}
             </Counter>

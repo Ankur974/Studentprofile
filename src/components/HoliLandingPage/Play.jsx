@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { WHITE } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
@@ -97,7 +98,8 @@ const Play = ({ targetElement }) => {
             <ColorGradient>colorful!</ColorGradient>
           </Heading>
           <SubHeading>
-            Why fear the colors when Pamprazzi&#39;s got your clean-up covered?
+            Enjoy a vibrant Holi with Pamprazzi! Don't worry about stains we've
+            got vouchers covered. Let's make this Holi unforgettable!
           </SubHeading>
         </FlexBox>
         <PlayCTA onClick={scrollToTarget}>Play to Win!</PlayCTA>

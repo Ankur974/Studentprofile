@@ -101,14 +101,11 @@ const NumberEditIcon = styled(FlexBox)`
 `;
 
 const Container = styled(FlexBox)`
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  gap: 1.5rem;
+  gap: 0.5rem;
   @media ${device.laptop} {
     align-items: center;
-    flex-direction: row;
   }
 `;
 
@@ -175,7 +172,14 @@ const Login = ({ setModalOpen, page }) => {
         if (res?.data?.data?.found) {
           dispatch(setUser(res?.data?.data?.data));
           setModalOpen(false);
-          router.push(`/holi-2024/game/${page}`);
+
+          const spinData = res?.data?.data?.data;
+
+          if (spinData?.isSpin) {
+            router.push("/holi-2024/voucher");
+          } else {
+            router.push(`/holi-2024/game/${page}`);
+          }
         } else {
           setCurrentStep(3);
         }
@@ -199,9 +203,16 @@ const Login = ({ setModalOpen, page }) => {
       );
 
       if (res?.status === 200) {
-        dispatch(setUser(res?.data?.data));
+        dispatch(setUser(res?.data));
         setModalOpen(false);
-        router.push(`/holi-2024/game/${page}`);
+
+        const spinData = res?.data;
+
+        if (spinData?.isSpin) {
+          router.push("/holi-2024/voucher");
+        } else {
+          router.push(`/holi-2024/game/${page}`);
+        }
       }
     } catch (err) {
       console.log(err);
@@ -271,20 +282,15 @@ const Login = ({ setModalOpen, page }) => {
           {currentStep === 2 ? "Confirm your number" : "Login or Sign up"}
         </Body1>
       </Heading>
-      <FlexBox column align-items="center" padding="1.5rem" rowGap="1rem">
+      <FlexBox column align-items="center" padding="1rem" rowGap="1rem">
         <Switch>
           <Case condition={currentStep === 3}>
             <Body1 bold>What's your name?</Body1>
             <NameInput
               type="text"
-              placeholder="Enter your Full Name"
+              placeholder="enter your full name"
               value={name}
               onChange={e => setName(e.target.value)}
-              onKeyDown={e => {
-                if (e.key === "Enter") {
-                  handleCreateUser();
-                }
-              }}
             />
             <Body1 bold>Gender</Body1>
             <Container>
@@ -292,12 +298,19 @@ const Login = ({ setModalOpen, page }) => {
                 const Icon = type.icon;
                 return (
                   <Chip
+                    fitContent
+                    padding="0.25rem"
                     key={type.id}
                     selected={selectedOption === type.id}
                     onClick={() => handleOptionSelect(type.id)}
                   >
-                    <FlexBox columnGap="0.5rem" padding="1rem" align="center">
+                    <FlexBox
+                      columnGap="0.5rem"
+                      padding="0.25rem"
+                      align="center"
+                    >
                       <Icon
+                        size={24}
                         color={
                           selectedOption === type.id ? ACCENT_0 : ACCENT_800
                         }

@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
+import { useSelector } from "react-redux";
 import { Caption } from "@common/ui/Headings";
 import { PRIMARY_900, WHITE } from "@common/ui/colors";
 import { Button } from "@common/ui/Buttons";
+import { trackEvent } from "@utils/helpers";
 import LoginModal from "../Login";
 import { Header } from "./Header";
 
@@ -15,6 +17,8 @@ const Wrapper = styled(FlexBox)`
   background-color: ${PRIMARY_900};
   padding: 2.5rem 1.25rem;
   align-items: center;
+  margin: -0.25rem 0;
+  border-radius: 0 0 0.5rem 0.5rem;
 `;
 
 const CardHeading = styled(Caption)`
@@ -48,26 +52,45 @@ const SpinImg = styled.img`
   height: 225px;
 `;
 
-const SpinWheel = ({ targetElement }) => {
+const SpinWheel = () => {
   const [loginModal, setLoginModal] = useState(false);
+
+  const currentUser = useSelector(state => state.auth?.user);
 
   const toggleModal = () => {
     setLoginModal(!loginModal);
   };
 
+  const track = () => {
+    trackEvent({
+      event: "spin-now-click",
+      payload: {
+        source: "holi-lp",
+        isLoggedIn: currentUser ? true : false,
+      },
+    });
+  };
+
   return (
-    <Wrapper ref={targetElement}>
-      {loginModal && <LoginModal setModalOpen={setLoginModal} page="spinner" />}
+    <Wrapper>
+      {loginModal && <LoginModal setModalOpen={setLoginModal} page="gamify" />}
       <Header
         title="Spin the wheel!"
-        subTitle="Lorem ipsum dolor sit amet consectetur. Semper rhoncus."
+        subTitle="Spin Pamprazzi's wheel for chance to win vouchers redeemable at nearby salons & parlors."
         isDark
       />
       <Card>
         <CardHeading>
           Get exciting prices and vouchers on your nearest salon
         </CardHeading>
-        <SpinCTA onClick={toggleModal}>Spin Now!</SpinCTA>
+        <SpinCTA
+          onClick={() => {
+            toggleModal();
+            track();
+          }}
+        >
+          Spin Now!
+        </SpinCTA>
         <SpinImg src="/assets/images/holi/Spin.webp"></SpinImg>
       </Card>
     </Wrapper>

@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import {
-  ACCENT_200,
   ACCENT_400,
   ACCENT_300,
   PRIMARY_800,
@@ -17,7 +16,7 @@ const Wrapper = styled(FlexBox)`
   border-radius: 0.5rem;
   flex-direction: column;
   justify-content: center;
-  background-color: ${ACCENT_200};
+  background-color: ${ACCENT_300};
   white-space: nowrap;
   border: ${({ border }) => border || "1px solid ACCENT_500 "};
   max-width: ${({ width }) => width};

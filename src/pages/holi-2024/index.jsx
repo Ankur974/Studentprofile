@@ -6,3 +6,4 @@ const HoliLanding = () => {
 };
 
 export default HoliLanding;
+

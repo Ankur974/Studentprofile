@@ -61,7 +61,8 @@ const Widget1 = ({ reverse }) => (
   <WidgetContainer reverse={reverse}>
     <RightSection justify="center" rowGap="1rem">
       <Caption bold>
-        Self Care at your fingertips: Reviews for smarter bookings.
+        Self-care made easy: Smart salon appointment booking with insightful
+        reviews!
       </Caption>
     </RightSection>
     <LeftSection>
@@ -76,13 +77,13 @@ const Widget2 = () => (
       <WidgetImg src="/assets/images/holi/widget1.webp" />
     </LeftSection>
     <RightSection justify="center" rowGap="1rem">
-      <Caption bold>No hidden charges: Book with us, no fees!</Caption>
+      <Caption bold>Book with Us - Zero Fees, Zero Surprises!</Caption>
     </RightSection>
   </WidgetContainer>
 );
 
-const Widget = () => (
-  <Wrapper>
+const Widget = ({ targetElement }) => (
+  <Wrapper ref={targetElement}>
     <Widget1 />
     <Widget2 />
   </Wrapper>
