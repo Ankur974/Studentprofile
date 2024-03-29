@@ -28,13 +28,13 @@ const CardWrapper = styled(FlexBox)`
   @media screen and (max-width: 300px) {
     width: 4rem;
   }
-  @media screen and (min-width: 950px and max-width: 1007px) {
+  @media screen and (min-width: 950px) and (max-width: 1007px) {
     width: 6rem;
   }
-  @media screen and (min-width: 1008px and max-width: 1066px) {
+  @media screen and (min-width: 1008px) and (max-width: 1066px) {
     width: 19rem;
   }
-  @media screen and (min-width: 1066px and max-width: 1165px) {
+  @media screen and (min-width: 1066px) and (max-width: 1165px) {
     width: 21rem;
   }
 `;
