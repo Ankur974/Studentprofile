@@ -11,7 +11,7 @@ import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_200, ACCENT_300 } from "@common/ui/colors";
 import { Body1 } from "@common/ui/Headings";
 import SalonInfo from "./SalonInfo";
-import { device } from "../common/ui/Resposive";
+import { device } from "../common/ui/Responsive";
 
 const imgdata = [
   { id: 1, imgsrc: "/assets/images/salon/1.jpeg", salon_name: "GiGi's Salon" },
@@ -54,7 +54,7 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const MobileBanner = ({shopData}) => {
+const MobileBanner = ({ shopData }) => {
   const router = useRouter();
 
   return (
@@ -81,7 +81,7 @@ const MobileBanner = ({shopData}) => {
           <Body1 bold>Show more</Body1>
         </ViewMoreButton>
       </FlexBox>
-      <SalonInfo shopData={shopData}/>
+      <SalonInfo shopData={shopData} />
     </Banner>
   );
 };

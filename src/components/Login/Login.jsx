@@ -10,7 +10,7 @@ import { TfiClose } from "react-icons/tfi";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import Chip from "@common/ui/Chips";
 import FlexBox from "@common/ui/FlexBox";
 import { Body1, Body2, H1 } from "@common/ui/Headings";

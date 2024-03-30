@@ -13,7 +13,7 @@ import {
   SECONDARY_500,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};

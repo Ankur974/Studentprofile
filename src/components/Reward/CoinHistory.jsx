@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 
 import FlexBox from "@common/ui/FlexBox";
 import { H3, H2, Body2 } from "@common/ui/Headings";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { SECONDARY_901, LOSS } from "@common/ui/colors"; //TODO: to be revisited later - DS
 import { BalanceCard } from "./BalanceCard";
 

@@ -5,8 +5,9 @@ import FlexBox from "@common/ui/FlexBox";
 import { H3 } from "@common/ui/Headings";
 import { BABERBACKGROUND } from "@common/ui/colors";
 import { categoryData } from "@metadata/CategoryData";
-import { device } from "@components/common/ui/Resposive";
+import { device } from "@components/common/ui/Responsive";
 import { boxShadowDs1 } from "@components/common/ui/styles";
+import { useRouter } from "next/router";
 
 const CardWrapper = styled(FlexBox)`
   width: 8.25rem;
@@ -54,16 +55,21 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   object-fit: cover;
-  transition: all 0.3s ease 0.1s;
-
+  transition: all 0.4s ease 0.2s;
   &:hover {
     transform: scale(1.15);
   }
 `;
 
 export const Card = ({ data }) => {
+  const router = useRouter();
   return (
-    <CardWrapper color={data?.bgColor}>
+    <CardWrapper
+      color={data?.bgColor}
+      onClick={() => {
+        router.push(`/shop-listing?cat=${data?.slug}`);
+      }}
+    >
       <CategoryType>
         <Heading bold color={BABERBACKGROUND}>
           {data?.label}

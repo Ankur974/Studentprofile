@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
 import SalonInfo from "./SalonInfo";
-import { device } from "../common/ui/Resposive";
+import { device } from "../common/ui/Responsive";
 import { useRouter } from "next/router";
 import { ACCENT_300, ACCENT_800 } from "../common/ui/colors";
 
@@ -66,7 +66,7 @@ const DesktopBanner = ({ shopData }) => {
 
   return (
     <Wrapper>
-      <SalonInfo shopData = { shopData }/>
+      <SalonInfo shopData={shopData} />
       <Container>
         <ImageContainer>
           <Img src="/assets/salon-image3.jpg" />

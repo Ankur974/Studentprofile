@@ -18,7 +18,7 @@ import {
 import FlexBox from "@common/ui/FlexBox";
 import Chip from "@common/ui/Chips";
 import { Button } from "@common/ui/Buttons";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -177,10 +177,12 @@ const Card = ({ data }) => {
             {renderGenderIcon()}
             {data?.gender && <Body2>{`Salon for ${data?.gender}`}</Body2>}
           </FlexBox>
-          {data?.distance && <FlexBox columnGap="0.40rem" align="center">
-            <SlMap />
-            <Body2>{`${data?.distance} kms`}</Body2>
-          </FlexBox>}
+          {data?.distance && (
+            <FlexBox columnGap="0.40rem" align="center">
+              <SlMap />
+              <Body2>{`${data?.distance} kms`}</Body2>
+            </FlexBox>
+          )}
         </FlexBox>
 
         {data?.serviceStartPrice && (

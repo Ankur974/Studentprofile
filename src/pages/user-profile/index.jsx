@@ -4,7 +4,7 @@ import DashboardLayout from "@components/Dashboard/Layout";
 import styled from "styled-components";
 import { ACCENT_0 } from "@components/common/ui/colors";
 import FlexBox from "@components/common/ui/FlexBox";
-import { device } from "@components/common/ui/Resposive";
+import { device } from "@components/common/ui/Responsive";
 
 const Container = styled(FlexBox)`
   width: 100%;

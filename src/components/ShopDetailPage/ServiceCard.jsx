@@ -6,11 +6,8 @@ import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import { Body1, Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_800, PRIMARY_800, ACCENT_0 } from "@common/ui/colors";
-import { device } from "@common/ui/Resposive";
-import {
-  addItemToCart,
-  deleteItemFromCart,
-} from "@redux/slices/cartSlice";
+import { device } from "@common/ui/Responsive";
+import { addItemToCart, deleteItemFromCart } from "@redux/slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const CardContainer = styled.div`
@@ -101,7 +98,7 @@ const ServiceCard = ({ item, lastItem }) => {
               backgroundColor={PRIMARY_800}
               onClick={addService}
             >
-            {/* || todo : fix ui here of add  */}
+              {/* || todo : fix ui here of add  */}
               <IoMdAdd color={ACCENT_0} />
             </FlexBox>
           ) : (

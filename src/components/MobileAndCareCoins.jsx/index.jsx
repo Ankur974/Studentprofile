@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Body2, Display } from "@common/ui/Headings";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { PRIMARY_900, ACCENT_0 } from "@common/ui/colors";
 
 const MobileAndCoinContainer = styled(FlexBox)`
@@ -16,7 +16,7 @@ const MobileAndCoinContainer = styled(FlexBox)`
 
   @media ${device.laptop} {
     flex-direction: row;
-    padding: 5rem ;
+    padding: 5rem;
   }
 `;
 

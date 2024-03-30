@@ -4,7 +4,7 @@ import { TbChevronRight } from "react-icons/tb";
 
 import FlexBox from "@common/ui/FlexBox";
 import { H5, H6, H3 } from "@common/ui/Headings";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { LOCATION_CARD } from "@common/ui/colors";
 
 const Wrapper = styled(FlexBox)`

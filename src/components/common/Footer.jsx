@@ -18,7 +18,7 @@ import {
   PRIMARY_800,
   SECONDARY_800,
 } from "@common/ui/colors";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { useRouter } from "next/router";
 
 const FooterContainer = styled(FlexBox)`

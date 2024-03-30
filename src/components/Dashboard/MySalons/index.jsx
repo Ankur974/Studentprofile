@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { FiX } from "react-icons/fi";
 
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { ACCENT_300, WHITE } from "@common/ui/colors";
 import useMobileView from "@hooks/useMobileView";
 import SalonCard from "./SalonCard";

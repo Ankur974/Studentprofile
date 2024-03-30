@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import FlexBox from "@common/ui/FlexBox";
 import { Body1, Body2, H2, H1 } from "@common/ui/Headings";
 import { ACCENT_0, MID_TONE_PURPLE } from "@common/ui/colors";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { client } from "@axiosClient";
 import { URL } from "@constants/urls";
 

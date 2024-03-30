@@ -10,7 +10,7 @@ import { Button } from "@common/ui/Buttons";
 import { Support } from "@common/ui/Headings";
 import AllSessions from "./AllSessions";
 import UpcomingSessions from "./UpcomingSessions";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 // import Calendar from "../common/Calendar";
 // import MyCalendar from "../MyCalendar";
 

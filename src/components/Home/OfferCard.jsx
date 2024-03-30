@@ -6,7 +6,7 @@ import FlexBox from "@common/ui/FlexBox";
 import { Body2, H2, H6 } from "@common/ui/Headings";
 import { BABERBACKGROUND } from "@common/ui/colors";
 import { offerCardData } from "@metadata/OfferCardData";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   border-radius: 1.5rem;

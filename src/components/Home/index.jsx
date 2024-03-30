@@ -4,7 +4,7 @@ import "swiper/css/navigation";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import Slider from "./Slider";
 import { H3 } from "@common/ui/Headings";
 import OfferCard from "./OfferCard";
@@ -36,10 +36,7 @@ const Home = () => {
     <>
       <Wrapper>
         <FlexBox column rowGap="4rem">
-          <Slider
-            heading="What are you looking for?"
-            data={categoryData}
-          ></Slider>
+          <Slider heading="What are you looking for?" data={categoryData} />
           <Divider />
         </FlexBox>
         <FlexBox column rowGap="2rem">

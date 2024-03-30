@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { Display, H2 } from "@common/ui/Headings";
 import { ACCENT_500 } from "@common/ui/colors";
 import GamePageHeading from "./GamePageHeading";
@@ -55,7 +55,7 @@ const Gamify = () => {
   return (
     <Wrapper>
       {counter === 0 ? (
-        <SpinWin/>
+        <SpinWin />
       ) : (
         <>
           <GamePageHeading

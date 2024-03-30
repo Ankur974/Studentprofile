@@ -6,7 +6,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 
 import { ACCENT_0, ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const commonIconProps = {
   size: "1.5rem",

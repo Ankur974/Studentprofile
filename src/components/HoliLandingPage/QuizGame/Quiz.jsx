@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Body2, H3 } from "@common/ui/Headings";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { ERROR, SUCCESS } from "@common/ui/colors";
 import GamePageHeading from "./GamePageHeading";
 

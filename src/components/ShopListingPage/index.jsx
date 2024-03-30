@@ -10,7 +10,7 @@ import Filter from "@common/ui/Filter";
 import { Display, H1, H3 } from "@common/ui/Headings";
 import { PRIMARY_200, PRIMARY_800 } from "@common/ui/colors";
 import Chip from "@common/ui/Chips";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import Approach from "@common/ApproachFaq";
 import { filterMeta } from "@metadata/ListingPage";
 import Card from "./Card";

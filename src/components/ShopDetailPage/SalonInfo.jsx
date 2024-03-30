@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import useRouter from "next/router";
 import styled from "styled-components";
 import { IoStar } from "react-icons/io5";
@@ -6,7 +6,7 @@ import { IoStar } from "react-icons/io5";
 import { Body2, H1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import Favourite from "@common/ui/Favourite";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { ShareModal } from "./ShareModal";
 import { STARCOLOR } from "@common/ui/colors";
 

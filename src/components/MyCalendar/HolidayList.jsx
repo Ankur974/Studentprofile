@@ -9,10 +9,11 @@ import {
   SECONDARY_0,
   SECONDARY_200,
   SECONDARY_500,
-  SECONDARY_700,PRIMARY_900
+  SECONDARY_700,
+  PRIMARY_900,
 } from "@common/ui/colors";
 import { H5 } from "@common/ui/Headings";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const eventList = [
   {

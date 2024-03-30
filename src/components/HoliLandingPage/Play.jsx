@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { H1 } from "@common/ui/Headings";
 import { Caption } from "@common/ui/Headings";
 import { Button } from "@common/ui/Buttons";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   height: 100%;

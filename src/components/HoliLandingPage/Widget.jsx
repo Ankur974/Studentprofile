@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { WHITE } from "@common/ui/colors";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { Display } from "@common/ui/Headings";
 
 const WidgetContainer = styled(FlexBox)`
