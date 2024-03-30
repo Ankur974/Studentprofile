@@ -34,11 +34,11 @@ const NavItem = styled(Body1)`
   }
 `;
 
-const Navbar = ({ navitem }) => {
+const Navbar = ({ navItem }) => {
   return (
     <NavContainer>
       <ButtonsWrapper>
-        {navitem.map(item => (
+        {navItem.map(item => (
           <FlexBox key={item?.slug}>
             <NavItem
               whiteSpace="nowrap"

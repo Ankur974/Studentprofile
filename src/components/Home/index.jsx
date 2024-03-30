@@ -4,14 +4,13 @@ import "swiper/css/navigation";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Responsive";
-import Slider from "./Slider";
 import { H3 } from "@common/ui/Headings";
-import OfferCard from "./OfferCard";
 import TopSalon from "@components/Home/TopSalon";
 import Localities from "@components/Home/Localities";
 import { categoryData } from "@metadata/CategoryData";
 import { PRIMARY_900, listingChip } from "@common/ui/colors";
+import Slider from "./Slider";
+import OfferCard from "./OfferCard";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -19,12 +18,7 @@ const Wrapper = styled(FlexBox)`
   max-width: 75rem;
   margin: auto;
   row-gap: 4rem;
-  padding-block: 2rem;
-  padding-inline: 1rem;
-
-  @media ${device.laptop} {
-    padding-inline: 0;
-  }
+  padding: 6rem 1rem 2rem;
 `;
 
 const Divider = styled(FlexBox)`
