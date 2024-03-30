@@ -1,16 +1,9 @@
-import { useEffect } from "react";
 import Head from "next/head";
 
 import HomePageLayout from "../layout/client/HomePageLayout";
 import Home from "../components/Home";
-import { useRouter } from "next/router";
 
 export default function HomePage() {
-  const router = useRouter();
-  useEffect(() => {
-    router.replace("/holi-2024");
-  }, []);
-
   return (
     <>
       <Head>
