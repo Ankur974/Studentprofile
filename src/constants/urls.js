@@ -1,4 +1,3 @@
-// const baseUrl = "http://localhost:3001";
 export const baseUrl = "https://pamper-backend-production.up.railway.app/";
 
 export const URL = {
@@ -11,6 +10,7 @@ export const URL = {
   submitOtp: `${baseUrl}client/verifyOtp`,
   createUser: `${baseUrl}client/createUser`,
   refreshToken: `${baseUrl}client/refreshToken`,
+  loginWithGoogle: `${baseUrl}auth/google/callback`,
 
   approveVoucher: `${baseUrl}client/approveSpinAndWheelReward`,
 };

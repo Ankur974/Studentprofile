@@ -232,7 +232,7 @@ export const IconButton = ({
 }) => (
   <Button {...props}>
     <InnerWrapper iconPosition={iconPosition} columnGap={spacing}>
-      <Icon size="1rem" strokeWidth={strokeWidth} />
+      <Icon size={24} strokeWidth={strokeWidth} />
       {children}
     </InnerWrapper>
   </Button>

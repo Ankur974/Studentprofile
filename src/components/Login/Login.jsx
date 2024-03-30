@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { TfiClose } from "react-icons/tfi";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+import { FcGoogle } from "react-icons/fc";
 
 import { device } from "@common/ui/Responsive";
 import Chip from "@common/ui/Chips";
@@ -16,6 +17,7 @@ import FlexBox from "@common/ui/FlexBox";
 import { Body1, Body2, H1 } from "@common/ui/Headings";
 import {
   ACCENT_0,
+  ACCENT_500,
   ACCENT_800,
   PRIMARY_900,
   SECONDARY_200,
@@ -24,7 +26,7 @@ import { URL } from "@constants/urls";
 import { Case, Default, Switch } from "@common/ConditionalRendering";
 import { setUser } from "@redux/slices/auth";
 import { client } from "@axiosClient";
-import { Button } from "@common/ui/Buttons";
+import { Button, IconButton } from "@common/ui/Buttons";
 // import OtpInput from "./OtpInput";
 
 const Wrapper = styled(FlexBox)`
@@ -267,6 +269,10 @@ const Login = ({ setModalOpen, page }) => {
     return maskedNumber;
   };
 
+  const loginWithGoogle = () => {
+    window.open(URL.loginWithGoogle, "_self");
+  };
+
   return (
     <Wrapper>
       <Heading>
@@ -421,6 +427,20 @@ const Login = ({ setModalOpen, page }) => {
             >
               GET OTP
             </Button>
+            <FlexBox align="center" columnGap="0.5rem">
+              <Hr />
+              <Body2 color={ACCENT_500}>or</Body2>
+              <Hr />
+            </FlexBox>
+            <IconButton
+              outline
+              width="100%"
+              color={ACCENT_800}
+              Icon={FcGoogle}
+              onClick={loginWithGoogle}
+            >
+              Continue with Google
+            </IconButton>
           </Default>
         </Switch>
       </FlexBox>

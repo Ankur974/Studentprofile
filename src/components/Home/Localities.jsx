@@ -15,11 +15,6 @@ const Wrapper = styled(FlexBox)`
   border-radius: 0.75rem;
   width: 100%;
   cursor: pointer;
-
-  @media ${device.laptop} {
-    max-width: 23.75rem;
-    min-width: 23.75rem;
-  }
 `;
 
 const IconContainer = styled(FlexBox)`
@@ -28,9 +23,16 @@ const IconContainer = styled(FlexBox)`
   border-radius: 5px;
 `;
 
-const Container = styled(FlexBox)`
-  flex-wrap: wrap;
+const Container = styled.div`
+  display: grid;
   gap: 1rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  @media ${device.laptop} {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 `;
 
 const AreaCard = () => {
