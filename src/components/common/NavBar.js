@@ -9,7 +9,7 @@ import { device } from "@common/ui/Responsive";
 import { Button } from "./ui/Buttons";
 import { useSelector } from "react-redux";
 import Avatar from "@common/ui/Avatar";
-import LoginModal from "@components/login";
+import LoginModal from "@components/Login";
 import { trackEvent } from "@utils/helpers";
 
 const FallBack = styled.div`

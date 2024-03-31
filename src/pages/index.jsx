@@ -10,7 +10,7 @@ import { Button } from "@common/ui/Buttons";
 import NavBar from "@common/NavBar";
 import { device } from "@common/ui/Responsive";
 import Avatar from "@common/ui/Avatar";
-import LoginModal from "@components/login";
+import LoginModal from "@components/Login";
 import { trackEvent } from "@utils/helpers";
 
 const NonStickyWrapper = styled.div`
