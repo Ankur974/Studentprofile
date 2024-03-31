@@ -15,7 +15,6 @@ import {
   BRICK_TERRACOTA_500,
   ACCENT_800,
   ACCENT_900,
-  BLACK,
 } from "./colors";
 import FlexBox from "./FlexBox";
 
@@ -205,11 +204,11 @@ ${({ whiteButton }) =>
     css`
       border: 1px solid ${ACCENT_0};
       background-color: ${ACCENT_0};
-      color: ${({ color }) => color || BLACK};
+      color: ${({ color }) => color || ACCENT_800};
 
       &:hover {
         background-color: ${ACCENT_0};
-        color: ${({ hoverColor }) => hoverColor || BLACK};
+        color: ${({ hoverColor }) => hoverColor || ACCENT_800};
         border-color: ${ACCENT_0};
       }
     `}

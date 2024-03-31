@@ -4,7 +4,7 @@ import styled from "styled-components";
 // import { logout } from "@redux/actions/authActions";
 import FlexBox from "@common/ui/FlexBox";
 import { H2, Body2 } from "@common/ui/Headings";
-import { Modal } from "@common/ui/Modal";
+import Modal from "@common/ui/Modal";
 import CheckBox from "@common/ui/CheckBox";
 import { Button } from "@common/ui/Buttons";
 

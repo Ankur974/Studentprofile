@@ -1,16 +1,16 @@
-export const baseUrl = "https://pamper-backend-production.up.railway.app/";
+export const BASE_URL = "https://pamper-backend-production.up.railway.app/";
 
 export const URL = {
-  getStore: `${baseUrl}store/getClientStore`,
-  getServices: `${baseUrl}service/getAllCategoreisWithServices`,
-  getAllShops: `${baseUrl}store/homePageMainSection`,
+  getStore: `${BASE_URL}store/getClientStore`,
+  getServices: `${BASE_URL}service/getAllCategoreisWithServices`,
+  getAllShops: `${BASE_URL}store/homePageMainSection`,
 
   //auth
-  sendOtp: `${baseUrl}client/sendOtp`,
-  submitOtp: `${baseUrl}client/verifyOtp`,
-  createUser: `${baseUrl}client/createUser`,
-  refreshToken: `${baseUrl}client/refreshToken`,
-  loginWithGoogle: `${baseUrl}auth/google/callback`,
+  sendOtp: `${BASE_URL}client/sendOtp`,
+  submitOtp: `${BASE_URL}client/verifyOtp`,
+  createUser: `${BASE_URL}client/createUser`,
+  refreshToken: `${BASE_URL}client/refreshToken`,
+  loginWithGoogle: `${BASE_URL}auth/google/callback`,
 
-  approveVoucher: `${baseUrl}client/approveSpinAndWheelReward`,
+  approveVoucher: `${BASE_URL}client/approveSpinAndWheelReward`,
 };
