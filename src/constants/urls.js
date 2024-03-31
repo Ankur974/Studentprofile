@@ -11,6 +11,7 @@ export const URL = {
   createUser: `${BASE_URL}client/createUser`,
   refreshToken: `${BASE_URL}client/refreshToken`,
   loginWithGoogle: `${BASE_URL}auth/google/callback`,
+  loginSuccess: `${BASE_URL}auth/login/success`, //required to get token for google login
 
   approveVoucher: `${BASE_URL}client/approveSpinAndWheelReward`,
 };

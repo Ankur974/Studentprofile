@@ -51,9 +51,11 @@ const Heading = styled(H3)`
 const ImageContainer = styled.div`
   overflow: hidden;
   border-radius: 0.75rem;
+  width: 100%;
 `;
 
 const Image = styled.img`
+  width: 100%;
   object-fit: cover;
   transition: all 0.4s ease 0.2s;
   &:hover {
@@ -76,7 +78,7 @@ export const Card = ({ data }) => {
         </Heading>
       </CategoryType>
       <ImageContainer>
-        <Image src={data?.image}></Image>
+        <Image src={data?.image} alt={`illustration for ${data?.label}`} />
       </ImageContainer>
     </CardWrapper>
   );

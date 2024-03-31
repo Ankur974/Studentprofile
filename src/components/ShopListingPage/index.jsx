@@ -148,6 +148,7 @@ const ShopListingPage = () => {
   }, [fetchShopList]);
 
   useEffect(() => {
+    setShopList([]);
     setPageNumber(1);
   }, [advancedFilterSelection]);
 

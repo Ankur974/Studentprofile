@@ -20,24 +20,26 @@ const Wrapper = styled(FlexBox)`
   padding: 1rem;
   width: 100%;
   border-radius: 0.75rem;
-  max-width: 23.75rem;
   row-gap: 0.5rem;
   margin: auto;
   flex-grow: 1;
   position: relative;
   cursor: pointer;
-  transition: all 0.3s ease 0.1s;
+  transition: all 0.3s ease-in-out 0.2s;
 
   &:hover {
     transform: scale(0.95);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
+
   @media ${device.laptop} {
     margin: 0;
+    max-width: 31%;
   }
 `;
 
 const Container = styled(FlexBox)`
+  width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
 `;
