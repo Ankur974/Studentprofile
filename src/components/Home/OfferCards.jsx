@@ -9,7 +9,7 @@ import { offerCardData } from "@metadata/OfferCardData";
 import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
-  border-radius: 1.5rem;
+  border-radius: 2rem;
   width: 100%;
   max-width: 28rem;
   padding: 0.5rem;
@@ -68,7 +68,6 @@ const ContentBox = styled(FlexBox)`
 const Container = styled(FlexBox)`
   overflow-x: auto;
   column-gap: 1.5rem;
-  /* flex-direction: column; */
 
   @media ${device.laptop} {
     flex-direction: row;
@@ -79,12 +78,12 @@ const Description = styled(FlexBox)`
   flex-grow: 1;
 `;
 
-const OfferCard = () => {
+const OfferCards = () => {
   const router = useRouter();
   return (
     <Container>
-      {offerCardData?.map(data => {
-        const {
+      {offerCardData?.map(
+        ({
           id,
           outerColor,
           innerColor,
@@ -92,42 +91,42 @@ const OfferCard = () => {
           desc,
           validityCardBgColor,
           image,
-        } = data;
-
-        return (
-          <Wrapper
-            bgColor={outerColor}
-            key={id}
-            onClick={() => router.push("/shop-listing")}
-          >
-            <InnerCard bgColor={innerColor}>
-              <LeftSection column>
-                <ContentBox column>
-                  <H2 bold color={BABERBACKGROUND}>
-                    {title}
-                  </H2>
-                  <Description>
-                    <Body2 color={BABERBACKGROUND}>{desc}</Body2>
-                  </Description>
-                </ContentBox>
-                <ValidityContainer color={validityCardBgColor}>
-                  <Body2 color={BABERBACKGROUND}>Valid till 15th April</Body2>
-                </ValidityContainer>
-              </LeftSection>
-              <FlexBox column padding="0.5rem 1rem 0.5rem 0">
-                <ImgBox>
-                  <Image src={image} />
-                </ImgBox>
-                <FlexBox alignSelf="flex-end">
-                  <H6>*T&C may apply</H6>
+        }) => {
+          return (
+            <Wrapper
+              bgColor={outerColor}
+              key={id}
+              onClick={() => router.push("/shop-listing")}
+            >
+              <InnerCard bgColor={innerColor}>
+                <LeftSection column>
+                  <ContentBox column>
+                    <H2 bold color={BABERBACKGROUND}>
+                      {title}
+                    </H2>
+                    <Description>
+                      <Body2 color={BABERBACKGROUND}>{desc}</Body2>
+                    </Description>
+                  </ContentBox>
+                  <ValidityContainer color={validityCardBgColor}>
+                    <Body2 color={BABERBACKGROUND}>Valid till 15th April</Body2>
+                  </ValidityContainer>
+                </LeftSection>
+                <FlexBox column padding="0.5rem 1rem 0.5rem 0">
+                  <ImgBox>
+                    <Image src={image} />
+                  </ImgBox>
+                  <FlexBox alignSelf="flex-end">
+                    <H6>*T&C may apply</H6>
+                  </FlexBox>
                 </FlexBox>
-              </FlexBox>
-            </InnerCard>
-          </Wrapper>
-        );
-      })}
+              </InnerCard>
+            </Wrapper>
+          );
+        }
+      )}
     </Container>
   );
 };
 
-export default OfferCard;
+export default OfferCards;

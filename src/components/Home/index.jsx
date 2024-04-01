@@ -11,9 +11,9 @@ import Localities from "@components/Home/Localities";
 import { categoryData } from "@metadata/CategoryData";
 import { URL } from "@constants/urls";
 import { PRIMARY_900, listingChip } from "@common/ui/colors";
-import Slider from "./Slider";
-import OfferCard from "./OfferCard";
 import { device } from "@common/ui/Responsive";
+import Slider from "./Slider";
+import OfferCards from "./OfferCards";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -56,7 +56,7 @@ const Home = () => {
         </FlexBox>
         <FlexBox column rowGap="2rem">
           <H3 bold>Offers For You</H3>
-          <OfferCard />
+          <OfferCards />
         </FlexBox>
         <TopSalon />
       </Wrapper>
