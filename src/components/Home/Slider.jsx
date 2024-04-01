@@ -73,7 +73,6 @@ const Slider = ({ data, heading }) => {
       <FlexBox>
         <Swiper
           modules={[Navigation]}
-          spaceBetween={15}
           onSwiper={handleSwiper}
           onSlideChange={handleSlideChange}
           navigation={{
@@ -84,7 +83,7 @@ const Slider = ({ data, heading }) => {
           breakpoints={{
             320: {
               slidesPerView: 2.5,
-              spaceBetween: 15,
+              spaceBetween: 8,
             },
             640: {
               slidesPerView: 4,
