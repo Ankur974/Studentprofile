@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { IoLogoWhatsapp, IoIosClose } from "react-icons/io";
 import { BiLogoGmail, BiLink } from "react-icons/bi";
@@ -38,8 +38,21 @@ const CopyLink = styled(FlexBox)`
   justify-content: center;
 `;
 
+const Copiedmsg = styled(FlexBox)`
+  background-color: black;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  color: white;
+  width: fit-content;
+  position: absolute;
+  bottom: 0.25rem;
+  align-self: center;
+  opacity: 0.7;
+`;
+
 const ShareComponent = ({ setOpenModal }) => {
-  //TODO - to be revisited - DS
+  const [copied, setCopied] = useState(false);
+
   const copyLinkToClipboard = () => {
     const dummyElement = document.createElement("textarea");
     dummyElement.value = window.location.href;
@@ -47,18 +60,28 @@ const ShareComponent = ({ setOpenModal }) => {
     dummyElement.select();
     document.execCommand("copy");
     document.body.removeChild(dummyElement);
-    alert("Link copied to clipboard!");
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
   };
 
   const shareOnWhatsApp = () => {
     const url = encodeURIComponent("https://your-website.com/link-to-share");
-    window.open(`https://web.whatsapp.com/?text=Check out this link: ${url}`);
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      window.location.href = `whatsapp://send?text=Check out this link: ${url}`;
+    } else {
+      window.open(
+        `https://web.whatsapp.com/send?text=Check out this link: ${url}`
+      );
+    }
   };
 
   const shareViaMessage = () => {
     const phoneNumber = "1234567890";
     const message = encodeURIComponent("Your message here");
-
     window.location.href = `sms:${phoneNumber}?body=${message}`;
   };
 
@@ -119,6 +142,7 @@ const ShareComponent = ({ setOpenModal }) => {
           );
         })}
       </Container>
+      {copied && <Copiedmsg>Copied!</Copiedmsg>}
     </Wrapper>
   );
 };
