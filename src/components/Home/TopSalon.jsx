@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { SlHeart } from "react-icons/sl";
 import { CiDiscount1 } from "react-icons/ci";
 import { BsFillHeartFill } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 import { H5, H3, Body2 } from "@common/ui/Headings";
 import {
@@ -14,6 +15,8 @@ import {
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Responsive";
+import { IconButton } from "@common/ui/Buttons";
+import { TbChevronRight } from "react-icons/tb";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -34,7 +37,7 @@ const Wrapper = styled(FlexBox)`
 
   @media ${device.laptop} {
     margin: 0;
-    max-width: 31%;
+    max-width: 32%;
   }
 `;
 
@@ -170,9 +173,22 @@ const SalonCard = () => {
 };
 
 const TopSalon = () => {
+  const router = useRouter();
+
   return (
     <FlexBox column rowGap="2rem">
-      <H3 bold>Top Salons in Kolkata</H3>
+      <FlexBox justify="space-between" align="center">
+        <H3 bold>Top Salons in Kolkata</H3>
+        <IconButton
+          iconPosition="right"
+          color="black"
+          textCta
+          Icon={TbChevronRight}
+          onClick={() => router.push("/shop-listing")}
+        >
+          VIEW ALL
+        </IconButton>
+      </FlexBox>
       <Container>
         {Array(6)
           .fill(null)

@@ -25,11 +25,33 @@ const Wrapper = styled(FlexBox)`
 
   @media ${device.laptop} {
     row-gap: 4rem;
+    padding: 6rem 1rem 4rem;
+  }
+`;
+
+const Container = styled(FlexBox)`
+  width: 100%;
+  max-width: 75rem;
+  margin: auto;
+  flex-direction: column;
+  padding: 2rem 1rem;
+
+  @media ${device.laptop} {
+    padding: 4rem 1rem;
   }
 `;
 
 const Divider = styled(FlexBox)`
   border-bottom: 1px solid ${listingChip};
+`;
+
+const SliderContainer = styled(FlexBox)`
+  flex-direction: column;
+  row-gap: 2rem;
+
+  @media ${device.laptop} {
+    row-gap: 4rem;
+  }
 `;
 
 const Home = () => {
@@ -50,20 +72,20 @@ const Home = () => {
   return (
     <>
       <Wrapper>
-        <FlexBox column rowGap="2rem">
+        <SliderContainer>
           <Slider heading="What are you looking for?" data={categoryData} />
           <Divider />
-        </FlexBox>
+        </SliderContainer>
         <FlexBox column rowGap="2rem">
           <H3 bold>Offers For You</H3>
           <OfferCards />
         </FlexBox>
         <TopSalon />
       </Wrapper>
-      <FlexBox backgroundColor={PRIMARY_900} column padding="2rem 0">
-        <Wrapper>
+      <FlexBox backgroundColor={PRIMARY_900}>
+        <Container>
           <Localities />
-        </Wrapper>
+        </Container>
       </FlexBox>
     </>
   );
