@@ -170,7 +170,7 @@ const Card = ({ data }) => {
             onClick={e => {
               e.stopPropagation();
               handleClick();
-            } }
+            }}
             cursor="pointer"
           >
             {selected ? (
@@ -199,7 +199,7 @@ const Card = ({ data }) => {
         )}
 
         <AminitiesWrapper>
-          {data?.storeAmenities.map((item, index) => (
+          {data?.storeAmenities?.map((item, index) => (
             <FlexBox border="none" key={index} width="fit-content">
               <Body2 color="#717171">{item}</Body2>
             </FlexBox>
