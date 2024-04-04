@@ -1,5 +1,7 @@
 export const BASE_URL = "https://pamper-backend-production.up.railway.app/";
 
+export const CDN = "https://assets-pamprazzi.b-cdn.net";
+
 export const URL = {
   getStore: `${BASE_URL}store/getClientStore`,
   getServices: `${BASE_URL}service/getAllCategoreisWithServices`,

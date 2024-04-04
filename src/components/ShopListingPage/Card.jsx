@@ -8,6 +8,7 @@ import { IoMaleFemaleOutline } from "react-icons/io5";
 import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
 import { CiDiscount1 } from "react-icons/ci";
 import { H5, Body2 } from "@common/ui/Headings";
+
 import {
   ACCENT_0,
   ACCENT_700,
@@ -17,6 +18,7 @@ import {
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Responsive";
+import { CDN } from "@constants/urls";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -62,6 +64,7 @@ const AminitiesWrapper = styled(FlexBox)`
   @media ${device.laptop} {
     flex-wrap: wrap;
     overflow: hidden;
+    
   }
 `;
 
@@ -197,11 +200,16 @@ const Card = ({ data }) => {
         {data?.serviceStartPrice && (
           <H5 bold>{`Price starting at ${data?.serviceStartPrice}/-`}</H5>
         )}
-
         <AminitiesWrapper>
-          {data?.storeAmenities?.map((item, index) => (
-            <FlexBox border="none" key={index} width="fit-content">
-              <Body2 color="#717171">{item}</Body2>
+          {data?.amenities?.slice(0, 4).map((item, _id) => (
+            <FlexBox border="none" key={_id} width="fit-content" columnGap ="0.5rem">
+              <img
+                src={
+                     `${CDN}/amenities/dark-icons/${item?.icon?.darkIcon}`
+                }
+                alt={item?.name}
+              />
+              <Body2 color="#717171">{item?.name}</Body2>
             </FlexBox>
           ))}
         </AminitiesWrapper>
