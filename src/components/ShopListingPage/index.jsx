@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
 
@@ -123,11 +124,12 @@ const ShopListingPage = () => {
       const res = await client.post(URL.getAllShops, {
         page: pageNumber,
         pageLimit: 9,
-        gender,
-        sortFilter: sort_by,
-        priceRange: price_range,
-        services: services_offered,
-        offers: special_offers,
+        //TODO: do not remove this comment -->
+        // gender,
+        // sortFilter: sort_by,
+        // priceRange: price_range,
+        // services: services_offered,
+        // offers: special_offers,
       });
       const data = res?.data?.data?.[0];
 

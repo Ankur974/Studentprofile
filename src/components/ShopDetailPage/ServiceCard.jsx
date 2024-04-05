@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { SlClock, SlStar } from "react-icons/sl";
-import { IoMdAdd, IoMdRemove } from "react-icons/io";
+import { IoMdRemove } from "react-icons/io";
 
 import { Body1, Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
@@ -51,9 +51,9 @@ const ServiceCard = ({ item, lastItem }) => {
   const addService = () => {
     dispatch(
       addItemToCart({
-        id: item._id,
-        name: item.serviceName,
-        price: item.servicePrice,
+        id: item?._id,
+        name: item?.serviceName,
+        price: item?.servicePrice,
       })
     );
   };
@@ -83,11 +83,11 @@ const ServiceCard = ({ item, lastItem }) => {
               </FlexBox>
               <FlexBox columnGap="0.4rem" align="center">
                 <SlStar />
-                <Body2>({item.avgRating})</Body2>
-                <Body2>({item.reviews.length})</Body2>
+                <Body2>({item?.avgRating})</Body2>
+                <Body2>({item?.reviews?.length})</Body2>
               </FlexBox>
             </FlexBox>
-            <Body2 bold>₹ {item.servicePrice}</Body2>
+            <Body2 bold>₹ {item?.servicePrice}</Body2>
           </ServiceDetails>
           {!isItemInCart ? (
             <FlexBox
@@ -95,11 +95,10 @@ const ServiceCard = ({ item, lastItem }) => {
               width="fit-content"
               cursor="pointer"
               borderRadius="0.5rem"
-              backgroundColor={PRIMARY_800}
+              backgroundColor={ACCENT_800}
               onClick={addService}
             >
-              {/* || todo : fix ui here of add  */}
-              <IoMdAdd color={ACCENT_0} />
+              <Body2 color={ACCENT_0}>Add</Body2>
             </FlexBox>
           ) : (
             <FlexBox
@@ -107,8 +106,8 @@ const ServiceCard = ({ item, lastItem }) => {
               width="fit-content"
               cursor="pointer"
               borderRadius="0.5rem"
-              backgroundColor={PRIMARY_800}
-              onClick={() => removeService(item._id)}
+              backgroundColor={ACCENT_800}
+              onClick={() => removeService(item?._id)}
             >
               <IoMdRemove color={ACCENT_0} />
             </FlexBox>

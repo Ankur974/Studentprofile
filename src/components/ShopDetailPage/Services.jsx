@@ -95,9 +95,9 @@ const Services = ({ storeId }) => {
       <Categories>
         {categories.map(item => (
           <CategoryTile
-            key={item._id}
-            active={item._id === activeCategory}
-            onClick={() => setActiveCategory(item._id)}
+            key={item?._id}
+            active={item?._id === activeCategory}
+            onClick={() => setActiveCategory(item?._id)}
           >
             <img src="/assets/images/others.svg" alt="icons" />
             {/* <img src={item?.imageUrl} alt={item?.categoryName} /> */}
@@ -108,7 +108,7 @@ const Services = ({ storeId }) => {
       <ServicesWrapper column>
         {categories?.map(category => (
           <div key={category?._id} id={category?._id}>
-            <CategoryBanner categoryConfig={category} />
+            <CategoryBanner categoryConfig={category?.categoryBanner} />
             {category?.services?.map((item, index) => (
               <ServiceCard
                 key={item?._id}
