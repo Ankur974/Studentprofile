@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import { SlHeart } from "react-icons/sl";
 import { CiDiscount1 } from "react-icons/ci";
 import { BsFillHeartFill } from "react-icons/bs";
 import { useRouter } from "next/router";
+import { TbChevronRight } from "react-icons/tb";
 
 import { H5, H3, Body2 } from "@common/ui/Headings";
 import {
@@ -11,12 +13,13 @@ import {
   PRIMARY_900,
   RATE_BACKGROUND,
   listingChip,
-  SECONDARY_500,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Responsive";
 import { IconButton } from "@common/ui/Buttons";
-import { TbChevronRight } from "react-icons/tb";
+import Loader from "@common/ui/Loader";
+import { CDN, URL } from "@constants/urls";
+import { client } from "@services/axiosClient";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -71,11 +74,7 @@ const AmenitiesWrapper = styled(FlexBox)`
   margin: 0 -1rem;
   padding: 0 1rem;
   width: calc(100% + 2rem);
-
-  @media ${device.laptop} {
-    flex-wrap: wrap;
-    overflow: hidden;
-  }
+  flex-wrap: wrap;
 `;
 
 const OfferBanner = styled(FlexBox)`
@@ -99,11 +98,22 @@ const PopularityBox = styled(FlexBox)`
   opacity: 0.9;
 `;
 
-const SalonCard = () => {
-  const storeAmenities = ["AC conditioning", "Parking", "Kids Friendly"];
+const SalonCard = ({ data }) => {
   const [favorite, setFavorite] = useState(false);
-
   const handleLike = () => setFavorite(!favorite);
+
+  const {
+    amenities,
+    distance,
+    gender,
+    storeBannerText,
+    storeCoupons,
+    storeImages,
+    storeName,
+    storeRating,
+  } = data || {};
+
+  console.log(amenities);
 
   const OfferRendering = ({ discount }) => {
     if (discount) {
@@ -123,26 +133,30 @@ const SalonCard = () => {
       <Banner column>
         <Img src="/assets/images/home/salon.webp" alt="twinkle" />
         <ActionWrapper justify="space-between" align="center">
-          <PopularityBox>
-            <H5 color={ACCENT_0}>POPULAR</H5>
-          </PopularityBox>
-          <FlexBox
-            align="center"
-            justify="center"
-            borderRadius="0.25rem"
-            backgroundColor={RATE_BACKGROUND}
-            padding="0 0.8rem"
-            columnGap="0.4rem"
-          >
-            <img src="/assets/images/star1.svg" alt="star" />
-            <Body2 color={ACCENT_0}>4.2</Body2>
-          </FlexBox>
+          {storeBannerText && (
+            <PopularityBox>
+              <H5 color={ACCENT_0}>{storeBannerText}</H5>
+            </PopularityBox>
+          )}
+          {storeRating && (
+            <FlexBox
+              align="center"
+              justify="center"
+              borderRadius="0.25rem"
+              backgroundColor={RATE_BACKGROUND}
+              padding="0 0.8rem"
+              columnGap="0.4rem"
+            >
+              <img src="/assets/images/star1.svg" alt="star" />
+              <Body2 color={ACCENT_0}>{storeRating}</Body2>
+            </FlexBox>
+          )}
         </ActionWrapper>
         <FlexBox justify="center">{<OfferRendering discount="15" />}</FlexBox>
       </Banner>
       <FlexBox column rowGap="0.25rem">
         <FlexBox justify="space-between" padding="1rem 0 0 0">
-          <H5 bold>Gigi&#39;s Salon</H5>
+          <H5 bold>{storeName}</H5>
           <FlexBox cursor="pointer" onClick={handleLike}>
             {favorite ? (
               <BsFillHeartFill size="1.25rem" color={PRIMARY_900} />
@@ -161,10 +175,19 @@ const SalonCard = () => {
         <H5 bold>Price starting at 250/-</H5>
 
         <AmenitiesWrapper>
-          {storeAmenities.map((item, index) => (
-            <Body2 key={index} color={SECONDARY_500}>
-              {item}
-            </Body2>
+          {data?.amenities?.slice(0, 4).map((item, _id) => (
+            <FlexBox
+              border="none"
+              key={_id}
+              width="fit-content"
+              columnGap="0.5rem"
+            >
+              <img
+                src={`${CDN}/amenities/dark-icons/${item?.icon?.darkIcon}`}
+                alt={item?.name}
+              />
+              <Body2 color="#717171">{item?.name}</Body2>
+            </FlexBox>
           ))}
         </AmenitiesWrapper>
       </FlexBox>
@@ -174,6 +197,30 @@ const SalonCard = () => {
 
 const TopSalon = () => {
   const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
+  const [shopList, setShopList] = useState([]);
+
+  const fetchShopList = useCallback(async () => {
+    try {
+      setLoading(true);
+
+      const res = await client.post(URL.getAllShops, {
+        page: 1,
+        pageLimit: 6,
+      });
+      const data = res?.data?.data?.[0];
+      setShopList(data.data || []);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchShopList();
+  }, [fetchShopList]);
 
   return (
     <FlexBox column rowGap="2rem">
@@ -190,11 +237,10 @@ const TopSalon = () => {
         </IconButton>
       </FlexBox>
       <Container>
-        {Array(6)
-          .fill(null)
-          .map((_, index) => (
-            <SalonCard key={index} />
-          ))}
+        {loading && <Loader />}
+        {shopList.map(data => (
+          <SalonCard key={data?._id} data={data} />
+        ))}
       </Container>
     </FlexBox>
   );

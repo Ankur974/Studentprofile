@@ -54,7 +54,7 @@ const ActionWrapper = styled(FlexBox)`
   padding: 0 1rem;
 `;
 
-const AminitiesWrapper = styled(FlexBox)`
+const AmenitiesWrapper = styled(FlexBox)`
   gap: 0.5rem;
   overflow-x: auto;
   margin: 0 -1rem;
@@ -64,7 +64,6 @@ const AminitiesWrapper = styled(FlexBox)`
   @media ${device.laptop} {
     flex-wrap: wrap;
     overflow: hidden;
-    
   }
 `;
 
@@ -200,19 +199,22 @@ const Card = ({ data }) => {
         {data?.serviceStartPrice && (
           <H5 bold>{`Price starting at ${data?.serviceStartPrice}/-`}</H5>
         )}
-        <AminitiesWrapper>
+        <AmenitiesWrapper>
           {data?.amenities?.slice(0, 4).map((item, _id) => (
-            <FlexBox border="none" key={_id} width="fit-content" columnGap ="0.5rem">
+            <FlexBox
+              border="none"
+              key={_id}
+              width="fit-content"
+              columnGap="0.5rem"
+            >
               <img
-                src={
-                     `${CDN}/amenities/dark-icons/${item?.icon?.darkIcon}`
-                }
+                src={`${CDN}/amenities/dark-icons/${item?.icon?.darkIcon}`}
                 alt={item?.name}
               />
               <Body2 color="#717171">{item?.name}</Body2>
             </FlexBox>
           ))}
-        </AminitiesWrapper>
+        </AmenitiesWrapper>
       </FlexBox>
     </Wrapper>
   );
