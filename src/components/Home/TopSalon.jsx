@@ -100,6 +100,8 @@ const PopularityBox = styled(FlexBox)`
 
 const SalonCard = ({ data }) => {
   const [favorite, setFavorite] = useState(false);
+  const router = useRouter();
+
   const handleLike = () => setFavorite(!favorite);
 
   const {
@@ -112,8 +114,6 @@ const SalonCard = ({ data }) => {
     storeName,
     storeRating,
   } = data || {};
-
-  console.log(amenities);
 
   const OfferRendering = ({ discount }) => {
     if (discount) {
@@ -129,7 +129,7 @@ const SalonCard = ({ data }) => {
   };
 
   return (
-    <Wrapper column>
+    <Wrapper column onClick={() => router.push(`/shop-details/${data._id}`)}>
       <Banner column>
         <Img src="/assets/images/home/salon.webp" alt="twinkle" />
         <ActionWrapper justify="space-between" align="center">
