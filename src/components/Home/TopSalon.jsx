@@ -115,6 +115,8 @@ const SalonCard = ({ data }) => {
     storeRating,
   } = data || {};
 
+  const thumbnail = storeImages?.filter(image => image?.isThumbnail)?.[0];
+
   const OfferRendering = ({ discount }) => {
     if (discount) {
       return (
@@ -131,7 +133,7 @@ const SalonCard = ({ data }) => {
   return (
     <Wrapper column onClick={() => router.push(`/shop-details/${data._id}`)}>
       <Banner column>
-        <Img src="/assets/images/home/salon.webp" alt="twinkle" />
+        <Img src={thumbnail?.imageUrl} alt="thumbnail image" />
         <ActionWrapper justify="space-between" align="center">
           {storeBannerText && (
             <PopularityBox>

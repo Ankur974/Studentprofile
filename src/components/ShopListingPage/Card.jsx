@@ -130,13 +130,15 @@ const Card = ({ data }) => {
     }
   };
 
+  const thumbnail = data?.storeImages?.filter(image => image?.isThumbnail)?.[0];
+
   return (
     <Wrapper column onClick={() => router.push(`/shop-details/${data._id}`)}>
       <Banner column>
         {data.image ? (
           <Img src={data.image} alt={data.storeName} />
         ) : (
-          <Img src="https://picsum.photos/200/300" alt="twinkle" />
+          <Img src={thumbnail?.imageUrl} alt="store thumbnail image" />
         )}
         <ActionWrapper justify="space-between" align="center">
           {data.popularity && (

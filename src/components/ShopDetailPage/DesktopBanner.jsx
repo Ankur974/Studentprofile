@@ -1,25 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import FlexBox from "../common/ui/FlexBox";
-import SalonInfo from "./SalonInfo";
-import { device } from "../common/ui/Responsive";
 import { useRouter } from "next/router";
-import { ACCENT_300, ACCENT_800 } from "../common/ui/colors";
 
-const Container = styled(FlexBox)`
-  display: none;
-
-  @media ${device.laptop} {
-    display: flex;
-    column-gap: 0.5rem;
-    flex-direction: row;
-    position: relative;
-  }
-`;
+import FlexBox from "@common/ui/FlexBox";
+import { device } from "@common/ui/Responsive";
+import { ACCENT_300, ACCENT_800 } from "@common/ui/colors";
+import SalonInfo from "./SalonInfo";
 
 const Wrapper = styled(FlexBox)`
   display: none;
-
   @media ${device.laptop} {
     width: 100%;
     display: flex;
@@ -28,22 +17,33 @@ const Wrapper = styled(FlexBox)`
   }
 `;
 
+const Container = styled(FlexBox)`
+  display: none;
+  @media ${device.laptop} {
+    max-height: 63vh;
+    display: flex;
+    column-gap: 0.5rem;
+    flex-direction: row;
+    position: relative;
+  }
+`;
+
 const GroupImage = styled(FlexBox)`
   width: 60%;
+  max-height: 62vh;
   flex-wrap: wrap;
   gap: 0.5rem;
 `;
 
 const Img = styled.img`
   width: 100%;
+  object-fit: cover;
 `;
 
 const GrpImg = styled.img`
   width: 47%;
-`;
-
-const ImageContainer = styled(FlexBox)`
-  width: 65%;
+  height: 50%;
+  object-fit: cover;
 `;
 
 const ShowMoreCta = styled.div`
@@ -64,18 +64,21 @@ const ShowMoreCta = styled.div`
 const DesktopBanner = ({ shopData }) => {
   const router = useRouter();
 
+  const thumbnail = shopData?.storeImages?.filter(
+    image => image?.isThumbnail
+  )?.[0];
+
   return (
     <Wrapper>
       <SalonInfo shopData={shopData} />
       <Container>
-        <ImageContainer>
-          <Img src="/assets/salon-image3.jpg" />
-        </ImageContainer>
+        <FlexBox width="65%" height="63vh">
+          <Img src={thumbnail?.imageUrl} />
+        </FlexBox>
         <GroupImage>
-          <GrpImg src="/assets/salon-image11.jpg" alt="" />
-          <GrpImg src="/assets/salon-image2.jpg" alt="" />
-          <GrpImg src="/assets/salon-image3.jpg" alt="" />
-          <GrpImg src="/assets/salon-image4.jpg" alt="" />
+          {shopData?.storeImages?.slice(1)?.map((image, index) => (
+            <GrpImg key={index} src={image?.imageUrl} alt="store images" />
+          ))}
         </GroupImage>
         <ShowMoreCta onClick={() => router.push("/shop-details/images")}>
           Show More
