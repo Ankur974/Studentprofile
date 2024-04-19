@@ -23,7 +23,7 @@ const WidgetContainer = styled(FlexBox)`
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
   width: 100%;
-  background: linear-gradient(180deg, #83337c 0%, #533a71 100%);
+  background: linear-gradient(180deg, #79347a 0%, #533a71 100%);
   padding: 1.5rem;
 `;
 

@@ -1,21 +1,18 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
-import { WHITE, listingChip } from "@common/ui/colors";
+import { ACCENT_0 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import styled from "styled-components";
 import { H1 } from "@common/ui/Headings";
 import { Caption } from "@common/ui/Headings";
 import { Button } from "@common/ui/Buttons";
 import { device } from "@common/ui/Responsive";
-import { categoryData } from "@metadata/CategoryData";
-import Slider from "../Home/Slider";
 
 const Wrapper = styled(FlexBox)`
   height: 100%;
   row-gap: 1.5rem;
   flex-direction: column;
-  background-color: ${WHITE};
+  background-color: ${ACCENT_0};
   padding: 2.5rem 1.25rem 0;
   align-items: center;
 `;
@@ -31,17 +28,17 @@ const Heading = styled(H1)`
   text-align: center;
 `;
 
-// const ImageContainer = styled(FlexBox)`
-//   justify-content: center;
-//   align-items: center;
-//   align-self: center;
-//   margin-top: 2rem;
+const ImageContainer = styled(FlexBox)`
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin-top: 2rem;
 
-//   @media ${device.laptop} {
-//     left: 50%;
-//     right: 50%;
-//   }
-// `;
+  @media ${device.laptop} {
+    left: 50%;
+    right: 50%;
+  }
+`;
 
 const ColorGradient = styled.span`
   background-image: linear-gradient(
@@ -54,17 +51,18 @@ const ColorGradient = styled.span`
   -webkit-text-fill-color: transparent;
 `;
 
-// const Frame = styled.img`
-//   width: 100%;
-//   object-fit: cover;
-//   height: 28rem;
-//   mix-blend-mode: normal;
+const Frame = styled.img`
+  width: 100%;
+  object-fit: cover;
+  height: 16rem;
+  mix-blend-mode: normal;
+  margin-bottom: -0.5rem;
 
-//   @media ${device.laptop} {
-//     width: 55rem;
-//     height: 22rem;
-//   }
-// `;
+  @media ${device.laptop} {
+    width: 55rem;
+    height: 22rem;
+  }
+`;
 
 const SubHeading = styled(Caption)`
   font-size: 1rem;
@@ -78,21 +76,6 @@ const PlayCTA = styled(Button)`
   text-transform: none;
   font-size: 1rem;
   font-weight: 600;
-`;
-
-const Divider = styled(FlexBox)`
-  border-bottom: 1px solid ${listingChip};
-`;
-
-const SliderContainer = styled(FlexBox)`
-  margin-top: 15rem;
-  padding: 1.5rem;
-  flex-direction: column;
-  row-gap: 2rem;
-
-  @media ${device.laptop} {
-    row-gap: 4rem;
-  }
 `;
 
 const Play = ({ targetElement }) => {
@@ -110,7 +93,7 @@ const Play = ({ targetElement }) => {
           src="/assets/images/pamprazzi-logo.svg"
           alt="pamprazzi Logo"
         />
-        <FlexBox column align="center">
+        <FlexBox column rowGap="1rem" align="center">
           <Heading>
             We are here to make your salon visits even more hassle-free and{" "}
             <ColorGradient>fabulous!</ColorGradient>
@@ -122,17 +105,12 @@ const Play = ({ targetElement }) => {
             vouchers. It’s our way of saying,{" "}
             <ColorGradient>“Shundor hoye jao!”</ColorGradient>
           </SubHeading>
+          <PlayCTA onClick={scrollToTarget}>Play to Win!</PlayCTA>
         </FlexBox>
-        <PlayCTA onClick={scrollToTarget}>Play to Win!</PlayCTA>
       </Wrapper>
-      {/* <ImageContainer>
-        <Frame src="/assets/images/holi/banner.webp" />
-      </ImageContainer> */}
-      <SliderContainer>
-        <Divider />
-        <Slider heading="Explore our range of services" data={categoryData} />
-        <Divider />
-      </SliderContainer>
+      <ImageContainer>
+        <Frame src="/assets/images/holi/hero-banner.webp" />
+      </ImageContainer>
     </>
   );
 };
