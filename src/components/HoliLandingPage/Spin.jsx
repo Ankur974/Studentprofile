@@ -86,15 +86,15 @@ const Wrapper = styled(FlexBox)`
 
   ._28Wol {
     background-color: ${PRIMARY_800};
-    max-width: 25.345rem;
-    max-height: 25.345rem;
-    min-width: 25.345rem;
-    min-height: 25.345rem;
+    max-width: 23rem;
+    max-height: 23rem;
+    min-width: 23rem;
+    min-height: 23rem;
   }
 
   ._1E7u3 {
-    width: 22rem;
-    height: 22rem;
+    width: 20rem;
+    height: 20rem;
   }
 `;
 
@@ -127,7 +127,7 @@ const SpinWin = () => {
           align="center"
           justify="center"
           rowGap="1rem"
-          width="27rem"
+          width="100%"
         >
           <SpinAndWin
             ref={ref}
