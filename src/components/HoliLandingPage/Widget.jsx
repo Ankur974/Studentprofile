@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { WHITE } from "@common/ui/colors";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { Display } from "@common/ui/Headings";
 
 const WidgetContainer = styled(FlexBox)`
@@ -23,7 +23,7 @@ const WidgetContainer = styled(FlexBox)`
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
   width: 100%;
-  background: linear-gradient(180deg, #83337c 0%, #533a71 100%);
+  background: linear-gradient(180deg, #79347a 0%, #533a71 100%);
   padding: 1.5rem;
 `;
 

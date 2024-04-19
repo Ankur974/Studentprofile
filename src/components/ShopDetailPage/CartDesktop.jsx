@@ -15,7 +15,7 @@ import {
 import { Button } from "@common/ui/Buttons";
 import NullStateCart from "./NullStateCart";
 import { deleteItemFromCart } from "@redux/slices/cartSlice";
-import { device } from "@components/common/ui/Resposive";
+import { device } from "@components/common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   padding: 0.75rem 1rem;
@@ -79,46 +79,44 @@ const CartDesktop = () => {
 
   return (
     <Wrapper column>
-        <FlexBox column>
-          <H2 color={PRIMARY_800} bold>
-            My Cart
-          </H2>
-          <Body2 bold>Total Time: 1 hours 15 min</Body2>
-          <Body2 color={ACCENT_600}>Gigis</Body2>
-        </FlexBox>
+      <FlexBox column>
+        <H2 color={PRIMARY_800} bold>
+          My Cart
+        </H2>
+        <Body2 bold>Total Time: 1 hours 15 min</Body2>
+        <Body2 color={ACCENT_600}>Gigis</Body2>
+      </FlexBox>
 
-        <ItemsContainer column>
-          {cartdata.map(item => (
-            <SingleItemContainer key={item.id}>
-              <FlexBox column>
-                <Body2>{item.name}</Body2>
-                <Body2 bold>{item.price}</Body2>
-              </FlexBox>
-              <MdDeleteForever
-                color="red"
-                size="1.5rem"
-                cursor="pointer"
-                onClick={() => handleDelete(item.id)}
-              />
-            </SingleItemContainer>
-          ))}
-        </ItemsContainer>
-        <FlexBox column rowGap="0.5rem">
-          <FlexBox row>
-            <Body1 bold>Total Amount</Body1>
-            <Body1 bold>₹ {totalAmount}</Body1>
-          </FlexBox>
-          <HelperBox>
-            <Body2 color={ACCENT_600} lineHeight="1">
-              Please pay the amount to the Salon to book your appointment.
-            </Body2>
-          </HelperBox>
+      <ItemsContainer column>
+        {cartdata.map(item => (
+          <SingleItemContainer key={item.id}>
+            <FlexBox column>
+              <Body2>{item.name}</Body2>
+              <Body2 bold>{item.price}</Body2>
+            </FlexBox>
+            <MdDeleteForever
+              color="red"
+              size="1.5rem"
+              cursor="pointer"
+              onClick={() => handleDelete(item.id)}
+            />
+          </SingleItemContainer>
+        ))}
+      </ItemsContainer>
+      <FlexBox column rowGap="0.5rem">
+        <FlexBox row>
+          <Body1 bold>Total Amount</Body1>
+          <Body1 bold>₹ {totalAmount}</Body1>
         </FlexBox>
-        <FlexBox justify="center" margin="0.25rem 0 0 ">
-          <Button  color={PRIMARY_900}>
-            Book Appointment
-          </Button>
-        </FlexBox>
+        <HelperBox>
+          <Body2 color={ACCENT_600} lineHeight="1">
+            Please pay the amount to the Salon to book your appointment.
+          </Body2>
+        </HelperBox>
+      </FlexBox>
+      <FlexBox justify="center" margin="0.25rem 0 0 ">
+        <Button color={PRIMARY_900}>Book Appointment</Button>
+      </FlexBox>
     </Wrapper>
   );
 };

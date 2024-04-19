@@ -9,7 +9,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Body1, Body2, H3 } from "@common/ui/Headings";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 // import Card from "@components/Home/Card";
 import OfferCard2 from "@components/Home/OfferCard2";
 
@@ -28,13 +28,13 @@ const CardWrapper = styled(FlexBox)`
   @media screen and (max-width: 300px) {
     width: 4rem;
   }
-  @media screen and (min-width: 950px and max-width: 1007px) {
+  @media screen and (min-width: 950px) and (max-width: 1007px) {
     width: 6rem;
   }
-  @media screen and (min-width: 1008px and max-width: 1066px) {
+  @media screen and (min-width: 1008px) and (max-width: 1066px) {
     width: 19rem;
   }
-  @media screen and (min-width: 1066px and max-width: 1165px) {
+  @media screen and (min-width: 1066px) and (max-width: 1165px) {
     width: 21rem;
   }
 `;

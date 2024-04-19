@@ -8,7 +8,7 @@ import Modal from "@common/ui/Modal";
 import { Body1, H6 } from "@common/ui/Headings";
 import Ratings from "@common/ui/Ratings";
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const ModalContainer = styled.div`
   position: fixed;

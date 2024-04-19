@@ -4,6 +4,7 @@ import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { Body2 } from "@common/ui/Headings";
 import { ACCENT_800, PRIMARY_600 } from "@common/ui/colors";
+import { ACCENT_0 } from "../common/ui/colors";
 
 const Wrapper = styled(FlexBox)`
   background-color: ${props => props.backgroundColor || PRIMARY_600};
@@ -21,23 +22,23 @@ const OfferBox = styled(FlexBox)`
 `;
 
 const CategoryBanner = ({ categoryConfig }) => {
+  console.log(categoryConfig,"catbanner");
   const {
-    bannerimg,
-    bannerdesc,
-    offerDesc,
-    backgroundColor,
-    offerBoxColor,
-    offerTextColor,
+    bannerImage,
+    categoryBannerTitle,
+    categoryBannerSubTitle,
+    categoryBannerColor,
+    categoryBannerSubBanner,
   } = categoryConfig || {};
 
   return (
-    <Wrapper backgroundColor={backgroundColor}>
-      <img src={bannerimg} alt={bannerdesc} />
+    <Wrapper backgroundColor={categoryBannerColor}>
+      <img src={bannerImage} alt={categoryBannerTitle} />
       <FlexBox column align="center">
-        <Body2>{bannerdesc}</Body2>
-        <OfferBox offerBoxColor={offerBoxColor}>
-          <Body2 color={offerTextColor} textAlign="center">
-            {offerDesc}
+        <Body2>{categoryBannerTitle}</Body2>
+        <OfferBox offerBoxColor={categoryBannerSubBanner}>
+          <Body2 color={ACCENT_0} textAlign="center">
+            {categoryBannerSubTitle}
           </Body2>
         </OfferBox>
       </FlexBox>

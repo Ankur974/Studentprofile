@@ -8,6 +8,7 @@ import { IoMaleFemaleOutline } from "react-icons/io5";
 import { SlHeart, SlMap, SlSymbolMale } from "react-icons/sl";
 import { CiDiscount1 } from "react-icons/ci";
 import { H5, Body2 } from "@common/ui/Headings";
+
 import {
   ACCENT_0,
   ACCENT_700,
@@ -16,9 +17,8 @@ import {
   listingChip,
 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
-import Chip from "@common/ui/Chips";
-import { Button } from "@common/ui/Buttons";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
+import { CDN } from "@constants/urls";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -30,6 +30,7 @@ const Wrapper = styled(FlexBox)`
   margin: auto;
   flex-grow: 1;
   position: relative;
+  cursor: pointer;
   @media ${device.laptop} {
     margin: 0;
   }
@@ -53,7 +54,7 @@ const ActionWrapper = styled(FlexBox)`
   padding: 0 1rem;
 `;
 
-const AminitiesWrapper = styled(FlexBox)`
+const AmenitiesWrapper = styled(FlexBox)`
   gap: 0.5rem;
   overflow-x: auto;
   margin: 0 -1rem;
@@ -85,10 +86,6 @@ const PopularityBox = styled(FlexBox)`
   justify-content: center;
   background-color: ${RATE_BACKGROUND};
   opacity: 0.9;
-`;
-
-const ViewButtonBox = styled(FlexBox)`
-  margin-top: 0.25rem;
 `;
 
 const Card = ({ data }) => {
@@ -125,13 +122,23 @@ const Card = ({ data }) => {
     }
   };
 
+  const formatDistance = distance => {
+    if (distance < 1000) {
+      return `${distance.toFixed(0)} meters`;
+    } else {
+      return `${(distance / 1000).toFixed(2)} km`;
+    }
+  };
+
+  const thumbnail = data?.storeImages?.filter(image => image?.isThumbnail)?.[0];
+
   return (
-    <Wrapper column>
+    <Wrapper column onClick={() => router.push(`/shop-details/${data._id}`)}>
       <Banner column>
         {data.image ? (
           <Img src={data.image} alt={data.storeName} />
         ) : (
-          <Img src="https://picsum.photos/200/300" alt="twinkle" />
+          <Img src={thumbnail?.imageUrl} alt="store thumbnail image" />
         )}
         <ActionWrapper justify="space-between" align="center">
           {data.popularity && (
@@ -163,7 +170,13 @@ const Card = ({ data }) => {
           padding={data?.discount ? "1rem 0 0 0" : "0"}
         >
           <H5 bold>{data?.storeName}</H5>
-          <FlexBox onClick={handleClick} cursor="pointer">
+          <FlexBox
+            onClick={e => {
+              e.stopPropagation();
+              handleClick();
+            }}
+            cursor="pointer"
+          >
             {selected ? (
               <BsFillHeartFill size="1.25rem" color={PRIMARY_800} />
             ) : (
@@ -177,36 +190,34 @@ const Card = ({ data }) => {
             {renderGenderIcon()}
             {data?.gender && <Body2>{`Salon for ${data?.gender}`}</Body2>}
           </FlexBox>
-          {data?.distance && <FlexBox columnGap="0.40rem" align="center">
-            <SlMap />
-            <Body2>{`${data?.distance} kms`}</Body2>
-          </FlexBox>}
+          {data?.distance && (
+            <FlexBox columnGap="0.40rem" align="center">
+              <SlMap />
+              <Body2>{formatDistance(data?.distance)}</Body2>
+            </FlexBox>
+          )}
         </FlexBox>
 
         {data?.serviceStartPrice && (
           <H5 bold>{`Price starting at ${data?.serviceStartPrice}/-`}</H5>
         )}
-
-        <AminitiesWrapper>
-          {data?.storeAmenities.map((item, index) => (
-            <Chip border="none" key={index} width="fit-content">
-              <Body2>{item}</Body2>
-            </Chip>
+        <AmenitiesWrapper>
+          {data?.amenities?.slice(0, 4).map((item, _id) => (
+            <FlexBox
+              border="none"
+              key={_id}
+              width="fit-content"
+              columnGap="0.5rem"
+            >
+              <img
+                src={`${CDN}/amenities/dark-icons/${item?.icon?.darkIcon}`}
+                alt={item?.name}
+              />
+              <Body2 color="#717171">{item?.name}</Body2>
+            </FlexBox>
           ))}
-        </AminitiesWrapper>
-        <ViewButtonBox>
-          <Button
-            secondary
-            rowGap="1rem"
-            onClick={() => {
-              router.push(`/shop-details/${data._id}`);
-            }}
-          >
-            View Details
-          </Button>
-        </ViewButtonBox>
+        </AmenitiesWrapper>
       </FlexBox>
-      `
     </Wrapper>
   );
 };

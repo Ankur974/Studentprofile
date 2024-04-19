@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import SessionCard from "@common/SessionCard";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import FlexBox from "@common/ui/FlexBox";
 import { WHITE } from "@common/ui/colors";
 import { Body2 } from "@common/ui/Headings";

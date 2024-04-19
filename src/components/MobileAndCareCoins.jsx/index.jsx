@@ -4,11 +4,10 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Body2, Display } from "@common/ui/Headings";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { PRIMARY_900, ACCENT_0 } from "@common/ui/colors";
 
 const MobileAndCoinContainer = styled(FlexBox)`
-  flex-direction: column;
   padding: 5rem 1.5rem;
   gap: 2.5rem;
   margin: -0.25rem 0 0 0;
@@ -16,7 +15,18 @@ const MobileAndCoinContainer = styled(FlexBox)`
 
   @media ${device.laptop} {
     flex-direction: row;
-    padding: 5rem ;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 86.67%;
+  max-width: 75rem;
+  margin: auto;
+  flex-direction: column;
+
+  @media ${device.laptop} {
+    flex-direction: row;
   }
 `;
 
@@ -59,19 +69,26 @@ const subheadings = [
 
 export const MobileAndCoinSection = () => (
   <MobileAndCoinContainer>
-    <LeftSection>
-      <MobileImg src="/assets/images/care-coin-banner.webp" />
-    </LeftSection>
-    <RightSection justify="center" rowGap="1rem">
-      <Display bold color={ACCENT_0}>
-        Elevate Your Salon Experience With Pamprazzi
-      </Display>
-      {subheadings.map((subheading, index) => (
-        <FlexBox key={index} columnGap="0.5rem" align="center" justify="start">
-          <FiCheckCircle color={ACCENT_0} />
-          <Body2 color={ACCENT_0}>{subheading.text}</Body2>
-        </FlexBox>
-      ))}
-    </RightSection>
+    <Wrapper>
+      <LeftSection>
+        <MobileImg src="/assets/images/care-coin-banner.webp" />
+      </LeftSection>
+      <RightSection justify="center" rowGap="1rem">
+        <Display bold color={ACCENT_0}>
+          Elevate Your Salon Experience With Pamprazzi
+        </Display>
+        {subheadings.map((subheading, index) => (
+          <FlexBox
+            key={index}
+            columnGap="0.5rem"
+            align="center"
+            justify="start"
+          >
+            <FiCheckCircle color={ACCENT_0} />
+            <Body2 color={ACCENT_0}>{subheading.text}</Body2>
+          </FlexBox>
+        ))}
+      </RightSection>
+    </Wrapper>
   </MobileAndCoinContainer>
 );

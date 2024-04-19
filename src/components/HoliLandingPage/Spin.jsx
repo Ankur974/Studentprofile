@@ -116,8 +116,8 @@ const SpinWin = () => {
   };
 
   return (
-    <EventPageLayout>
-      <Wrapper>
+    <Wrapper>
+      <EventPageLayout>
         <GamePageHeading
           heading="Spin The Wheel"
           subHeading="Spin the Wheel for Exclusive Access: Secure Your Early Entry to Our Exciting Launch!"
@@ -126,8 +126,8 @@ const SpinWin = () => {
           column
           align="center"
           justify="center"
-          rowGap="1rem"
-          width="100%"
+          rowGap="2rem"
+          width="27rem"
         >
           <SpinAndWin
             ref={ref}
@@ -142,8 +142,8 @@ const SpinWin = () => {
           />
           <Button onClick={handleSpin}>Click Here To Spin</Button>
         </FlexBox>
-      </Wrapper>
-    </EventPageLayout>
+      </EventPageLayout>
+    </Wrapper>
   );
 };
 

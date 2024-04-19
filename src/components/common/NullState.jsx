@@ -4,7 +4,7 @@ import styled from "styled-components";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_700 } from "@common/ui/colors";
 import { H3, H5 } from "@common/ui/Headings";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const Container = styled(FlexBox)`
   width: 100%;

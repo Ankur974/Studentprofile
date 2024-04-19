@@ -3,7 +3,7 @@ import FlexBox from "../common/ui/FlexBox";
 import { Body1 } from "../common/ui/Headings";
 import { ACCENT_800, PRIMARY_400 } from "../common/ui/colors";
 import styled from "styled-components";
-import { device } from "../common/ui/Resposive";
+import { device } from "../common/ui/Responsive";
 
 const NavContainer = styled(FlexBox)`
   padding: 1rem;
@@ -14,7 +14,7 @@ const NavContainer = styled(FlexBox)`
 const ButtonsWrapper = styled(FlexBox)`
   width: 100%;
   max-width: 73rem;
-  padding:0 2rem;
+  padding: 0 2rem;
   margin: auto;
   overflow-x: auto;
   align-items: center;
@@ -29,17 +29,16 @@ const NavItem = styled(Body1)`
   color: ${ACCENT_800};
   // transition: all 0.3s ease-in-out;
 
-
   &:hover {
     transform: scale(1.1);
   }
 `;
 
-const Navbar = ({ navitem }) => {
+const Navbar = ({ navItem }) => {
   return (
     <NavContainer>
       <ButtonsWrapper>
-        {navitem.map(item => (
+        {navItem.map(item => (
           <FlexBox key={item?.slug}>
             <NavItem
               whiteSpace="nowrap"

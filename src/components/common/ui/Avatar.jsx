@@ -2,19 +2,18 @@ import styled from "styled-components";
 import { FiMoreHorizontal } from "react-icons/fi";
 
 import { DUSTY_ORANGE_700, ERROR } from "./colors";
-import { H3 } from "./Headings";
+import { Body2 } from "./Headings";
 import FlexBox from "./FlexBox";
 
 const Container = styled(FlexBox)`
   position: relative;
-  min-width: 3rem;
 `;
 
 const Wrapper = styled.div`
   box-sizing: border-box;
   display: flex;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   padding: 0.625rem 0.5rem;
   flex-direction: column;
   align-items: center;
@@ -26,16 +25,9 @@ const Wrapper = styled.div`
   background-blend-mode: soft-light, normal;
 `;
 
-const Initials = styled(H3)`
-  display: flex;
-  flex-direction: column;
-  align-self: stretch;
+const Initials = styled(Body2)`
   color: ${DUSTY_ORANGE_700};
-  text-align: center;
-  font-size: 1.125rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: 1.75rem;
   text-transform: uppercase;
 `;
 
@@ -49,17 +41,24 @@ const Dot = styled.div`
   background-color: ${ERROR};
 `;
 
-const Avatar = ({ name, firstname, lastname, typing, showDot, isDisabled }) => {
-  let initials = "";
+// const Img = styled.img`
+//   width: 100%;
+//   max-width: 2rem;
+//   aspect-ratio: 1;
+// `;
 
+const Avatar = ({ name, firstName, lastName, typing, showDot, isDisabled }) => {
+  let initials = "";
+  // eslint-disable-next-line no-unused-vars
+  const noName = !name && !firstName;
   if (name) {
     initials = name
       .split(" ")
       .map(part => part.charAt(0))
       .join("")
       .slice(0, 2);
-  } else if (firstname) {
-    initials = `${firstname?.charAt(0)}${!lastname ? "" : lastname?.charAt(0)}`;
+  } else if (firstName) {
+    initials = `${firstName?.charAt(0)}${lastName ? lastName?.charAt(0) : ""}`;
   }
 
   return (

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   SlSocialFacebook,
   SlSocialLinkedin,
   SlSocialInstagram,
-  SlSpeech,
 } from "react-icons/sl";
 import styled from "styled-components";
 import { useRouter } from "next/router";
@@ -19,7 +18,7 @@ import {
   PRIMARY_800,
   SECONDARY_800,
 } from "@common/ui/colors";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const FooterContainer = styled(FlexBox)`
   width: 100%;
@@ -68,6 +67,7 @@ const CopyRightBox = styled(FlexBox)`
   height: 3rem;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 `;
 
 const HeadingText = styled(H3)`
@@ -109,8 +109,9 @@ const TaglineContainer = styled(FlexBox)`
   flex-wrap: wrap;
 `;
 
-const SubTag = styled(H1)`
+const Subtag = styled(H1)`
   font-size: 1.25rem;
+
   @media ${device.laptop} {
     font-size: 1.5rem;
   }
@@ -131,11 +132,6 @@ const socialIconsData = [
     icon: SlSocialInstagram,
     link: "https://www.instagram.com/pamprazzi/",
     mediaType: "Instagram",
-  },
-  {
-    icon: SlSpeech,
-    link: "mailto:support@pamprazzi.com",
-    mediaType: "Mail",
   },
 ];
 
@@ -163,7 +159,7 @@ const getInTouchNavLinkData = [
     onClick: () => console.log("Home clicked"),
   },
   {
-    name: "hello@pamprazzi.com",
+    name: "support@pamprazzi.com",
     onClick: () => {
       location.href = "mailto:support@pamprazzi.com";
     },
@@ -208,7 +204,7 @@ const Footer = ({ eventMobileView }) => {
           </TaglineContainer>
           <FlexBox justify="center" columnGap="0.57rem">
             <img src="/assets/footer-img/heartlogo.svg" />
-            <SubTag color={ACCENT_0}>Proudly built in Kolkata</SubTag>
+            <Subtag color={ACCENT_0}>Proudly built in Kolkata</Subtag>
           </FlexBox>
         </FlexBox>
         <FlexBox justify="center" columnGap="1.31rem">
@@ -243,7 +239,7 @@ const Footer = ({ eventMobileView }) => {
         {!eventMobileView && (
           <ContentContainer>
             <ContentBox isLarge align="center">
-              <img src="/assets/images/pamprazzi-logo-white.svg"></img>
+              <img src="/assets/images/pamprazzi-logo-white.svg" />
               <Body1 color={ACCENT_0}>Simplifying Self-Care</Body1>
             </ContentBox>
             <ContentBox>
@@ -286,7 +282,7 @@ const Footer = ({ eventMobileView }) => {
       </FooterContainer>
       <CopyRightBox>
         <H6 color={ACCENT_0}>
-          Copyright © 2024 Pamprazzi. All rights reserved.
+          Copyright © 2024 Simplifying Self Care-Pamprazzi. All rights reserved.
         </H6>
       </CopyRightBox>
     </>

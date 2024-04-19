@@ -5,12 +5,16 @@ import {
   ACCENT_100,
   PRIMARY_900,
   ACCENT_500,
-  ERROR,
+  ERROR_RED_500,
+  ERROR_RED_600,
   ACCENT_0,
-  ACCENT_400,
-  ACCENT_800,
   PRIMARY_400,
   PRIMARY_500,
+  ACCENT_400,
+  BRICK_TERRACOTA_400,
+  BRICK_TERRACOTA_500,
+  ACCENT_800,
+  ACCENT_900,
 } from "./colors";
 import FlexBox from "./FlexBox";
 
@@ -31,7 +35,7 @@ export const Button = styled.button`
   line-height: 1.25rem;
   min-width: ${({ width }) => !width && "7rem"};
   width: ${({ width }) => (width ? width : "fit-content")};
-  font-family: Poppins;
+  font-family: "Poppins";
   font-size: 0.875rem;
   font-weight: 700;
   border-radius: 0.625rem;
@@ -52,13 +56,13 @@ export const Button = styled.button`
   ${({ danger }) =>
     danger &&
     css`
-      border: 1px solid ${ERROR};
-      background-color: ${ERROR};
+      border: 1px solid ${ERROR_RED_500};
+      background-color: ${ERROR_RED_500};
       color: ${({ color }) => color || ACCENT_0};
 
       &:hover {
-        background-color: ${ERROR};
-        border-color: ${ERROR};
+        background-color: ${ERROR_RED_600};
+        border-color: ${ERROR_RED_600};
         color: ${({ hoverColor }) => hoverColor || ACCENT_0};
       }
     `}
@@ -85,10 +89,12 @@ export const Button = styled.button`
     css`
       background-color: transparent;
       color: ${({ color }) => color || PRIMARY_800};
+      border-color: ${BRICK_TERRACOTA_400};
 
       &:hover {
         background-color: transparent;
         color: ${({ hoverColor }) => hoverColor || PRIMARY_900};
+        border-color: ${BRICK_TERRACOTA_500};
       }
     `}
 
@@ -131,11 +137,11 @@ export const Button = styled.button`
     css`
       border: 1px solid ${ACCENT_400};
       background-color: transparent;
-      color: ${({ color }) => color || ERROR};
+      color: ${({ color }) => color || ERROR_RED_500};
 
       &:hover {
         background-color: transparent;
-        color: ${({ hoverColor }) => hoverColor || ERROR};
+        color: ${({ hoverColor }) => hoverColor || ERROR_RED_600};
         border-color: ${ACCENT_400};
       }
     `}
@@ -189,6 +195,21 @@ export const Button = styled.button`
 
       &:hover {
         background-color: transparent;
+        color: ${({ color }) => color || ACCENT_900};
+      }
+    `}
+// WhiteButton
+${({ whiteButton }) =>
+    whiteButton &&
+    css`
+      border: 1px solid ${ACCENT_0};
+      background-color: ${ACCENT_0};
+      color: ${({ color }) => color || ACCENT_800};
+
+      &:hover {
+        background-color: ${ACCENT_0};
+        color: ${({ hoverColor }) => hoverColor || ACCENT_800};
+        border-color: ${ACCENT_0};
       }
     `}
 `;
@@ -210,7 +231,7 @@ export const IconButton = ({
 }) => (
   <Button {...props}>
     <InnerWrapper iconPosition={iconPosition} columnGap={spacing}>
-      <Icon size="1rem" strokeWidth={strokeWidth} />
+      <Icon size={24} strokeWidth={strokeWidth} />
       {children}
     </InnerWrapper>
   </Button>

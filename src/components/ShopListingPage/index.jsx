@@ -1,25 +1,19 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
-import dynamic from "next/dynamic";
-import { isEqual } from "lodash";
-import axios from "axios";
 
+import { client } from "@axiosClient";
 import Loader from "@common/ui/Loader";
 import FlexBox from "@common/ui/FlexBox";
-import Filter from "@common/ui/Filter";
 import { Display, H1, H3 } from "@common/ui/Headings";
-import { PRIMARY_200, PRIMARY_800 } from "@common/ui/colors";
-import Chip from "@common/ui/Chips";
-import { device } from "@common/ui/Resposive";
+import { PRIMARY_200 } from "@common/ui/colors";
+import { device } from "@common/ui/Responsive";
 import Approach from "@common/ApproachFaq";
 import { filterMeta } from "@metadata/ListingPage";
+import { URL } from "@constants/urls";
 import Card from "./Card";
 import SecondaryNav from "./SecondaryNav";
-import { URL } from "@constants/urls";
-
-const AdvancedFilter = dynamic(() => import("./AdvancedFilter"), {
-  ssr: false,
-});
+import { Filters } from "./Filters";
 
 const metadata = [
   {
@@ -40,7 +34,7 @@ const metadata = [
   },
   {
     id: 5,
-    title: "Mainicure & Pedicure",
+    title: "Manicure & Pedicure",
   },
   {
     id: 6,
@@ -84,16 +78,7 @@ const Banner = styled(FlexBox)`
   background-color: ${PRIMARY_200};
 `;
 
-const FilterWrapper = styled(FlexBox)`
-  column-gap: 0.25rem;
-  align-items: center;
-  overflow-x: auto;
-  @media ${device.laptop} {
-    column-gap: 1rem;
-  }
-`;
-
-const Toptitle = styled(FlexBox)`
+const TitleWrapper = styled(FlexBox)`
   max-width: 75rem;
   padding: 0 2rem;
   align-items: center;
@@ -106,32 +91,46 @@ const IntersectionTarget = styled.div`
   height: 1rem;
 `;
 
-const ActiveDot = styled.div`
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: ${PRIMARY_800};
-  border-radius: 2rem;
-  position: absolute;
-  top: -0.25rem;
-  right: -0.25rem;
-`;
-
 const ShopListingPage = () => {
-  const [showFilter, setShowFilter] = useState(false);
   const [loading, setLoading] = useState(false);
   const [shopList, setShopList] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
 
+  const getInitialState = filterMeta => {
+    const initialState = {};
+
+    filterMeta?.forEach(filter => {
+      initialState[filter.slug] = filter?.type === "checkbox" ? [] : "";
+    });
+
+    return initialState;
+  };
+
+  const [advancedFilterSelection, setAdvancedFilterSelection] = useState(() =>
+    getInitialState(filterMeta)
+  );
+
   const targetRef = useRef(null);
 
   const fetchShopList = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await axios.get(
-        `${URL.getAllShops}?page=${pageNumber}&pageLimit=9`
-      );
+
+      const { gender, price_range, services_offered, sort_by, special_offers } =
+        advancedFilterSelection;
+
+      const res = await client.post(URL.getAllShops, {
+        page: pageNumber,
+        pageLimit: 9,
+        //TODO: do not remove this comment -->
+        // gender,
+        // sortFilter: sort_by,
+        // priceRange: price_range,
+        // services: services_offered,
+        // offers: special_offers,
+      });
       const data = res?.data?.data?.[0];
 
       if (data) {
@@ -144,26 +143,16 @@ const ShopListingPage = () => {
     } finally {
       setLoading(false);
     }
-  }, [pageNumber]);
+  }, [pageNumber, advancedFilterSelection]);
 
   useEffect(() => {
     fetchShopList();
   }, [fetchShopList]);
 
-  const getInitialState = filterMeta => {
-    const initialState = {};
-
-    filterMeta?.forEach(filter => {
-      initialState[filter.slug] = filter?.type === "checkbox" ? [] : "";
-    });
-
-    return initialState;
-  };
-  const [advancedFilterSelection, setAdvancedFilterSelection] = useState(() =>
-    getInitialState(filterMeta)
-  );
-
-  const toggleModal = () => setShowFilter(!showFilter);
+  useEffect(() => {
+    setShopList([]);
+    setPageNumber(1);
+  }, [advancedFilterSelection]);
 
   useEffect(() => {
     if (!targetRef?.current) return;
@@ -202,50 +191,21 @@ const ShopListingPage = () => {
 
   return (
     <div>
-      {showFilter && (
-        <AdvancedFilter
-          advancedFilterSelection={advancedFilterSelection}
-          setAdvancedFilterSelection={setAdvancedFilterSelection}
-          initialState={getInitialState(filterMeta)}
-          togglePopup={toggleModal}
-        />
-      )}
-      <SecondaryNav navitem={metadata} />
+      <SecondaryNav navItem={metadata} />
       <Banner>
-        <Toptitle>
+        <TitleWrapper>
           <Display bold>Everything feels better after a Haircut</Display>
-        </Toptitle>
+        </TitleWrapper>
       </Banner>
       <Wrapper>
         {totalCount && (
           <H3 bold>{totalCount} Haircut Results in your location</H3>
         )}
-        <FlexBox align="center" columnGap="0.5rem">
-          <FlexBox position="relative">
-            {!isEqual(advancedFilterSelection, getInitialState(filterMeta)) && (
-              <ActiveDot />
-            )}
-            <Filter onClick={toggleModal} />
-          </FlexBox>
-          <FilterWrapper>
-            {filterMeta?.map(({ options }) => {
-              return options?.map(({ label, slug, isPopular }) => {
-                if (!isPopular) return;
-                return (
-                  <Chip
-                    key={slug}
-                    selected={advancedFilterSelection?.services_offered?.includes(
-                      slug
-                    )}
-                    onClick={() => {}}
-                  >
-                    {label}
-                  </Chip>
-                );
-              });
-            })}
-          </FilterWrapper>
-        </FlexBox>
+        <Filters
+          getInitialState={getInitialState}
+          advancedFilterSelection={advancedFilterSelection}
+          setAdvancedFilterSelection={setAdvancedFilterSelection}
+        />
         <FlexBox column>
           <ListWrapper>
             {shopList?.map((data, index) => (
