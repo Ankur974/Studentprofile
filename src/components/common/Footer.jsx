@@ -6,6 +6,7 @@ import {
   SlSocialInstagram,
 } from "react-icons/sl";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 import FlexBox from "@common/ui/FlexBox";
 import { trackEvent } from "@utils/helpers";
@@ -16,9 +17,8 @@ import {
   ACCENT_800,
   PRIMARY_800,
   SECONDARY_800,
-} from "@common/UI/colors";
-import { device } from "@common/UI/Responsive";
-import { useRouter } from "next/router";
+} from "@common/ui/colors";
+import { device } from "@common/ui/Responsive";
 
 const FooterContainer = styled(FlexBox)`
   width: 100%;
