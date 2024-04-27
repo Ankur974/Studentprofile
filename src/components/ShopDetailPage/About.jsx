@@ -140,7 +140,7 @@ const About = ({ shopData }) => {
       <FlexBox column rowGap="1rem">
         <H3 bold>Amenities</H3>
         <GridContainer>
-          {shopData?.storeAmenities?.map((amenity, index) => (
+          {shopData?.amenities?.map((amenity, index) => (
             <FlexBox key={index} columnGap="1rem">
               <img
                 src={`${CDN}/amenities/dark-icons/${amenity?.icon?.darkIcon}`}
