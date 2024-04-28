@@ -6,10 +6,10 @@ import Gamify from "../../../components/HoliLandingPage/QuizGame";
 const spinner = () => {
   return (
     <>
-    <Gamify/>
-    <EventPageLayout>
-      <SpinWin />
-    </EventPageLayout>
+      <Gamify />
+      <EventPageLayout>
+        <SpinWin />
+      </EventPageLayout>
     </>
   );
 };

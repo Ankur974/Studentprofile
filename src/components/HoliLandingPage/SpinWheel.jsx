@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import FlexBox from "@common/ui/FlexBox";
-import { useSelector } from "react-redux";
 import { Caption } from "@common/ui/Headings";
 import { PRIMARY_900, WHITE } from "@common/ui/colors";
 import { Button } from "@common/ui/Buttons";
 import { trackEvent } from "@utils/helpers";
 import LoginModal from "@components/Login";
+import { device } from "@common/ui/Responsive";
 import { Header } from "./Header";
 
 const Wrapper = styled(FlexBox)`
@@ -38,6 +39,12 @@ const Card = styled(FlexBox)`
   gap: 1rem;
   background-color: ${WHITE};
   border-radius: 1.25rem;
+
+  @media ${device.laptop} {
+    width: 86.67%;
+    max-width: 75rem;
+    margin: auto;
+  }
 `;
 
 const SpinCTA = styled(Button)`
@@ -62,12 +69,9 @@ const SpinWheel = () => {
   };
 
   const track = () => {
-    trackEvent({
-      event: "spin-now-click",
-      payload: {
-        source: "holi-lp",
-        isLoggedIn: currentUser ? true : false,
-      },
+    trackEvent("spin-now-click", {
+      current_page: "waitlist-lp",
+      isLoggedIn: currentUser ? true : false,
     });
   };
 

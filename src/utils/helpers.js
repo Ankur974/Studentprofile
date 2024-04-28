@@ -20,7 +20,7 @@ export const limitString = (string = "", limit = 40) => {
 };
 
 //analytics
-export const trackEvent = async ({ event, payload }) => {
+export const trackEvent = async (event, payload) => {
   const blockAnalytics = localStorage.getItem("block_analytics");
   const skipAnalytics = localStorage.getItem("skip_analytics");
 
@@ -59,14 +59,6 @@ export const trackEvent = async ({ event, payload }) => {
   }
 
   MixpanelTracker.getInstance().trackEvent({ event, payload: updatedPayload });
-  // if (moengage_events.includes(event)) {
-  //   try {
-  //     await Moengage?.track_event(event, updatedPayload);
-  //   } catch (error) {
-  //     console.log("error in this moengage event ", error);
-  //     Bugsnag.notify(error);
-  //   }
-  // }
 };
 
 export const trackGTMEvent = eventPayload =>

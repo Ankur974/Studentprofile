@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import styled from "styled-components";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 import FlexBox from "@common/ui/FlexBox";
 import { H3 } from "@common/ui/Headings";
@@ -12,8 +13,53 @@ import { categoryData } from "@metadata/CategoryData";
 import { URL } from "@constants/urls";
 import { PRIMARY_900, listingChip } from "@common/ui/colors";
 import { device } from "@common/ui/Responsive";
+import Footer from "@components/common/Footer";
+import { Button } from "@common/ui/Buttons";
+import NavBar from "@common/NavBar";
+import Avatar from "@common/ui/Avatar";
+import LoginModal from "@components/Login";
+import { trackEvent } from "@utils/helpers";
 import Slider from "./Slider";
 import OfferCards from "./OfferCards";
+
+const NonStickyWrapper = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 20;
+  opacity: ${props => (props.show ? 1 : 0)};
+  transition: opacity 0.3s ease-in-out;
+`;
+
+const NonStickyNav = styled(FlexBox)`
+  width: 86.67%;
+  max-width: 75rem;
+  margin: auto;
+  padding-block: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+
+  @media ${device.laptop} {
+    padding-block: 0.875rem;
+  }
+`;
+
+const LogoContainer = styled.div`
+  min-width: 6rem;
+  max-width: 6rem;
+
+  @media ${device.laptop} {
+    min-width: 7.5rem;
+    max-width: 7.5rem;
+  }
+`;
+
+const Logo = styled.img`
+  width: 100%;
+  cursor: pointer;
+`;
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -54,7 +100,39 @@ const SliderContainer = styled(FlexBox)`
   }
 `;
 
-const Home = () => {
+const Home = ({ navContainerStyles }) => {
+  const [scrollY, setScrollY] = useState(0);
+  const [showNavBar, setShowNavBar] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+
+  const user = useSelector(state => state.auth?.user);
+
+  const toggleModal = () => {
+    setLoginModal(!loginModal);
+  };
+
+  const track = () => {
+    trackEvent("login-cta-click", {
+      current_page: "home",
+    });
+  };
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrollY(window.scrollY);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    setShowNavBar(scrollY > 50); // Change 100 to the scroll distance you desire
+  }, [scrollY]);
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -70,7 +148,34 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <FlexBox column position="relative">
+      {loginModal && <LoginModal setModalOpen={setLoginModal} page="home" />}
+      <NonStickyWrapper show={!showNavBar}>
+        <NonStickyNav>
+          <LogoContainer>
+            <Logo
+              isStatic
+              height={36}
+              draggable={false}
+              src="/assets/images/pamprazzi-logo.svg"
+              alt="pamprazzi Logo"
+            />
+          </LogoContainer>
+          {user ? (
+            <Avatar name={user?.name} />
+          ) : (
+            <Button
+              onClick={() => {
+                toggleModal();
+                track();
+              }}
+            >
+              Login
+            </Button>
+          )}
+        </NonStickyNav>
+      </NonStickyWrapper>
+      {showNavBar && <NavBar navContainerStyles={navContainerStyles} />}
       <Wrapper>
         <SliderContainer>
           <Slider heading="What are you looking for?" data={categoryData} />
@@ -87,7 +192,8 @@ const Home = () => {
           <Localities />
         </Container>
       </FlexBox>
-    </>
+      <Footer />
+    </FlexBox>
   );
 };
 

@@ -14,7 +14,7 @@ const HoliLandingPage = () => {
   const targetRef = useRef(null);
 
   useEffect(() => {
-    trackEvent({ event: "holi-lp-page-load" });
+    trackEvent("waitlist-lp-page-load");
   }, []);
 
   return (
