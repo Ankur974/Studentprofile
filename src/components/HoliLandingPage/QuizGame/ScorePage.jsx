@@ -32,10 +32,8 @@ const Body_1 = styled(Body1)`
 const ItemContainer = styled(FlexBox)`
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0 2.5rem;
-  margin: auto;
-  gap: 2.5rem;
+  padding: 4rem 1.5rem;
+  gap: 1.5rem;
 
   @media ${device.laptop} {
     padding: 2.5rem 2.5rem 0;
@@ -73,8 +71,7 @@ const SocialBox = styled(FlexBox)`
 const Img = styled.img`
   width: auto;
   height: auto;
-  max-width: 15.2rem;
-  max-height: 17.9375rem;
+  max-height: 15rem;
 `;
 
 // const Button = styled(FlexBox)`
@@ -146,27 +143,18 @@ const ScorePage = () => {
               <H1 bold color={ACCENT_0} textTransform="uppercase">
                 {voucher?.coupon_code}
               </H1>
-              {/* </FlexBox>
-              <Button>
-                <Body1 bold>Reedem</Body1>
-              </Button> */}
             </FlexBox>
           </FlexBox>
           <SalonDetails>
             <Body_1>Details:</Body_1>
-            {/* <Body_1 bold>SK Hair & Spa</Body_1>
-            <Body_1 whiteSpace="wrap">
-              21, b/3, L colony, Behind SK farm and sports, Vilas Street, West
-              Bengal - 876453
-            </Body_1> */}
             <CouponDate>
               <Body2 color={MID_TONE_PURPLE}>{voucher?.description}</Body2>
             </CouponDate>
             <FlexBox column>
               <Body2 color={ACCENT_0}>
                 {voucher?.service !== "Care Coin"
-                  ? "Note: Your Pre-Launch Coupon is ready! Redeem it at nearby salons from March 26 to April 15."
-                  : "Note: Care Coins available in your account from March 26. Use them to book appointments effortlessly!"}
+                  ? "Note: Your Pre-Launch Coupon is ready! Redeem it at nearby salons from May 1st to May 15th."
+                  : "Note: Care Coins available in your account from May 1st. Use them to book appointments effortlessly!"}
               </Body2>
               <Body2 color={ACCENT_0}>{voucher?.terms_condition}</Body2>
             </FlexBox>
@@ -174,7 +162,7 @@ const ScorePage = () => {
         </FlexBox>
         <FlexBox column rowGap="0.25rem">
           <Body2 color={ACCENT_0}>
-            Follow us on Instagram for launch updates on March 26th
+            Follow us on Instagram for launch updates.
           </Body2>
           <SocialBox onClick={handleOpenInstagram}>
             <Image

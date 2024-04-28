@@ -16,6 +16,13 @@ const Wrapper = styled(FlexBox)`
   background-color: ${ACCENT_0};
   padding: 2.5rem 1.25rem 0;
   align-items: center;
+
+  @media ${device.laptop} {
+    row-gap: 5rem;
+    width: 86.67%;
+    max-width: 60rem;
+    margin: auto;
+  }
 `;
 
 const Logo = styled.img`
@@ -60,8 +67,8 @@ const Frame = styled.img`
   margin-bottom: -0.5rem;
 
   @media ${device.laptop} {
-    width: 55rem;
-    height: 22rem;
+    margin-bottom: -2rem;
+    height: 65rem;
   }
 `;
 
@@ -103,7 +110,8 @@ const Play = ({ targetElement }) => {
             Kolkata, get ready! While we put the finishing touches on our
             platform, explore our offerings—from classic haircuts to Ayurvedic
             facials. And don’t miss the chance to spin our wheel for pre-launch
-            vouchers. It’s our way of saying,{" "}
+            vouchers. It’s our way of saying,
+            <br />
             <ColorGradient>“Shundor hoye jao!”</ColorGradient>
           </SubHeading>
           <PlayCTA onClick={scrollToTarget}>Play to Win!</PlayCTA>

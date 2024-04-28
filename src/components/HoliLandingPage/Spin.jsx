@@ -78,23 +78,23 @@ const colorCodes = [
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
-  row-gap: 3.5rem;
+  row-gap: 1rem;
   padding: 1rem;
-  margin: 1rem;
+  margin: 0 1rem;
   justify-content: center;
   align-items: center;
 
   ._28Wol {
     background-color: ${PRIMARY_800};
-    max-width: 25.9375rem;
-    max-height: 25.9375rem;
-    min-width: 25.9375rem;
-    min-height: 25.9375rem;
+    max-width: 23rem;
+    max-height: 23rem;
+    min-width: 23rem;
+    min-height: 23rem;
   }
 
   ._1E7u3 {
-    width: 22.5rem;
-    height: 22.5rem;
+    width: 20rem;
+    height: 20rem;
   }
 `;
 
@@ -118,30 +118,30 @@ const SpinWin = () => {
   return (
     <Wrapper>
       <EventPageLayout>
-      <GamePageHeading
-        heading="Spin The Wheel"
-        subHeading="Spin the Wheel for Exclusive Access: Secure Your Early Entry to Our Exciting Launch!"
-      />
-      <FlexBox
-        column
-        align="center"
-        justify="center"
-        rowGap="2rem"
-        width="27rem"
-      >
-        <SpinAndWin
-          ref={ref}
-          data={freeSpinGifts}
-          result={winnerCode}
-          hideButton={true}
-          time={10}
-          removeButtonEffect={true}
-          horizantalText={false}
-          fontFamily="poppins"
-          fontSize="20"
+        <GamePageHeading
+          heading="Spin The Wheel"
+          subHeading="Spin the Wheel for Exclusive Access: Secure Your Early Entry to Our Exciting Launch!"
         />
-        <Button onClick={handleSpin}>Click Here To Spin</Button>
-      </FlexBox>
+        <FlexBox
+          column
+          align="center"
+          justify="center"
+          rowGap="2rem"
+          width="27rem"
+        >
+          <SpinAndWin
+            ref={ref}
+            data={freeSpinGifts}
+            result={winnerCode}
+            hideButton={true}
+            time={10}
+            removeButtonEffect={true}
+            horizantalText={false}
+            fontFamily="poppins"
+            fontSize="20"
+          />
+          <Button onClick={handleSpin}>Click Here To Spin</Button>
+        </FlexBox>
       </EventPageLayout>
     </Wrapper>
   );
