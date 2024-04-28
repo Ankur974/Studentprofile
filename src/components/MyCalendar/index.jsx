@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { SECONDARY_0 } from "@common/ui/colors";
 import HolidayList from "./HolidayList";
 import CalendarForm from "./CalendarForm";

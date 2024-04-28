@@ -1,18 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import { WHITE } from "@common/ui/colors";
+
+import { ACCENT_0 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import styled from "styled-components";
 import { H1 } from "@common/ui/Headings";
 import { Caption } from "@common/ui/Headings";
 import { Button } from "@common/ui/Buttons";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   height: 100%;
   row-gap: 1.5rem;
   flex-direction: column;
-  background-color: ${WHITE};
+  background-color: ${ACCENT_0};
   padding: 2.5rem 1.25rem 0;
   align-items: center;
 `;
@@ -54,8 +55,9 @@ const ColorGradient = styled.span`
 const Frame = styled.img`
   width: 100%;
   object-fit: cover;
-  height: 28rem;
+  height: 16rem;
   mix-blend-mode: normal;
+  margin-bottom: -0.5rem;
 
   @media ${device.laptop} {
     width: 55rem;
@@ -92,20 +94,23 @@ const Play = ({ targetElement }) => {
           src="/assets/images/pamprazzi-logo.svg"
           alt="pamprazzi Logo"
         />
-        <FlexBox column align="center">
+        <FlexBox column rowGap="1rem" align="center">
           <Heading>
-            We are here to make your Holi even more{" "}
-            <ColorGradient>colorful!</ColorGradient>
+            We are here to make your salon visits even more hassle-free and{" "}
+            <ColorGradient>fabulous!</ColorGradient>
           </Heading>
           <SubHeading>
-            Enjoy a vibrant Holi with Pamprazzi! Don't worry about stains we've
-            got vouchers covered. Let's make this Holi unforgettable!
+            Kolkata, get ready! While we put the finishing touches on our
+            platform, explore our offerings—from classic haircuts to Ayurvedic
+            facials. And don’t miss the chance to spin our wheel for pre-launch
+            vouchers. It’s our way of saying,{" "}
+            <ColorGradient>“Shundor hoye jao!”</ColorGradient>
           </SubHeading>
+          <PlayCTA onClick={scrollToTarget}>Play to Win!</PlayCTA>
         </FlexBox>
-        <PlayCTA onClick={scrollToTarget}>Play to Win!</PlayCTA>
       </Wrapper>
       <ImageContainer>
-        <Frame src="/assets/images/holi/banner.webp" />
+        <Frame src="/assets/images/holi/hero-banner.webp" />
       </ImageContainer>
     </>
   );

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import SessionCard from "@common/SessionCard";
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const Divider = styled.div`
   height: 0.5rem;

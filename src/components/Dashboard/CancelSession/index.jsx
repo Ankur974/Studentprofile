@@ -5,7 +5,7 @@ import advancedFormat from "dayjs/plugin/advancedFormat";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import { FiX } from "react-icons/fi";
 
-import { Modal } from "@common/ui/Modal";
+import Modal from "@common/ui/Modal";
 import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_400, WHITE } from "@common/ui/colors";
 import { Button } from "@common/ui/Buttons";

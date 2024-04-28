@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Button } from "@common/ui/Buttons";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { Body1 } from "@common/ui/Headings";
 import Input from "@common/ui/InputBox";
 import { ACCENT_0, ACCENT_400 } from "@common/ui/colors";

@@ -2,7 +2,7 @@ import { FiX } from "react-icons/fi";
 import styled from "styled-components";
 
 import { H3 } from "@common/ui/Headings";
-import { Modal } from "@common/ui/Modal";
+import Modal from "@common/ui/Modal";
 import ProviderCard from "@common/ui/ProviderCard";
 import FlexBox from "@common/ui/FlexBox";
 

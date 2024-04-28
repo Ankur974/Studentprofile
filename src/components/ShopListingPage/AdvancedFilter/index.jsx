@@ -17,14 +17,14 @@ import { Body2, H3 } from "@common/ui/Headings";
 import { RadioSection } from "./RadioSection";
 import { CheckboxSection } from "./CheckboxSection";
 import { filterMeta } from "@metadata/ListingPage";
-import { device } from "../../common/ui/Resposive";
+import { device } from "../../common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   height: 100%;
 `;
 
 const Left = styled(FlexBox)`
-  width:100%;
+  width: 100%;
   max-width: 8.5rem;
   border-right: 1px solid ${ACCENT_400};
 

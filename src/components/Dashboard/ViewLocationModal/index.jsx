@@ -3,7 +3,7 @@ import { FiX, FiMapPin } from "react-icons/fi";
 
 import FlexBox from "@common/ui/FlexBox";
 import { H2, Body2, H5 } from "@common/ui/Headings";
-import { Modal } from "@common/ui/Modal";
+import Modal from "@common/ui/Modal";
 import { ACCENT_100, ACCENT_300, ACCENT_800 } from "@common/ui/colors";
 import { IconButton } from "@common/ui/Buttons";
 import { handleMapOpen } from "@utils/helpers";

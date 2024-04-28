@@ -7,7 +7,7 @@ import { RewardsBanner } from "./RewardsBanner";
 import { OffersCard } from "./OffersCard";
 import { BalanceCard } from "./BalanceCard";
 import { RedemptionCard } from "./RedemptionCard";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import { H2 } from "@common/ui/Headings";
 import { BarbarBanner } from "./BarbarBanner";
 
@@ -180,7 +180,6 @@ const FlexScroll = styled(FlexBox)`
   width: 100%;
   max-width: 75rem;
   overflow-x: scroll;
-  
 
   @media ${device.laptop} {
     overflow: hidden;

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import FlexBox from "@common/ui/FlexBox";
-import { useSelector } from "react-redux";
 import { Caption } from "@common/ui/Headings";
 import { PRIMARY_900, WHITE } from "@common/ui/colors";
 import { Button } from "@common/ui/Buttons";
 import { trackEvent } from "@utils/helpers";
-import LoginModal from "../Login";
+import LoginModal from "@components/Login";
 import { Header } from "./Header";
 
 const Wrapper = styled(FlexBox)`

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   SlSocialFacebook,
   SlSocialLinkedin,
   SlSocialInstagram,
-  // SlSpeech,
 } from "react-icons/sl";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 import FlexBox from "@common/ui/FlexBox";
 import { trackEvent } from "@utils/helpers";
@@ -18,18 +18,20 @@ import {
   PRIMARY_800,
   SECONDARY_800,
 } from "@common/ui/colors";
-import { device } from "@common/ui/Resposive";
-import { useRouter } from "next/router";
+import { device } from "@common/ui/Responsive";
 
 const FooterContainer = styled(FlexBox)`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  padding: 2.5rem;
+  padding: 1.5rem;
   gap: 2.5rem;
-
   background-color: ${({ customBg }) =>
     customBg ? ACCENT_800 : SECONDARY_800};
+
+  @media ${device.laptop} {
+    padding: 2.5rem;
+  }
 `;
 
 const ContentContainer = styled(FlexBox)`
@@ -65,6 +67,7 @@ const CopyRightBox = styled(FlexBox)`
   height: 3rem;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 `;
 
 const HeadingText = styled(H3)`
@@ -82,14 +85,35 @@ const IconContainer = styled(FlexBox)`
   box-sizing: border-box;
   padding: 0.625rem;
   align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
+
   border-radius: 0.5rem;
   border: 2px solid ${ACCENT_400};
 
   &:hover {
     border: 2px solid ${ACCENT_0};
+  }
+`;
+
+const AnimatedWord = styled.div`
+  max-width: 6.5rem;
+  min-width: 6.5rem;
+  text-align: center;
+
+  @media ${device.laptop} {
+    max-width: 8.5rem;
+    min-width: 8.5rem;
+  }
+`;
+
+const TaglineContainer = styled(FlexBox)`
+  flex-wrap: wrap;
+`;
+
+const Subtag = styled(H1)`
+  font-size: 1.25rem;
+
+  @media ${device.laptop} {
+    font-size: 1.5rem;
   }
 `;
 
@@ -109,7 +133,6 @@ const socialIconsData = [
     link: "https://www.instagram.com/pamprazzi/",
     mediaType: "Instagram",
   },
-  // { icon: SlSpeech, link: "" },
 ];
 
 const servicesNavLinkData = [
@@ -121,13 +144,13 @@ const servicesNavLinkData = [
 ];
 
 const aboutNavLinkData = [
-  { name: "Privacy Policy", onClick: () => console.log("Home clicked") },
+  { name: "Privacy Policy", path: "/privacy-policy" },
   {
     name: "Terms and Conditions",
     onClick: () => console.log("Services clicked"),
   },
   { name: "FAQs", onClick: () => console.log("About Us clicked") },
-  { name: "Contact Us", onClick: () => console.log("Contact clicked") },
+  { name: "Contact Us", path: "/contact" },
 ];
 
 const getInTouchNavLinkData = [
@@ -136,10 +159,37 @@ const getInTouchNavLinkData = [
     onClick: () => console.log("Home clicked"),
   },
   {
-    name: "hello@pamprazzi.com",
-    onClick: () => console.log("About Us clicked"),
+    name: "support@pamprazzi.com",
+    onClick: () => {
+      location.href = "mailto:support@pamprazzi.com";
+    },
   },
 ];
+
+const RotatingText = () => {
+  const words = ["पेम्पेर", "পাম্পার"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentWordIndex(prevIndex => (prevIndex + 1) % words.length);
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const currentWord = words[currentWordIndex];
+
+  return (
+    <>
+      <Display color={ACCENT_0}>Don’t forget to </Display>
+      <AnimatedWord>
+        <Display color={ACCENT_0}>{currentWord}</Display>
+      </AnimatedWord>{" "}
+      <Display color={ACCENT_0}> yourself!</Display>
+    </>
+  );
+};
 
 const Footer = ({ eventMobileView }) => {
   const router = useRouter();
@@ -149,14 +199,12 @@ const Footer = ({ eventMobileView }) => {
     <>
       <FooterContainer customBg={eventMobileView}>
         <FlexBox column rowGap="0.25rem">
-          <FlexBox justify="center">
-            <Display color={ACCENT_0} textAlign="center">
-              Don’t forget to पेम्पेर yourself!
-            </Display>
-          </FlexBox>
+          <TaglineContainer justify="center">
+            <RotatingText />
+          </TaglineContainer>
           <FlexBox justify="center" columnGap="0.57rem">
             <img src="/assets/footer-img/heartlogo.svg" />
-            <H1 color={ACCENT_0}>Proudly built in Kolkata</H1>
+            <Subtag color={ACCENT_0}>Proudly built in Kolkata</Subtag>
           </FlexBox>
         </FlexBox>
         <FlexBox justify="center" columnGap="1.31rem">
@@ -191,7 +239,7 @@ const Footer = ({ eventMobileView }) => {
         {!eventMobileView && (
           <ContentContainer>
             <ContentBox isLarge align="center">
-              <img src="/assets/images/pamprazzi-logo-white.svg"></img>
+              <img src="/assets/images/pamprazzi-logo-white.svg" />
               <Body1 color={ACCENT_0}>Simplifying Self-Care</Body1>
             </ContentBox>
             <ContentBox>
@@ -208,9 +256,15 @@ const Footer = ({ eventMobileView }) => {
               ))}
             </ContentBox>
             <ContentBox>
-              <HeadingText>About</HeadingText>
+              <HeadingText>Quick Links</HeadingText>
               {aboutNavLinkData.map((button, index) => (
-                <NavLink key={index} onClick={button.onClick}>
+                <NavLink
+                  key={index}
+                  onClick={() => {
+                    if (!button?.path) return;
+                    router.push(button.path);
+                  }}
+                >
                   {button.name}
                 </NavLink>
               ))}
@@ -228,7 +282,7 @@ const Footer = ({ eventMobileView }) => {
       </FooterContainer>
       <CopyRightBox>
         <H6 color={ACCENT_0}>
-          Copyright © 2024 Pamprazzi. All rights reserved.
+          Copyright © 2024 Simplifying Self Care-Pamprazzi. All rights reserved.
         </H6>
       </CopyRightBox>
     </>

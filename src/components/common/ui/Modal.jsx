@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { ACCENT_100 } from "./colors";
 import useOutsideAlert from "../../../hooks/useOutsideAlert";
 import { boxShadowDs2 } from "./styles";
-import { device } from "./Resposive";
+import { device } from "./Responsive";
 
 const Container = styled.div`
   position: fixed;

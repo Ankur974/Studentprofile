@@ -5,7 +5,7 @@ import axios from "axios";
 
 import FlexBox from "@common/ui/FlexBox";
 import Tabs from "@common/ui/Tabs";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 import Loader from "@common/ui/Loader";
 import { URL } from "@constants/urls";
 import Services from "./Services";
@@ -66,7 +66,7 @@ const CartAndOfferContainer = styled(FlexBox)`
   display: none;
   @media ${device.laptop} {
     display: flex;
-    flex:1;
+    flex: 1;
     min-width: 20rem;
   }
 `;

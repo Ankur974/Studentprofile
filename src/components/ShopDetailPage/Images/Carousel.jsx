@@ -12,7 +12,7 @@ import FlexBox from "@common/ui/FlexBox";
 import { ACCENT_0, ACCENT_800 } from "@common/ui/colors";
 import Favourite from "@common/ui/Favourite";
 import { ShareModal } from "@components/ShopDetailPage/ShareModal";
-import { device } from "@common/ui/Resposive";
+import { device } from "@common/ui/Responsive";
 
 const Carousel = ({ images }) => {
   const [clicked, setClicked] = useState(false);

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { ACCENT_800 } from "./colors";
-import { device } from "./Resposive";
+import { device } from "./Responsive";
 
 const commonStyles = css`
   font-family: Poppins;

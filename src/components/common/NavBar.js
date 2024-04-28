@@ -2,17 +2,15 @@
 import { useState } from "react";
 import styled, { css } from "styled-components";
 import { useRouter } from "next/router";
-import { FiMoreHorizontal } from "react-icons/fi";
 
-import { ACCENT_0, ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
+import { PRIMARY_800 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
-import { device } from "@common/ui/Resposive";
-
-const commonIconProps = {
-  size: "1.5rem",
-  cursor: "pointer",
-  color: ACCENT_0,
-};
+import { device } from "@common/ui/Responsive";
+import { Button } from "./ui/Buttons";
+import { useSelector } from "react-redux";
+import Avatar from "@common/ui/Avatar";
+import LoginModal from "@components/Login";
+import { trackEvent } from "@utils/helpers";
 
 const FallBack = styled.div`
   display: none;
@@ -30,7 +28,7 @@ const FallBack = styled.div`
 `;
 
 const NavContainer = styled(FlexBox)`
-  padding-block: 0.25rem;
+  padding-block: 0.5rem;
   position: sticky;
   top: 0;
   left: 0;
@@ -38,7 +36,7 @@ const NavContainer = styled(FlexBox)`
   background-color: ${PRIMARY_800};
 
   @media ${device.laptop} {
-    padding: 0.5rem 0;
+    padding-block: 0.875rem;
   }
 
   ${({ navContainerStyles }) =>
@@ -51,21 +49,17 @@ const NavContainer = styled(FlexBox)`
 const NavMain = styled(FlexBox)`
   max-width: 75rem;
   width: 86.67%;
-
   @media only screen and (max-width: 48rem) {
     position: unset;
   }
 `;
 
 const LogoContainer = styled.div`
-  min-width: 7.5rem;
-  max-width: 7.5rem;
-  width: 7.5rem;
-
-  @media only screen and (max-width: 48rem) {
-    min-width: 5rem;
-    max-width: 5rem;
-    width: 5rem;
+  min-width: 6rem;
+  max-width: 6rem;
+  @media ${device.laptop} {
+    min-width: 7.5rem;
+    max-width: 7.5rem;
   }
 `;
 
@@ -74,45 +68,23 @@ const Logo = styled.img`
   cursor: pointer;
 `;
 
-const Avatar = styled(FlexBox)`
-  border: 2px solid ${ACCENT_0};
-  border-radius: 50%;
-
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const MoreActionsWrapper = styled(FlexBox)`
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-
-const ProviderImage = styled.img`
-  min-width: 2rem;
-  max-width: 2rem;
-  cursor: pointer;
-  min-height: 2rem;
-  max-height: 2rem;
-  overflow: hidden;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid ${ACCENT_800};
-`;
-
 const NavBar = ({ navContainerStyles }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
 
-  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
-  const [showMoreActions, setShowMoreActions] = useState(false);
-
-  const toggleProfileDropdown = () => setShowProfileDropdown(prev => !prev);
-  const toggleMoreActions = () => setShowMoreActions(prev => !prev);
+  const user = useSelector(state => state.auth?.user);
   const router = useRouter();
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+  const toggleModal = () => setLoginModal(!loginModal);
+  const closeMenu = () => setIsMenuOpen(false);
+
+  const track = () => {
+    trackEvent({
+      event: "cta-login-click",
+      payload: {
+        source: "home",
+      },
+    });
   };
 
   return (
@@ -121,6 +93,7 @@ const NavBar = ({ navContainerStyles }) => {
       justify="center"
       navContainerStyles={navContainerStyles}
     >
+      {loginModal && <LoginModal setModalOpen={setLoginModal} page="home" />}
       <FallBack navState={isMenuOpen} onClick={closeMenu} />
       <NavMain justify="space-between" align="center" width="90%">
         <LogoContainer onClick={() => router.push("/")}>
@@ -132,31 +105,20 @@ const NavBar = ({ navContainerStyles }) => {
             alt="pamprazzi Logo"
           />
         </LogoContainer>
-        <FlexBox align="center" columnGap="1.5rem">
-          <Avatar position="relative" align="center" justify="center">
-            <ProviderImage
-              alt="User Image"
-              draggable="false"
-              id="header-user-image"
-              src="/assets/images/stylists/men.jpg"
-              onClick={toggleProfileDropdown}
-            />
-          </Avatar>
-
-          <MoreActionsWrapper
-            position="relative"
-            align="center"
-            justify="center"
+        {user ? (
+          <Avatar name={user?.name} />
+        ) : (
+          <Button
+            whiteButton
+            color={PRIMARY_800}
+            onClick={() => {
+              toggleModal();
+              track();
+            }}
           >
-            <FlexBox
-              cursor="pointer"
-              id="header-actions"
-              onClick={toggleMoreActions}
-            >
-              <FiMoreHorizontal {...commonIconProps} pointerEvents="none" />
-            </FlexBox>
-          </MoreActionsWrapper>
-        </FlexBox>
+            Login
+          </Button>
+        )}
       </NavMain>
     </NavContainer>
   );

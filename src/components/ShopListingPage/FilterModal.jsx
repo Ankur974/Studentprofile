@@ -9,7 +9,7 @@ import { ACCENT_800, PRIMARY_800 } from "@common/ui/colors";
 import Rating from "@common/ui/Ratings";
 import Chip from "@common/ui/Chips";
 import Modal from "@common/ui/Modal";
-import { device } from "@components/common/ui/Resposive";
+import { device } from "@components/common/ui/Responsive";
 import { H2 } from "../common/ui/Headings";
 
 const services = [
@@ -105,9 +105,7 @@ const FilterChip = ({ name, selected, onClick }) => (
   <Chip width="fit-content" selected={selected} onClick={onClick}>
     <FlexBox align="center" columnGap="0.2rem">
       {selected && <RxCheck color={PRIMARY_800} />}
-      <Body2  color={selected ? PRIMARY_800 : ACCENT_800} >
-        {name}
-      </Body2>
+      <Body2 color={selected ? PRIMARY_800 : ACCENT_800}>{name}</Body2>
     </FlexBox>
   </Chip>
 );
@@ -149,26 +147,40 @@ const FilterModal = ({ toggleModal }) => {
     <Modal borderRadius="0.5rem" M1>
       <HeaderBox alignItems="center" justify="space-between" position="sticky">
         <Img src="/assets/images/filter1.svg" />
-        <H2 bold color={PRIMARY_800}>Filter</H2>
+        <H2 bold color={PRIMARY_800}>
+          Filter
+        </H2>
         <FiX onClick={toggleModal} style={{ cursor: "pointer" }} />
       </HeaderBox>
       <Wrapper column>
-        <Body2 bold color={PRIMARY_800}>Popular Filters</Body2>
-        <Body2 bold color={PRIMARY_800}>Ratings</Body2>
+        <Body2 bold color={PRIMARY_800}>
+          Popular Filters
+        </Body2>
+        <Body2 bold color={PRIMARY_800}>
+          Ratings
+        </Body2>
         <Rating />
-        <Body2 bold color={PRIMARY_800}>Services</Body2>
+        <Body2 bold color={PRIMARY_800}>
+          Services
+        </Body2>
         <ChipsBox columnGap="0.3rem">
           {renderFilterChips("services", services)}
         </ChipsBox>
-        <Body2 bold color={PRIMARY_800}>Availability</Body2>
+        <Body2 bold color={PRIMARY_800}>
+          Availability
+        </Body2>
         <ChipsBox columnGap="0.3rem">
           {renderFilterChips("availability", availability)}
         </ChipsBox>
-        <Body2 bold color={PRIMARY_800}>Type</Body2>
+        <Body2 bold color={PRIMARY_800}>
+          Type
+        </Body2>
         <ChipsBox columnGap="0.3rem">
           {renderFilterChips("type", type)}
         </ChipsBox>
-        <Body2 bold color={PRIMARY_800}>Salon Preference</Body2>
+        <Body2 bold color={PRIMARY_800}>
+          Salon Preference
+        </Body2>
         <ChipsBox columnGap="0.3rem">
           {renderFilterChips("pref", salonPref)}
         </ChipsBox>

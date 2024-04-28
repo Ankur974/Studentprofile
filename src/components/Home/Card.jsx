@@ -4,7 +4,7 @@ import { Body1, Body2 } from "@common/ui/Headings";
 import { Button } from "@common/ui/Buttons";
 import { useRouter } from "next/router";
 import { WHITE } from "@common/ui/colors";
-import { device } from "@components/common/ui/Resposive";
+import { device } from "@components/common/ui/Responsive";
 
 const CardContainer = styled.div`
   width: 100%;

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Body1, Body2, H6, H5, H3 } from "@common/ui/Headings";
 import { SECONDARY_200, PRIMARY_800 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
+import { CDN } from "@constants/urls";
 import AboutRatingsSection from "./AboutRatingsSection";
 import ReviewModal from "./FeedbackModal";
 
@@ -60,32 +61,9 @@ const DayWrapper = styled.div`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 2fr);
+  grid-template-columns: repeat(4, 4fr);
   row-gap: 1rem;
 `;
-
-const amenitiesList = {
-  "Air Conditioner": {
-    src: "/assets/images/amenities/air-flow-inspection.webp",
-    alt: "Air Conditioner",
-    label: "Air Conditioner",
-  },
-  "Blow Dryer": {
-    src: "/assets/images/amenities/hygiene.webp",
-    alt: "Hygiene",
-    label: "Hygiene",
-  },
-  "Parking Space": {
-    src: "/assets/images/amenities/parking.webp",
-    alt: "Parking",
-    label: "Parking Space",
-  },
-  "Pet Friendly": {
-    src: "/assets/images/amenities/heart.webp",
-    alt: "Pet Friendly",
-    label: "Pet Friendly",
-  },
-};
 
 const BusinessStatus = ({ dayObject }) => {
   const isOpenToday = dayObject?.open;
@@ -127,22 +105,8 @@ const About = ({ shopData }) => {
   const [expanded, setExpanded] = useState(false);
   const [more, setMore] = useState(false);
 
-  const currDay = dayjs().format("dddd");
-  const convertedDay = currDay.toUpperCase();
+  const convertedDay = dayjs().format("dddd").toUpperCase();
   const dayObject = shopData?.timing?.find(day => day.day === convertedDay);
-
-  const fetchedAmenities = shopData?.storeAmenities || [];
-  const amenitiesIcon = Object.keys(amenitiesList).map(localAmenityKey => {
-    const fetchedAmenity = fetchedAmenities?.find(
-      amenity => amenity === localAmenityKey
-    );
-
-    return {
-      key: localAmenityKey,
-      ...amenitiesList[localAmenityKey],
-      isPresent: !!fetchedAmenity,
-    };
-  });
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -176,31 +140,29 @@ const About = ({ shopData }) => {
       <FlexBox column rowGap="1rem">
         <H3 bold>Amenities</H3>
         <GridContainer>
-          {amenitiesIcon.map((amenity, index) => (
+          {shopData?.amenities?.map((amenity, index) => (
             <FlexBox key={index} columnGap="1rem">
               <img
-                src={amenity?.src}
-                width="32px"
-                height="32px"
-                alt={amenity?.alt}
+                src={`${CDN}/amenities/dark-icons/${amenity?.icon?.darkIcon}`}
+                width="24px"
+                height="24px"
+                alt={amenity?.slug}
               />
-              <H6 textDecoration={amenity?.isPresent ? "none" : "line-through"}>
-                {amenity?.label}
-              </H6>
+              <H6>{amenity?.name}</H6>
             </FlexBox>
           ))}
         </GridContainer>
       </FlexBox>
       <Hr />
       <AboutRatingsSection />
-      <ReviewModal shopData={shopData}/>
+      <ReviewModal shopData={shopData} />
       <Hr />
       <FlexBox id="mapId" column rowGap="1rem">
-        <H3 bold  >Location</H3>
+        <H3 bold>Location</H3>
         <InsideMap
           scrolling="no"
           frameborder="0"
-          src="https://maps.google.com/maps?q=22.886071,80.4111303&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          src={`https://maps.google.com/maps?q=${shopData?.coordinates?.coordinates?.[0]},${shopData?.coordinates?.coordinates?.[1]}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
         />
       </FlexBox>
       <Hr />

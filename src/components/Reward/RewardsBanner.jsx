@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import FlexBox from "../common/ui/FlexBox";
-import { device } from "../common/ui/Resposive";
+import { device } from "../common/ui/Responsive";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { Body2, H2, H3 } from "../common/ui/Headings";
 import { ACCENT_0, PRIMARY_900 } from "../common/ui/colors";

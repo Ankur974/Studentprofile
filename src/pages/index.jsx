@@ -1,15 +1,92 @@
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import styled from "styled-components";
+import { useSelector } from "react-redux";
 
-import HomePageLayout from "../layout/client/HomePageLayout";
-import Home from "../components/Home";
-import { useRouter } from "next/router";
+import Home from "@components/Home";
+import Footer from "@components/common/Footer";
+import FlexBox from "@common/ui/FlexBox";
+import { Button } from "@common/ui/Buttons";
+import NavBar from "@common/NavBar";
+import { device } from "@common/ui/Responsive";
+import Avatar from "@common/ui/Avatar";
+import LoginModal from "@components/Login";
+import { trackEvent } from "@utils/helpers";
 
-export default function HomePage() {
-  const router = useRouter();
+const NonStickyWrapper = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 20;
+  opacity: ${props => (props.show ? 1 : 0)};
+  transition: opacity 0.3s ease-in-out;
+`;
+
+const NonStickyNav = styled(FlexBox)`
+  width: 86.67%;
+  max-width: 75rem;
+  margin: auto;
+  padding-block: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+
+  @media ${device.laptop} {
+    padding-block: 0.875rem;
+  }
+`;
+
+const LogoContainer = styled.div`
+  min-width: 6rem;
+  max-width: 6rem;
+
+  @media ${device.laptop} {
+    min-width: 7.5rem;
+    max-width: 7.5rem;
+  }
+`;
+
+const Logo = styled.img`
+  width: 100%;
+  cursor: pointer;
+`;
+
+export default function HomePage({ navContainerStyles }) {
+  const [scrollY, setScrollY] = useState(0);
+  const [showNavBar, setShowNavBar] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+
+  const user = useSelector(state => state.auth?.user);
+
+  const toggleModal = () => {
+    setLoginModal(!loginModal);
+  };
+
+  const track = () => {
+    trackEvent({
+      event: "cta-login-click",
+      payload: {
+        source: "home",
+      },
+    });
+  };
+
   useEffect(() => {
-    router.replace("/holi-2024");
+    function handleScroll() {
+      setScrollY(window.scrollY);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
+
+  useEffect(() => {
+    setShowNavBar(scrollY > 50); // Change 100 to the scroll distance you desire
+  }, [scrollY]);
 
   return (
     <>
@@ -20,9 +97,37 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <HomePageLayout>
+        {loginModal && <LoginModal setModalOpen={setLoginModal} page="home" />}
+        <FlexBox column position="relative">
+          <NonStickyWrapper show={!showNavBar}>
+            <NonStickyNav>
+              <LogoContainer>
+                <Logo
+                  isStatic
+                  height={36}
+                  draggable={false}
+                  src="/assets/images/pamprazzi-logo.svg"
+                  alt="pamprazzi Logo"
+                />
+              </LogoContainer>
+              {user ? (
+                <Avatar name={user?.name} />
+              ) : (
+                <Button
+                  onClick={() => {
+                    toggleModal();
+                    track();
+                  }}
+                >
+                  Login
+                </Button>
+              )}
+            </NonStickyNav>
+          </NonStickyWrapper>
+          {showNavBar && <NavBar navContainerStyles={navContainerStyles} />}
           <Home />
-        </HomePageLayout>
+          <Footer />
+        </FlexBox>
       </main>
     </>
   );

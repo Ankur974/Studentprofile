@@ -4,10 +4,10 @@ export const filterMeta = [
     slug: "sort_by",
     type: "radio",
     options: [
-      { label: "Most Popular", slug: "popular", isPopular: true },
-      { label: "Price: Low to High", slug: "price_low_high" },
-      { label: "Price: High to Low", slug: "price_high_low" },
-      { label: "Newest", slug: "newest" },
+      { label: "Most Popular", slug: "pop", isPopular: true },
+      { label: "Price: Low to High", slug: "asc" },
+      { label: "Price: High to Low", slug: "des" },
+      { label: "Newest", slug: "new" },
     ],
   },
   {
@@ -23,12 +23,12 @@ export const filterMeta = [
   {
     title: "Price Range",
     slug: "price_range",
-    type: "checkbox",
+    type: "radio",
     options: [
-      { label: "Under ₹500", slug: "under_500" },
-      { label: "₹500 - ₹1000", slug: "500_1000" },
-      { label: "₹1000 - ₹2000", slug: "1000_2000" },
-      { label: "Over ₹2000", slug: "over_2000" },
+      { label: "Under ₹500", slug: "1" },
+      { label: "₹500 - ₹1000", slug: "2" },
+      { label: "₹1000 - ₹2000", slug: "3" },
+      { label: "Over ₹2000", slug: "4" },
     ],
   },
   {
