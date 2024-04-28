@@ -1,6 +1,5 @@
 import mixpanel from "mixpanel-browser";
 import { mixPanelKey } from "../utils/variables";
-// import * as storage from "@utils/storageFactory";
 
 export class MixpanelTracker {
   constructor() {
@@ -37,22 +36,7 @@ export class MixpanelTracker {
   };
 
   trackEvent = ({ event, payload = {} }) => {
-    let eventPayload = {};
-    // let ad_user_params = storage.local.getItem("ad_user_params");
-    // ad_user_params = JSON.parse(ad_user_params);
-    // if (!!ad_user_params) {
-    //   eventPayload = {
-    //     ...payload,
-    //     ...ad_user_params,
-    //   };
-    // } else {
-    eventPayload = {
-      ...payload,
-      ad_user: false,
-    };
-    // }
-
-    mixpanel.track(event, eventPayload);
-    console.log("MIXPANEL EVENT", event, eventPayload);
+    mixpanel.track(event, payload);
+    console.log("MIXPANEL EVENT", event, payload);
   };
 }

@@ -220,13 +220,10 @@ const Footer = ({ eventMobileView }) => {
                 >
                   <IconContainer
                     onClick={() => {
-                      trackEvent({
-                        event: "footer-social-click",
-                        payload: {
-                          source: "holi-lp",
-                          isLoggedIn: currentUser ? true : false,
-                          social: socialIconsData?.mediaType,
-                        },
+                      trackEvent("footer-social-click", {
+                        current_page: "waitlist-lp",
+                        isLoggedIn: currentUser ? true : false,
+                        social: socialIconsData?.mediaType,
                       });
                     }}
                   >

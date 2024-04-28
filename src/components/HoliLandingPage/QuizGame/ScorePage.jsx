@@ -36,6 +36,7 @@ const ItemContainer = styled(FlexBox)`
   gap: 1.5rem;
 
   @media ${device.laptop} {
+    margin: auto;
     padding: 2.5rem 2.5rem 0;
   }
 `;
@@ -45,6 +46,11 @@ const SalonDetails = styled(FlexBox)`
   align-items: start;
   padding: 1.5rem 0.25rem;
   gap: 0.75rem;
+
+  @media ${device.laptop} {
+    margin: auto;
+    max-width: 50%;
+  }
 `;
 
 const CouponDate = styled(FlexBox)`
@@ -129,7 +135,6 @@ const ScorePage = () => {
         <FlexBox column rowGap="1rem">
           <FlexBox justify="center">
             <Img src="/assets/images/voucher-bg.webp" />
-            {/* <FlexBox position="absolute" column rowGap="2rem"> */}
             <FlexBox
               column
               align="center"

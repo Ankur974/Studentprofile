@@ -8,6 +8,7 @@ import { H1 } from "@common/ui/Headings";
 import { Caption } from "@common/ui/Headings";
 import { Button } from "@common/ui/Buttons";
 import { device } from "@common/ui/Responsive";
+import { trackEvent } from "@utils/helpers";
 
 const Wrapper = styled(FlexBox)`
   height: 100%;
@@ -88,6 +89,10 @@ const PlayCTA = styled(Button)`
 
 const Play = ({ targetElement }) => {
   const scrollToTarget = () => {
+    trackEvent("hero_banner_cta_click", {
+      cta_label: "Play To Win!",
+      current_page: "waitlist-lp",
+    });
     targetElement.current.scrollIntoView({ behavior: "smooth" });
   };
 

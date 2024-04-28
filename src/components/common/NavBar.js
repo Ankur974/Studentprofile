@@ -79,11 +79,8 @@ const NavBar = ({ navContainerStyles }) => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const track = () => {
-    trackEvent({
-      event: "cta-login-click",
-      payload: {
-        source: "home",
-      },
+    trackEvent("cta-login-click", {
+      current_page: "waitlist-lp",
     });
   };
 

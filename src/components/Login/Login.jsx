@@ -27,6 +27,7 @@ import { Case, Default, Switch } from "@common/ConditionalRendering";
 import { setUser } from "@redux/slices/auth";
 import { client } from "@axiosClient";
 import { Button, IconButton } from "@common/ui/Buttons";
+import { trackEvent } from "@utils/helpers";
 // import OtpInput from "./OtpInput";
 
 const Wrapper = styled(FlexBox)`
@@ -142,6 +143,13 @@ const Login = ({ setModalOpen, page }) => {
 
   const dispatch = useDispatch();
   const router = useRouter();
+
+  useEffect(() => {
+    trackEvent("login-modal-load", {
+      current_page: "waitlist-lp",
+      source: "waitlist-lp",
+    });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -69,12 +69,9 @@ const SpinWheel = () => {
   };
 
   const track = () => {
-    trackEvent({
-      event: "spin-now-click",
-      payload: {
-        source: "lp",
-        isLoggedIn: currentUser ? true : false,
-      },
+    trackEvent("spin-now-click", {
+      current_page: "waitlist-lp",
+      isLoggedIn: currentUser ? true : false,
     });
   };
 
