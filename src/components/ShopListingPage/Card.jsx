@@ -138,7 +138,12 @@ const Card = ({ data }) => {
         {data.image ? (
           <Img src={data.image} alt={data.storeName} />
         ) : (
-          <Img src={thumbnail?.imageUrl} alt="store thumbnail image" />
+          <Img
+            src={
+              thumbnail?.imageUrl ?? "https://picsum.photos/seed/picsum/200/300"
+            }
+            alt="store thumbnail image"
+          />
         )}
         <ActionWrapper justify="space-between" align="center">
           {data.popularity && (

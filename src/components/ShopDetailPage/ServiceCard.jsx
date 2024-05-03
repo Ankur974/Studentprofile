@@ -35,6 +35,7 @@ const Card = styled(FlexBox)`
 const ServiceDetails = styled(FlexBox)`
   width: 80%;
   flex-direction: column;
+  gap: 0.25rem;
 
   @media ${device.laptop} {
     width: 50%;

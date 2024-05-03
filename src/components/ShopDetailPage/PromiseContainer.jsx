@@ -2,14 +2,14 @@ import React from "react";
 import { FaCheck } from "react-icons/fa6";
 
 import styled from "styled-components";
-import FlexBox from "@common/ui/FlexBox"; 
-import {SECONDARY_200, SECONDARY_800} from "@common/ui/colors";
-import { H3} from "@common/ui/Headings";
+import FlexBox from "@common/ui/FlexBox";
+import { SECONDARY_200, SECONDARY_800 } from "@common/ui/colors";
+import { H3 } from "@common/ui/Headings";
 
 const PromiseWrapper = styled(FlexBox)`
   flex-direction: column;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1rem;
   row-gap: 0.5rem;
   border: 1px solid ${SECONDARY_200};
   transition: opacity 0.3s ease-in-out;
@@ -21,7 +21,7 @@ const PromiseWrapper = styled(FlexBox)`
 const PromiseList = styled(FlexBox)`
   list-style: none;
   padding: 0.5rem;
-  row-gap:0.5rem;
+  row-gap: 0.5rem;
 `;
 
 const PromiseItem = styled(FlexBox)`
@@ -30,28 +30,23 @@ const PromiseItem = styled(FlexBox)`
 `;
 
 const PromiseData = [
-    {id:1,title:"Luxary Salon Experience"},
-    {id:2,title:"Premium Brand Products"},
-    {id:3,title:"4.5+ Rated Beauticians"}
+  { id: 1, title: "Luxary Salon Experience" },
+  { id: 2, title: "Premium Brand Products" },
+  { id: 3, title: "4.5+ Rated Beauticians" },
 ];
 
-
-
-const PromiseContainer = () =>{
-    return (
-        <PromiseWrapper column>
-        <H3 bold>Pamprazzi Promise</H3>
-        <PromiseList column>
-        {PromiseData.map((item)=>(
-            <FlexBox key={item.id} columnGap="1rem">
-            <FaCheck />
-            <PromiseItem>{item.title}</PromiseItem>
-            </FlexBox>
-    ))  }
-        </PromiseList>
-      </PromiseWrapper>
-    );
-};
-
+const PromiseContainer = () => (
+  <PromiseWrapper column>
+    <H3 bold>Pamprazzi Promise</H3>
+    <PromiseList column>
+      {PromiseData.map(item => (
+        <FlexBox key={item.id} columnGap="1rem">
+          <FaCheck />
+          <PromiseItem>{item.title}</PromiseItem>
+        </FlexBox>
+      ))}
+    </PromiseList>
+  </PromiseWrapper>
+);
 
 export default PromiseContainer;
