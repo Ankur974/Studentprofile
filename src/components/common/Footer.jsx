@@ -125,7 +125,7 @@ const socialIconsData = [
   },
   {
     icon: SlSocialLinkedin,
-    link: "https://www.linkedin.com/home?originalSubdomain=in",
+    link: "https://www.linkedin.com/company/pamprazzi/",
     mediaType: "LinkedIn",
   },
   {

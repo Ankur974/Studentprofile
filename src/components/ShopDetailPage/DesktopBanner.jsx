@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Responsive";
-import { ACCENT_300, ACCENT_800 } from "@common/ui/colors";
+// import { ACCENT_300, ACCENT_800 } from "@common/ui/colors";
 import SalonInfo from "./SalonInfo";
 
 const Wrapper = styled(FlexBox)`
@@ -46,23 +46,23 @@ const GrpImg = styled.img`
   object-fit: cover;
 `;
 
-const ShowMoreCta = styled.div`
-  background-color: ${ACCENT_300};
-  color: ${ACCENT_800};
-  width: fit-content;
-  position: absolute;
-  bottom: 2%;
-  right: 3%;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-weight: 600;
-`;
+// const ShowMoreCta = styled.div`
+//   background-color: ${ACCENT_300};
+//   color: ${ACCENT_800};
+//   width: fit-content;
+//   position: absolute;
+//   bottom: 2%;
+//   right: 3%;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 0.5rem;
+//   border-radius: 0.5rem;
+//   cursor: pointer;
+//   font-weight: 600;
+// `;
 
-const DesktopBanner = ({ shopData }) => {
-  const router = useRouter();
+const DesktopBanner = ({ shopData, scrollToElement }) => {
+  // const router = useRouter();
 
   const thumbnail = shopData?.storeImages?.filter(
     image => image?.isThumbnail
@@ -70,7 +70,7 @@ const DesktopBanner = ({ shopData }) => {
 
   return (
     <Wrapper>
-      <SalonInfo shopData={shopData} />
+      <SalonInfo shopData={shopData} scrollToElement={scrollToElement} />
       <Container>
         <FlexBox width="65%" height="63vh">
           <Img src={thumbnail?.imageUrl} />
@@ -80,9 +80,10 @@ const DesktopBanner = ({ shopData }) => {
             <GrpImg key={index} src={image?.imageUrl} alt="store images" />
           ))}
         </GroupImage>
-        <ShowMoreCta onClick={() => router.push("/shop-details/images")}>
+        {/* TODO: to be implemented later */}
+        {/* <ShowMoreCta onClick={() => router.push("/shop-details/images")}>
           Show More
-        </ShowMoreCta>
+        </ShowMoreCta> */}
       </Container>
     </Wrapper>
   );

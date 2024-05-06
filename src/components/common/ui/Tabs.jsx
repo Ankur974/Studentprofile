@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ACCENT_0, ACCENT_200, ACCENT_800 } from "./colors";
 import { Body1 } from "./Headings";
@@ -35,11 +35,16 @@ const TabContent = styled.div`
   transition: opacity 0.3s ease;
 `;
 
-const Tabs = ({ children }) => {
+const Tabs = ({ children, onTabClick, selectedTab }) => {
   const [activeTab, setActiveTab] = useState(0);
+
+  useEffect(() => {
+    setActiveTab(selectedTab);
+  }, [selectedTab]);
 
   const handleTabClick = index => {
     setActiveTab(index);
+    onTabClick?.(index);
   };
 
   return (

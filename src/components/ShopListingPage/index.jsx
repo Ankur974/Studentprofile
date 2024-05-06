@@ -11,44 +11,10 @@ import { device } from "@common/ui/Responsive";
 import Approach from "@common/ApproachFaq";
 import { filterMeta } from "@metadata/ListingPage";
 import { URL } from "@constants/urls";
+import { secondaryNavMeta } from "@metadata/ListingPage";
 import Card from "./Card";
 import SecondaryNav from "./SecondaryNav";
 import { Filters } from "./Filters";
-
-const metadata = [
-  {
-    id: 1,
-    title: "Haircut For Man",
-  },
-  {
-    id: 2,
-    title: "Haircut For Woman",
-  },
-  {
-    id: 3,
-    title: "Makeup",
-  },
-  {
-    id: 4,
-    title: "Nails",
-  },
-  {
-    id: 5,
-    title: "Manicure & Pedicure",
-  },
-  {
-    id: 6,
-    title: "Message Therapy",
-  },
-  {
-    id: 7,
-    title: "Hair Styling",
-  },
-  {
-    id: 8,
-    title: "Hair Coloring",
-  },
-];
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -191,7 +157,7 @@ const ShopListingPage = () => {
 
   return (
     <div>
-      <SecondaryNav navItem={metadata} />
+      <SecondaryNav navItem={secondaryNavMeta} />
       <Banner>
         <TitleWrapper>
           <Display bold>Everything feels better after a Haircut</Display>

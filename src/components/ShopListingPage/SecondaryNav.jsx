@@ -1,9 +1,11 @@
 import React from "react";
-import FlexBox from "../common/ui/FlexBox";
-import { Body1 } from "../common/ui/Headings";
-import { ACCENT_800, PRIMARY_400 } from "../common/ui/colors";
+import { useQueryParam, StringParams } from "use-query-params";
 import styled from "styled-components";
-import { device } from "../common/ui/Responsive";
+
+import FlexBox from "@common/ui/FlexBox";
+import { Body1 } from "@common/ui/Headings";
+import { ACCENT_800, PRIMARY_400 } from "@common/ui/colors";
+import { device } from "@common/ui/Responsive";
 
 const NavContainer = styled(FlexBox)`
   padding: 1rem;
@@ -35,6 +37,7 @@ const NavItem = styled(Body1)`
 `;
 
 const Navbar = ({ navItem }) => {
+  const [, setCategory] = useQueryParam("cat", StringParams);
   return (
     <NavContainer>
       <ButtonsWrapper>
@@ -44,7 +47,7 @@ const Navbar = ({ navItem }) => {
               whiteSpace="nowrap"
               cursor="pointer"
               onClick={() => {
-                null;
+                setCategory(item?.slug);
               }}
             >
               {item.title}

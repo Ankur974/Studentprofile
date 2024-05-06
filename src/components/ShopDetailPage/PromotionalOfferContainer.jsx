@@ -66,7 +66,7 @@ const PromotionalOfferContainer = ({ shopData }) => {
           </FlexBox>
         ))}
       </ExpandContainer>
-      <ViewMore onClick={() => setIsExpanded(prev => !prev)}>
+      <ViewMore align="center" onClick={() => setIsExpanded(prev => !prev)}>
         <Body2 color={PRIMARY_800} bold>
           {isExpanded ? "View Less Offer" : "View More Offer"}
         </Body2>

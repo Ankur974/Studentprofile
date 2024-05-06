@@ -60,11 +60,13 @@ const AmenitiesWrapper = styled(FlexBox)`
   margin: 0 -1rem;
   padding: 0 1rem;
   width: calc(100% + 2rem);
+  flex-wrap: wrap;
+  overflow: hidden;
 
-  @media ${device.laptop} {
+  /* @media ${device.laptop} {
     flex-wrap: wrap;
     overflow: hidden;
-  }
+  } */
 `;
 
 const OfferBanner = styled(FlexBox)`
@@ -218,7 +220,9 @@ const Card = ({ data }) => {
                 src={`${CDN}/amenities/dark-icons/${item?.icon?.darkIcon}`}
                 alt={item?.name}
               />
-              <Body2 color="#717171">{item?.name}</Body2>
+              <Body2 color="#717171" whiteSpace="nowrap">
+                {item?.name}
+              </Body2>
             </FlexBox>
           ))}
         </AmenitiesWrapper>

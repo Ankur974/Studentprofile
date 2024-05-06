@@ -11,19 +11,16 @@ const Wrapper = styled(FlexBox)`
   border: 1px solid ${SECONDARY_200};
   border-radius: 0.5rem;
   min-height: 5rem;
-  padding:0.5rem;
-  align-items:center;
-  justify-content:center;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
 `;
-
 
 const NullStateCart = () => {
   return (
-    <Wrapper column rowGap="2rem">
-      <img src="/assets/images/nullCart.svg" alt="Empty cart" width="120px" />
-      <FlexBox padding="0.5rem">
-        <Body2>No item in your cart </Body2>
-      </FlexBox>
+    <Wrapper column rowGap="0.5rem" padding="1rem">
+      <img src="/assets/images/nullCart.svg" alt="empty cart" width="120px" />
+      <Body2>No item in your cart </Body2>
     </Wrapper>
   );
 };

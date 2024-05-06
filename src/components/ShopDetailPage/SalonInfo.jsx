@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useRouter from "next/router";
 import styled from "styled-components";
 import { IoStar } from "react-icons/io5";
 
@@ -7,8 +6,8 @@ import { Body2, H1 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import Favourite from "@common/ui/Favourite";
 import { device } from "@common/ui/Responsive";
-import { ShareModal } from "./ShareModal";
 import { STARCOLOR } from "@common/ui/colors";
+import { ShareModal } from "./ShareModal";
 
 const BannerContent = styled(FlexBox)`
   width: 100%;
@@ -35,15 +34,8 @@ const Icons = styled(FlexBox)`
   cursor: pointer;
 `;
 
-const SalonInfo = ({ shopData }) => {
+const SalonInfo = ({ shopData, scrollToElement }) => {
   const [Clicked, setClicked] = useState(false);
-
-  const router = useRouter;
-
-  const ScrollToElement = () => {
-    const storeId = shopData?._id;
-    router.push(`/shop-details/${storeId}#mapId`);
-  };
 
   return (
     <BannerContent column rowGap="0.25rem">
@@ -63,9 +55,25 @@ const SalonInfo = ({ shopData }) => {
             <IoStar color={STARCOLOR} />
             <Body2>{shopData?.storeRating}</Body2>
           </FlexBox>
+          <Body2
+            onClick={() => {
+              scrollToElement("review-section");
+            }}
+            textDecoration="underline"
+            textTransform="capitalize"
+            cursor="pointer"
+          >
+            23 Reviews
+          </Body2>
           <Body2>|</Body2>
-          <Body2>23 Reviews</Body2>
-          <Body2 onClick={ScrollToElement}>
+          <Body2
+            onClick={() => {
+              scrollToElement("map");
+            }}
+            textDecoration="underline"
+            textTransform="capitalize"
+            cursor="pointer"
+          >
             {shopData?.address?.city}, {shopData?.address?.state}
           </Body2>
         </FlexBox>
