@@ -48,9 +48,9 @@ const ProfileDP = styled(Image)`
 `;
 
 const B1 = styled(Body1)`
-  max-height: ${({ expanded }) => (expanded ? "45px" : "100px")};
+  max-height: ${({ expanded }) => (expanded ? "3rem" : "20rem")};
   overflow: hidden;
-  transition: max-height 600ms ease-in-out;
+  transition: max-height 800ms ease-in-out;
 `;
 
 const DayWrapper = styled.div`
