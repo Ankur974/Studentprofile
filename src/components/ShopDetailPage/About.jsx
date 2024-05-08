@@ -48,14 +48,14 @@ const ProfileDP = styled(Image)`
 `;
 
 const B1 = styled(Body1)`
-  max-height: ${({ expanded }) => (expanded ? "45px" : "100px")};
+  max-height: ${({ expanded }) => (expanded ? "3rem" : "20rem")};
   overflow: hidden;
   transition: max-height 600ms ease-in-out;
 `;
 
 const DayWrapper = styled.div`
-  height: ${({ active }) => (active ? "20rem" : "1.5rem")};
-  max-height: 20rem;
+  height: ${({ active }) => (active ? "15rem" : "1.5rem")};
+  max-height: 15rem;
   transition: all 600ms ease-in-out;
   overflow: hidden;
 `;
