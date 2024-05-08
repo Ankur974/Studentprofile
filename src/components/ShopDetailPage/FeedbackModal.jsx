@@ -99,17 +99,23 @@ const ReviewModal = ({ shopData }) => {
             <FlexBox justify="flex-end" padding="0.5rem">
               <IoCloseOutline size="2rem" onClick={handleCloseModal} />
             </FlexBox>
-            <FlexBox column align="center" rowGap="1rem" padding="0.25rem" justify="space-between">
+            <FlexBox
+              column
+              align="center"
+              rowGap="1rem"
+              padding="0.25rem"
+              justify="space-between"
+            >
               {!isSubmitted ? (
                 <>
-                    <H3 bold>Hey {shopData?.ownerDetails?.name}</H3>
-                    <Body1>
-                      Would you like to rate your overall experience?{" "}
-                    </Body1>
-                    <Ratings
-                      onChange={value => handleRatingChange("Overall", value)}
-                      defaultValue={ratings.Overall}
-                    />
+                  <H3 bold>Hey {shopData?.ownerDetails?.name}</H3>
+                  <Body1>
+                    Would you like to rate your overall experience?{" "}
+                  </Body1>
+                  <Ratings
+                    onChange={value => handleRatingChange("Overall", value)}
+                    defaultValue={ratings.Overall}
+                  />
                   <FlexBox
                     column
                     columnGap="2rem"
