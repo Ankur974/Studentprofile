@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { CDN } from "@constants/urls";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Body2 } from "@common/ui/Headings";
@@ -22,23 +23,18 @@ const OfferBox = styled(FlexBox)`
 `;
 
 const CategoryBanner = ({ categoryConfig }) => {
-  console.log(categoryConfig,"catbanner");
-  const {
-    bannerImage,
-    categoryBannerTitle,
-    categoryBannerSubTitle,
-    categoryBannerColor,
-    categoryBannerSubBanner,
-  } = categoryConfig || {};
+  console.log(categoryConfig, "catbanner");
+  const { bannerImg, title, bannerSubTitle, bannerColor, smallBannerColor } =
+    categoryConfig || {};
 
   return (
-    <Wrapper backgroundColor={categoryBannerColor}>
-      <img src={bannerImage} alt={categoryBannerTitle} />
+    <Wrapper backgroundColor={bannerColor}>
+      <img src={`${CDN}/${bannerImg}`} alt={title} />
       <FlexBox column align="center">
-        <Body2>{categoryBannerTitle}</Body2>
-        <OfferBox offerBoxColor={categoryBannerSubBanner}>
+        <Body2>{title}</Body2>
+        <OfferBox offerBoxColor={smallBannerColor}>
           <Body2 color={ACCENT_0} textAlign="center">
-            {categoryBannerSubTitle}
+            {bannerSubTitle}
           </Body2>
         </OfferBox>
       </FlexBox>
