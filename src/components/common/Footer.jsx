@@ -147,7 +147,7 @@ const aboutNavLinkData = [
   { name: "Privacy Policy", path: "/privacy-policy" },
   {
     name: "Terms and Conditions",
-    onClick: () => console.log("Services clicked"),
+    path: "/termsandconditions",
   },
   { name: "FAQs", onClick: () => console.log("About Us clicked") },
   { name: "Contact Us", path: "/contact" },
