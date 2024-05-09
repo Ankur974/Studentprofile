@@ -4,13 +4,13 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaClock, FaStore } from "react-icons/fa";
 import { useState } from "react";
 
-import FlexBox from "@common/UI/FlexBox";
-import { device } from "@common/UI/Responsive";
-import { Display, H6, Body1, H3 } from "@common/UI/Headings";
-import { PRIMARY_900, SECONDARY_500, WHITE, ACCENT_0 } from "@common/UI/colors";
-import Input from "@components/common/UI/InputBox";
-import TextArea from "@common/UI/TextArea";
-import { Button } from "@common/UI/Buttons";
+import FlexBox from "@common/ui/FlexBox";
+import { device } from "@common/ui/Responsive";
+import { Display, H6, Body1, H3 } from "@common/ui/Headings";
+import { PRIMARY_900, SECONDARY_500, WHITE, ACCENT_0 } from "@common/ui/colors";
+import Input from "@components/common/ui/InputBox";
+import TextArea from "@common/ui/TextArea";
+import { Button } from "@common/ui/Buttons";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;

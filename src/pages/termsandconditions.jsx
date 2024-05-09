@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import FlexBox from "@common/UI/FlexBox";
-import { Display, Body1, H3, H1 } from "@common/UI/Headings";
-import { PRIMARY_900, SECONDARY_500 } from "@common/UI/colors";
-import { device } from "@common/UI/Responsive";
+import FlexBox from "@common/ui/FlexBox";
+import { Display, Body1, H3, H1 } from "@common/ui/Headings";
+import { PRIMARY_900, SECONDARY_500 } from "@common/ui/colors";
+import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
