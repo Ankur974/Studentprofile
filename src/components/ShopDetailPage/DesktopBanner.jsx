@@ -46,6 +46,11 @@ const GrpImg = styled.img`
   object-fit: cover;
 `;
 
+const NullImg = styled.img`
+  width: 47%;
+  height: 50%;
+`;
+
 // const ShowMoreCta = styled.div`
 //   background-color: ${ACCENT_300};
 //   color: ${ACCENT_800};
@@ -73,12 +78,30 @@ const DesktopBanner = ({ shopData, scrollToElement }) => {
       <SalonInfo shopData={shopData} scrollToElement={scrollToElement} />
       <Container>
         <FlexBox width="65%" height="63vh">
-          <Img src={thumbnail?.imageUrl} />
+          {thumbnail?.imageUrl ? (
+            <Img src={thumbnail?.imageUrl} alt="thumbnail image" />
+          ) : (
+            <img
+              src={thumbnail?.imageUrl ?? "/assets/shopThumbNailDefault.webp"}
+              alt="thumbnail image"
+              width="100%"
+            />
+          )}
         </FlexBox>
         <GroupImage>
-          {shopData?.storeImages?.slice(1)?.map((image, index) => (
-            <GrpImg key={index} src={image?.imageUrl} alt="store images" />
-          ))}
+          {shopData?.storeImages
+            ?.slice(1)
+            ?.map((image, index) =>
+              image?.imageUrl ? (
+                <GrpImg key={index} src={image?.imageUrl} alt="store images" />
+              ) : (
+                <NullImg
+                  key={index}
+                  src="/assets/shopThumbNailDefault.webp"
+                  alt="store images"
+                />
+              )
+            )}
         </GroupImage>
         {/* TODO: to be implemented later */}
         {/* <ShowMoreCta onClick={() => router.push("/shop-details/images")}>
