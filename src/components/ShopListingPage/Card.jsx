@@ -138,12 +138,10 @@ const Card = ({ data }) => {
     <Wrapper column onClick={() => router.push(`/shop-details/${data._id}`)}>
       <Banner column>
         {data.image ? (
-          <Img src={data.image} alt={data.storeName} />
+          <Img src={data.image} alt="store thumbnail image" />
         ) : (
           <Img
-            src={
-              thumbnail?.imageUrl ?? "https://picsum.photos/seed/picsum/200/300"
-            }
+            src={thumbnail?.imageUrl ?? "/assets/shopThumbNailDefault.webp"}
             alt="store thumbnail image"
           />
         )}
