@@ -304,7 +304,7 @@ const Login = ({ setModalOpen, page }) => {
             <NameInput
               type="text"
               value={name}
-              placeholder="Name"
+              placeholder="Enter your full name"
               onChange={e => setName(e.target.value)}
             />
             <Body1 bold>Gender</Body1>
