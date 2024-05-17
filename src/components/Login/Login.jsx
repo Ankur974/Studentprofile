@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react";
 import { FiChevronLeft } from "react-icons/fi";
 import { PiPencilSimpleLineLight } from "react-icons/pi";
@@ -165,7 +164,9 @@ const Login = ({ setModalOpen, page }) => {
   }, [timer]);
 
   const handlePhoneNumberChange = e => {
-    setPhoneNumber(e.target.value);
+    const inputValue = e.target.value;
+    const sanitizedValue = inputValue.replace(/[^0-9]/g, "");
+    setPhoneNumber(sanitizedValue);
   };
 
   const handleOtpSubmit = async () => {
@@ -302,8 +303,8 @@ const Login = ({ setModalOpen, page }) => {
             <Body1 bold>What's your name?</Body1>
             <NameInput
               type="text"
-              placeholder="enter your full name"
               value={name}
+              placeholder="Enter your full name"
               onChange={e => setName(e.target.value)}
             />
             <Body1 bold>Gender</Body1>
@@ -411,7 +412,8 @@ const Login = ({ setModalOpen, page }) => {
               </CountryCodeSelect>
               <Hr />
               <PhoneNumberInput
-                type="number"
+                type="text"
+                inputMode="numeric"
                 placeholder="Phone Number"
                 value={phoneNumber}
                 onChange={handlePhoneNumberChange}

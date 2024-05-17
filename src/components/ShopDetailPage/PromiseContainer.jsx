@@ -42,7 +42,7 @@ const PromiseContainer = () => (
     <H3 bold>Pamprazzi Promise</H3>
     <PromiseList column>
       {PromiseData.map(item => (
-        <FlexBox key={item.id} columnGap="1rem" align="center">
+        <FlexBox key={item.id} columnGap="1rem">
           <FaCheck />
           <PromiseItem>{item.title}</PromiseItem>
         </FlexBox>
