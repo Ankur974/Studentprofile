@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { IoCloseOutline } from "react-icons/io5";
 import { FaThumbsUp } from "react-icons/fa";
 
 import Modal from "@common/ui/Modal";
@@ -9,6 +8,7 @@ import { Button } from "@common/ui/Buttons";
 import FlexBox from "@common/ui/FlexBox";
 import Ratings from "@common/ui/Ratings";
 import Avatar from "@common/ui/Avatar";
+import CustomToggle from "@common/ui/ToggleCopy";
 import { FaCamera } from "react-icons/fa";
 
 const Header = styled(FlexBox)`
@@ -17,7 +17,7 @@ const Header = styled(FlexBox)`
 `;
 
 const TextAreaContainer = styled.textarea`
-  width: 75%;
+  width: 100%;
   border-radius: 0.5rem;
   padding: 0.75rem;
   resize: none;
@@ -30,16 +30,13 @@ const RatingItemContainer = styled(FlexBox)`
 
 const Body = styled(FlexBox)`
   flex-direction: column;
-  padding: 0.5rem 1.5rem;
-`;
-const TextArea = styled(FlexBox)`
-  flex-direction: column;
-  justify-content: center;
+  padding: 1.5rem;
+  gap: 1.5rem;
   align-items: center;
-  row-gap: 1rem;
+  justify-content: center;
 `;
 const PhotoContainer = styled(FlexBox)`
-  width: 24.9375rem;
+  width: 75%;
   padding: 0.25rem 1.5rem;
   justify-content: center;
   align-items: center;
@@ -57,6 +54,7 @@ const RatingItem = ({ title, value, onChange }) => (
 );
 
 const ReviewModal = ({ shopData }) => {
+  const [toggleChecked, setToggleChecked] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [comment, setComment] = useState("");
@@ -100,53 +98,74 @@ const ReviewModal = ({ shopData }) => {
         <Modal
           S
           height="fit-content"
+          width="32rem"
           borderRadius="0.75rem"
           togglePopup={isOpen}
         >
           <Header>
-            <FlexBox align="center" justify="center" columnGap="0.5rem">
-              <Avatar name={shopData?.ownerDetails?.name} />
-              <FlexBox column>
-                <Body1 bold>{shopData?.ownerDetails?.name}</Body1>
-                <Body2 color="#808080">Posting with a public profile</Body2>
+            {toggleChecked ? (
+              <FlexBox align="center" justify="center" columnGap="0.5rem">
+                <Avatar name={shopData?.ownerDetails?.name} />
+                <FlexBox column>
+                  <Body1 bold>Anonymous</Body1>
+                  <Body2 color="#808080">Posting with a public profile</Body2>
+                </FlexBox>
               </FlexBox>
-            </FlexBox>
-            <IoCloseOutline size="2rem" onClick={handleCloseModal} />
+            ) : (
+              <FlexBox align="center" justify="center" columnGap="0.5rem">
+                <Avatar name={shopData?.ownerDetails?.name} />
+                <FlexBox column>
+                  <Body1 bold>{shopData?.ownerDetails?.name}</Body1>
+                  <Body2 color="#808080">Posting with a public profile</Body2>
+                </FlexBox>
+              </FlexBox>
+            )}
+            <CustomToggle
+              small
+              primaryColor="green"
+              checked={toggleChecked}
+              onChange={() => {
+                setToggleChecked(prev => !prev);
+              }}
+            />
           </Header>
-          <FlexBox justify="center">
+
+          <Body>
             <Ratings
               onChange={value => handleRatingChange("Overall", value)}
               defaultValue={ratings.Overall}
             />
-          </FlexBox>
-          <Body>
             {!isSubmitted ? (
               <>
-                {criteriaData.map((item, index) => (
-                  <RatingItem
-                    key={index}
-                    title={item.title}
-                    value={ratings[item.title]}
-                    onChange={value => handleRatingChange(item.title, value)}
-                  />
-                ))}
-                <TextArea>
-                  <TextAreaContainer
-                    placeholder="Share your thoughts and experience of todays anointment."
-                    value={comment}
-                    onChange={handleCommentChange}
-                  />
-                  <PhotoContainer>
-                    <FaCamera />
-                    <Body2 color="#533A71" bold>
-                      Add some photos & videos
-                    </Body2>
-                  </PhotoContainer>
-                  <FlexBox columnGap="1rem" align="flex-start">
-                    <Button outline>Cancel</Button>
-                    <Button onClick={handleSubmit}>Post</Button>
-                  </FlexBox>
-                </TextArea>
+                <FlexBox width="100%" column justify="space-between">
+                  {criteriaData.map((item, index) => (
+                    <RatingItem
+                      key={index}
+                      title={item.title}
+                      value={ratings[item.title]}
+                      onChange={value => handleRatingChange(item.title, value)}
+                    />
+                  ))}
+                </FlexBox>
+                <TextAreaContainer
+                  placeholder="Share your thoughts and experience of todays anointment."
+                  value={comment}
+                  onChange={handleCommentChange}
+                />
+                <PhotoContainer>
+                  <FaCamera />
+                  <Body2 color="#533A71" bold>
+                    Add some photos & videos
+                  </Body2>
+                </PhotoContainer>
+                <FlexBox columnGap="1rem" width="100%">
+                  <Button width="100%" outline>
+                    Cancel
+                  </Button>
+                  <Button width="100%" onClick={handleSubmit}>
+                    Post
+                  </Button>
+                </FlexBox>
               </>
             ) : (
               <>
