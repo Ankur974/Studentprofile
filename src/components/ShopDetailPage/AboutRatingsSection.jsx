@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { GoPlusCircle } from "react-icons/go";
+import Image from "next/image";
 
 import { Body1, Body2, H6, H1, H5 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
@@ -8,7 +9,6 @@ import Ratings from "@common/ui/Ratings";
 import { SECONDARY_200, PRIMARY_800 } from "@common/ui/colors";
 import { device } from "@common/ui/Responsive";
 import { iconLookup, reviewsData, reviews } from "../../metadata/reviews";
-import Image from "next/image";
 import { ViewReviewsModal } from "./ReviewModal";
 
 const LineSeparator = styled.div`

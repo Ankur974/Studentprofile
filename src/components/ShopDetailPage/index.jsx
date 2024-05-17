@@ -78,6 +78,7 @@ const Tab = styled(FlexBox)`
 const ShopDetailPage = ({ storeId }) => {
   const [loading, setLoading] = useState(false);
   const [shopData, setShopData] = useState({});
+  const [selectedTab, setSelectedTab] = useState(0);
 
   useEffect(() => {
     if (!storeId) return;
@@ -96,6 +97,18 @@ const ShopDetailPage = ({ storeId }) => {
     }
   };
 
+  const scrollToElement = id => {
+    setSelectedTab(1);
+
+    setTimeout(() => {
+      const mapElement = document.getElementById(id);
+      mapElement?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }, 200);
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -103,14 +116,14 @@ const ShopDetailPage = ({ storeId }) => {
   return (
     <Container>
       <HideMobile>
-        <DesktopBanner shopData={shopData} />
+        <DesktopBanner shopData={shopData} scrollToElement={scrollToElement} />
       </HideMobile>
       <HideDesktop>
-        <MobileBanner shopData={shopData} />
+        <MobileBanner shopData={shopData} scrollToElement={scrollToElement} />
       </HideDesktop>
       <CartAndAboutBox>
         <Wrapper>
-          <Tabs>
+          <Tabs selectedTab={selectedTab}>
             <Tab title="Services">
               <Services shopData={shopData} storeId={storeId} />
             </Tab>

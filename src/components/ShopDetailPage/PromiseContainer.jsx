@@ -30,9 +30,11 @@ const PromiseItem = styled(FlexBox)`
 `;
 
 const PromiseData = [
-  { id: 1, title: "Luxary Salon Experience" },
-  { id: 2, title: "Premium Brand Products" },
-  { id: 3, title: "4.5+ Rated Beauticians" },
+  { id: 1, title: "Luxury Salon Experience" },
+  { id: 2, title: "On-Time Appointments" },
+  { id: 3, title: "Safe and Hygienic Services" },
+  { id: 4, title: "Easy Cancellations and Refunds" },
+  { id: 5, title: "Customer Satisfaction" },
 ];
 
 const PromiseContainer = () => (
@@ -40,7 +42,7 @@ const PromiseContainer = () => (
     <H3 bold>Pamprazzi Promise</H3>
     <PromiseList column>
       {PromiseData.map(item => (
-        <FlexBox key={item.id} columnGap="1rem">
+        <FlexBox key={item.id} columnGap="1rem" align="center">
           <FaCheck />
           <PromiseItem>{item.title}</PromiseItem>
         </FlexBox>

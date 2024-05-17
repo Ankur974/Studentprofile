@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled, { css } from "styled-components";
 import { useQueryParam, StringParam } from "use-query-params";
+import { CDN } from "@constants/urls";
 
 import { Body2 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
@@ -99,8 +100,7 @@ const Services = ({ storeId }) => {
             active={item?._id === activeCategory}
             onClick={() => setActiveCategory(item?._id)}
           >
-            <img src="/assets/images/others.svg" alt="icons" />
-            {/* <img src={item?.imageUrl} alt={item?.categoryName} /> */}
+            <img src={`${CDN}/${item?.icon}`} alt={item?.title} />
             <Body2>{item?.title}</Body2>
           </CategoryTile>
         ))}

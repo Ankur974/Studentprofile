@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,10 +8,9 @@ import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 
 import FlexBox from "@common/ui/FlexBox";
-import { ACCENT_200, ACCENT_300 } from "@common/ui/colors";
-import { Body1 } from "@common/ui/Headings";
+// import { ACCENT_200, ACCENT_300 } from "@common/ui/colors";
+// import { Body1 } from "@common/ui/Headings";
 import SalonInfo from "./SalonInfo";
-import { device } from "../common/ui/Responsive";
 
 const Banner = styled(FlexBox)`
   width: 100%;
@@ -19,24 +18,20 @@ const Banner = styled(FlexBox)`
   gap: 1rem;
 `;
 
-const ViewMoreButton = styled.div`
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  padding: 0.25rem 1rem;
-  border-radius: 0.25rem;
-  background-color: ${ACCENT_300};
-  cursor: pointer;
-  z-index: 1;
+// const ViewMoreButton = styled.div`
+//   position: absolute;
+//   bottom: 1rem;
+//   right: 1rem;
+//   padding: 0.25rem 1rem;
+//   border-radius: 0.25rem;
+//   background-color: ${ACCENT_300};
+//   cursor: pointer;
+//   z-index: 1;
 
-  :hover {
-    background-color: ${ACCENT_200};
-  }
-
-  @media ${device.laptop} {
-    z-index: 0;
-  }
-`;
+//   :hover {
+//     background-color: ${ACCENT_200};
+//   }
+// `;
 
 const Img = styled.img`
   width: 100%;
@@ -45,8 +40,8 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-const MobileBanner = ({ shopData }) => {
-  const router = useRouter();
+const MobileBanner = ({ shopData, scrollToElement }) => {
+  // const router = useRouter();
 
   return (
     <Banner>
@@ -68,11 +63,12 @@ const MobileBanner = ({ shopData }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <ViewMoreButton onClick={() => router.push("/shop-details/images")}>
+        {/* TODO: to be implemented later */}
+        {/* <ViewMoreButton onClick={() => router.push("/shop-details/images")}>
           <Body1 bold>Show more</Body1>
-        </ViewMoreButton>
+        </ViewMoreButton> */}
       </FlexBox>
-      <SalonInfo shopData={shopData} />
+      <SalonInfo shopData={shopData} scrollToElement={scrollToElement} />
     </Banner>
   );
 };

@@ -60,11 +60,13 @@ const AmenitiesWrapper = styled(FlexBox)`
   margin: 0 -1rem;
   padding: 0 1rem;
   width: calc(100% + 2rem);
+  flex-wrap: wrap;
+  overflow: hidden;
 
-  @media ${device.laptop} {
+  /* @media ${device.laptop} {
     flex-wrap: wrap;
     overflow: hidden;
-  }
+  } */
 `;
 
 const OfferBanner = styled(FlexBox)`
@@ -136,12 +138,10 @@ const Card = ({ data }) => {
     <Wrapper column onClick={() => router.push(`/shop-details/${data._id}`)}>
       <Banner column>
         {data.image ? (
-          <Img src={data.image} alt={data.storeName} />
+          <Img src={data.image} alt="store thumbnail image" />
         ) : (
           <Img
-            src={
-              thumbnail?.imageUrl ?? "https://picsum.photos/seed/picsum/200/300"
-            }
+            src={thumbnail?.imageUrl ?? "/assets/shopThumbNailDefault.webp"}
             alt="store thumbnail image"
           />
         )}
@@ -218,7 +218,9 @@ const Card = ({ data }) => {
                 src={`${CDN}/amenities/dark-icons/${item?.icon?.darkIcon}`}
                 alt={item?.name}
               />
-              <Body2 color="#717171">{item?.name}</Body2>
+              <Body2 color="#717171" whiteSpace="nowrap">
+                {item?.name}
+              </Body2>
             </FlexBox>
           ))}
         </AmenitiesWrapper>

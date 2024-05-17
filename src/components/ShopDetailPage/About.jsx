@@ -9,6 +9,7 @@ import { Body1, Body2, H6, H5, H3 } from "@common/ui/Headings";
 import { SECONDARY_200, PRIMARY_800 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { CDN } from "@constants/urls";
+import { device } from "@common/ui/Responsive";
 import AboutRatingsSection from "./AboutRatingsSection";
 import ReviewModal from "./FeedbackModal";
 
@@ -47,22 +48,26 @@ const ProfileDP = styled(Image)`
 `;
 
 const B1 = styled(Body1)`
-  max-height: ${({ expanded }) => (expanded ? "45px" : "100px")};
+  max-height: ${({ expanded }) => (expanded ? "3rem" : "20rem")};
   overflow: hidden;
   transition: max-height 600ms ease-in-out;
 `;
 
 const DayWrapper = styled.div`
-  height: ${({ active }) => (active ? "20rem" : "1.5rem")};
-  max-height: 20rem;
+  height: ${({ active }) => (active ? "15rem" : "1.5rem")};
+  max-height: 15rem;
   transition: all 600ms ease-in-out;
   overflow: hidden;
 `;
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 4fr);
+  grid-template-columns: repeat(2, 2fr);
   row-gap: 1rem;
+
+  @media ${device.laptop} {
+    grid-template-columns: repeat(4, 4fr);
+  }
 `;
 
 const BusinessStatus = ({ dayObject }) => {
@@ -153,11 +158,11 @@ const About = ({ shopData }) => {
           ))}
         </GridContainer>
       </FlexBox>
-      <Hr />
+      <Hr id="review-section" />
       <AboutRatingsSection />
       <ReviewModal shopData={shopData} />
-      <Hr />
-      <FlexBox id="mapId" column rowGap="1rem">
+      <Hr id="map" />
+      <FlexBox column rowGap="1rem">
         <H3 bold>Location</H3>
         <InsideMap
           scrolling="no"
