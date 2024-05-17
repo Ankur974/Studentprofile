@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react";
 import { FiChevronLeft } from "react-icons/fi";
 import { PiPencilSimpleLineLight } from "react-icons/pi";
