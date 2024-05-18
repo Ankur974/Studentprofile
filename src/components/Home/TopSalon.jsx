@@ -20,6 +20,7 @@ import { IconButton } from "@common/ui/Buttons";
 import Loader from "@common/ui/Loader";
 import { CDN, URL } from "@constants/urls";
 import { client } from "@services/axiosClient";
+import ImageWithFallback from "@common/ImageWithFallback";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -55,7 +56,7 @@ const Banner = styled(FlexBox)`
   top: 0;
 `;
 
-const Img = styled.img`
+const Img = styled(ImageWithFallback)`
   height: 13.5rem;
   object-fit: cover;
   border-radius: 0.75rem;
@@ -134,14 +135,12 @@ const SalonCard = ({ data }) => {
   return (
     <Wrapper column onClick={() => router.push(`/shop-details/${data._id}`)}>
       <Banner column>
-        {thumbnail?.imageUrl ? (
-          <Img src={thumbnail?.imageUrl} alt="thumbnail image" />
-        ) : (
-          <Img
-            src={thumbnail?.imageUrl ?? "/assets/shopThumbNailDefault.webp"}
-            alt="thumbnail image"
-          />
-        )}
+        <Img
+          width="100%"
+          fallbackSrc="/assets/images/fallback.webp"
+          src={thumbnail?.imageUrl}
+          alt="thumbnail image"
+        />
         <ActionWrapper justify="space-between" align="center">
           {storeBannerText && (
             <PopularityBox>
@@ -178,7 +177,7 @@ const SalonCard = ({ data }) => {
 
         <FlexBox columnGap="0.9rem">
           <Body2>Salon for Men</Body2>
-          <img src="/assets/images/home/ellipse.svg"></img>
+          <img src="/assets/images/home/ellipse.svg" />
           <Body2>5 kms</Body2>
         </FlexBox>
 

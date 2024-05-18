@@ -55,7 +55,7 @@ const CartAndAboutBox = styled(FlexBox)`
   width: 100%;
   justify-content: center;
   column-gap: 4rem;
-  padding: 1.5rem;
+  padding: 1rem;
 
   @media ${device.laptop} {
     padding: 0;

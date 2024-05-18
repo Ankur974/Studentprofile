@@ -55,6 +55,7 @@ const SalonInfo = ({ shopData, scrollToElement }) => {
             <IoStar color={STARCOLOR} />
             <Body2>{shopData?.storeRating}</Body2>
           </FlexBox>
+          <Body2>|</Body2>
           <Body2
             onClick={() => {
               scrollToElement("review-section");
@@ -65,7 +66,6 @@ const SalonInfo = ({ shopData, scrollToElement }) => {
           >
             23 Reviews
           </Body2>
-          <Body2>|</Body2>
           <Body2
             onClick={() => {
               scrollToElement("map");

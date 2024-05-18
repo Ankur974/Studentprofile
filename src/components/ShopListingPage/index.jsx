@@ -15,6 +15,7 @@ import { secondaryNavMeta } from "@metadata/ListingPage";
 import Card from "./Card";
 import SecondaryNav from "./SecondaryNav";
 import { Filters } from "./Filters";
+import { Case, Default, Switch } from "@common/ConditionalRendering";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -151,10 +152,6 @@ const ShopListingPage = () => {
   const showLoader = loading && shopList?.length === 0;
   const showListLoader = loading && shopList?.length !== 0;
 
-  if (showLoader) {
-    return <Loader />;
-  }
-
   return (
     <div>
       <SecondaryNav navItem={secondaryNavMeta} />
@@ -173,11 +170,18 @@ const ShopListingPage = () => {
           setAdvancedFilterSelection={setAdvancedFilterSelection}
         />
         <FlexBox column>
-          <ListWrapper>
-            {shopList?.map((data, index) => (
-              <Card key={index} data={data} />
-            ))}
-          </ListWrapper>
+          <Switch>
+            <Case condition={showLoader}>
+              <Loader />
+            </Case>
+            <Default>
+              <ListWrapper>
+                {shopList?.map((data, index) => (
+                  <Card key={index} data={data} />
+                ))}
+              </ListWrapper>
+            </Default>
+          </Switch>
           {showListLoader && <Loader fitContent />}
           <IntersectionTarget loading={loading} ref={targetRef} />
         </FlexBox>

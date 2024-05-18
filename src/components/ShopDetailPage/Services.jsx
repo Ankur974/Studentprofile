@@ -10,20 +10,21 @@ import { PRIMARY_800 } from "@common/ui/colors";
 import { URL } from "@constants/urls";
 import CategoryBanner from "./CategoryBanner";
 import ServiceCard from "./ServiceCard";
+import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
 `;
 
 const Categories = styled(FlexBox)`
-  padding: 1rem;
+  padding: 0.5rem 0;
   column-gap: 1rem;
   overflow-x: scroll;
   width: 100%;
   max-width: 50rem;
   margin: auto;
   position: sticky;
-  top: 3rem;
+  top: 3.5rem;
   background-color: white;
 `;
 
@@ -35,16 +36,19 @@ const CategoryTile = styled(FlexBox)`
   img {
     width: 100%;
     height: 100%;
-    max-width: 6.5rem;
+    max-width: 4.5rem;
     aspect-ratio: 1;
     border-radius: 3rem;
     transition: all 300ms ease-in-out;
     opacity: 0.8;
 
+    @media ${device.laptop} {
+      max-width: 6.5rem;
+    }
+
     ${({ active }) =>
       active &&
       css`
-        max-width: 7rem;
         border: 1px solid ${PRIMARY_800};
         opacity: 1;
       `}

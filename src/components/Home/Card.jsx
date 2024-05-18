@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { useRouter } from "next/router";
+
 import { Body1, Body2 } from "@common/ui/Headings";
 import { Button } from "@common/ui/Buttons";
-import { useRouter } from "next/router";
 import { WHITE } from "@common/ui/colors";
-import { device } from "@components/common/ui/Responsive";
+import { device } from "@common/ui/Responsive";
+import ImageWithFallback from "@common/ImageWithFallback";
 
 const CardContainer = styled.div`
   width: 100%;
@@ -28,7 +30,7 @@ const CardContainer = styled.div`
   }
 `;
 
-const CardImage = styled.img`
+const CardImage = styled(ImageWithFallback)`
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -65,7 +67,11 @@ const Card = ({ title, description, imageUrl, redirectUrl }) => {
         router.push(redirectUrl);
       }}
     >
-      <CardImage src={imageUrl} alt="Card Image" />
+      <CardImage
+        fallbackSrc="/assets/images/fallback.webp"
+        src={imageUrl}
+        alt="Card Image"
+      />
       <CardContent>
         <Body1 bold>{title}</Body1>
         <Body2>{description}</Body2>

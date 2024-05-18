@@ -19,6 +19,7 @@ import {
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Responsive";
 import { CDN } from "@constants/urls";
+import ImageWithFallback from "@common/ImageWithFallback";
 
 const Wrapper = styled(FlexBox)`
   border: 1px solid ${listingChip};
@@ -41,7 +42,7 @@ const Banner = styled(FlexBox)`
   top: 0;
 `;
 
-const Img = styled.img`
+const Img = styled(ImageWithFallback)`
   height: 13.5rem;
   object-fit: cover;
   border-radius: 0.625rem 0.625rem 0rem 0rem;
@@ -137,14 +138,12 @@ const Card = ({ data }) => {
   return (
     <Wrapper column onClick={() => router.push(`/shop-details/${data._id}`)}>
       <Banner column>
-        {data.image ? (
-          <Img src={data.image} alt="store thumbnail image" />
-        ) : (
-          <Img
-            src={thumbnail?.imageUrl ?? "/assets/shopThumbNailDefault.webp"}
-            alt="store thumbnail image"
-          />
-        )}
+        <Img
+          width="100%"
+          fallbackSrc="/assets/images/fallback.webp"
+          src={thumbnail?.imageUrl}
+          alt="thumbnail image"
+        />
         <ActionWrapper justify="space-between" align="center">
           {data.popularity && (
             <PopularityBox>

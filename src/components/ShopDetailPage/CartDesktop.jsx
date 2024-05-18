@@ -115,7 +115,9 @@ const CartDesktop = () => {
         </HelperBox>
       </FlexBox>
       <FlexBox justify="center" margin="0.25rem 0 0 ">
-        <Button color={PRIMARY_900}>Book Appointment</Button>
+        <Button color={PRIMARY_900} disabled>
+          Book Appointment
+        </Button>
       </FlexBox>
     </Wrapper>
   );

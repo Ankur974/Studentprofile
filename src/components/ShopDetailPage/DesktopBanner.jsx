@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-// import { useRouter } from "next/router";
 
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Responsive";
-// import { ACCENT_300, ACCENT_800 } from "@common/ui/colors";
 import SalonInfo from "./SalonInfo";
+import ImageWithFallback from "@common/ImageWithFallback";
 
 const Wrapper = styled(FlexBox)`
   display: none;
@@ -35,20 +34,15 @@ const GroupImage = styled(FlexBox)`
   gap: 0.5rem;
 `;
 
-const Img = styled.img`
+const Img = styled(ImageWithFallback)`
   width: 100%;
   object-fit: cover;
 `;
 
-const GrpImg = styled.img`
+const GrpImg = styled(ImageWithFallback)`
   width: 47%;
   height: 50%;
   object-fit: cover;
-`;
-
-const NullImg = styled.img`
-  width: 47%;
-  height: 50%;
 `;
 
 // const ShowMoreCta = styled.div`
@@ -78,30 +72,22 @@ const DesktopBanner = ({ shopData, scrollToElement }) => {
       <SalonInfo shopData={shopData} scrollToElement={scrollToElement} />
       <Container>
         <FlexBox width="65%" height="63vh">
-          {thumbnail?.imageUrl ? (
-            <Img src={thumbnail?.imageUrl} alt="thumbnail image" />
-          ) : (
-            <img
-              src={thumbnail?.imageUrl ?? "/assets/shopThumbNailDefault.webp"}
-              alt="thumbnail image"
-              width="100%"
-            />
-          )}
+          <Img
+            width="100%"
+            fallbackSrc="/assets/images/fallback.webp"
+            src={thumbnail?.imageUrl}
+            alt="thumbnail image"
+          />
         </FlexBox>
         <GroupImage>
-          {shopData?.storeImages
-            ?.slice(1)
-            ?.map((image, index) =>
-              image?.imageUrl ? (
-                <GrpImg key={index} src={image?.imageUrl} alt="store images" />
-              ) : (
-                <NullImg
-                  key={index}
-                  src="/assets/shopThumbNailDefault.webp"
-                  alt="store images"
-                />
-              )
-            )}
+          {shopData?.storeImages?.slice(1)?.map((image, index) => (
+            <GrpImg
+              key={index}
+              src={image?.imageUrl}
+              fallbackSrc="/assets/images/fallback.webp"
+              alt="store images"
+            />
+          ))}
         </GroupImage>
         {/* TODO: to be implemented later */}
         {/* <ShowMoreCta onClick={() => router.push("/shop-details/images")}>
