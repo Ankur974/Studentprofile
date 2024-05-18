@@ -159,7 +159,7 @@ const ReviewModal = ({ shopData }) => {
                   </Body2>
                 </PhotoContainer>
                 <FlexBox columnGap="1rem" width="100%">
-                  <Button width="100%" outline>
+                  <Button width="100%" outline onClick={handleCloseModal}>
                     Cancel
                   </Button>
                   <Button width="100%" onClick={handleSubmit}>
