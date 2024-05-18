@@ -3,42 +3,62 @@ import styled from "styled-components";
 import { CDN } from "@constants/urls";
 
 import FlexBox from "@common/ui/FlexBox";
-import { Body2 } from "@common/ui/Headings";
+import { Body1, H1 } from "@common/ui/Headings";
 import { ACCENT_800, PRIMARY_600 } from "@common/ui/colors";
 import { ACCENT_0 } from "../common/ui/colors";
 
-const Wrapper = styled(FlexBox)`
-  background-color: ${props => props.backgroundColor || PRIMARY_600};
-  padding: 1rem 1rem 0;
-  justify-content: space-around;
-  img {
-    max-width: 100%;
-  }
+const CardMain = styled(FlexBox)`
+  width: 100%;
+  border-radius: 0.75rem;
+  max-height: 18rem;
+  overflow: hidden;
+`;
+const ShadowBox = styled(FlexBox)`
+  width: 20rem;
+  border-radius: 0rem 1.125rem 1.125rem 0rem;
+  align-items: center;
+  padding: 0.5rem 0;
 `;
 
-const OfferBox = styled(FlexBox)`
-  background-color: ${props => props.offerBoxColor || ACCENT_800};
-  border-radius: 1rem;
-  padding-inline: 1rem;
+const Image = styled.img`
+  width: 50%;
+  object-fit: cover;
+`;
+
+const LeftSection = styled.div`
+  width: 80%;
 `;
 
 const CategoryBanner = ({ categoryConfig }) => {
-  console.log(categoryConfig, "catbanner");
-  const { bannerImg, title, bannerSubTitle, bannerColor, smallBannerColor } =
-    categoryConfig || {};
-
+  const {
+    bannerImg,
+    title,
+    bannerSubTitle,
+    bannerColor,
+    smallBannerColor,
+    titleColor,
+    caption = "Pamper Yourself with Pamprazzi",
+  } = categoryConfig || {};
+  const cardStyle = {
+    background: bannerColor,
+  };
   return (
-    <Wrapper backgroundColor={bannerColor}>
-      <img src={`${CDN}/${bannerImg}`} alt={title} />
-      <FlexBox column align="center">
-        <Body2>{title}</Body2>
-        <OfferBox offerBoxColor={smallBannerColor}>
-          <Body2 color={ACCENT_0} textAlign="center">
-            {bannerSubTitle}
-          </Body2>
-        </OfferBox>
-      </FlexBox>
-    </Wrapper>
+    <CardMain style={cardStyle}>
+      <LeftSection column>
+        <FlexBox column rowGap="1rem">
+          <FlexBox column padding="1rem">
+            <H1 bold color={titleColor}>
+              {title}
+            </H1>
+            <H1 bold>{bannerSubTitle}</H1>
+          </FlexBox>
+          <ShadowBox margin="1.5rem 0" backgroundColor={smallBannerColor}>
+            <Body1 padding="0.25rem 1rem">{caption}</Body1>
+          </ShadowBox>
+        </FlexBox>
+      </LeftSection>
+      <Image src={`${CDN}/${bannerImg}`} alt={title} />
+    </CardMain>
   );
 };
 
