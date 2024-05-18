@@ -4,8 +4,6 @@ import { CDN } from "@constants/urls";
 
 import FlexBox from "@common/ui/FlexBox";
 import { Body1, H1 } from "@common/ui/Headings";
-import { ACCENT_800, PRIMARY_600 } from "@common/ui/colors";
-import { ACCENT_0 } from "../common/ui/colors";
 
 const CardMain = styled(FlexBox)`
   width: 100%;
@@ -13,6 +11,7 @@ const CardMain = styled(FlexBox)`
   max-height: 18rem;
   overflow: hidden;
 `;
+
 const ShadowBox = styled(FlexBox)`
   width: 20rem;
   border-radius: 0rem 1.125rem 1.125rem 0rem;
