@@ -105,7 +105,7 @@ const ReviewModal = ({ shopData }) => {
           <Header>
             {toggleChecked ? (
               <FlexBox align="center" justify="center" columnGap="0.5rem">
-                <Avatar name={shopData?.ownerDetails?.name} />
+                <img src="/assets/images/AnonymousIcon.svg"></img>
                 <FlexBox column>
                   <Body1 bold>Anonymous</Body1>
                   <Body2 color="#808080">Posting with a public profile</Body2>
