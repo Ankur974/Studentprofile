@@ -91,12 +91,11 @@ const ShopListingPage = () => {
       const res = await client.post(URL.getAllShops, {
         page: pageNumber,
         pageLimit: 9,
-        //TODO: do not remove this comment -->
-        // gender,
-        // sortFilter: sort_by,
-        // priceRange: price_range,
-        // services: services_offered,
-        // offers: special_offers,
+        gender,
+        sortFilter: sort_by,
+        priceRange: price_range,
+        services: services_offered,
+        offers: special_offers,
       });
       const data = res?.data?.data?.[0];
 
