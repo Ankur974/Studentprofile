@@ -36,11 +36,74 @@ export const filterMeta = [
     slug: "services_offered",
     type: "checkbox",
     options: [
-      { label: "Haircut", slug: "haircut", isPopular: true },
-      { label: "Manicure", slug: "manicure", isPopular: true },
-      { label: "Pedicure", slug: "pedicure" },
-      { label: "Facial", slug: "facial" },
-      { label: "Nails", slug: "nails", isPopular: true },
+      {
+        _id: "6607fd94820326e2b8de88a3",
+        slug: 8,
+        label: "Threading",
+      },
+      {
+        _id: "6607fd94820326e2b8de88a0",
+        slug: 5,
+        label: "Hair Color",
+      },
+      {
+        _id: "6607fd94820326e2b8de88a2",
+        slug: 7,
+        label: "Pedicure",
+      },
+      {
+        _id: "6607fd94820326e2b8de88a1",
+        slug: 6,
+        label: "Manicure",
+      },
+      {
+        _id: "6607fd94820326e2b8de889f",
+        slug: 4,
+        label: "Beard Care",
+      },
+      {
+        _id: "6607fd94820326e2b8de88a6",
+        slug: 11,
+        label: "Massage",
+      },
+      {
+        _id: "6607fd94820326e2b8de889c",
+        slug: 1,
+        label: "Haircut",
+        isPopular: true,
+      },
+      {
+        _id: "6607fd94820326e2b8de88a5",
+        slug: 10,
+        label: "Spa",
+      },
+      {
+        _id: "6607fd94820326e2b8de88a8",
+        slug: 13,
+        label: "Packages",
+        isPopular: true,
+      },
+      {
+        _id: "6607fd94820326e2b8de889e",
+        slug: 3,
+        label: "Facials & Cleanups",
+      },
+      {
+        _id: "6607fd94820326e2b8de889d",
+        slug: 2,
+        label: "Waxing",
+      },
+      {
+        _id: "6607fd94820326e2b8de88a7",
+        slug: 12,
+        label: "Nails",
+        isPopular: true,
+      },
+      {
+        _id: "6607fd94820326e2b8de88a4",
+        slug: 9,
+        label: "De-tan",
+      },
     ],
   },
   {

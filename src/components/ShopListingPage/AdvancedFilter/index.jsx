@@ -17,7 +17,7 @@ import { Body2, H3 } from "@common/ui/Headings";
 import { RadioSection } from "./RadioSection";
 import { CheckboxSection } from "./CheckboxSection";
 import { filterMeta } from "@metadata/ListingPage";
-import { device } from "../../common/ui/Responsive";
+import { device } from "@common/ui/Responsive";
 
 const Wrapper = styled(FlexBox)`
   height: 100%;
