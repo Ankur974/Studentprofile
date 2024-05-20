@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { CDN } from "@constants/urls";
-
 import FlexBox from "@common/ui/FlexBox";
-import { H2, Body2 } from "@common/ui/Headings";
+import { Body2, H3, H5 } from "@common/ui/Headings";
 
 const CardMain = styled(FlexBox)`
   width: 100%;
@@ -45,11 +44,11 @@ const CategoryBanner = ({ categoryConfig }) => {
     <CardMain style={cardStyle}>
       <LeftSection column>
         <FlexBox column rowGap="1rem">
-          <FlexBox column padding="1.5rem">
-            <H2 bold color={titleColor}>
+          <FlexBox column padding="1rem">
+            <H3 bold color={titleColor}>
               {title}
-            </H2>
-            <H2 bold>{bannerSubTitle}</H2>
+            </H3>
+            <H5 bold>{bannerSubTitle}</H5>
           </FlexBox>
           <ShadowBox margin="1.5rem 0" backgroundColor={smallBannerColor}>
             <Body2 padding="0.25rem 1rem">{caption}</Body2>
