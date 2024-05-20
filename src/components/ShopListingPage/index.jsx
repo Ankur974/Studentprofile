@@ -164,16 +164,13 @@ const ShopListingPage = () => {
       <Banner>
         <Container>
           <FlexBox padding="1.5rem" width="374px" lin>
-            <Display textTransform="uppercase" color=" #F89706">
+            <Display bold textTransform="uppercase" color=" #F89706">
               elevate your style with our precious cuts
             </Display>
           </FlexBox>
 
           <img height="228px" src="/assets/images/BannerGirlImage.svg"></img>
         </Container>
-        {/* <TitleWrapper>
-          <Display bold>Everything feels better after a Haircut</Display>
-        </TitleWrapper> */}
       </Banner>
       <Wrapper>
         {totalCount && (

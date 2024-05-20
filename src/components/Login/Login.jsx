@@ -6,7 +6,6 @@ import { SlSymbolMale } from "react-icons/sl";
 import { IoIosFemale } from "react-icons/io";
 import { IoMaleFemaleOutline } from "react-icons/io5";
 import styled from "styled-components";
-import { TfiClose } from "react-icons/tfi";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
@@ -297,16 +296,11 @@ const Login = ({ setModalOpen, page }) => {
               <FiChevronLeft size={20} />
             </BackIcon>
           )}
-          {/* <Cross onClick={() => setModalOpen(false)}>
-          <TfiClose size={15} />
-        </Cross> */}
         </FlexBox>
         <Body1 bold>
           {currentStep === 2 ? "Confirm your number" : "Login or Sign up"}
         </Body1>
-        <FlexBox>
-          <CrossIcon crossIconClick={() => setModalOpen(false)} />
-        </FlexBox>
+        <CrossIcon crossIconClick={() => setModalOpen(false)} />
       </Heading>
       <FlexBox column align-items="center" padding="1rem" rowGap="1rem">
         <Switch>
