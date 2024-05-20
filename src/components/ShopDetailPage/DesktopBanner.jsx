@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-// import { useRouter } from "next/router";
 
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Responsive";
-// import { ACCENT_300, ACCENT_800 } from "@common/ui/colors";
 import SalonInfo from "./SalonInfo";
 
 const Wrapper = styled(FlexBox)`

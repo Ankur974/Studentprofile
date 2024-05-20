@@ -16,4 +16,6 @@ export const URL = {
   loginSuccess: `${BASE_URL}auth/login/success`, //required to get token for google login
 
   approveVoucher: `${BASE_URL}client/approveSpinAndWheelReward`,
+
+  reviews: `${BASE_URL}rating/rate`,
 };
