@@ -6,7 +6,6 @@ import { SlSymbolMale } from "react-icons/sl";
 import { IoIosFemale } from "react-icons/io";
 import { IoMaleFemaleOutline } from "react-icons/io5";
 import styled from "styled-components";
-import { TfiClose } from "react-icons/tfi";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { FcGoogle } from "react-icons/fc";

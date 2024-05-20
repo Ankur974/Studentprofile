@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { CDN } from "@constants/urls";
 
 import FlexBox from "@common/ui/FlexBox";
-import { Body2, H2, H3, H5 } from "@common/ui/Headings";
-import { ACCENT_800, PRIMARY_600 } from "@common/ui/colors";
-import { ACCENT_0 } from "../common/ui/colors";
+import { Body2, H3, H5 } from "@common/ui/Headings";
 
 const CardMain = styled(FlexBox)`
   width: 100%;
