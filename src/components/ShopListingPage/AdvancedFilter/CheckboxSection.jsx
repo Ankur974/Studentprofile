@@ -9,6 +9,7 @@ const Container = styled(FlexBox)`
   width: 100%;
   height: 100%;
   justify-content: space-between;
+  overflow: scroll;
 `;
 
 const OptionWrapper = styled(FlexBox)`

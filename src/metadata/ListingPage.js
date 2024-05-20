@@ -122,12 +122,12 @@ export const secondaryNavMeta = [
   {
     id: 1,
     title: "Haircut For Men",
-    slug: "haircut",
+    slug: "haircut-men",
   },
   {
     id: 2,
     title: "Haircut For Women",
-    slug: "haircut",
+    slug: "haircut-women",
   },
   {
     id: 3,
@@ -142,6 +142,7 @@ export const secondaryNavMeta = [
   {
     id: 5,
     title: "Manicure & Pedicure",
+    slug: "manicure-pedicure",
   },
   {
     id: 6,
@@ -149,12 +150,9 @@ export const secondaryNavMeta = [
     slug: "message",
   },
   {
-    id: 7,
-    title: "Hair Styling",
-  },
-  {
     id: 8,
     title: "Hair Coloring",
+    slug: "hair-color",
   },
 ];
 

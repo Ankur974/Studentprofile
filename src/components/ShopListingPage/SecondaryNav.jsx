@@ -29,11 +29,6 @@ const ButtonsWrapper = styled(FlexBox)`
 
 const NavItem = styled(Body1)`
   color: ${ACCENT_800};
-  // transition: all 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
 
 const Navbar = ({ navItem }) => {

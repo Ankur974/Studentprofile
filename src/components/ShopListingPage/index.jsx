@@ -125,7 +125,6 @@ const ShopListingPage = () => {
 
     const intersectionCallback = entries => {
       const target = entries[0];
-      console.log(target.isIntersecting, pageNumber, totalPage);
       if (target.isIntersecting && pageNumber < totalPage) {
         setPageNumber(prev => prev + 1);
       }
