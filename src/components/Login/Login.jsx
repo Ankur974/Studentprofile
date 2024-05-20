@@ -297,16 +297,11 @@ const Login = ({ setModalOpen, page }) => {
               <FiChevronLeft size={20} />
             </BackIcon>
           )}
-          {/* <Cross onClick={() => setModalOpen(false)}>
-          <TfiClose size={15} />
-        </Cross> */}
         </FlexBox>
         <Body1 bold>
           {currentStep === 2 ? "Confirm your number" : "Login or Sign up"}
         </Body1>
-        <FlexBox>
-          <CrossIcon crossIconClick={() => setModalOpen(false)} />
-        </FlexBox>
+        <CrossIcon crossIconClick={() => setModalOpen(false)} />
       </Heading>
       <FlexBox column align-items="center" padding="1rem" rowGap="1rem">
         <Switch>
