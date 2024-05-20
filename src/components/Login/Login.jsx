@@ -9,8 +9,8 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
-import CrossIcon from "@common/UI/CrossIcon";
 
+import CrossIcon from "@common/ui/CrossIcon";
 import { device } from "@common/ui/Responsive";
 import Chip from "@common/ui/Chips";
 import FlexBox from "@common/ui/FlexBox";
