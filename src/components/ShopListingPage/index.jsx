@@ -40,16 +40,19 @@ const ListWrapper = styled(FlexBox)`
 const Banner = styled(FlexBox)`
   width: 100%;
   height: 15rem;
-  align-items: center;
-  justify-content: center;
-  background-color: ${PRIMARY_200};
+  background: #f6e8d3;
 `;
 
-const TitleWrapper = styled(FlexBox)`
-  max-width: 75rem;
-  padding: 0 2rem;
-  align-items: center;
-  justify-content: center;
+const BannerWrapper = styled(FlexBox)`
+  width: 100%;
+  justify-content: space-between;
+  align-items: end;
+
+  @media ${device.laptop} {
+    margin: auto;
+    max-width: 75rem;
+    width: 86.67%;
+  }
 `;
 
 const IntersectionTarget = styled.div`
@@ -58,13 +61,6 @@ const IntersectionTarget = styled.div`
   height: 1rem;
 `;
 
-const Container = styled(FlexBox)`
-  width: 50%;
-  align-items: center;
-  justify-content: space-around;
-  background: #f6e8d3;
-  border-radius: 1rem;
-`;
 const ShopListingPage = () => {
   const [loading, setLoading] = useState(false);
   const [shopList, setShopList] = useState([]);
@@ -161,15 +157,14 @@ const ShopListingPage = () => {
     <div>
       <SecondaryNav navItem={secondaryNavMeta} />
       <Banner>
-        <Container>
-          <FlexBox padding="1.5rem" width="374px" lin>
+        <BannerWrapper>
+          <FlexBox padding="1.5rem" width="35%">
             <Display bold textTransform="uppercase" color=" #F89706">
               elevate your style with our precious cuts
             </Display>
           </FlexBox>
-
-          <img height="228px" src="/assets/images/BannerGirlImage.svg"></img>
-        </Container>
+          <img height="240px" src="/assets/images/BannerGirlImage.svg" />
+        </BannerWrapper>
       </Banner>
       <Wrapper>
         {totalCount && (
