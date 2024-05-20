@@ -45,7 +45,7 @@ const Cross = styled.div`
 
 const BackIcon = styled.div`
   position: absolute;
-  top: 1rem;
+  top: 1.1rem;
   left: 1rem;
   cursor: pointer;
 `;
