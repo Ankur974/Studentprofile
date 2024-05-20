@@ -35,13 +35,6 @@ const Wrapper = styled(FlexBox)`
   position: relative;
 `;
 
-const Cross = styled.div`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  cursor: pointer;
-`;
-
 const BackIcon = styled.div`
   position: absolute;
   top: 1.1rem;

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { CDN } from "@constants/urls";
-
 import FlexBox from "@common/ui/FlexBox";
 import { Body2, H3, H5 } from "@common/ui/Headings";
 
