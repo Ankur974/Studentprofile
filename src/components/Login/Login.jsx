@@ -10,6 +10,7 @@ import { TfiClose } from "react-icons/tfi";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { FcGoogle } from "react-icons/fc";
+import CrossIcon from "@common/UI/CrossIcon";
 
 import { device } from "@common/ui/Responsive";
 import Chip from "@common/ui/Chips";
@@ -44,14 +45,14 @@ const Cross = styled.div`
 
 const BackIcon = styled.div`
   position: absolute;
-  top: 1rem;
+  top: 1.1rem;
   left: 1rem;
   cursor: pointer;
 `;
 
 const Heading = styled(FlexBox)`
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 1rem;
   align-items: center;
   border-bottom: 1px solid ${SECONDARY_200};
@@ -283,20 +284,29 @@ const Login = ({ setModalOpen, page }) => {
     window.open(URL.loginWithGoogle, "_self");
   };
 
+  const handleClick = () => {
+    router.push("/privacy-policy");
+  };
+
   return (
     <Wrapper>
       <Heading>
-        {currentStep === 2 && (
-          <BackIcon onClick={() => setCurrentStep(1)}>
-            <FiChevronLeft size={20} />
-          </BackIcon>
-        )}
-        <Cross onClick={() => setModalOpen(false)}>
+        <FlexBox>
+          {currentStep === 2 && (
+            <BackIcon onClick={() => setCurrentStep(1)}>
+              <FiChevronLeft size={20} />
+            </BackIcon>
+          )}
+          {/* <Cross onClick={() => setModalOpen(false)}>
           <TfiClose size={15} />
-        </Cross>
+        </Cross> */}
+        </FlexBox>
         <Body1 bold>
           {currentStep === 2 ? "Confirm your number" : "Login or Sign up"}
         </Body1>
+        <FlexBox>
+          <CrossIcon crossIconClick={() => setModalOpen(false)} />
+        </FlexBox>
       </Heading>
       <FlexBox column align-items="center" padding="1rem" rowGap="1rem">
         <Switch>
@@ -427,6 +437,7 @@ const Login = ({ setModalOpen, page }) => {
                 color={PRIMARY_900}
                 textDecoration="underline"
                 cursor="pointer"
+                onClick={handleClick}
               >
                 Privacy Policy
               </Body2>

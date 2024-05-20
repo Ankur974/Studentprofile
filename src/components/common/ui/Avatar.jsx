@@ -21,14 +21,17 @@ const Wrapper = styled.div`
   gap: 0.5rem;
   flex-shrink: 0;
   border-radius: 3rem;
-  background: linear-gradient(135deg, #fff 0%, #000 100%), #ffefb0;
+  background: var(
+    --gradient,
+    linear-gradient(90deg, #c6426e 0.61%, #533a71 100%)
+  );
   background-blend-mode: soft-light, normal;
 `;
 
 const Initials = styled(Body2)`
-  color: ${DUSTY_ORANGE_700};
-  font-weight: 700;
-  text-transform: uppercase;
+  color: #fff;
+  font-weight: 400;
+  font-family: Sparkle;
 `;
 
 const Dot = styled.div`

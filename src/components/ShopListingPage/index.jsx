@@ -39,7 +39,7 @@ const ListWrapper = styled(FlexBox)`
 
 const Banner = styled(FlexBox)`
   width: 100%;
-  height: 12rem;
+  height: 15rem;
   align-items: center;
   justify-content: center;
   background-color: ${PRIMARY_200};
@@ -58,6 +58,13 @@ const IntersectionTarget = styled.div`
   height: 1rem;
 `;
 
+const Container = styled(FlexBox)`
+  width: 50%;
+  align-items: center;
+  justify-content: space-around;
+  background: #f6e8d3;
+  border-radius: 1rem;
+`;
 const ShopListingPage = () => {
   const [loading, setLoading] = useState(false);
   const [shopList, setShopList] = useState([]);
@@ -155,9 +162,18 @@ const ShopListingPage = () => {
     <div>
       <SecondaryNav navItem={secondaryNavMeta} />
       <Banner>
-        <TitleWrapper>
+        <Container>
+          <FlexBox padding="1.5rem" width="374px" lin>
+            <Display textTransform="uppercase" color=" #F89706">
+              elevate your style with our precious cuts
+            </Display>
+          </FlexBox>
+
+          <img height="228px" src="/assets/images/BannerGirlImage.svg"></img>
+        </Container>
+        {/* <TitleWrapper>
           <Display bold>Everything feels better after a Haircut</Display>
-        </TitleWrapper>
+        </TitleWrapper> */}
       </Banner>
       <Wrapper>
         {totalCount && (
