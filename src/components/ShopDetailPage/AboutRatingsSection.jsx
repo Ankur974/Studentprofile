@@ -6,7 +6,7 @@ import FlexBox from "@common/ui/FlexBox";
 import { SECONDARY_200, PRIMARY_800 } from "@common/ui/colors";
 import { device } from "@common/ui/Responsive";
 import { iconLookup } from "../../metadata/reviews";
-import { ViewReviewsModal } from "./ReviewModal";
+import ViewReviewsModal from "./ReviewModal";
 
 import Bugsnag from "@bugsnag/js";
 import { useRouter } from "next/router";
@@ -157,12 +157,17 @@ const AboutRatingsSection = () => {
         </AllStarItem>
       </TotalRatingItem>
       <ReviewSection>
-        {review.map((item, index) => (
+        {review?.map((item, index) => (
           <SingleReview key={index} data={item} />
         ))}
       </ReviewSection>
       <SeeMoreText onClick={openModal}>View All</SeeMoreText>
-      <ViewReviewsModal isOpen={isOpen} onClose={closeModal} review={review} />
+      {isOpen && (
+        <ViewReviewsModal
+          onClose={closeModal}
+          review={review}
+        />
+      )}
     </RatingWrapper>
   );
 };
