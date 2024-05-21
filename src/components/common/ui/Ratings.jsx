@@ -37,11 +37,9 @@ const Rating = ({ onChange, required, rating }) => {
 
   const maxRating = [1, 2, 3, 4, 5];
 
-  const starImageFilled =
-    "https://raw.githubusercontent.com/AboutReact/sampleresource/master/star_filled.png";
+  const starImageFilled = "/assets/images/StarIcon.svg";
 
-  const starImageCorner =
-    "https://raw.githubusercontent.com/AboutReact/sampleresource/master/star_corner.png";
+  const starImageCorner = "/assets/images/blankstar.svg";
 
   const handleRatingClick = item => {
     setDefaultRating(item);

@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { GoPlusCircle } from "react-icons/go";
-import Image from "next/image";
+import Bugsnag from "@bugsnag/js";
 
-import { Body1, Body2, H6, H1, H5 } from "@common/ui/Headings";
+import { Body2, H6, H1, H5, H3 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
-import Ratings from "@common/ui/Ratings";
 import { SECONDARY_200, PRIMARY_800 } from "@common/ui/colors";
 import { device } from "@common/ui/Responsive";
-import { iconLookup, reviewsData, reviews } from "../../metadata/reviews";
-import { ViewReviewsModal } from "./ReviewModal";
+import { iconLookup } from "../../metadata/reviews";
+import ViewReviewsModal from "./ReviewModal";
+
+import { useRouter } from "next/router";
+import { client } from "@axiosClient";
+import { URL } from "@constants/urls";
+import SingleReview from "./SingleReview";
 
 const LineSeparator = styled.div`
   border-bottom: 1px solid ${SECONDARY_200};
@@ -72,16 +75,6 @@ const AllStarItem = styled(FlexBox)`
   }
 `;
 
-const ImageContainer = styled(FlexBox)`
-  flex-direction: row;
-  align-items: center;
-  overflow-x: auto;
-
-  @media ${device.laptop} {
-    flex-direction: row;
-  }
-`;
-
 const StyledImage = styled.img`
   width: 32px;
   height: 32px;
@@ -97,92 +90,79 @@ const useModal = () => {
 };
 
 const AboutRatingsSection = () => {
-  const { isOpen, openModal, closeModal } = useModal();
+  const [rating, setRating] = useState({});
+  const [review, setReview] = useState([]);
 
-  const handleShowMoreImages = () => {};
+  const router = useRouter();
+  const storeId = router?.query?.storeId;
+
+  const getAllRating = async storeId => {
+    try {
+      const response = await client.get(`${URL.getAllRating}/${storeId}`);
+      console.log(response, "getAllRating");
+      setRating(response?.data?.data);
+    } catch (error) {
+      console.error("Error fetching ratings:", error);
+      Bugsnag.notify(error);
+    }
+  };
+
+  const getAllReview = async storeId => {
+    try {
+      const response = await client.get(`${URL.getAllReview}/${storeId}`);
+      console.log(response, "getAllReview");
+      setReview(response?.data?.data);
+    } catch (error) {
+      Bugsnag.notify(error);
+    }
+  };
+
+  useEffect(() => {
+    if (!storeId) return;
+    getAllRating(storeId);
+    getAllReview(storeId);
+  }, [storeId]);
+
+  const { isOpen, openModal, closeModal } = useModal();
 
   return (
     <RatingWrapper>
       <TotalRatingItem justify="space-between" rowGap="2rem">
         <OverallRating>
           <FlexBox align="center" columnGap="0.25rem">
-            <H1>4.2</H1>
-            <img src={iconLookup.star} alt="star" width={25} height={25} />
+            <H1>{rating.overallRating}</H1>
+            <img
+              src="/assets/images/star_1.webp"
+              alt="star"
+              width={25}
+              height={25}
+            />
           </FlexBox>
-          <H6>(20 ratings)</H6>
+          <H5>({rating?.ratingLength} ratings)</H5>
         </OverallRating>
         <Separator />
         <AllStarItem>
-          {reviewsData.map((item, index) => (
+          {iconLookup.map((item, index) => (
             <React.Fragment key={index}>
               <FlexBox column rowGap="0.5rem" wrap>
                 <FlexBox>
-                  <StyledImage src={iconLookup[item.icon]} alt={item.icon} />
+                  <StyledImage src={[item.icon]} alt={item.icon} />
                 </FlexBox>
-                <H6>{item.title}</H6>
-                <H5>{item.rating}</H5>
+                <H6>{item.label}</H6>
+                <H5>{rating?.parameters?.[item?.slug] ?? "-"}</H5>
               </FlexBox>
-              {index < reviewsData.length - 1 && <LineSeparator />}
+              {index < iconLookup.length - 1 && <LineSeparator />}
             </React.Fragment>
           ))}
         </AllStarItem>
       </TotalRatingItem>
       <ReviewSection>
-        {reviews.map(item => (
-          <FlexBox column key={item.id}>
-            <FlexBox row justify="space-between" align="center">
-              <FlexBox columnGap="1.5rem" align="center">
-                <img src={item.path} alt="user avatar" />
-                <FlexBox column>
-                  <Body1 bold>{item.name}</Body1>
-                  <H6>{item.date}</H6>
-                </FlexBox>
-              </FlexBox>
-              <Ratings rating={item.rating} />
-            </FlexBox>
-            <H6>{item.review}</H6>
-            {item.image &&
-            Array.isArray(item.image) &&
-            item.image.length > 0 ? (
-              <ImageContainer>
-                {item.image.slice(0, 2).map((src, index) => (
-                  <Image
-                    key={index}
-                    src={src}
-                    alt={`Review Image ${index + 1}`}
-                    width={280}
-                    height={125}
-                    style={{ marginRight: "1rem", borderRadius: "0.75rem" }}
-                  />
-                ))}
-                {item.image.length > 2 && (
-                  <GoPlusCircle
-                    size={24}
-                    onClick={() => handleShowMoreImages(item.image)}
-                    style={{ cursor: "pointer", borderRadius: "0.75rem" }}
-                  />
-                )}
-              </ImageContainer>
-            ) : (
-              item.image && (
-                <Image
-                  src={item.image}
-                  alt="Review Image"
-                  width={280}
-                  height={125}
-                  style={{ borderRadius: "0.75" }}
-                />
-              )
-            )}
-          </FlexBox>
+        {review?.map((item, index) => (
+          <SingleReview key={index} data={item} />
         ))}
       </ReviewSection>
       <SeeMoreText onClick={openModal}>View All</SeeMoreText>
-      <ViewReviewsModal
-        isOpen={isOpen}
-        onClose={closeModal}
-        reviews={reviews}
-      />
+      {isOpen && <ViewReviewsModal onClose={closeModal} review={review} />}
     </RatingWrapper>
   );
 };
