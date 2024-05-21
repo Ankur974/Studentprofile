@@ -115,7 +115,7 @@ const ReviewModal = ({ shopData }) => {
   };
   return (
     <>
-      <Button onClick={handleOpenModal}>Add Review</Button>
+      {/* <Button onClick={handleOpenModal}>Add Review</Button> //don't delete */}
       {isOpen && (
         <Modal
           S

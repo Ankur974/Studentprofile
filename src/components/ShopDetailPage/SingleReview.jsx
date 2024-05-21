@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Bugsnag from "@bugsnag/js";
 import { useSelector } from "react-redux";
+
 import Avatar from "@common/ui/Avatar";
 import FlexBox from "@common/ui/FlexBox";
 import { H5 } from "@common/ui/Headings";
@@ -8,7 +10,6 @@ import Rating from "@common/ui/DisplayRate";
 import { Button } from "@common/ui/Buttons";
 import { ACCENT_0, ACCENT_300, SECONDARY_GREY } from "@common/ui/colors";
 import TextArea from "@common/ui/TextArea";
-import Bugsnag from "@bugsnag/js";
 import { client } from "@axiosClient";
 import { URL } from "@constants/urls";
 import { device } from "@common/ui/Responsive";
@@ -86,7 +87,6 @@ const SingleReview = ({ data }) => {
       </DateContainer>
       <H5>{data ? data?.review : "-"}</H5>
 
-      {/* Reply container */}
       {data?.replyReview && Array.isArray(data.replyReview) && (
         <FlexBox column padding="0.5rem 1.5rem" rowGap="1rem">
           {data.replyReview.map((review, index) => (
@@ -101,7 +101,7 @@ const SingleReview = ({ data }) => {
                       : ""}
                   </H5>
                 </FlexBox>
-                <H5>{review.comment}</H5>
+                <H5>{review?.comment}</H5>
               </FlexBox>
             </FlexBox>
           ))}

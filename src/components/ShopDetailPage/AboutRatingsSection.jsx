@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Bugsnag from "@bugsnag/js";
 
 import { Body2, H6, H1, H5, H3 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
@@ -8,7 +9,6 @@ import { device } from "@common/ui/Responsive";
 import { iconLookup } from "../../metadata/reviews";
 import ViewReviewsModal from "./ReviewModal";
 
-import Bugsnag from "@bugsnag/js";
 import { useRouter } from "next/router";
 import { client } from "@axiosClient";
 import { URL } from "@constants/urls";
@@ -138,7 +138,7 @@ const AboutRatingsSection = () => {
               height={25}
             />
           </FlexBox>
-          <H3>{rating?.ratingLength}</H3>
+          <H5>({rating?.ratingLength} ratings)</H5>
         </OverallRating>
         <Separator />
         <AllStarItem>
@@ -162,12 +162,7 @@ const AboutRatingsSection = () => {
         ))}
       </ReviewSection>
       <SeeMoreText onClick={openModal}>View All</SeeMoreText>
-      {isOpen && (
-        <ViewReviewsModal
-          onClose={closeModal}
-          review={review}
-        />
-      )}
+      {isOpen && <ViewReviewsModal onClose={closeModal} review={review} />}
     </RatingWrapper>
   );
 };
