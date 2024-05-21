@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Bugsnag from "@bugsnag/js";
 
-import { Body2, H6, H1, H5, H3 } from "@common/ui/Headings";
+import { Body2, H6, H1, H5 } from "@common/ui/Headings";
 import FlexBox from "@common/ui/FlexBox";
 import { SECONDARY_200, PRIMARY_800 } from "@common/ui/colors";
 import { device } from "@common/ui/Responsive";

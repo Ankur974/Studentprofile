@@ -71,7 +71,6 @@ const ReviewModal = ({ shopData }) => {
     Communication: 0,
   });
   const isSubmitted = false;
-  const handleOpenModal = () => setIsOpen(true);
   const handleCloseModal = () => setIsOpen(false);
 
   const handleCommentChange = e => setComment(e.target.value);
