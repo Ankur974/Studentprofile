@@ -66,7 +66,7 @@ export const iconLookup = [
   {
     slug: "cleanliness",
     label: "Cleanliness",
-    icon: "/assets/images/about/seat.webp",
+    icon: "/assets/images/about/cleanliness.webp",
   },
   {
     slug: "service",
@@ -76,7 +76,7 @@ export const iconLookup = [
   {
     slug: "ambiance",
     label: "Ambiance",
-    icon: "/assets/images/about/speech-bubble.webp",
+    icon: "/assets/images/about/seat.webp",
   },
   {
     slug: "communication",
