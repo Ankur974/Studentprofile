@@ -18,4 +18,7 @@ export const URL = {
   approveVoucher: `${BASE_URL}client/approveSpinAndWheelReward`,
 
   reviews: `${BASE_URL}rating/rate`,
+
+  getAllRating: `${BASE_URL}rating/getRating`,
+  getAllReview: `${BASE_URL}rating/getAllRating`,
 };

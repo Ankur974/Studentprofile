@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { IoCloseOutline } from "react-icons/io5";
-import { GoPlusCircle } from "react-icons/go";
 import Image from "next/image";
 
 import Modal from "@common/ui/Modal";
-import { Body1, H6 } from "@common/ui/Headings";
+import { H4, H6 } from "@common/ui/Headings";
 import Ratings from "@common/ui/Ratings";
 import FlexBox from "@common/ui/FlexBox";
 import { device } from "@common/ui/Responsive";
+import Avatar from "@common/ui/Avatar";
 
 const ModalContainer = styled.div`
   position: fixed;
@@ -30,13 +30,10 @@ const ReviewSection = styled(FlexBox)`
   padding: 1.5rem;
   height: 35rem;
   overflow: auto;
-  // transition: max-height 600ms ease-in-out;
 `;
 
 const ImageContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
   overflow-x: auto;
 
   @media ${device.laptop} {
@@ -44,8 +41,11 @@ const ImageContainer = styled.div`
   }
 `;
 
-const ViewReviewsModal = ({ isOpen, onClose, reviews }) => {
-  const handleShowMoreImages = () => {};
+const DateContainer = styled(FlexBox)`
+  justify-content: space-between;
+`;
+
+const ViewReviewsModal = ({ isOpen, onClose, review }) => {
   return (
     <>
       {isOpen && (
@@ -60,24 +60,25 @@ const ViewReviewsModal = ({ isOpen, onClose, reviews }) => {
               <IoCloseOutline size="2rem" onClick={onClose} />
             </FlexBox>
             <ReviewSection>
-              {reviews.map(item => (
-                <FlexBox column key={item.id}>
-                  <FlexBox row justify="space-between" align="center">
-                    <FlexBox columnGap="1.5rem" align="center">
-                      <img src={item.path} alt="user avatar" />
-                      <FlexBox column>
-                        <Body1 bold>{item.name}</Body1>
-                        <H6>{item.date}</H6>
-                      </FlexBox>
-                    </FlexBox>
-                    <Ratings rating={item.rating} />
+              {review.map((review, id) => (
+                <FlexBox column key={id} rowGap="1rem">
+                  <FlexBox align="center" columnGap="0.5rem">
+                    <Avatar name={review.name} />
+                    <H4>{review.name}</H4>
                   </FlexBox>
-                  <H6>{item.review}</H6>
-                  {item.image &&
-                  Array.isArray(item.image) &&
-                  item.image.length > 0 ? (
+                  <Ratings rate={review.overallAvgRating} />
+                  <DateContainer>
+                    <H6>
+                      {review.updatedAt
+                        ? new Date(review.updatedAt).toLocaleDateString()
+                        : ""}
+                    </H6>
+                    <H6>{review.serviceNames}</H6>
+                  </DateContainer>
+                  <H4>{review.review || "-"}</H4>
+                  {review.image && review.image.length > 0 && (
                     <ImageContainer>
-                      {item.image.slice(0, 2).map((src, index) => (
+                      {review.image.map((src, index) => (
                         <Image
                           key={index}
                           src={src}
@@ -90,23 +91,7 @@ const ViewReviewsModal = ({ isOpen, onClose, reviews }) => {
                           }}
                         />
                       ))}
-                      {item.image.length > 2 && (
-                        <GoPlusCircle
-                          size={24}
-                          onClick={() => handleShowMoreImages(item.image)}
-                          style={{ cursor: "pointer", borderRadius: "0.75rem" }}
-                        />
-                      )}
                     </ImageContainer>
-                  ) : (
-                    item.image && (
-                      <Image
-                        src={item.image}
-                        alt="Review Image"
-                        width={280}
-                        height={125}
-                      />
-                    )
                   )}
                 </FlexBox>
               ))}
