@@ -16,7 +16,7 @@ import { device } from "@common/ui/Responsive";
 import Footer from "@components/common/Footer";
 import { Button } from "@common/ui/Buttons";
 import NavBar from "@common/NavBar";
-import Avatar from "@common/ui/Avatar";
+import UserAvatar from "@components/Dashboard/Layout/UserAvatar.jsx";
 import LoginModal from "@components/Login";
 import { trackEvent } from "@utils/helpers";
 import Slider from "./Slider";
@@ -162,7 +162,8 @@ const Home = ({ navContainerStyles }) => {
             />
           </LogoContainer>
           {user ? (
-            <Avatar name={user?.name} />
+            // <Avatar name={user?.name} />
+            <UserAvatar name={user?.name} />
           ) : (
             <Button
               onClick={() => {

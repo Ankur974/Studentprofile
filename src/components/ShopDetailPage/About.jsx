@@ -66,7 +66,11 @@ const GridContainer = styled.div`
   row-gap: 1rem;
 
   @media ${device.laptop} {
-    grid-template-columns: repeat(4, 4fr);
+    /* grid-template-columns: repeat(4, 8fr); */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 5px;
   }
 `;
 

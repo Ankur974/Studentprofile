@@ -43,7 +43,9 @@ const PromiseContainer = () => (
     <PromiseList column>
       {PromiseData.map(item => (
         <FlexBox key={item.id} columnGap="1rem">
-          <FaCheck />
+          <FlexBox align="center">
+            <FaCheck />
+          </FlexBox>
           <PromiseItem>{item.title}</PromiseItem>
         </FlexBox>
       ))}
