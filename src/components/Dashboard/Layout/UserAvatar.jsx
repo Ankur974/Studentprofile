@@ -6,18 +6,29 @@ import { useRouter } from "next/router";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
 import { Body2, Support } from "@common/ui/Headings";
-import { ACCENT_0, ACCENT_200 } from "@common/ui/colors";
+import { ACCENT_0, ACCENT_200, SECONDARY_901 } from "@common/ui/colors";
 import FlexBox from "@common/ui/FlexBox";
 import { boxShadowDs1 } from "@common/ui/styles";
 import { logout } from "@redux/slices/auth";
 import Avatar from "@common/ui/Avatar";
 import { Button } from "@components/common/ui/Buttons";
 
+const Wrapper = styled(FlexBox)`
+  position: relative;
+  align-items: center;
+  width: 10rem;
+  padding: 0 0.25rem;
+  justify-items: center;
+  border-radius: 2.25rem;
+  border: 1px solid ${SECONDARY_901};
+  background: ${ACCENT_0};
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.11);
+`;
 const DropdownContainer = styled(FlexBox)`
   background-color: ${ACCENT_0};
   position: absolute;
   right: 0;
-  top: 2.5rem;
+  top: 2.75rem;
   width: 10rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -50,7 +61,6 @@ const UserAvatar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    router.push("/login");
   };
 
   const toggleProfileDropdown = () => {
@@ -62,10 +72,11 @@ const UserAvatar = () => {
   // };
 
   return (
-    <FlexBox position="relative" align="center" justify="center">
+    <Wrapper>
       {user ? (
         <FlexBox
           align="center"
+          justify="center"
           columnGap="0.5rem"
           cursor="pointer"
           onClick={toggleProfileDropdown}
@@ -100,7 +111,7 @@ const UserAvatar = () => {
           </DropdownOption>
         </DropdownContainer>
       )}
-    </FlexBox>
+    </Wrapper>
   );
 };
 

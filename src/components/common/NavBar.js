@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import Avatar from "@common/ui/Avatar";
 import LoginModal from "@components/Login";
 import { trackEvent } from "@utils/helpers";
+import UserAvatar from "@components/Dashboard/Layout/UserAvatar";
 
 const FallBack = styled.div`
   display: none;
@@ -103,7 +104,7 @@ const NavBar = ({ navContainerStyles }) => {
           />
         </LogoContainer>
         {user ? (
-          <Avatar name={user?.name} />
+          <UserAvatar name={user?.name} />
         ) : (
           <Button
             whiteButton
