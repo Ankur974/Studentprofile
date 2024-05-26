@@ -48,13 +48,19 @@ const OtpInput = ({ length = 4, onOtpSubmit, isInvalid }) => {
   };
 
   const handleClick = index => {
-    inputRefs?.current?.[index]?.setSelectionRange(1, 1);
+    const inputElement = inputRefs.current[index];
 
-    if (index > 0 && !otpValues[index - 1]) {
-      inputRefs.current[otpValues.indexOf("")].focus();
+    if (inputElement && inputElement.type !== "number") {
+      inputElement.setSelectionRange(1, 1);
+
+      if (index > 0 && !otpValues[index - 1]) {
+        const nextEmptyIndex = otpValues.indexOf("");
+        if (nextEmptyIndex !== -1) {
+          inputRefs.current[nextEmptyIndex].focus();
+        }
+      }
     }
   };
-
   const handleKeyDown = (index, e) => {
     if (
       e.key === "Backspace" &&

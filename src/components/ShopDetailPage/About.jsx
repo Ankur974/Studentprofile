@@ -160,11 +160,13 @@ const About = ({ shopData }) => {
           ))}
         </GridContainer>
       </FlexBox>
-      <Hr id="review-section" />
-      <AboutRatingsSection />
+      <Hr />
+      <FlexBox id="review-section">
+        <AboutRatingsSection />
+      </FlexBox>
       <ReviewModal shopData={shopData} />
-      <Hr id="map" />
-      <FlexBox column rowGap="1rem">
+      <Hr />
+      <FlexBox id="map" column rowGap="1rem">
         <H3 bold>Location</H3>
         <InsideMap
           scrolling="no"

@@ -136,11 +136,7 @@ const socialIconsData = [
 ];
 
 const servicesNavLinkData = [
-  { name: "For Merchants", onClick: () => "" },
-  {
-    name: "For Our Customers",
-    onClick: () => console.log("2Services clicked"),
-  },
+  { name: "For Merchants", link: "https://pamprazzi.com/" },
 ];
 
 const aboutNavLinkData = [

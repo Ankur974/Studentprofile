@@ -28,7 +28,7 @@ import { setUser } from "@redux/slices/auth";
 import { client } from "@axiosClient";
 import { Button, IconButton } from "@common/ui/Buttons";
 import { trackEvent } from "@utils/helpers";
-// import OtpInput from "./OtpInput";
+import OtpInput from "./OtpInput";
 
 const Wrapper = styled(FlexBox)`
   flex-direction: column;
@@ -145,17 +145,17 @@ const Login = ({ setModalOpen, page }) => {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer(prevTimer => (prevTimer > 0 ? prevTimer - 1 : 0));
-    }, 1000);
-
+    let interval;
+    if (currentStep === 2) {
+      interval = setInterval(() => {
+        setTimer(prevTimer => (prevTimer > 0 ? prevTimer - 1 : 0));
+      }, 1000);
+    }
     if (timer === 0) {
-      clearInterval(interval);
       setCanResendOTP(true);
     }
-
     return () => clearInterval(interval);
-  }, [timer]);
+  }, [timer, currentStep]);
 
   const handlePhoneNumberChange = e => {
     const inputValue = e.target.value;
@@ -234,6 +234,8 @@ const Login = ({ setModalOpen, page }) => {
       );
       if (res?.data?.success) {
         setCurrentStep(2);
+        setTimer(60);
+        setCanResendOTP(false);
       }
     } catch (err) {
       console.log(err);
@@ -247,7 +249,7 @@ const Login = ({ setModalOpen, page }) => {
         { phoneNumber },
         { authorization: false }
       );
-      if (res?.data?.success && res?.data?.isUserExists) {
+      if (res?.data?.success) {
         setTimer(60);
         setCanResendOTP(false);
       }
@@ -356,19 +358,15 @@ const Login = ({ setModalOpen, page }) => {
                 onClick={() => setCurrentStep(1)}
               />
             </NumberEditIcon>
-            {/* <OtpInput
+            <OtpInput
               length={4}
               onOtpSubmit={setOtp}
               otp={otp}
-              isInvalid={isOtpInvalid}
-            /> */}
-            <NameInput
               type="number"
               value={otp}
               onChange={e => {
                 setOtp(e.target.value);
               }}
-              placeholder="Enter OTP"
               isInvalid={isOtpInvalid}
               onKeyDown={e => {
                 if (e.key === "Enter") {
