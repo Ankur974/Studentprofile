@@ -19,7 +19,6 @@ const FlexBox = styled.div`
   border: ${({ border }) => border};
   border-radius: ${({ borderRadius }) => borderRadius};
   background-color: ${({ backgroundColor }) => backgroundColor};
-
   pointer-events: ${({ disabled }) => (disabled ? "none" : "normal")};
   opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
 `;

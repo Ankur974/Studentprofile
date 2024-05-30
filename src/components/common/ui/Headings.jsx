@@ -23,7 +23,8 @@ export const Display = styled.h1`
   line-height: ${({ lineHeight }) => lineHeight || "2rem"};
 
   @media ${device.laptop} {
-    font-size: 2.44rem;
+    font-size: 3.1rem;
+    margin-bottom: 2rem;
     line-height: ${({ lineHeight }) => lineHeight || "3.75rem"};
   }
 `;

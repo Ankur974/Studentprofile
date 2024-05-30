@@ -1,282 +1,58 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import {
-  SlSocialFacebook,
-  SlSocialLinkedin,
-  SlSocialInstagram,
-} from "react-icons/sl";
+/* eslint-disable react/no-unescaped-entities */
+import React from "react";
 import styled from "styled-components";
-import { useRouter } from "next/router";
-
 import FlexBox from "@common/ui/FlexBox";
-import { trackEvent } from "@utils/helpers";
-import { H6, Body1, Body2, H1, Display, H3 } from "@common/ui/Headings";
-import {
-  ACCENT_0,
-  ACCENT_400,
-  ACCENT_800,
-  PRIMARY_800,
-  SECONDARY_800,
-} from "@common/ui/colors";
-import { device } from "@common/ui/Responsive";
+import { H3 } from "@common/ui/Headings";
 
-const FooterContainer = styled(FlexBox)`
+const Wrapper = styled(FlexBox)`
   width: 100%;
   height: 100%;
-  flex-direction: column;
-  padding: 1.5rem;
-  gap: 2.5rem;
-  background-color: ${({ customBg }) =>
-    customBg ? ACCENT_800 : SECONDARY_800};
-
-  @media ${device.laptop} {
-    padding: 2.5rem;
-  }
+  justify-content: space-around;
+  align-items: start;
 `;
-
-const ContentContainer = styled(FlexBox)`
-  width: 100%;
-  align-items: flex-start;
-  justify-content: center;
-  background-color: ${SECONDARY_800};
-  flex-direction: column;
-  height: 35rem;
-  gap: 2.5rem;
-
-  @media ${device.laptop} {
-    justify-content: space-evenly;
-    flex-direction: row;
-    height: 11rem;
-  }
+const Image = styled.img`
+  width: 80px;
+  height: 68px;
 `;
-
-const ContentBox = styled(FlexBox)`
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  @media ${device.laptop} {
-    width: ${({ isLarge }) => (isLarge ? "40%" : "20%")};
-    row-gap: 0.625rem;
-    align-items: baseline;
-  }
-`;
+const FooterContainer = styled(FlexBox)``;
 
 const CopyRightBox = styled(FlexBox)`
-  background-color: ${PRIMARY_800};
   width: 100%;
-  height: 3rem;
-  justify-content: center;
+  height: 100px;
+  background-color: #272e5c;
+  justify-content: space-around;
   align-items: center;
-  padding: 1rem;
 `;
-
-const HeadingText = styled(H3)`
-  font-weight: bold;
-  color: ${ACCENT_0};
-`;
-
-const NavLink = styled(Body2)`
-  cursor: pointer;
-  width: fit-content;
-  color: ${ACCENT_0};
-`;
-
-const IconContainer = styled(FlexBox)`
-  box-sizing: border-box;
-  padding: 0.625rem;
-  align-items: center;
-
-  border-radius: 0.5rem;
-  border: 2px solid ${ACCENT_400};
-
-  &:hover {
-    border: 2px solid ${ACCENT_0};
-  }
-`;
-
-const AnimatedWord = styled.div`
-  max-width: 6.5rem;
-  min-width: 6.5rem;
-  text-align: center;
-
-  @media ${device.laptop} {
-    max-width: 8.5rem;
-    min-width: 8.5rem;
-  }
-`;
-
-const TaglineContainer = styled(FlexBox)`
-  flex-wrap: wrap;
-`;
-
-const Subtag = styled(H1)`
-  font-size: 1.25rem;
-
-  @media ${device.laptop} {
-    font-size: 1.5rem;
-  }
-`;
-
-const socialIconsData = [
-  {
-    icon: SlSocialFacebook,
-    link: "https://www.facebook.com/pamprazzi/",
-    mediaType: "Facebook",
-  },
-  {
-    icon: SlSocialLinkedin,
-    link: "https://www.linkedin.com/company/pamprazzi/",
-    mediaType: "LinkedIn",
-  },
-  {
-    icon: SlSocialInstagram,
-    link: "https://www.instagram.com/pamprazzi/",
-    mediaType: "Instagram",
-  },
-];
-
-const servicesNavLinkData = [
-  { name: "For Merchants", link: "https://pamprazzi.com/" },
-];
-
-const aboutNavLinkData = [
-  { name: "Privacy Policy", path: "/privacy-policy" },
-  {
-    name: "Terms and Conditions",
-    path: "/termsandconditions",
-  },
-  { name: "FAQs", onClick: () => console.log("About Us clicked") },
-  { name: "Contact Us", path: "/contact" },
-];
-
-const getInTouchNavLinkData = [
-  {
-    name: "Kolkata, West Bengal",
-    onClick: () => console.log("Home clicked"),
-  },
-  {
-    name: "support@pamprazzi.com",
-    onClick: () => {
-      location.href = "mailto:support@pamprazzi.com";
-    },
-  },
-];
-
-const RotatingText = () => {
-  const words = ["पेम्पेर", "পাম্পার"];
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentWordIndex(prevIndex => (prevIndex + 1) % words.length);
-    }, 2000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const currentWord = words[currentWordIndex];
-
+const Footer = () => {
   return (
     <>
-      <Display color={ACCENT_0}>Don’t forget to </Display>
-      <AnimatedWord>
-        <Display color={ACCENT_0}>{currentWord}</Display>
-      </AnimatedWord>{" "}
-      <Display color={ACCENT_0}> yourself!</Display>
-    </>
-  );
-};
-
-const Footer = ({ eventMobileView }) => {
-  const router = useRouter();
-  const currentUser = useSelector(state => state.auth?.user);
-
-  return (
-    <>
-      <FooterContainer customBg={eventMobileView}>
-        <FlexBox column rowGap="0.25rem">
-          <TaglineContainer justify="center">
-            <RotatingText />
-          </TaglineContainer>
-          <FlexBox justify="center" columnGap="0.57rem">
-            <img src="/assets/footer-img/heartlogo.svg" />
-            <Subtag color={ACCENT_0}>Proudly built in Kolkata</Subtag>
-          </FlexBox>
-        </FlexBox>
-        <FlexBox justify="center" columnGap="1.31rem">
-          {socialIconsData &&
-            socialIconsData.map((icon, index) => {
-              const Icon = icon.icon;
-              return (
-                <a
-                  key={index}
-                  href={icon.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <IconContainer
-                    onClick={() => {
-                      trackEvent("footer-social-click", {
-                        current_page: "waitlist-lp",
-                        isLoggedIn: currentUser ? true : false,
-                        social: socialIconsData?.mediaType,
-                      });
-                    }}
-                  >
-                    <Icon color={ACCENT_0} size={24} />
-                  </IconContainer>
-                </a>
-              );
-            })}
-        </FlexBox>
-        {!eventMobileView && (
-          <ContentContainer>
-            <ContentBox isLarge align="center">
-              <img src="/assets/images/pamprazzi-logo-white.svg" />
-              <Body1 color={ACCENT_0}>Simplifying Self-Care</Body1>
-            </ContentBox>
-            <ContentBox>
-              <HeadingText>Services</HeadingText>
-              {servicesNavLinkData.map((button, index) => (
-                <NavLink
-                  key={index}
-                  cursor="pointer"
-                  onClick={() => router.push(button?.link)}
-                  color={ACCENT_0}
-                >
-                  {button.name}
-                </NavLink>
-              ))}
-            </ContentBox>
-            <ContentBox>
-              <HeadingText>Quick Links</HeadingText>
-              {aboutNavLinkData.map((button, index) => (
-                <NavLink
-                  key={index}
-                  onClick={() => {
-                    if (!button?.path) return;
-                    router.push(button.path);
-                  }}
-                >
-                  {button.name}
-                </NavLink>
-              ))}
-            </ContentBox>
-            <ContentBox>
-              <HeadingText>Get in touch</HeadingText>
-              {getInTouchNavLinkData.map((button, index) => (
-                <NavLink key={index} onClick={button.onClick}>
-                  {button.name}
-                </NavLink>
-              ))}
-            </ContentBox>
-          </ContentContainer>
-        )}
-      </FooterContainer>
+      <Wrapper>
+        <FooterContainer column>
+          <Image src="assets/nav_logo.png"></Image>
+          <H3>Tomorrow's Vision, Today!</H3>
+          <FlexBox>icon</FlexBox>
+        </FooterContainer>
+        <FooterContainer column>
+          <H3 bold>SITEMAP</H3>
+          <H3>MakeMyWeb</H3>
+          <H3>Services</H3>
+          <H3>Products</H3>
+          <H3>Blogs</H3>
+          <H3>Life at LENS</H3>
+        </FooterContainer>
+        <FooterContainer column>
+          <H3 bold>Connect</H3>
+          <H3>+1-517-9300-792</H3>
+          <FlexBox>+91-9990-736-796</FlexBox>
+          <FlexBox>solutions@lenscorp.ai</FlexBox>
+        </FooterContainer>
+      </Wrapper>
       <CopyRightBox>
-        <H6 color={ACCENT_0}>
-          Copyright © 2024 Simplifying Self Care-Pamprazzi. All rights reserved.
-        </H6>
+        <H3 color="white">2023 LENS, Inc. All rights reserved.</H3>
+        <FlexBox columnGap="2rem">
+          <H3 color="white">Code of conduct</H3>
+          <H3 color="white">Sustainability Goals</H3>
+        </FlexBox>
       </CopyRightBox>
     </>
   );
