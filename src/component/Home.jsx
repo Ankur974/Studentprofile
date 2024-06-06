@@ -74,6 +74,7 @@ const StudentProfile = styled(FlexBox)`
 
 const Achievements = styled(FlexBox)`
   width: 100%;
+  height: 100%;
   background: whitesmoke;
   border-radius: 2rem;
   padding: 1rem;
@@ -104,6 +105,10 @@ const Progress = styled.div`
   border-radius: 1rem;
 `;
 
+const Hr = styled.hr`
+  border-top: 1px solid black;
+  width: 17rem;
+`;
 const Progressbar = ({ progress }) => (
   <ProgressbarContainer>
     <Progress progress={progress} />
@@ -200,6 +205,7 @@ const Home = () => {
                 progress={progress}
               />
             ))}
+            <Hr />
           </Achievements>
         </RightContainer>
       </FlexBox>
