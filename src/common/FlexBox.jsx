@@ -5,7 +5,6 @@ const FlexBox = styled.div`
   box-sizing: border-box;
   flex-direction: ${({ column }) => (column ? "column" : "row")};
   align-items: ${({ align }) => align};
-  align-self: ${({ alignSelf }) => alignSelf};
   justify-content: ${({ justify }) => justify};
   row-gap: ${({ rowGap }) => rowGap};
   column-gap: ${({ columnGap }) => columnGap};
@@ -19,6 +18,7 @@ const FlexBox = styled.div`
   border: ${({ border }) => border};
   border-radius: ${({ borderRadius }) => borderRadius};
   background-color: ${({ backgroundColor }) => backgroundColor};
+
   pointer-events: ${({ disabled }) => (disabled ? "none" : "normal")};
   opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
 `;

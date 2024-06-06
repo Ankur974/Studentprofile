@@ -1,12 +1,13 @@
 import styled, { css } from "styled-components";
-import { ACCENT_800 } from "./colors";
-import { device } from "./Responsive";
+
+import { ACCENT_800 } from "../common/colors";
+import { device } from "../common/Responsive";
 
 const commonStyles = css`
-  font-family: Poppins;
+  font-family: "Poppins";
   display: ${({ display }) => display || "initial"};
   opacity: ${({ opacity }) => opacity || 1};
-  font-weight: ${({ bold }) => (bold ? 700 : 500)};
+  font-weight: ${({ bold }) => (bold ? 700 : 400)};
   color: ${({ color }) => color || ACCENT_800};
   text-align: ${({ textAlign }) => textAlign || "left"};
   margin: ${({ margin }) => margin || 0};
@@ -14,85 +15,68 @@ const commonStyles = css`
   white-space: ${({ whiteSpace }) => whiteSpace || "inherit"};
   text-transform: ${({ textTransform }) => textTransform || "none"};
   text-decoration: ${({ textDecoration }) => textDecoration || "none"};
+  word-break: ${({ wordBreak }) => wordBreak || "inherit"};
   cursor: ${({ cursor }) => !!cursor && cursor};
+  text-underline-offset: ${({ textUnderlineOffset }) =>
+    textUnderlineOffset || "none"};
 `;
 
 export const Display = styled.h1`
   ${commonStyles}
-  font-size: 1.56rem;
-  line-height: ${({ lineHeight }) => lineHeight || "2rem"};
+  font-size: 2rem;
+  line-height: ${({ lineHeight }) => lineHeight || "2.5rem"};
 
   @media ${device.laptop} {
-    font-size: 3.1rem;
-    margin-bottom: 2rem;
-    line-height: ${({ lineHeight }) => lineHeight || "3.75rem"};
+    font-size: 2.25rem;
   }
 `;
 
 export const H1 = styled.h2`
   ${commonStyles}
-  font-size: 1.5rem;
-  line-height: ${({ lineHeight }) => lineHeight || "2.5rem"};
-
-  @media ${device.laptop} {
-    font-size: 2rem;
-    line-height: ${({ lineHeight }) => lineHeight || "3rem"};
-  }
+  font-size: 1.25rem;
+  line-height: ${({ lineHeight }) => lineHeight || "2rem"};
+  letter-spacing: ${({ spacing }) => spacing || "unset"};
 `;
 
 export const H2 = styled.h3`
   ${commonStyles}
-  font-size: 1.25rem;
-  line-height: ${({ lineHeight }) => lineHeight || "2rem"};
-
-  @media ${device.laptop} {
-    font-size: 1.95rem;
-    line-height: ${({ lineHeight }) => lineHeight || "2.5rem"};
-  }
+  font-size:1.125rem;
+  line-height: ${({ lineHeight }) => lineHeight || "1.75rem"};
+  letter-spacing: ${({ spacing }) => spacing || "unset"};
 `;
 
 export const H3 = styled.h4`
   ${commonStyles}
-  font-size: 1.25rem;
-  line-height: ${({ lineHeight }) => lineHeight || "1.75rem"};
+  font-size: 1rem;
+  line-height: ${({ lineHeight }) => lineHeight || "1.5rem"};
+  letter-spacing: ${({ spacing }) => spacing || "unset"};
+`;
 
-  @media ${device.laptop} {
-    font-size: 1.56rem;
-    line-height: ${({ lineHeight }) => lineHeight || "2rem"};
-  }
+export const H4 = styled.h5`
+  ${commonStyles}
+  font-size: .875rem;
+  line-height: 1.5rem;
+  letter-spacing: ${({ spacing }) => spacing || "unset"};
 `;
 
 export const H5 = styled.h5`
   ${commonStyles}
-  font-size: 0.8rem;
-  line-height: 1.4rem;
-
-  @media ${device.laptop} {
-    font-size: 1rem;
-    line-height: ${({ lineHeight }) => lineHeight || "1.75rem"};
-  }
+  font-size: .75rem;
+  line-height: 1.25rem;
+  letter-spacing: ${({ spacing }) => spacing || "unset"};
 `;
 
 export const H6 = styled.h5`
   ${commonStyles}
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-
-  @media ${device.laptop} {
-    font-size: 0.875rem;
-    line-height: ${({ lineHeight }) => lineHeight || "1.75rem"};
-  }
+  font-size:.625rem;
+  line-height: 1rem;
+  letter-spacing: ${({ spacing }) => spacing || "unset"};
 `;
 
 export const Body1 = styled.h5`
   ${commonStyles}
-  font-size: 0.875rem;
-  line-height: ${({ lineHeight }) => lineHeight || "1.25rem"};
-
-  @media ${device.laptop} {
-    font-size: 1rem;
-    line-height: ${({ lineHeight }) => lineHeight || "1.5rem"};
-  }
+  font-size: 1rem;
+  line-height: ${({ lineHeight }) => lineHeight || "1.5rem"};
 `;
 
 export const Body2 = styled.h5`
@@ -124,6 +108,6 @@ export const Support = styled.span`
 export const Caption = styled.span`
   ${commonStyles}
   font-size: 0.625rem;
-  font-weight: 700;
+  font-weight: ${({ bold }) => (bold ? 700 : 500)};
   line-height: ${({ lineHeight }) => lineHeight || "1rem"};
 `;

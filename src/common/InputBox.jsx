@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import { FiX } from "react-icons/fi";
-
-import { ACCENT_800, ACCENT_0, ERROR, ACCENT_600 } from "./colors";
+import {
+  ACCENT_800,
+  RED,
+  ACCENT_0,
+  ERROR,
+  ACCENT_600,
+  SECONDARY_200,
+} from "./colors";
 import { Body2, Support } from "./Headings";
 import FlexBox from "./FlexBox";
 
 const Wrapper = styled(FlexBox)`
   width: ${({ width }) => width || "100%"};
-  cursor: pointer;
+  cursor: text;
   position: relative;
   column-gap: 0.5rem;
   align-items: center;
@@ -30,6 +36,8 @@ export const InputBox = styled.input`
   line-height: 1.5rem;
   font-weight: ${({ fontWeight }) => fontWeight || 500};
   color: ${ACCENT_800};
+  cursor: ${({ cursor }) => cursor || "text"};
+  opacity: ${({ opacity }) => opacity || 1};
   ::placeholder {
     color: ${ACCENT_600};
   }
@@ -46,7 +54,9 @@ const RequiredIndicator = styled.span`
 `;
 
 const Input = ({
+  disabled,
   label,
+  labelColor,
   error,
   type,
   placeholder,
@@ -66,6 +76,8 @@ const Input = ({
   wrapperWidth = "100%",
   onClick = () => {},
   readOnly = false,
+  cursor,
+  opacity,
   max,
   min,
 }) => {
@@ -78,7 +90,7 @@ const Input = ({
   return (
     <FlexBox column rowGap="0.5rem" width={wrapperWidth}>
       {label && (
-        <Body2>
+        <Body2 color={labelColor}>
           {label}
           {required && <RequiredIndicator>*</RequiredIndicator>}
         </Body2>
@@ -96,6 +108,9 @@ const Input = ({
           readOnly={readOnly}
           max={max}
           min={min}
+          cursor={cursor}
+          opacity={opacity}
+          disabled={disabled}
         />
         {showCross && !!value && (
           <CloseIconWrapper onClick={onCrossIconClick}>
@@ -110,7 +125,7 @@ const Input = ({
           />
         )}
       </Wrapper>
-      {error && <Support color={ERROR}>{error}</Support>}
+      {error && <Support color={RED}>{error}</Support>}
     </FlexBox>
   );
 };
@@ -119,7 +134,7 @@ Input.defaultProps = {
   theme: {
     input: {
       padding: "0.75rem",
-      border: ACCENT_600,
+      border: SECONDARY_200,
       requiredColor: "red",
       IconColor: ACCENT_800,
       crossIconColor: ACCENT_800,
